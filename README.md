@@ -1,23 +1,25 @@
 <div align="center">
 
-<img alt="upc-logo" src="assets/logos/upc-logo.png" width="200"/><br>
+<img alt="upc-logo" src="assets\logos\upc-logo.png" width="200"/><br>
+
+
 
 <h3>Universidad Peruana de Ciencias Aplicadas</h3>
-
+ 
 <strong>Facultad de Ingeniería</strong><br>
 <strong>Carrera: Ingeniería de Software</strong><br>
-
+ 
 <strong>Periodo:</strong> _[...]_<br>
 <strong>Codigo del curso:</strong> _[...]_<br>
 <strong>Nombre del curso:</strong> _[...]_<br>
 <strong>NRC:</strong> _[...]_<br>
-
+ 
 <strong>Nombre del profesor:</strong> _[...]_<br>
-
+ 
 <br><strong>*Informe de Trabajo Final*</strong><br><br>
-
-<strong>Nombre del startup: </strong>_[...]_<br>
-<strong>Nombre del producto: </strong>_[...]_<br>
+ 
+<strong>Nombre del startup: </strong>PrimeCore Group<br>
+<strong>Nombre del producto: </strong>SafeCore<br>
 
 ### Relación de Integrantes
 
