@@ -145,7 +145,13 @@ El riesgo de incendios sigue un patrón similar de vulnerabilidad estructural. D
 
 Nuestro equipo está conformado por ingenieros de software, electrónica y arquitectura, lo que nos permite abordar el problema desde una perspectiva multidisciplinaria, garantizando soluciones robustas, confiables y alineadas con las necesidades reales de los usuarios. PrimeCore Group apuesta por la innovación tecnológica, el uso de tecnologías open-source y la colaboración con actores clave del sector de la construcción y la seguridad.
 
+#### Misión
 
+Brindar soluciones tecnológicas integrales y confiables que protejan vidas y bienes ante desastres naturales y riesgos secundarios, mediante sistemas autónomos basados en IoT que permitan una respuesta inmediata, eficiente y coordinada, contribuyendo a la construcción de ciudades más seguras y resilientes en el Perú y Latinoamérica.
+
+#### Visión
+
+Consolidarnos como la empresa líder en Latinoamérica en soluciones inteligentes de protección y gestión de emergencias para infraestructuras urbanas, reconocida por nuestra innovación, calidad y compromiso con la seguridad de las personas, transformando los edificios del mañana en entornos autónomos y preparados para cualquier eventualidad.
 
 ### 1.1.2. Perfiles de integrantes del equipo
 
