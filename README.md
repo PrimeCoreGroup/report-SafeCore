@@ -9,12 +9,12 @@
 <strong>Facultad de Ingeniería</strong><br>
 <strong>Carrera: Ingeniería de Software</strong><br>
  
-<strong>Periodo:</strong> _[...]_<br>
-<strong>Codigo del curso:</strong> _[...]_<br>
-<strong>Nombre del curso:</strong> _[...]_<br>
-<strong>NRC:</strong> _[...]_<br>
+<strong>Periodo:</strong> 2026-02<br>
+<strong>Codigo del curso:</strong> 1ASI0572<br>
+<strong>Nombre del curso:</strong> Desarrollo de Soluciones IoT<br>
+<strong>NRC:</strong> 8725<br>
  
-<strong>Nombre del profesor:</strong> _[...]_<br>
+<strong>Nombre del profesor:</strong> Marco Antonio Leon Baca<br>
  
 <br><strong>*Informe de Trabajo Final*</strong><br><br>
  
@@ -33,7 +33,7 @@
 | Inga Hernandez, Ayrton Damian               | U201924756   |
 | Huaman De La Cruz, Jean Pool                | U20201E781   |
 
-<strong> _[Mes] 2026</strong><br>
+<strong> Setiembre 2026</strong><br>
 </div>
 
 <div style="page-break-after: always;"></div>
@@ -153,7 +153,15 @@ Consolidarnos como la empresa líder en Latinoamérica en soluciones inteligente
 
 ### 1.1.2. Perfiles de integrantes del equipo
 
-_[Foto, nombres y apellidos, código, carrera, resumen de conocimientos por integrante]_
+| Foto                                                                                                                             | Alumno                            | Descripción|
+|----------------------------------------------------------------------------------------------------------------------------------|------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Imagen aqui| Taquiri Calderón, Jhunior Giussepe | Descripción aqui |
+| Imagen aqui| Lagos Rivera, Kael Valentino       | Me llamo Kael Lagos, estudio en la UPC de Monterrico. Tengo muchas ganas de aprender, me considero una persona responsable que busca aprender de sus errores cada vez que puede y también me considero alguien que se centra en los detalles. Me comprometo a ayudar a mis compañeros para la elaboración de nuestro trabajo que nos pueda asegurar una buena nota al final. |
+| Imagen aqui      | Gonzalez Custodio, Carlos Alberto | Descripción aqui |
+|Imagen aqui   | Tasayco Almonacid, Rafael Augusto    | Descripción aqui  |
+| Imagen aqui | Tasayco Osorio, Raúl Hiroshi    | Descripción aqui |
+| Imagen aqui| Inga Hernandez, Ayrton Damian | Descripción aqui |
+| Imagen aqui|Huaman De La Cruz, Jean Pool| Descripción aqui |
 
 ## 1.2. Solution Profile
 
