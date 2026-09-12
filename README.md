@@ -2,8 +2,6 @@
 
 <img alt="upc-logo" src="assets\logos\upc-logo.png" width="200"/><br>
 
-
-
 <h3>Universidad Peruana de Ciencias Aplicadas</h3>
  
 <strong>Facultad de Ingeniería</strong><br>
@@ -156,7 +154,7 @@ Consolidarnos como la empresa líder en Latinoamérica en soluciones inteligente
 | Foto                                                                                                                             | Alumno                            | Descripción|
 |----------------------------------------------------------------------------------------------------------------------------------|------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Imagen aqui| Taquiri Calderón, Jhunior Giussepe | Descripción aqui |
-| Imagen aqui| Lagos Rivera, Kael Valentino       | Me llamo Kael Lagos, estudio en la UPC de Monterrico. Tengo muchas ganas de aprender, me considero una persona responsable que busca aprender de sus errores cada vez que puede y también me considero alguien que se centra en los detalles. Me comprometo a ayudar a mis compañeros para la elaboración de nuestro trabajo que nos pueda asegurar una buena nota al final. |
+| ![Kael_Foto](assets/Fotos/Kael_Foto.jpg) | Lagos Rivera, Kael Valentino       | Me llamo Kael Lagos, estudio en la UPC de Monterrico. Tengo muchas ganas de aprender, me considero una persona responsable que busca aprender de sus errores cada vez que puede y también me considero alguien que se centra en los detalles. Me comprometo a ayudar a mis compañeros para la elaboración de nuestro trabajo que nos pueda asegurar una buena nota al final. |
 | Imagen aqui      | Gonzalez Custodio, Carlos Alberto | Descripción aqui |
 |Imagen aqui   | Tasayco Almonacid, Rafael Augusto    | Descripción aqui  |
 | Imagen aqui | Tasayco Osorio, Raúl Hiroshi    | Descripción aqui |
@@ -237,7 +235,9 @@ A partir de la base de nuestros supuestos iniciales, hemos definido las siguient
 
 #### 1.2.2.4. Lean UX Canvas
 
-_[...]_
+<p align="center">
+  <img src="assets/Fotos/Lean Ux Canvas.png" alt="Lean_Ux" />
+</p>
 
 ## 1.3. Segmentos objetivo
 
