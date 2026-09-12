@@ -329,6 +329,9 @@ _[Avance de conclusiones para AV1]_
 - Infobae. (2026, 11 de septiembre). *Un mes después del terremoto volvió a temblar en el Pacífico: sismo de 4.5 con epicentro en el Chocó se sintió en Cali, Pereira y Manizales*. Infobae. https://www.infobae.com/colombia/2026/09/11/un-mes-despues-del-terremoto-volvio-a-teblar-en-el-pacifico-sismo-de-45-con-epicentro-en-el-choco-se-sintio-en-cali-pereira-y-manizales/
 - El Comercio. (2026, 22 de julio). *Perú registra 477 sismos en lo que va del 2026 y 21 superaron la magnitud 5: Las regiones con más temblores este año*. El Comercio. https://elcomercio.pe/lima/sucesos/peru-registra-477-sismos-en-lo-que-va-del-2026-y-21-superaron-la-magnitud-5-las-regiones-con-mas-temblores-noticia/
 - Chequeado. (2024, 28 de junio). *Sismo de magnitud 7,2 en Perú: 5 preguntas y respuestas para entender qué pasó*. Chequeado. https://chequeado.com/el-explicador/sismo-de-magnitud-7-2-en-peru-5-preguntas-y-respuestas-para-entender-que-paso/
+- Arce, J. (2026, 9 de septiembre). *¿Hoy hay más sismos en Perú que antes? Las cifras oficiales del IGP despejan la interrogante*. Infobae Perú. https://www.infobae.com/peru/2026/09/09/hoy-hay-mas-sismos-en-peru-que-antes-las-cifras-oficiales-del-igp-despejan-la-interrogante/
+- Mendoza Talledo, V. (2026, 16 de agosto). *¿Qué tan preparado está Perú ante un terremoto de gran magnitud? Indeci explica las principales vulnerabilidades y qué hacer ante un sismo*. Infobae Perú. https://www.infobae.com/peru/2026/08/16/que-tan-preparado-esta-peru-ante-un-terremoto-de-gran-magnitud-indeci-explica-las-principales-vulnerabilidades-y-que-hacer-ante-un-sismo/
+- Wesler. (s.f.). *La causa más común de incendios en el Perú*. Recuperado el 9 de septiembre de 2026, de https://www.wesler.com.pe/la-causa-mas-comun-de-incendios-en-el-peru/
 
 # Anexos
 
