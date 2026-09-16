@@ -428,15 +428,353 @@ Tácticas:
 
 ### 2.2.1. Diseño de entrevistas
 
-_[...]_
+## Preguntas de entrevista
+
+## Segmento 1: Empresas inmobiliarias en Lima
+
+1. ¿Cómo gestionan actualmente la seguridad y prevención de emergencias en sus proyectos inmobiliarios?
+
+2. ¿Qué riesgos consideran más importantes dentro de sus edificaciones?
+
+3. ¿Qué dificultades encuentran actualmente durante un sismo, incendio o falla eléctrica?
+
+4. ¿Qué sistemas o dispositivos utilizan actualmente para detectar estas situaciones?
+
+5. ¿Cómo se realiza actualmente la evacuación de las personas durante una emergencia?
+
+6. ¿Qué acciones consideran importantes que un sistema pueda realizar automáticamente durante una emergencia?
+
+7. ¿Qué tan importante es que el sistema pueda funcionar sin Internet o energía eléctrica?
+
+8. ¿Qué información necesitarían visualizar para conocer el estado de seguridad de una edificación?
+
+9. ¿Cómo prefieren recibir alertas sobre una emergencia o una falla del sistema?
+
+10. ¿Qué características debería tener una solución tecnológica para que consideren implementarla en sus proyectos?
+
+
+## Segmento 2: Dueños de vivienda unifamiliar en Lima
+
+1. ¿Qué medidas de seguridad tienes actualmente en tu vivienda ante un sismo o incendio?
+
+2. ¿Qué riesgos relacionados con sismos, incendios o fallas eléctricas te preocupan más?
+
+3. ¿Has tenido alguna experiencia con una emergencia en tu vivienda? ¿Qué ocurrió?
+
+4. ¿Qué dificultades encuentras actualmente para responder ante una emergencia?
+
+5. ¿Qué dispositivos o sistemas utilizas actualmente para proteger tu vivienda?
+
+6. ¿Qué acciones te gustaría que un sistema pudiera realizar automáticamente durante una emergencia?
+
+7. ¿Qué tan importante sería para ti que el sistema funcione sin Internet o energía eléctrica?
+
+8. ¿Qué información te gustaría consultar desde una aplicación sobre la seguridad de tu vivienda?
+
+9. ¿Cómo prefieres recibir una alerta cuando se detecte una emergencia?
+
+10. ¿Qué características debería tener una solución tecnológica para que confíes en utilizarla en tu vivienda?
 
 ### 2.2.2. Registro de entrevistas
 
-_[...]_
 
-### 2.2.3. Análisis de entrevistas
 
-_[...]_
+## Segmento 1: Empresas inmobiliarias en Lima
+
+### Entrevista 1
+
+| Campo | Información |
+|---|---|
+| **Fotografía** | ![Foto del entrevistado](resources/Cap-2/Entrevistas/segmento-1/entrevista-01.png) |
+| Entrevistado | [Nombre y apellido] |
+| Edad | [Edad] |
+| Distrito | [Distrito] |
+| Ocupación / Cargo | [Cargo del entrevistado] |
+| Fecha | 10/09/2026 |
+| Duración | 08:35 min |
+| Inicio en el video | 00:00:00 |
+| Link del video | [Ver entrevista](https://stream.microsoft.com/) |
+
+
+
+### Entrevista 2
+
+| Campo | Información |
+|---|---|
+| **Fotografía** | ![Foto del entrevistado](resources/Cap-2/Entrevistas/segmento-1/entrevista-02.png) |
+| Entrevistado | [Nombre y apellido] |
+| Edad | [Edad] |
+| Distrito | [Distrito] |
+| Ocupación / Cargo | [Cargo del entrevistado] |
+| Fecha | 11/09/2026 |
+| Duración | 10:12 min |
+| Inicio en el video | 08:35 |
+| Link del video | [Ver entrevista](https://stream.microsoft.com/) |
+
+
+
+### Entrevista 3
+
+| Campo | Información |
+|---|---|
+| **Fotografía** | ![Foto del entrevistado](resources/Cap-2/Entrevistas/segmento-1/entrevista-03.png) |
+| Entrevistado | [Nombre y apellido] |
+| Edad | [Edad] |
+| Distrito | [Distrito] |
+| Ocupación / Cargo | [Cargo del entrevistado] |
+| Fecha | 12/09/2026 |
+| Duración | 09:48 min |
+| Inicio en el video | 18:47 |
+| Link del video | [Ver entrevista](https://stream.microsoft.com/) |
+
+
+
+## Segmento 2: Dueños de vivienda unifamiliar en Lima
+
+### Entrevista 1
+
+| Campo | Información |
+|---|---|
+| **Fotografía** | ![Foto del entrevistado](resources/Cap-2/Entrevistas/segmento-2/entrevista-01.png) |
+| Entrevistado | [Nombre y apellido] |
+| Edad | [Edad] |
+| Distrito | [Distrito] |
+| Ocupación | [Ocupación] |
+| Fecha | 13/09/2026 |
+| Duración | 07:56 min |
+| Inicio en el video | 28:35 |
+| Link del video | [Ver entrevista](https://stream.microsoft.com/) |
+
+
+
+### Entrevista 2
+
+| Campo | Información |
+|---|---|
+| **Fotografía** | ![Foto del entrevistado](resources/Cap-2/Entrevistas/segmento-2/entrevista-02.png) |
+| Entrevistado | [Nombre y apellido] |
+| Edad | [Edad] |
+| Distrito | [Distrito] |
+| Ocupación | [Ocupación] |
+| Fecha | 14/09/2026 |
+| Duración | 08:21 min |
+| Inicio en el video | 36:31 |
+| Link del video | [Ver entrevista](https://stream.microsoft.com/) |
+
+
+
+### Entrevista 3
+
+| Campo | Información |
+|---|---|
+| **Fotografía** | ![Foto del entrevistado](resources/Cap-2/Entrevistas/segmento-2/entrevista-03.png) |
+| Entrevistado | [Nombre y apellido] |
+| Edad | [Edad] |
+| Distrito | [Distrito] |
+| Ocupación | [Ocupación] |
+| Fecha | 15/09/2026 |
+| Duración | 09:05 min |
+| Inicio en el video | 44:52 |
+| Link del video | [Ver entrevista](https://stream.microsoft.com/) |
+
+
+
+
+### **2.2.3. Análisis de entrevistas**
+
+**Segmento 1: Empresas inmobiliarias en Lima**
+
+#### **Entrevistado 1: [Nombre y apellido] (Enfoque en [tema principal])**
+
+* **Perfil**
+
+    * [Describir brevemente al entrevistado: edad, distrito, cargo y características relevantes relacionadas con el segmento.]
+
+* **Insights clave**
+
+    * [Insight principal obtenido de la entrevista.]
+
+    * [Segundo insight relevante obtenido de la entrevista.]
+
+* **Problemas y frustraciones**
+
+    * [Problema o dificultad identificada durante la entrevista.]
+
+    * [Otra frustración relacionada con la seguridad, emergencias o gestión de la edificación.]
+
+* **Necesidades**
+
+    * [Necesidad identificada en el entrevistado.]
+
+    * [Segunda necesidad identificada.]
+
+* **Oportunidades para SafeCore**
+
+    * **[Nombre de oportunidad]:** [Explicar cómo SafeCore podría responder a la necesidad identificada.]
+
+    * **[Nombre de oportunidad]:** [Explicar otra funcionalidad o característica que podría incorporarse a SafeCore.]
+
+---
+
+#### **Entrevistado 2: [Nombre y apellido] (Enfoque en [tema principal])**
+
+* **Perfil**
+
+    * [Descripción del perfil del entrevistado.]
+
+* **Insights clave**
+
+    * [Insight principal.]
+
+    * [Segundo insight.]
+
+* **Problemas y frustraciones**
+
+    * [Problema identificado.]
+
+    * [Otra frustración identificada.]
+
+* **Necesidades**
+
+    * [Necesidad identificada.]
+
+    * [Segunda necesidad identificada.]
+
+* **Oportunidades para SafeCore**
+
+    * **[Nombre de oportunidad]:** [Descripción.]
+
+    * **[Nombre de oportunidad]:** [Descripción.]
+
+---
+
+#### **Entrevistado 3: [Nombre y apellido] (Enfoque en [tema principal])**
+
+* **Perfil**
+
+    * [Descripción del perfil del entrevistado.]
+
+* **Insights clave**
+
+    * [Insight principal.]
+
+    * [Segundo insight.]
+
+* **Problemas y frustraciones**
+
+    * [Problema identificado.]
+
+    * [Otra frustración identificada.]
+
+* **Necesidades**
+
+    * [Necesidad identificada.]
+
+    * [Segunda necesidad identificada.]
+
+* **Oportunidades para SafeCore**
+
+    * **[Nombre de oportunidad]:** [Descripción.]
+
+    * **[Nombre de oportunidad]:** [Descripción.]
+
+---
+
+**Segmento 2: Dueños de vivienda unifamiliar en Lima**
+
+#### **Entrevistado 1: [Nombre y apellido] (Enfoque en [tema principal])**
+
+* **Perfil**
+
+    * [Describir brevemente al entrevistado: edad, distrito, ocupación y características relevantes relacionadas con el segmento.]
+
+* **Insights clave**
+
+    * [Insight principal obtenido de la entrevista.]
+
+    * [Segundo insight relevante obtenido de la entrevista.]
+
+* **Problemas y frustraciones**
+
+    * [Problema o dificultad identificada.]
+
+    * [Otra frustración relacionada con la seguridad del hogar.]
+
+* **Necesidades**
+
+    * [Necesidad identificada.]
+
+    * [Segunda necesidad identificada.]
+
+* **Oportunidades para SafeCore**
+
+    * **[Nombre de oportunidad]:** [Explicar cómo SafeCore podría responder a la necesidad.]
+
+    * **[Nombre de oportunidad]:** [Explicar otra funcionalidad o característica.]
+
+---
+
+#### **Entrevistado 2: [Nombre y apellido] (Enfoque en [tema principal])**
+
+* **Perfil**
+
+    * [Descripción del perfil del entrevistado.]
+
+* **Insights clave**
+
+    * [Insight principal.]
+
+    * [Segundo insight.]
+
+* **Problemas y frustraciones**
+
+    * [Problema identificado.]
+
+    * [Otra frustración identificada.]
+
+* **Necesidades**
+
+    * [Necesidad identificada.]
+
+    * [Segunda necesidad identificada.]
+
+* **Oportunidades para SafeCore**
+
+    * **[Nombre de oportunidad]:** [Descripción.]
+
+    * **[Nombre de oportunidad]:** [Descripción.]
+
+---
+
+#### **Entrevistado 3: [Nombre y apellido] (Enfoque en [tema principal])**
+
+* **Perfil**
+
+    * [Descripción del perfil del entrevistado.]
+
+* **Insights clave**
+
+    * [Insight principal.]
+
+    * [Segundo insight.]
+
+* **Problemas y frustraciones**
+
+    * [Problema identificado.]
+
+    * [Otra frustración identificada.]
+
+* **Necesidades**
+
+    * [Necesidad identificada.]
+
+    * [Segunda necesidad identificada.]
+
+* **Oportunidades para SafeCore**
+
+    * **[Nombre de oportunidad]:** [Descripción.]
+
+    * **[Nombre de oportunidad]:** [Descripción.]
 
 ## 2.3. Needfinding
 
