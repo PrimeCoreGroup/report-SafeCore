@@ -1449,9 +1449,42 @@ Los servicios de consultas son responsables de recuperar información del sistem
 
 Esta estructura asegura que la Application Layer sea modular, reutilizable y fácil de mantener, permitiendo una separación clara de responsabilidades y facilitando la evolución del sistema.
 
-#### 4.2.X.4. Infrastructure Layer
+#### 4.2.1.4. Infrastructure Layer
 
-_[...]_
+La **Infrastructure Layer** del **Emergency Response Bounded Context** proporciona las implementaciones técnicas necesarias para soportar las operaciones del sistema. Esta capa incluye repositorios para la persistencia de datos y componentes relacionados con la comunicación hacia los actuadores IoT y la publicación de eventos de dominio hacia otros Bounded Contexts. Su objetivo principal es conectar la lógica de negocio con los recursos externos, como la base de datos, los dispositivos IoT y los servicios de mensajería.
+
+**Persistencia (JPA Repositories)**
+
+1. **EmergencyResponseRepository**
+   - **Propósito**: Proporciona métodos para interactuar con la base de datos de respuestas de emergencia.
+   - **Métodos principales**:
+     - `findByStatus`: Busca respuestas de emergencia según su estado actual.
+     - `findByEmergencyType`: Busca respuestas de emergencia asociadas a un tipo de emergencia específico.
+
+2. **EmergencyProtocolRepository**
+   - **Propósito**: Proporciona métodos para interactuar con la base de datos de protocolos de emergencia.
+   - **Métodos principales**:
+     - `findByEmergencyType`: Busca el protocolo de emergencia correspondiente a un tipo de emergencia específico.
+     - `existsByEmergencyType`: Verifica si existe un protocolo definido para un tipo de emergencia.
+
+**Servicios Externos (Gateways)**
+
+1. **ActuatorGatewayServiceImpl**
+   - **Propósito**: Implementa la comunicación con la infraestructura IoT (AWS IoT Core) para el envío de comandos hacia los actuadores físicos, actuando como Anti-Corruption Layer frente al modelo externo del proveedor.
+   - **Métodos principales**:
+     - `dispatch(ActuatorCommand command)`: Traduce un comando del dominio a la representación requerida por AWS IoT y lo envía al actuador correspondiente.
+
+2. **EmergencyEventPublisherServiceImpl**
+   - **Propósito**: Publica los eventos de dominio generados por el Emergency Response Bounded Context (`EmergencyResponseInitiated`, `ResponseActionExecuted`, `ResponseActionFailed`, `EmergencyResponseCompleted`) hacia el bus de eventos, permitiendo que otros Bounded Contexts, como Notification, reaccionen a ellos.
+   - **Métodos principales**:
+     - `publish(DomainEvent event)`: Serializa y publica un evento de dominio en el canal de mensajería correspondiente.
+
+**Relaciones entre componentes**
+
+- **Persistencia**: Los repositorios (`EmergencyResponseRepository`, `EmergencyProtocolRepository`) proporcionan acceso a los datos almacenados en la base de datos, permitiendo a las capas superiores interactuar con las entidades del dominio.
+- **Servicios externos**: `ActuatorGatewayServiceImpl` traduce las decisiones del dominio en comandos físicos ejecutados por los actuadores, mientras que `EmergencyEventPublisherServiceImpl` desacopla al Emergency Response Bounded Context de los demás contextos que consumen sus eventos.
+
+Esta estructura asegura que la Infrastructure Layer sea modular, reutilizable y fácil de mantener, facilitando la integración con otros sistemas y servicios externos.
 
 #### 4.2.X.5. Bounded Context Software Architecture Component Level Diagrams
 
