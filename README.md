@@ -1396,9 +1396,58 @@ Los transformadores son responsables de convertir las entidades del dominio en r
 
 Esta estructura asegura que la Interface Layer sea modular, reutilizable y fácil de mantener, facilitando la interacción entre los clientes, otros Bounded Contexts y el sistema.
 
-#### 4.2.X.3. Application Layer
+#### 4.2.1.3. Application Layer
 
-_[...]_
+La **Application Layer** del **Emergency Response Bounded Context** actúa como un intermediario entre la Domain Layer y las capas externas, como la Interface Layer y la Infrastructure Layer. Su propósito principal es coordinar las operaciones de negocio, manejar comandos y consultas, y orquestar la lógica de aplicación —como la selección y ejecución de protocolos de emergencia— sin exponer directamente los detalles del dominio.
+
+**Command Services**
+
+Los servicios de comandos son responsables de ejecutar operaciones que modifican el estado del sistema. A continuación, se describen los principales servicios de comandos:
+
+1. **EmergencyResponseCommandServiceImpl**
+   - **Propósito**: Gestiona las operaciones relacionadas con las respuestas de emergencia, como su creación a partir de una situación de riesgo detectada.
+   - **Métodos principales**:
+     - `handle(InitiateEmergencyResponseCommand command)`: Selecciona el protocolo de emergencia correspondiente al tipo de emergencia recibido, genera las acciones de respuesta a partir de sus pasos y crea una nueva `EmergencyResponse`.
+   - **Dependencias**:
+     - `EmergencyResponseRepository`: Interactúa con la base de datos para guardar y recuperar respuestas de emergencia.
+     - `EmergencyProtocolRepository`: Recupera el protocolo aplicable al tipo de emergencia recibido.
+     - `ProtocolSelectionService`: Determina qué protocolo de emergencia corresponde activar.
+     - `ProtocolExecutionService`: Orquesta la generación de las acciones de respuesta a partir de los pasos del protocolo.
+
+2. **ResponseActionCommandServiceImpl**
+   - **Propósito**: Gestiona las operaciones relacionadas con las acciones individuales de una respuesta de emergencia, como la actualización de su estado de ejecución.
+   - **Métodos principales**:
+     - `handle(UpdateResponseActionStatusCommand command)`: Actualiza el estado de una acción de respuesta (ejecutada o fallida) y verifica si corresponde marcar la respuesta de emergencia como completada.
+   - **Dependencias**:
+     - `EmergencyResponseRepository`: Interactúa con la base de datos para recuperar y actualizar la respuesta de emergencia asociada.
+     - `ActuatorGatewayService`: Servicio externo utilizado para despachar los comandos de actuador correspondientes a cada acción.
+
+**Query Services**
+
+Los servicios de consultas son responsables de recuperar información del sistema sin modificar su estado. A continuación, se describen los principales servicios de consultas:
+
+1. **EmergencyResponseQueryServiceImpl**
+   - **Propósito**: Gestiona las consultas relacionadas con las respuestas de emergencia.
+   - **Métodos principales**:
+     - `handle(GetAllEmergencyResponsesQuery query)`: Recupera todas las respuestas de emergencia registradas en el sistema.
+     - `handle(GetEmergencyResponseByIdQuery query)`: Recupera una respuesta de emergencia específica por su ID, incluyendo sus acciones asociadas.
+   - **Dependencias**:
+     - `EmergencyResponseRepository`: Interactúa con la base de datos para recuperar respuestas de emergencia.
+
+2. **EmergencyProtocolQueryServiceImpl**
+   - **Propósito**: Gestiona las consultas relacionadas con los protocolos de emergencia.
+   - **Métodos principales**:
+     - `handle(GetAllEmergencyProtocolsQuery query)`: Recupera todos los protocolos de emergencia disponibles en el sistema.
+     - `handle(GetEmergencyProtocolByIdQuery query)`: Recupera un protocolo específico por su ID, incluyendo sus pasos.
+   - **Dependencias**:
+     - `EmergencyProtocolRepository`: Interactúa con la base de datos para recuperar protocolos de emergencia.
+
+**Relaciones entre componentes**
+
+- Los Command Services interactúan con los repositorios para modificar el estado del sistema, con los servicios de dominio (`ProtocolSelectionService`, `ProtocolExecutionService`) para aplicar las reglas de negocio, y con servicios externos, como `ActuatorGatewayService`, para el despacho de comandos hacia los actuadores IoT.
+- Los Query Services interactúan únicamente con los repositorios para recuperar información del sistema.
+
+Esta estructura asegura que la Application Layer sea modular, reutilizable y fácil de mantener, permitiendo una separación clara de responsabilidades y facilitando la evolución del sistema.
 
 #### 4.2.X.4. Infrastructure Layer
 
