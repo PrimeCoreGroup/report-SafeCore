@@ -569,7 +569,7 @@ _[...]_
 ---
 ## 3.2. Impact Mapping
 
-_[...]_
+![alt text](assets/Chapter-3/Impact-Mapping/Impact_Mapping_SafeCore.png)
 
 ## 3.3. Product Backlog
 
