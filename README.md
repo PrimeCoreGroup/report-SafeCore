@@ -156,16 +156,15 @@ Consolidarnos como la empresa líder en Latinoamérica en soluciones inteligente
 
 ### 1.1.2. Perfiles de integrantes del equipo
 
-| Foto | Alumno | Descripción| 
-|---|---|---| 
-| ![Giussepe_Foto](assets/Fotos/giussepe.png)| Taquiri Calderón, Jhunior Giussepe | Soy estudiante del séptimo ciclo de Ingeniería de Software en la UPC. Tengo experiencia en C++, Python, Java y SQL, además de conocimientos en desarrollo frontend, backend y aplicaciones móviles. Me considero una persona responsable, organizada y comprometida, con facilidad para trabajar en equipo y con interés en seguir aprendiendo. Mis expectativas para el curso de Desarrollo de Soluciones IoT son fortalecer mis conocimientos sobre dispositivos, conectividad y desarrollo de soluciones IoT, aplicando mis habilidades de programación para crear soluciones orientadas a problemas reales. | 
-| ![Kael\_Foto](assets/Fotos/Kael\_Foto.jpg) | Lagos Rivera, Kael Valentino | Me llamo Kael Lagos, estudio en la UPC de Monterrico. Tengo muchas ganas de aprender, me considero una persona responsable que busca aprender de sus errores cada vez que puede y también me considero alguien que se centra en los detalles. Me comprometo a ayudar a mis compañeros para la elaboración de nuestro trabajo que nos pueda asegurar una buena nota al final. | 
-| Imagen aqui      | Gonzalez Custodio, Carlos Alberto | Descripción aqui | 
-| ![Rafa\_Foto]() | Tasayco Almonacid, Rafael Augusto | Descripción aqui | 
-| ![Raul\_Foto](assets/Fotos/Raul\_Tasayco\_Profile.jpeg) | Tasayco Osorio, Raúl Hiroshi | Soy estudiante de Ingeniería de Software en la Universidad Peruana de Ciencias Aplicadas (UPC), con experiencia en C++, Python, SQL, Angular, TypeScript, HTML y CSS, además de conocimientos en buenas prácticas de desarrollo, estructuras de datos y bases de datos. He participado en proyectos universitarios y en proyectos desarrollados en entornos reales, fortaleciendo mis habilidades de desarrollo frontend y backend, trabajo en equipo y resolución de problemas. Me caracterizo por ser responsable, comprometido y orientado al aprendizaje continuo. | 
-| Imagen aqui| Inga Hernandez, Ayrton Damian | Descripción aqui | 
-| Imagen aqui| Huaman De La Cruz, Jean Pool| Descripción aqui | 
-
+| Foto | Alumno | Descripción|
+|---|---|---|
+| ![Giussepe_Foto](assets/Fotos/giussepe.png)| Taquiri Calderón, Jhunior Giussepe | Soy estudiante del séptimo ciclo de Ingeniería de Software en la UPC. Tengo experiencia en C++, Python, Java y SQL, además de conocimientos en desarrollo frontend, backend y aplicaciones móviles. Me considero una persona responsable, organizada y comprometida, con facilidad para trabajar en equipo y con interés en seguir aprendiendo. Mis expectativas para el curso de Desarrollo de Soluciones IoT son fortalecer mis conocimientos sobre dispositivos, conectividad y desarrollo de soluciones IoT, aplicando mis habilidades de programación para crear soluciones orientadas a problemas reales. |
+| ![Kael_Foto](assets/Fotos/Kael_Foto.jpg) | Lagos Rivera, Kael Valentino | Me llamo Kael Lagos, estudio en la UPC de Monterrico. Tengo muchas ganas de aprender, me considero una persona responsable que busca aprender de sus errores cada vez que puede y también me considero alguien que se centra en los detalles. Me comprometo a ayudar a mis compañeros para la elaboración de nuestro trabajo que nos pueda asegurar una buena nota al final. |
+| ![Carlos_Foto](assets/Fotos/Carlos_Profile.jpg) | Gonzalez Custodio, Carlos Alberto | Mi nombre es Carlos Alberto Gonzalez Custodio, estudio Ingeniería de Software en la UPC. Me considero una persona en proceso de aprendizaje en cuanto a la programación se refiere. Me encanta desarrollar aplicaciones web o móviles y espero especializarme en el área de Frontend. |
+| ![Rafa_Foto]() | Tasayco Almonacid, Rafael Augusto | Descripción aqui |
+| ![Raul_Foto](assets/Fotos/Raul_Tasayco_Profile.jpeg) | Tasayco Osorio, Raúl Hiroshi | Soy estudiante de Ingeniería de Software en la Universidad Peruana de Ciencias Aplicadas (UPC), con experiencia en C++, Python, SQL, Angular, TypeScript, HTML y CSS, además de conocimientos en buenas prácticas de desarrollo, estructuras de datos y bases de datos. He participado en proyectos universitarios y en proyectos desarrollados en entornos reales, fortaleciendo mis habilidades de desarrollo frontend y backend, trabajo en equipo y resolución de problemas. Me caracterizo por ser responsable, comprometido y orientado al aprendizaje continuo. |
+| Imagen aqui| Inga Hernandez, Ayrton Damian | Descripción aqui |
+| Imagen aqui| Huaman De La Cruz, Jean Pool| Descripción aqui |
 
 ## 1.2. Solution Profile
 
