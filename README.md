@@ -944,23 +944,153 @@ _[...]_
 
 ### 4.1.1. Design-Level EventStorming
 
-_[...]_
 
+En esta sección se presenta el **Design-Level EventStorming** realizado para la solución **SafeCore**. El objetivo de esta actividad es identificar y organizar los principales elementos del dominio, tales como actores, comandos, eventos de dominio, políticas, sistemas externos, modelos de lectura y componentes IoT.
+
+A partir del análisis realizado se modelaron los principales flujos de negocio relacionados con la detección y atención de situaciones de riesgo, así como las actividades de monitoreo, gestión de usuarios y administración de dispositivos IoT.
+
+Los flujos identificados permiten representar el comportamiento de SafeCore ante diferentes escenarios, como **riesgo sísmico, incendio y fuga de gas**, además de los procesos de **notificación y escalamiento, monitoreo y gestión, registro y autenticación, y gestión de dispositivos IoT**.
+
+El resultado de este EventStorming constituye la base para las siguientes actividades del diseño estratégico, principalmente la identificación de los **Bounded Contexts**, el modelado de los flujos de mensajes y la elaboración de los **Bounded Context Canvases**.
+
+![SafeCore - Design-Level EventStorming](assets/Chapter-4/Design/EventStorming.jpg)
+
+**Figura 4.1. Design-Level EventStorming de SafeCore.**
 #### 4.1.1.1. Candidate Context Discovery
 
-_[...]_
+A partir del Design-Level EventStorming se realizó el proceso de **Candidate Context Discovery** para identificar los posibles límites de los Bounded Contexts de SafeCore.
 
+Para ello, se revisaron los eventos de dominio identificados y se agruparon de acuerdo con las responsabilidades que representan dentro de la solución. Durante este proceso se utilizaron las técnicas **Start with Simple**, **Start with Value** y **Look for Pivotal Events**, con el propósito de encontrar agrupaciones de eventos que presentaran responsabilidades relacionadas.
+
+Como resultado del análisis se identificaron siete Bounded Contexts candidatos:
+
+1. **Identity & Access:** responsable del registro, autenticación y gestión de permisos de los usuarios.
+2. **Device Management:** responsable del registro, aprovisionamiento y gestión del ciclo de vida de los dispositivos IoT.
+3. **Sensor Data Ingestion:** responsable de la captura y procesamiento inicial de los datos provenientes de los sensores.
+4. **Risk Detection:** responsable del análisis, validación y detección de condiciones de riesgo.
+5. **Emergency Response:** responsable de la ejecución de protocolos de emergencia y acciones mediante actuadores.
+6. **Notification:** responsable de la gestión de notificaciones, confirmaciones y coordinación de respuestas.
+7. **Monitoring & Configuration:** responsable del monitoreo, configuración y gestión del historial de eventos.
+
+Durante el análisis también se identificaron eventos relevantes para establecer los límites entre responsabilidades, como **Movimiento Detectado**, **Humo Detectado**, **Llama Detectada**, **Concentración de Gas Excedida**, **Alerta Generada**, **Protocolo Emergencia Activado** y **Alerta Confirmada por Usuario**.
+
+El resultado de este proceso constituye una primera propuesta de Bounded Contexts que será utilizada como entrada para el **Domain Message Flows Modeling** y posteriormente para la elaboración de los **Bounded Context Canvases**.
+
+![SafeCore - Candidate Context Discovery](assets/Chapter-4/Design/Candidate%20Context%20Discovery.png)
+
+**Figura 4.1.1.1. Candidate Context Discovery de SafeCore.**
 #### 4.1.1.2. Domain Message Flows Modeling
 
-_[...]_
+A partir de los Bounded Contexts candidatos identificados en la actividad anterior, se realizó el **Domain Message Flows Modeling** con el objetivo de representar cómo los comandos y eventos de dominio atraviesan los diferentes Bounded Contexts de SafeCore.
 
+Para este modelado se analizaron tres escenarios principales de operación de la solución:
+
+- **Escenario 1 - Detección de riesgo sísmico:** el Sensor Sísmico envía una lectura al contexto **Sensor Data Ingestion**, donde se registra el evento de movimiento sísmico detectado. Posteriormente, **Risk Detection** valida la condición y genera una alerta. Esta alerta es procesada por **Notification**, que permite notificar al residente u ocupante y comunicar la situación a los servicios de emergencia. Finalmente, **Emergency Response** ejecuta el protocolo de emergencia correspondiente mediante los actuadores.
+
+- **Escenario 2 - Detección de incendio:** los sensores de humo y llama envían sus respectivas lecturas a **Sensor Data Ingestion**. Los eventos detectados son procesados por **Risk Detection**, donde se valida la condición y se genera el evento de incendio confirmado. Posteriormente, **Notification** gestiona la comunicación con el residente u ocupante y los servicios de emergencia, mientras que **Emergency Response** ejecuta las acciones correspondientes mediante los actuadores.
+
+- **Escenario 3 - Detección de fuga de gas:** el Sensor de Gas envía la lectura de concentración al contexto **Sensor Data Ingestion**. Luego, **Risk Detection** procesa la información y genera el evento de fuga de gas validada. El contexto **Notification** gestiona la comunicación y **Emergency Response** ejecuta las acciones de respuesta, incluyendo la activación del sistema de ventilación y el cierre de la válvula de gas.
+
+Los flujos permiten identificar la interacción entre los principales Bounded Contexts involucrados en la detección y atención de situaciones de emergencia. Asimismo, permiten visualizar los mensajes intercambiados, diferenciando comandos, eventos de dominio y consultas.
+
+Este modelado sirve como base para analizar las dependencias entre contextos y definir posteriormente las relaciones estructurales mediante el **Context Mapping**.
+
+![SafeCore - Domain Message Flows Modeling](assets/Chapter-4/Design/Message%20Flows.png)
+
+**Figura 4.1.1.2. Domain Message Flows Modeling de SafeCore.**
 #### 4.1.1.3. Bounded Context Canvases
 
-_[...]_
+A partir de los Bounded Contexts identificados durante el Candidate Context Discovery, se elaboraron los **Bounded Context Canvases** con el propósito de definir con mayor precisión las responsabilidades, propósito, lenguaje ubicuo, decisiones de negocio y comunicaciones de cada contexto.
+
+Los Bounded Contexts analizados son:
+
+- **Identity & Access**
+- **Device Management**
+- **Sensor Data Ingestion**
+- **Risk Detection**
+- **Emergency Response**
+- **Notification**
+- **Monitoring & Configuration**
+
+Cada Canvas permite representar de manera individual los límites y responsabilidades de cada Bounded Context, sirviendo como base para el posterior análisis de las relaciones entre contextos mediante el **Context Mapping**.
+
+##### Identity & Access
+
+![Identity & Access](assets/Chapter-4/Design/Identity%20%26%20Access.png)
+
+**Figura 4.1.1.3-1. Bounded Context Canvas - Identity & Access.**
+
+##### Device Management
+
+![Device Management](assets/Chapter-4/Design/Device%20Management.png)
+
+**Figura 4.1.1.3-2. Bounded Context Canvas - Device Management.**
+
+##### Sensor Data Ingestion
+
+![Sensor Data Ingestion](assets/Chapter-4/Design/Sensor%20Data%20Ingestion.png)
+
+**Figura 4.1.1.3-3. Bounded Context Canvas - Sensor Data Ingestion.**
+
+##### Risk Detection
+
+![Risk Detection](assets/Chapter-4/Design/Risk%20Detection.png)
+
+**Figura 4.1.1.3-4. Bounded Context Canvas - Risk Detection.**
+
+##### Emergency Response
+
+![Emergency Response](assets/Chapter-4/Design/Emergency%20Response.png)
+
+**Figura 4.1.1.3-5. Bounded Context Canvas - Emergency Response.**
+
+##### Notification
+
+![Notification](assets/Chapter-4/Design/Notification.png)
+
+**Figura 4.1.1.3-6. Bounded Context Canvas - Notification.**
+
+##### Monitoring & Configuration
+
+![Monitoring & Configuration](assets/Chapter-4/Design/Monitoring%20%26%20Configuration.png)
+
+**Figura 4.1.1.3-7. Bounded Context Canvas - Monitoring & Configuration.**
+
+Los siete Canvas constituyen la base para la siguiente actividad de **Context Mapping**, donde se analizarán las dependencias y relaciones estructurales entre los Bounded Contexts.
+### 4.1.2. Context Mapping
 
 ### 4.1.2. Context Mapping
 
-_[...]_
+Se analizaron las relaciones y dependencias entre los Bounded Contexts de SafeCore y se plantearon tres alternativas de organización.
+
+#### Opción 1: Mantener los siete Bounded Contexts
+
+Se mantienen los siete contextos identificados, conservando la separación de responsabilidades.
+
+![SafeCore - Context Mapping Opción 1](assets/Chapter-4/Design/Context%20Mapping%20Option%201.png)
+
+**Figura 4.1.2-1. Context Mapping de SafeCore - Opción 1.**
+
+#### Opción 2: Unificar Sensor Data Ingestion y Risk Detection
+
+Se propone integrar ambos contextos en **Detection Management**, reduciendo la comunicación entre ellos.
+
+![SafeCore - Context Mapping Opción 2](assets/Chapter-4/Design/Context%20Mapping%20Option%202.png)
+
+**Figura 4.1.2-2. Context Mapping de SafeCore - Opción 2.**
+
+#### Opción 3: Separar Emergency Response y Actuator Control
+
+Se propone separar la coordinación de emergencias del control de los actuadores.
+
+![SafeCore - Context Mapping Opción 3](assets/Chapter-4/Design/Context%20Mapping%20Option%203.png)
+
+**Figura 4.1.2-3. Context Mapping de SafeCore - Opción 3.**
+
+#### Aproximación seleccionada
+
+Se mantiene la separación de los siete Bounded Contexts, preservando límites claros entre sus responsabilidades.
+
 
 ### 4.1.3. Software Architecture
 
