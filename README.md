@@ -1178,7 +1178,13 @@ _[...]_
 
 ## 4.2. Tactical-Level Domain-Driven Design
 
-### 4.2.X. Bounded Context: `<Nombre>`
+#### 4.2.1. Bounded Context: Emergency Management Bounded Context
+
+El **Emergency Management Bounded Context** es responsable de gestionar la detección y respuesta ante situaciones de emergencia dentro de los espacios protegidos por SafeCore. Este contexto permite procesar los eventos generados por los sensores del sistema, determinar si corresponde a una situación de riesgo y coordinar las acciones de respuesta configuradas para reducir sus posibles consecuencias.
+
+Su responsabilidad se centra en la gestión del ciclo de una emergencia, desde la detección de un evento hasta la ejecución y seguimiento de las acciones de respuesta. Entre estas acciones se consideran la habilitación de rutas de evacuación, activación de iluminación auxiliar, interrupción de suministros eléctricos mediante relés y activación de mecanismos de contención inicial de incendios.
+
+El contexto busca que la respuesta ante una emergencia no dependa exclusivamente de la intervención humana, permitiendo que SafeCore actúe de manera autónoma mediante su infraestructura IoT y su procesamiento local mediante Edge Computing. De esta manera, el sistema puede mantener su capacidad de respuesta incluso ante situaciones en las que la conectividad externa se encuentre limitada o interrumpida.
 
 #### 4.2.X.1. Domain Layer
 
