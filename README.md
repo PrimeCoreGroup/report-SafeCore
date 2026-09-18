@@ -1178,13 +1178,17 @@ _[...]_
 
 ## 4.2. Tactical-Level Domain-Driven Design
 
-#### 4.2.1. Bounded Context: Emergency Management Bounded Context
+#### 4.2.1. Bounded Context: Emergency Response
 
-El **Emergency Management Bounded Context** es responsable de gestionar la detección y respuesta ante situaciones de emergencia dentro de los espacios protegidos por SafeCore. Este contexto permite procesar los eventos generados por los sensores del sistema, determinar si corresponde a una situación de riesgo y coordinar las acciones de respuesta configuradas para reducir sus posibles consecuencias.
+El **Emergency Response Bounded Context** es responsable de ejecutar y coordinar las acciones definidas por los protocolos de emergencia de SafeCore. Este contexto recibe las situaciones de riesgo previamente identificadas por el Risk Detection Bounded Context y coordina la ejecución de las acciones de respuesta mediante los actuadores IoT disponibles.
 
-Su responsabilidad se centra en la gestión del ciclo de una emergencia, desde la detección de un evento hasta la ejecución y seguimiento de las acciones de respuesta. Entre estas acciones se consideran la habilitación de rutas de evacuación, activación de iluminación auxiliar, interrupción de suministros eléctricos mediante relés y activación de mecanismos de contención inicial de incendios.
+Su responsabilidad se centra en transformar una situación de emergencia detectada en acciones concretas de respuesta, tales como la activación de protocolos de emergencia, el envío de comandos a actuadores y la ejecución coordinada de medidas destinadas a reducir el impacto del evento.
 
-El contexto busca que la respuesta ante una emergencia no dependa exclusivamente de la intervención humana, permitiendo que SafeCore actúe de manera autónoma mediante su infraestructura IoT y su procesamiento local mediante Edge Computing. De esta manera, el sistema puede mantener su capacidad de respuesta incluso ante situaciones en las que la conectividad externa se encuentre limitada o interrumpida.
+Dentro de este contexto se consideran escenarios como la respuesta ante movimientos sísmicos, incendios y fugas de gas. Dependiendo del tipo de emergencia, el sistema puede ejecutar diferentes acciones, como activar mecanismos de seguridad, controlar dispositivos de ventilación, cerrar válvulas de gas o coordinar otros actuadores definidos por el protocolo correspondiente.
+
+El contexto mantiene su propia lógica de dominio para determinar cómo deben ejecutarse los protocolos y acciones de emergencia, mientras que los detalles de comunicación con dispositivos IoT y otros componentes externos se mantienen en la capa de infraestructura.
+
+De esta manera, el **Emergency Response Bounded Context** permite separar la lógica relacionada con la respuesta ante emergencias de otros contextos del sistema, como **Risk Detection**, encargado de identificar las condiciones de riesgo, y **Notification**, encargado de gestionar las comunicaciones y notificaciones asociadas a las alertas.
 
 #### 4.2.X.1. Domain Layer
 
