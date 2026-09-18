@@ -945,6 +945,13 @@ _[...]_
 ### 4.1.1. Design-Level EventStorming
 
 
+# Capítulo IV: Solution Software Design
+
+## 4.1. Strategic-Level Domain-Driven Design
+
+### 4.1.1. Design-Level EventStorming
+
+
 En esta sección se presenta el **Design-Level EventStorming** realizado para la solución **SafeCore**. El objetivo de esta actividad es identificar y organizar los principales elementos del dominio, tales como actores, comandos, eventos de dominio, políticas, sistemas externos, modelos de lectura y componentes IoT.
 
 A partir del análisis realizado se modelaron los principales flujos de negocio relacionados con la detección y atención de situaciones de riesgo, así como las actividades de monitoreo, gestión de usuarios y administración de dispositivos IoT.
@@ -956,13 +963,16 @@ El resultado de este EventStorming constituye la base para las siguientes activi
 ![SafeCore - Design-Level EventStorming](assets/Chapter-4/Design/EventStorming.jpg)
 
 **Figura 4.1. Design-Level EventStorming de SafeCore.**
+
 #### 4.1.1.1. Candidate Context Discovery
 
-A partir del Design-Level EventStorming se realizó el proceso de **Candidate Context Discovery** para identificar los posibles límites de los Bounded Contexts de SafeCore.
+#### 4.1.1.1. Candidate Context Discovery
 
-Para ello, se revisaron los eventos de dominio identificados y se agruparon de acuerdo con las responsabilidades que representan dentro de la solución. Durante este proceso se utilizaron las técnicas **Start with Simple**, **Start with Value** y **Look for Pivotal Events**, con el propósito de encontrar agrupaciones de eventos que presentaran responsabilidades relacionadas.
+A partir del **Design-Level EventStorming** se realizó el proceso de **Candidate Context Discovery** para identificar los posibles límites de los **Bounded Contexts** de SafeCore.
 
-Como resultado del análisis se identificaron siete Bounded Contexts candidatos:
+Para este proceso se revisaron los eventos de dominio identificados y se agruparon de acuerdo con las responsabilidades que representan dentro de la solución. Se utilizaron las técnicas **Start with Simple**, **Start with Value** y **Look for Pivotal Events**, con el propósito de identificar agrupaciones de eventos que presentaran responsabilidades relacionadas.
+
+Como resultado del análisis se identificaron siete **Bounded Contexts** candidatos:
 
 1. **Identity & Access:** responsable del registro, autenticación y gestión de permisos de los usuarios.
 2. **Device Management:** responsable del registro, aprovisionamiento y gestión del ciclo de vida de los dispositivos IoT.
@@ -974,14 +984,15 @@ Como resultado del análisis se identificaron siete Bounded Contexts candidatos:
 
 Durante el análisis también se identificaron eventos relevantes para establecer los límites entre responsabilidades, como **Movimiento Detectado**, **Humo Detectado**, **Llama Detectada**, **Concentración de Gas Excedida**, **Alerta Generada**, **Protocolo Emergencia Activado** y **Alerta Confirmada por Usuario**.
 
-El resultado de este proceso constituye una primera propuesta de Bounded Contexts que será utilizada como entrada para el **Domain Message Flows Modeling** y posteriormente para la elaboración de los **Bounded Context Canvases**.
+El resultado de este proceso constituye una primera propuesta de **Bounded Contexts** que será utilizada como entrada para el **Domain Message Flows Modeling** y posteriormente para la elaboración de los **Bounded Context Canvases**.
 
 ![SafeCore - Candidate Context Discovery](assets/Chapter-4/Design/Candidate%20Context%20Discovery.png)
 
 **Figura 4.1.1.1. Candidate Context Discovery de SafeCore.**
+
 #### 4.1.1.2. Domain Message Flows Modeling
 
-A partir de los Bounded Contexts candidatos identificados en la actividad anterior, se realizó el **Domain Message Flows Modeling** con el objetivo de representar cómo los comandos y eventos de dominio atraviesan los diferentes Bounded Contexts de SafeCore.
+A partir de los **Bounded Contexts** candidatos identificados en la actividad anterior, se realizó el **Domain Message Flows Modeling** con el objetivo de representar cómo los comandos y eventos de dominio atraviesan los diferentes Bounded Contexts de SafeCore.
 
 Para este modelado se analizaron tres escenarios principales de operación de la solución:
 
@@ -991,16 +1002,26 @@ Para este modelado se analizaron tres escenarios principales de operación de la
 
 - **Escenario 3 - Detección de fuga de gas:** el Sensor de Gas envía la lectura de concentración al contexto **Sensor Data Ingestion**. Luego, **Risk Detection** procesa la información y genera el evento de fuga de gas validada. El contexto **Notification** gestiona la comunicación y **Emergency Response** ejecuta las acciones de respuesta, incluyendo la activación del sistema de ventilación y el cierre de la válvula de gas.
 
-Los flujos permiten identificar la interacción entre los principales Bounded Contexts involucrados en la detección y atención de situaciones de emergencia. Asimismo, permiten visualizar los mensajes intercambiados, diferenciando comandos, eventos de dominio y consultas.
+Los flujos permiten identificar la interacción entre los principales **Bounded Contexts** involucrados en la detección y atención de situaciones de emergencia. Asimismo, permiten visualizar los mensajes intercambiados, diferenciando comandos, eventos de dominio y consultas.
 
 Este modelado sirve como base para analizar las dependencias entre contextos y definir posteriormente las relaciones estructurales mediante el **Context Mapping**.
 
 ![SafeCore - Domain Message Flows Modeling](assets/Chapter-4/Design/Message%20Flows.png)
 
 **Figura 4.1.1.2. Domain Message Flows Modeling de SafeCore.**
+
 #### 4.1.1.3. Bounded Context Canvases
 
-A partir de los Bounded Contexts identificados durante el Candidate Context Discovery, se elaboraron los **Bounded Context Canvases** con el propósito de definir con mayor precisión las responsabilidades, propósito, lenguaje ubicuo, decisiones de negocio y comunicaciones de cada contexto.
+A partir de los **Bounded Contexts** identificados durante el **Candidate Context Discovery**, se elaboraron los **Bounded Context Canvases** con el propósito de definir con mayor precisión las responsabilidades, propósito, lenguaje ubicuo, decisiones de negocio y comunicaciones de cada contexto.
+
+Para la elaboración de cada Canvas se siguió un proceso iterativo compuesto por las siguientes actividades:
+
+1. **Context Overview Definition:** definición del propósito, alcance y responsabilidad principal de cada Bounded Context.
+2. **Business Rules Distillation & Ubiquitous Language Capture:** identificación de las principales reglas de negocio y términos del lenguaje ubicuo asociados al contexto.
+3. **Capability Analysis:** identificación de las capacidades necesarias para cumplir con la responsabilidad del contexto.
+4. **Capability Layering:** organización de las capacidades en diferentes niveles cuando resulta aplicable.
+5. **Dependencies Capture:** identificación de las dependencias y comunicaciones con otros Bounded Contexts o sistemas externos.
+6. **Design Critique:** revisión del diseño para verificar la claridad de los límites, responsabilidades, reglas y dependencias del contexto.
 
 Los Bounded Contexts analizados son:
 
@@ -1057,15 +1078,19 @@ Cada Canvas permite representar de manera individual los límites y responsabili
 **Figura 4.1.1.3-7. Bounded Context Canvas - Monitoring & Configuration.**
 
 Los siete Canvas constituyen la base para la siguiente actividad de **Context Mapping**, donde se analizarán las dependencias y relaciones estructurales entre los Bounded Contexts.
-### 4.1.2. Context Mapping
+
 
 ### 4.1.2. Context Mapping
 
-Se analizaron las relaciones y dependencias entre los Bounded Contexts de SafeCore y se plantearon tres alternativas de organización.
+A partir de los **Bounded Context Canvases** elaborados anteriormente, se realizó el **Context Mapping** con el objetivo de identificar las relaciones estructurales, dependencias y formas de comunicación entre los diferentes Bounded Contexts de SafeCore.
+
+Para este análisis se revisaron las responsabilidades y dependencias identificadas en cada Canvas y se plantearon diferentes alternativas de organización de los contextos. Estas alternativas permiten evaluar cómo los cambios en los límites de los Bounded Contexts podrían afectar la comunicación, cohesión y complejidad de la solución.
 
 #### Opción 1: Mantener los siete Bounded Contexts
 
-Se mantienen los siete contextos identificados, conservando la separación de responsabilidades.
+Se mantienen los siete contextos identificados, conservando la separación de responsabilidades entre **Identity & Access, Device Management, Sensor Data Ingestion, Risk Detection, Emergency Response, Notification** y **Monitoring & Configuration**.
+
+Las principales relaciones identificadas corresponden a la comunicación entre contextos para registrar usuarios, administrar dispositivos, procesar datos de sensores, detectar riesgos, ejecutar respuestas de emergencia y gestionar notificaciones.
 
 ![SafeCore - Context Mapping Opción 1](assets/Chapter-4/Design/Context%20Mapping%20Option%201.png)
 
@@ -1073,7 +1098,9 @@ Se mantienen los siete contextos identificados, conservando la separación de re
 
 #### Opción 2: Unificar Sensor Data Ingestion y Risk Detection
 
-Se propone integrar ambos contextos en **Detection Management**, reduciendo la comunicación entre ellos.
+Se propone integrar **Sensor Data Ingestion** y **Risk Detection** en un único contexto denominado **Detection Management**.
+
+Esta alternativa reduce la comunicación entre ambos contextos, ya que la captura, procesamiento inicial y detección de condiciones de riesgo se encontrarían dentro de un mismo límite. Sin embargo, también concentra responsabilidades que actualmente se encuentran separadas.
 
 ![SafeCore - Context Mapping Opción 2](assets/Chapter-4/Design/Context%20Mapping%20Option%202.png)
 
@@ -1081,15 +1108,54 @@ Se propone integrar ambos contextos en **Detection Management**, reduciendo la c
 
 #### Opción 3: Separar Emergency Response y Actuator Control
 
-Se propone separar la coordinación de emergencias del control de los actuadores.
+Se propone separar la responsabilidad de **Emergency Response** en dos contextos: uno encargado de la coordinación de los protocolos de emergencia y otro encargado específicamente del control de los actuadores.
+
+Esta alternativa permite diferenciar la lógica de coordinación de una emergencia de la interacción con los dispositivos físicos, aunque introduce una nueva relación entre ambos contextos.
 
 ![SafeCore - Context Mapping Opción 3](assets/Chapter-4/Design/Context%20Mapping%20Option%203.png)
 
 **Figura 4.1.2-3. Context Mapping de SafeCore - Opción 3.**
 
+#### Análisis de alternativas mediante What-if
+
+Como parte del análisis de Context Mapping se plantearon las siguientes preguntas **What-if** para evaluar posibles modificaciones de los límites y responsabilidades:
+
+1. **¿Qué ocurriría si una capacidad de configuración se trasladara a Risk Detection?**  
+   Podría reducirse una dependencia para la evaluación de riesgos, pero también se mezclarían responsabilidades de administración y detección.
+
+2. **¿Qué ocurriría si una capacidad se descompusiera y una subcapacidad se trasladara a otro contexto?**  
+   Podría lograrse una mayor especialización, aunque aumentaría la cantidad de comunicaciones entre contextos.
+
+3. **¿Qué ocurriría si Emergency Response se dividiera en varios Bounded Contexts?**  
+   La coordinación de protocolos y el control físico de actuadores podrían evolucionar de manera independiente, pero se incrementaría la complejidad de integración.
+
+4. **¿Qué ocurriría si se creara un nuevo contexto a partir de capacidades presentes en Risk Detection, Emergency Response y Notification?**  
+   Podría formarse un contexto orientado a la gestión integral de incidentes, aunque sería necesario validar que sus responsabilidades mantengan una cohesión adecuada.
+
+5. **¿Qué ocurriría si Notification mantuviera una representación mínima de la alerta para reducir su dependencia de Risk Detection?**  
+   Se podría reducir el acoplamiento entre ambos contextos, a cambio de mantener información duplicada.
+
+6. **¿Qué ocurriría si se creara un servicio compartido para consultas de eventos e historial?**  
+   Podría evitarse la duplicación de funcionalidades de consulta, aunque se introduciría una dependencia adicional sobre dicho servicio.
+
+7. **¿Qué ocurriría si las capacidades principales de detección y respuesta se aislaran de los contextos administrativos?**  
+   Se reforzaría la separación entre las capacidades operativas de emergencia y las funciones de administración, monitoreo y configuración.
+
+#### Patrones de relación considerados
+
+Durante el análisis se consideraron diferentes patrones de relación de **Domain-Driven Design**:
+
+- **Customer/Supplier:** aplicable como relación candidata entre contextos donde un contexto requiere capacidades o información proporcionada por otro.
+- **Published Language:** aplicable a eventos compartidos, como **Alerta Generada**, que permiten comunicar información entre contextos.
+- **Anti-corruption Layer:** considerada como alternativa para aislar el modelo de SafeCore de sistemas externos, particularmente frente a servicios de infraestructura IoT como **AWS IoT**.
+- **Conformist:** considerado como una posibilidad cuando un contexto depende de un modelo externo que no controla.
+- **Shared Kernel:** no se establece actualmente como relación definitiva, debido a que requiere una validación adicional de las partes del modelo que podrían ser compartidas.
+
 #### Aproximación seleccionada
 
-Se mantiene la separación de los siete Bounded Contexts, preservando límites claros entre sus responsabilidades.
+Después de revisar las alternativas y las posibles modificaciones de límites, se mantiene la separación de los **siete Bounded Contexts** identificados inicialmente.
+
+Esta aproximación permite conservar límites claros entre las responsabilidades de gestión de usuarios, administración de dispositivos, procesamiento de datos, detección de riesgos, respuesta ante emergencias, notificaciones y monitoreo/configuración. Las alternativas de unificación o división quedan como posibilidades de evolución del diseño en caso de que futuras iteraciones evidencien cambios en las responsabilidades o dependencias.
 
 
 ### 4.1.3. Software Architecture
