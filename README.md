@@ -118,12 +118,17 @@ _[Captura de analíticos de colaboración/commits en GitHub — assets/project c
 <div style="page-break-after: always;"></div>
 
 ## Student Outcome
-
-_[Párrafo introductorio + cuadro de Student Outcome]_
-
-| Criterio específico | Acciones realizadas | Conclusiones |
-|---|---|---|
-| _[...]_ | _[Apellidos, Nombres — AV1: ...]_ | _[...]_ |
+ 
+El curso contribuye al cumplimiento del Student Outcome ABET: **ABET – EAC - Student Outcome 5** 
+ 
+**Criterio:** La capacidad de funcionar efectivamente en un equipo cuyos miembros juntos proporcionan liderazgo, crean un entorno de colaboración e inclusivo, establecen objetivos, planifican tareas y cumplen objetivos. 
+ 
+En el siguiente cuadro se describe las acciones realizadas y enunciados de conclusiones por parte del grupo, que permiten sustentar el haber alcanzado el logro del **ABET – EAC - Student Outcome 5**. 
+ 
+| Criterio específico | Acciones realizadas | Conclusiones | 
+|---|---|---| 
+| **Trabaja en equipo para proporcionar liderazgo en forma conjunta** | **Taquiri, Giuseppe**<br>AV1: Desarrolló y documentó el diseño estratégico de la solución, trabajando en EventStorming, Candidate Context Discovery, Domain Message Flows Modeling, incorporando Domain Storytelling, Bounded Context Canvases con sus 6 pasos de elaboración y Context Mapping mediante las Opciones 1, 2 y 3.<br><br>**Lagos Rivera, Kael Valentino**<br>AV1: <br><br>**Gonzalez Custodio, Carlos Alberto**<br>AV1: <br><br>**Tasayco Almonacid, Rafael Augusto**<br>AV1: <br><br>**Tasayco Osorio, Raúl Hiroshi**<br>AV1: <br><br>**Inga Hernandez, Ayrton Damian**<br>AV1: <br><br>**Huaman De La Cruz, Jean Pool**<br>AV1: | La participación conjunta de los integrantes permitió distribuir responsabilidades y desarrollar diferentes actividades del trabajo final. La elaboración de los artefactos de diseño permitió coordinar aportes individuales dentro de una estructura común y avanzar en el desarrollo de la solución IoT.<br><br> | 
+| **Crea un entorno colaborativo e inclusivo, establece metas, planifica tareas y cumple objetivos.** | **Taquiri, Giuseppe**<br>AV1: Participó en la elaboración y documentación del diseño de la solución, contribuyendo al desarrollo de EventStorming, Domain Storytelling, Bounded Context Canvases y Context Mapping.<br><br>**Lagos Rivera, Kael Valentino**<br>AV1: <br><br>**Gonzalez Custodio, Carlos Alberto**<br>AV1: <br><br>**Tasayco Almonacid, Rafael Augusto**<br>AV1: <br><br>**Tasayco Osorio, Raúl Hiroshi**<br>AV1: <br><br>**Inga Hernandez, Ayrton Damian**<br>AV1: <br><br>**Huaman De La Cruz, Jean Pool**<br>AV1: | El trabajo realizado de manera colaborativa permitió organizar las actividades del equipo y contribuir al cumplimiento de los objetivos establecidos para el trabajo final. Los aportes de los integrantes se integraron en el informe y permitieron avanzar progresivamente en el desarrollo de la solución.<br><br> |
 
 <div style="page-break-after: always;"></div>
 
@@ -151,16 +156,16 @@ Consolidarnos como la empresa líder en Latinoamérica en soluciones inteligente
 
 ### 1.1.2. Perfiles de integrantes del equipo
 
-| Foto                                                                                                                             | Alumno                            | Descripción|
-|----------------------------------------------------------------------------------------------------------------------------------|------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Imagen aqui| Taquiri Calderón, Jhunior Giussepe | Descripción aqui |
-| ![Kael_Foto](assets/Fotos/Kael_Foto.jpg) | Lagos Rivera, Kael Valentino       | Me llamo Kael Lagos, estudio en la UPC de Monterrico. Tengo muchas ganas de aprender, me considero una persona responsable que busca aprender de sus errores cada vez que puede y también me considero alguien que se centra en los detalles. Me comprometo a ayudar a mis compañeros para la elaboración de nuestro trabajo que nos pueda asegurar una buena nota al final. |
-| Imagen aqui      | Gonzalez Custodio, Carlos Alberto | Descripción aqui |
-| ![Rafa_Foto]() | Tasayco Almonacid, Rafael Augusto    | Descripción aqui  |
-| ![Raul_Foto](assets/Fotos/Raul_Tasayco_Profile.jpeg) | Tasayco Osorio, Raúl Hiroshi    | Soy estudiante de Ingeniería de Software en la Universidad Peruana de Ciencias Aplicadas (UPC), con experiencia en C++, Python, SQL, Angular, TypeScript, HTML y CSS, además de conocimientos en buenas prácticas de desarrollo, estructuras de datos y bases de datos. He participado en proyectos universitarios y en proyectos desarrollados en entornos reales, fortaleciendo mis habilidades de desarrollo frontend y backend, trabajo en equipo y resolución de problemas. Me caracterizo por ser responsable, comprometido y orientado al aprendizaje continuo. |
+| Foto | Alumno | Descripción| 
+|---|---|---| 
+| ![Giussepe_Foto](assets/Fotos/giussepe.png)| Taquiri Calderón, Jhunior Giussepe | Soy estudiante del séptimo ciclo de Ingeniería de Software en la UPC. Tengo experiencia en C++, Python, Java y SQL, además de conocimientos en desarrollo frontend, backend y aplicaciones móviles. Me considero una persona responsable, organizada y comprometida, con facilidad para trabajar en equipo y con interés en seguir aprendiendo. Mis expectativas para el curso de Desarrollo de Soluciones IoT son fortalecer mis conocimientos sobre dispositivos, conectividad y desarrollo de soluciones IoT, aplicando mis habilidades de programación para crear soluciones orientadas a problemas reales. | 
+| ![Kael\_Foto](assets/Fotos/Kael\_Foto.jpg) | Lagos Rivera, Kael Valentino | Me llamo Kael Lagos, estudio en la UPC de Monterrico. Tengo muchas ganas de aprender, me considero una persona responsable que busca aprender de sus errores cada vez que puede y también me considero alguien que se centra en los detalles. Me comprometo a ayudar a mis compañeros para la elaboración de nuestro trabajo que nos pueda asegurar una buena nota al final. | 
+| Imagen aqui      | Gonzalez Custodio, Carlos Alberto | Descripción aqui | 
+| ![Rafa\_Foto]() | Tasayco Almonacid, Rafael Augusto | Descripción aqui | 
+| ![Raul\_Foto](assets/Fotos/Raul\_Tasayco\_Profile.jpeg) | Tasayco Osorio, Raúl Hiroshi | Soy estudiante de Ingeniería de Software en la Universidad Peruana de Ciencias Aplicadas (UPC), con experiencia en C++, Python, SQL, Angular, TypeScript, HTML y CSS, además de conocimientos en buenas prácticas de desarrollo, estructuras de datos y bases de datos. He participado en proyectos universitarios y en proyectos desarrollados en entornos reales, fortaleciendo mis habilidades de desarrollo frontend y backend, trabajo en equipo y resolución de problemas. Me caracterizo por ser responsable, comprometido y orientado al aprendizaje continuo. | 
+| Imagen aqui| Inga Hernandez, Ayrton Damian | Descripción aqui | 
+| Imagen aqui| Huaman De La Cruz, Jean Pool| Descripción aqui | 
 
-| Imagen aqui| Inga Hernandez, Ayrton Damian | Descripción aqui |
-| Imagen aqui|Huaman De La Cruz, Jean Pool| Descripción aqui |
 
 ## 1.2. Solution Profile
 
