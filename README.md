@@ -1183,23 +1183,313 @@ _[...]_
 
 ## 4.2. Tactical-Level Domain-Driven Design
 
-### 4.2.X. Bounded Context: `<Nombre>`
+#### 4.2.1. Bounded Context: Emergency Response
 
-#### 4.2.X.1. Domain Layer
+El **Emergency Response Bounded Context** es responsable de ejecutar y coordinar las acciones definidas por los protocolos de emergencia de SafeCore. Este contexto recibe las situaciones de riesgo previamente identificadas por el Risk Detection Bounded Context y coordina la ejecución de las acciones de respuesta mediante los actuadores IoT disponibles.
 
-_[...]_
+Su responsabilidad se centra en transformar una situación de emergencia detectada en acciones concretas de respuesta, tales como la activación de protocolos de emergencia, el envío de comandos a actuadores y la ejecución coordinada de medidas destinadas a reducir el impacto del evento.
 
-#### 4.2.X.2. Interface Layer
+Dentro de este contexto se consideran escenarios como la respuesta ante movimientos sísmicos, incendios y fugas de gas. Dependiendo del tipo de emergencia, el sistema puede ejecutar diferentes acciones, como activar mecanismos de seguridad, controlar dispositivos de ventilación, cerrar válvulas de gas o coordinar otros actuadores definidos por el protocolo correspondiente.
 
-_[...]_
+El contexto mantiene su propia lógica de dominio para determinar cómo deben ejecutarse los protocolos y acciones de emergencia, mientras que los detalles de comunicación con dispositivos IoT y otros componentes externos se mantienen en la capa de infraestructura.
 
-#### 4.2.X.3. Application Layer
+De esta manera, el **Emergency Response Bounded Context** permite separar la lógica relacionada con la respuesta ante emergencias de otros contextos del sistema, como **Risk Detection**, encargado de identificar las condiciones de riesgo, y **Notification**, encargado de gestionar las comunicaciones y notificaciones asociadas a las alertas.
 
-_[...]_
+#### 4.2.1.1. Domain Layer
 
-#### 4.2.X.4. Infrastructure Layer
+La **Domain Layer** del **Emergency Response Bounded Context** encapsula la lógica de negocio relacionada con la ejecución y coordinación de las acciones de respuesta ante una emergencia. En esta capa se definen los elementos principales del dominio, como agregados, entidades y objetos de valor, que representan los conceptos clave del contexto.
 
-_[...]_
+**Aggregates**
+
+1. **EmergencyResponse**
+   - **Propósito**: El agregado principal es la respuesta de emergencia (`EmergencyResponse`), que encapsula la lógica de negocio relacionada con la ejecución coordinada de las acciones frente a una situación de riesgo.
+   - **Atributos**:
+     - `id`: Identificador único de la respuesta de emergencia.
+     - `emergencyType`: Tipo de emergencia que origina la respuesta, representado como un objeto de valor (`EmergencyType`).
+     - `riskSituationReference`: Referencia inmutable a la situación de riesgo que originó la respuesta.
+     - `status`: Estado actual de la respuesta, representado como un objeto de valor (`ResponseStatus`).
+     - `actions`: Conjunto de acciones asociadas a la respuesta, representadas como una relación **OneToMany** con la entidad `ResponseAction`.
+   - **Métodos**:
+     - `addAction(ResponseAction action)`: Agrega una acción de respuesta al agregado.
+     - `markActionAsExecuted(String actionId)`: Marca una acción específica como ejecutada y actualiza el estado general de la respuesta.
+     - `complete()`: Marca la respuesta como completada cuando todas sus acciones han finalizado.
+   - **Características**:
+     - Extiende `AuditableAbstractAggregateRoot`, lo que permite auditar cambios en las respuestas de emergencia.
+     - Gestiona la relación entre la respuesta y sus acciones, asegurando consistencia en el orden y estado de ejecución.
+
+2. **EmergencyProtocol**
+   - **Propósito**: El agregado `EmergencyProtocol` representa la definición reutilizable de un protocolo de emergencia, a partir del cual se instancia un `EmergencyResponse`.
+   - **Atributos**:
+     - `id`: Identificador único del protocolo.
+     - `emergencyType`: Tipo de emergencia al que aplica el protocolo, representado como un objeto de valor (`EmergencyType`).
+     - `steps`: Conjunto ordenado de pasos del protocolo, representados como una relación **OneToMany** con la entidad `ProtocolStep`.
+   - **Métodos**:
+     - `addStep(ProtocolStep step)`: Agrega un paso al protocolo, validando su orden de ejecución.
+     - `getOrderedSteps()`: Devuelve los pasos del protocolo ordenados según su secuencia de ejecución.
+   - **Características**:
+     - Extiende `AuditableAbstractAggregateRoot`, lo que permite auditar cambios en los protocolos.
+     - Gestiona la relación entre el protocolo y sus pasos, asegurando consistencia en su orden.
+
+**Entities**
+
+1. **ResponseAction**
+   - **Propósito**: La entidad `ResponseAction` representa una acción concreta ejecutada dentro de una respuesta de emergencia.
+   - **Atributos**:
+     - `id`: Identificador único de la acción.
+     - `command`: Comando enviado al actuador, representado como un objeto de valor (`ActuatorCommand`).
+     - `status`: Estado de ejecución de la acción, representado como un objeto de valor (`ResponseStatus`).
+   - **Métodos**:
+     - `markAsExecuted()`: Marca la acción como ejecutada exitosamente.
+     - `markAsFailed(String reason)`: Marca la acción como fallida, registrando el motivo.
+   - **Características**:
+     - Su ciclo de vida depende del agregado `EmergencyResponse`, del cual forma parte.
+     - Facilita el seguimiento individual de cada acción dentro de una respuesta.
+
+2. **ProtocolStep**
+   - **Propósito**: La entidad `ProtocolStep` representa un paso individual dentro de un protocolo de emergencia.
+   - **Atributos**:
+     - `id`: Identificador único del paso.
+     - `order`: Posición del paso dentro de la secuencia del protocolo.
+     - `actuatorType`: Tipo de actuador sobre el cual debe ejecutarse el paso.
+     - `actionTemplate`: Plantilla de la acción a generar cuando el paso se ejecuta.
+   - **Métodos**:
+     - `toResponseAction()`: Genera una instancia de `ResponseAction` a partir del paso, al momento de ejecutar el protocolo.
+   - **Características**:
+     - Define una relación ordenada entre los pasos y su secuencia de ejecución dentro del protocolo.
+     - Facilita la generación consistente de acciones de respuesta.
+
+**Value Objects**
+
+1. **EmergencyType**
+   - **Propósito**: El objeto de valor `EmergencyType` es una enumeración que define los tipos de emergencia soportados por el sistema.
+   - **Valores**:
+     - `SEISMIC_EVENT`: Movimiento sísmico.
+     - `FIRE`: Incendio.
+     - `GAS_LEAK`: Fuga de gas.
+   - **Características**:
+     - Representa los tipos de emergencia como valores inmutables, determinando qué protocolo debe activarse.
+
+2. **ResponseStatus**
+   - **Propósito**: El objeto de valor `ResponseStatus` es una enumeración que define los posibles estados de una respuesta o acción de emergencia.
+   - **Valores**:
+     - `INITIATED`: Respuesta o acción iniciada.
+     - `IN_PROGRESS`: En ejecución.
+     - `COMPLETED`: Completada exitosamente.
+     - `FAILED`: Fallida.
+   - **Características**:
+     - Representa el ciclo de vida de ejecución como valores inmutables, asegurando consistencia en el seguimiento del estado.
+
+3. **ActuatorCommand**
+   - **Propósito**: El objeto de valor `ActuatorCommand` representa el comando enviado a un actuador IoT como parte de una acción de respuesta.
+   - **Atributos**:
+     - `actuatorType`: Tipo de actuador destinatario del comando (p. ej. válvula de gas, sistema de iluminación).
+     - `instruction`: Instrucción específica a ejecutar por el actuador.
+     - `parameters`: Parámetros adicionales requeridos para la ejecución del comando.
+   - **Características**:
+     - No posee identidad propia; dos comandos con los mismos datos se consideran equivalentes.
+     - Encapsula la información necesaria para la comunicación con actuadores, sin exponer detalles de infraestructura.
+
+4. **RiskSituationReference**
+   - **Propósito**: El objeto de valor `RiskSituationReference` representa una referencia inmutable a la situación de riesgo que originó una respuesta de emergencia.
+   - **Atributos**:
+     - `riskSituationId`: Identificador de la situación de riesgo, proveniente del Risk Detection Bounded Context.
+     - `detectedAt`: Fecha y hora en que fue detectada la situación de riesgo.
+   - **Características**:
+     - Evita acoplar el agregado `EmergencyResponse` al modelo interno de otro Bounded Context.
+
+En conjunto, estos elementos permiten modelar de manera robusta la lógica de negocio relacionada con la ejecución de protocolos y acciones de emergencia, asegurando que las reglas del dominio se cumplan de manera consistente e independiente de los detalles de infraestructura.
+
+#### 4.2.1.2. Interface Layer
+
+La **Interface Layer** del **Emergency Response Bounded Context** expone los puntos de entrada al sistema a través de controladores REST. Estos controladores permiten la interacción con las entidades del dominio mediante solicitudes HTTP, facilitando la comunicación entre los clientes (u otros Bounded Contexts, como Risk Detection) y el sistema. Además, esta capa incluye recursos y transformadores que aseguran una representación adecuada de los datos y su conversión entre las capas de la aplicación.
+
+**Controllers**
+
+Los controladores son responsables de manejar las solicitudes HTTP y delegar la lógica de negocio a los servicios correspondientes. A continuación, se describen los principales controladores:
+
+1. **EmergencyResponsesController**
+   - **Propósito**: Gestiona las operaciones relacionadas con las respuestas de emergencia.
+   - **Endpoints**:
+     - `GET /api/v1/emergency-responses`: Obtiene la lista de todas las respuestas de emergencia.
+     - `GET /api/v1/emergency-responses/{emergencyResponseId}`: Obtiene los detalles de una respuesta de emergencia específica, incluyendo sus acciones.
+     - `POST /api/v1/emergency-responses`: Inicia una nueva respuesta de emergencia a partir de una situación de riesgo detectada.
+   - **Dependencias**:
+     - `EmergencyResponseQueryService`: Servicio encargado de manejar las consultas relacionadas con las respuestas de emergencia.
+     - `EmergencyResponseCommandService`: Servicio encargado de manejar los comandos relacionados con la creación y actualización de respuestas de emergencia.
+
+2. **EmergencyProtocolsController**
+   - **Propósito**: Gestiona las operaciones relacionadas con los protocolos de emergencia.
+   - **Endpoints**:
+     - `GET /api/v1/emergency-protocols`: Obtiene la lista de todos los protocolos de emergencia disponibles.
+     - `GET /api/v1/emergency-protocols/{protocolId}`: Obtiene los detalles de un protocolo específico, incluyendo sus pasos.
+   - **Dependencias**:
+     - `EmergencyProtocolQueryService`: Servicio encargado de manejar las consultas relacionadas con los protocolos de emergencia.
+
+3. **ResponseActionsController**
+   - **Propósito**: Gestiona las operaciones relacionadas con las acciones individuales de una respuesta de emergencia.
+   - **Endpoints**:
+     - `GET /api/v1/emergency-responses/{emergencyResponseId}/actions`: Obtiene la lista de acciones asociadas a una respuesta de emergencia.
+     - `PATCH /api/v1/emergency-responses/{emergencyResponseId}/actions/{actionId}`: Actualiza el estado de ejecución de una acción (usado como callback tras la ejecución de un comando sobre un actuador).
+   - **Dependencias**:
+     - `ResponseActionCommandService`: Servicio encargado de manejar los comandos relacionados con la actualización del estado de las acciones.
+
+**Resources**
+
+Los recursos representan los datos que se exponen a través de la API REST. Estos recursos son utilizados para estructurar las respuestas de los controladores y asegurar una representación clara y consistente de los datos. A continuación, se describen los principales recursos:
+
+1. **EmergencyResponseResource** Representa una respuesta de emergencia en el sistema.
+   - **Atributos**:
+     - `id`: Identificador único de la respuesta de emergencia.
+     - `emergencyType`: Tipo de emergencia asociada.
+     - `status`: Estado actual de la respuesta.
+     - `riskSituationId`: Identificador de la situación de riesgo que originó la respuesta.
+     - `actions`: Lista de acciones asociadas a la respuesta.
+
+2. **EmergencyProtocolResource** Representa un protocolo de emergencia en el sistema.
+   - **Atributos**:
+     - `id`: Identificador único del protocolo.
+     - `emergencyType`: Tipo de emergencia al que aplica el protocolo.
+     - `steps`: Lista ordenada de pasos que componen el protocolo.
+
+3. **ResponseActionResource** Representa una acción de respuesta en el sistema.
+   - **Atributos**:
+     - `id`: Identificador único de la acción.
+     - `actuatorType`: Tipo de actuador destinatario de la acción.
+     - `instruction`: Instrucción enviada al actuador.
+     - `status`: Estado de ejecución de la acción.
+
+4. **InitiateEmergencyResponseResource** Representa los datos necesarios para iniciar una nueva respuesta de emergencia.
+   - **Atributos**:
+     - `emergencyType`: Tipo de emergencia detectada.
+     - `riskSituationId`: Identificador de la situación de riesgo asociada.
+     - `detectedAt`: Fecha y hora en que fue detectada la situación de riesgo.
+
+5. **UpdateResponseActionStatusResource** Representa los datos necesarios para actualizar el estado de una acción de respuesta.
+   - **Atributos**:
+     - `status`: Nuevo estado de la acción.
+     - `resultDetails`: Detalles del resultado devuelto por el actuador (opcional, usado en caso de fallo).
+
+**Transformers**
+
+Los transformadores son responsables de convertir las entidades del dominio en recursos y viceversa. Esto asegura que los datos expuestos a través de la API REST sean consistentes y estén en el formato esperado. A continuación, se describen los principales transformadores:
+
+1. **EmergencyResponseResourceFromEntityAssembler** Convierte una entidad `EmergencyResponse` en un recurso `EmergencyResponseResource`.
+   - **Método principal**:
+     - `toResourceFromEntity(EmergencyResponse entity)`: Transforma una respuesta de emergencia del dominio en un recurso.
+
+2. **EmergencyProtocolResourceFromEntityAssembler** Convierte una entidad `EmergencyProtocol` en un recurso `EmergencyProtocolResource`.
+   - **Método principal**:
+     - `toResourceFromEntity(EmergencyProtocol entity)`: Transforma un protocolo de emergencia del dominio en un recurso.
+
+3. **ResponseActionResourceFromEntityAssembler** Convierte una entidad `ResponseAction` en un recurso `ResponseActionResource`.
+   - **Método principal**:
+     - `toResourceFromEntity(ResponseAction entity)`: Transforma una acción de respuesta del dominio en un recurso.
+
+4. **InitiateEmergencyResponseCommandFromResourceAssembler** Convierte un recurso `InitiateEmergencyResponseResource` en un comando `InitiateEmergencyResponseCommand`.
+   - **Método principal**:
+     - `toCommandFromResource(InitiateEmergencyResponseResource resource)`: Transforma los datos de inicio de una respuesta en un comando.
+
+5. **UpdateResponseActionStatusCommandFromResourceAssembler** Convierte un recurso `UpdateResponseActionStatusResource` en un comando `UpdateResponseActionStatusCommand`.
+   - **Método principal**:
+     - `toCommandFromResource(UpdateResponseActionStatusResource resource)`: Transforma los datos de actualización de una acción en un comando.
+
+**Relaciones entre componentes**
+
+- Los controladores utilizan los servicios de consulta (`EmergencyResponseQueryService`, `EmergencyProtocolQueryService`) y de comandos (`EmergencyResponseCommandService`, `ResponseActionCommandService`) para delegar la lógica de negocio.
+- Los transformadores convierten las entidades del dominio en recursos para las respuestas HTTP, y transforman los recursos entrantes en comandos para las solicitudes que modifican el estado del sistema.
+- Los recursos estructuran los datos expuestos a los clientes y a otros Bounded Contexts (como Risk Detection, que consume el endpoint de inicio de respuesta), asegurando una representación clara y consistente.
+
+Esta estructura asegura que la Interface Layer sea modular, reutilizable y fácil de mantener, facilitando la interacción entre los clientes, otros Bounded Contexts y el sistema.
+
+#### 4.2.1.3. Application Layer
+
+La **Application Layer** del **Emergency Response Bounded Context** actúa como un intermediario entre la Domain Layer y las capas externas, como la Interface Layer y la Infrastructure Layer. Su propósito principal es coordinar las operaciones de negocio, manejar comandos y consultas, y orquestar la lógica de aplicación —como la selección y ejecución de protocolos de emergencia— sin exponer directamente los detalles del dominio.
+
+**Command Services**
+
+Los servicios de comandos son responsables de ejecutar operaciones que modifican el estado del sistema. A continuación, se describen los principales servicios de comandos:
+
+1. **EmergencyResponseCommandServiceImpl**
+   - **Propósito**: Gestiona las operaciones relacionadas con las respuestas de emergencia, como su creación a partir de una situación de riesgo detectada.
+   - **Métodos principales**:
+     - `handle(InitiateEmergencyResponseCommand command)`: Selecciona el protocolo de emergencia correspondiente al tipo de emergencia recibido, genera las acciones de respuesta a partir de sus pasos y crea una nueva `EmergencyResponse`.
+   - **Dependencias**:
+     - `EmergencyResponseRepository`: Interactúa con la base de datos para guardar y recuperar respuestas de emergencia.
+     - `EmergencyProtocolRepository`: Recupera el protocolo aplicable al tipo de emergencia recibido.
+     - `ProtocolSelectionService`: Determina qué protocolo de emergencia corresponde activar.
+     - `ProtocolExecutionService`: Orquesta la generación de las acciones de respuesta a partir de los pasos del protocolo.
+
+2. **ResponseActionCommandServiceImpl**
+   - **Propósito**: Gestiona las operaciones relacionadas con las acciones individuales de una respuesta de emergencia, como la actualización de su estado de ejecución.
+   - **Métodos principales**:
+     - `handle(UpdateResponseActionStatusCommand command)`: Actualiza el estado de una acción de respuesta (ejecutada o fallida) y verifica si corresponde marcar la respuesta de emergencia como completada.
+   - **Dependencias**:
+     - `EmergencyResponseRepository`: Interactúa con la base de datos para recuperar y actualizar la respuesta de emergencia asociada.
+     - `ActuatorGatewayService`: Servicio externo utilizado para despachar los comandos de actuador correspondientes a cada acción.
+
+**Query Services**
+
+Los servicios de consultas son responsables de recuperar información del sistema sin modificar su estado. A continuación, se describen los principales servicios de consultas:
+
+1. **EmergencyResponseQueryServiceImpl**
+   - **Propósito**: Gestiona las consultas relacionadas con las respuestas de emergencia.
+   - **Métodos principales**:
+     - `handle(GetAllEmergencyResponsesQuery query)`: Recupera todas las respuestas de emergencia registradas en el sistema.
+     - `handle(GetEmergencyResponseByIdQuery query)`: Recupera una respuesta de emergencia específica por su ID, incluyendo sus acciones asociadas.
+   - **Dependencias**:
+     - `EmergencyResponseRepository`: Interactúa con la base de datos para recuperar respuestas de emergencia.
+
+2. **EmergencyProtocolQueryServiceImpl**
+   - **Propósito**: Gestiona las consultas relacionadas con los protocolos de emergencia.
+   - **Métodos principales**:
+     - `handle(GetAllEmergencyProtocolsQuery query)`: Recupera todos los protocolos de emergencia disponibles en el sistema.
+     - `handle(GetEmergencyProtocolByIdQuery query)`: Recupera un protocolo específico por su ID, incluyendo sus pasos.
+   - **Dependencias**:
+     - `EmergencyProtocolRepository`: Interactúa con la base de datos para recuperar protocolos de emergencia.
+
+**Relaciones entre componentes**
+
+- Los Command Services interactúan con los repositorios para modificar el estado del sistema, con los servicios de dominio (`ProtocolSelectionService`, `ProtocolExecutionService`) para aplicar las reglas de negocio, y con servicios externos, como `ActuatorGatewayService`, para el despacho de comandos hacia los actuadores IoT.
+- Los Query Services interactúan únicamente con los repositorios para recuperar información del sistema.
+
+Esta estructura asegura que la Application Layer sea modular, reutilizable y fácil de mantener, permitiendo una separación clara de responsabilidades y facilitando la evolución del sistema.
+
+#### 4.2.1.4. Infrastructure Layer
+
+La **Infrastructure Layer** del **Emergency Response Bounded Context** proporciona las implementaciones técnicas necesarias para soportar las operaciones del sistema. Esta capa incluye repositorios para la persistencia de datos y componentes relacionados con la comunicación hacia los actuadores IoT y la publicación de eventos de dominio hacia otros Bounded Contexts. Su objetivo principal es conectar la lógica de negocio con los recursos externos, como la base de datos, los dispositivos IoT y los servicios de mensajería.
+
+**Persistencia (JPA Repositories)**
+
+1. **EmergencyResponseRepository**
+   - **Propósito**: Proporciona métodos para interactuar con la base de datos de respuestas de emergencia.
+   - **Métodos principales**:
+     - `findByStatus`: Busca respuestas de emergencia según su estado actual.
+     - `findByEmergencyType`: Busca respuestas de emergencia asociadas a un tipo de emergencia específico.
+
+2. **EmergencyProtocolRepository**
+   - **Propósito**: Proporciona métodos para interactuar con la base de datos de protocolos de emergencia.
+   - **Métodos principales**:
+     - `findByEmergencyType`: Busca el protocolo de emergencia correspondiente a un tipo de emergencia específico.
+     - `existsByEmergencyType`: Verifica si existe un protocolo definido para un tipo de emergencia.
+
+**Servicios Externos (Gateways)**
+
+1. **ActuatorGatewayServiceImpl**
+   - **Propósito**: Implementa la comunicación con la infraestructura IoT (AWS IoT Core) para el envío de comandos hacia los actuadores físicos, actuando como Anti-Corruption Layer frente al modelo externo del proveedor.
+   - **Métodos principales**:
+     - `dispatch(ActuatorCommand command)`: Traduce un comando del dominio a la representación requerida por AWS IoT y lo envía al actuador correspondiente.
+
+2. **EmergencyEventPublisherServiceImpl**
+   - **Propósito**: Publica los eventos de dominio generados por el Emergency Response Bounded Context (`EmergencyResponseInitiated`, `ResponseActionExecuted`, `ResponseActionFailed`, `EmergencyResponseCompleted`) hacia el bus de eventos, permitiendo que otros Bounded Contexts, como Notification, reaccionen a ellos.
+   - **Métodos principales**:
+     - `publish(DomainEvent event)`: Serializa y publica un evento de dominio en el canal de mensajería correspondiente.
+
+**Relaciones entre componentes**
+
+- **Persistencia**: Los repositorios (`EmergencyResponseRepository`, `EmergencyProtocolRepository`) proporcionan acceso a los datos almacenados en la base de datos, permitiendo a las capas superiores interactuar con las entidades del dominio.
+- **Servicios externos**: `ActuatorGatewayServiceImpl` traduce las decisiones del dominio en comandos físicos ejecutados por los actuadores, mientras que `EmergencyEventPublisherServiceImpl` desacopla al Emergency Response Bounded Context de los demás contextos que consumen sus eventos.
+
+Esta estructura asegura que la Infrastructure Layer sea modular, reutilizable y fácil de mantener, facilitando la integración con otros sistemas y servicios externos.
 
 #### 4.2.X.5. Bounded Context Software Architecture Component Level Diagrams
 
