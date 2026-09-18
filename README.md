@@ -1294,9 +1294,107 @@ La **Domain Layer** del **Emergency Response Bounded Context** encapsula la lóg
 
 En conjunto, estos elementos permiten modelar de manera robusta la lógica de negocio relacionada con la ejecución de protocolos y acciones de emergencia, asegurando que las reglas del dominio se cumplan de manera consistente e independiente de los detalles de infraestructura.
 
-#### 4.2.X.2. Interface Layer
+#### 4.2.1.2. Interface Layer
 
-_[...]_
+La **Interface Layer** del **Emergency Response Bounded Context** expone los puntos de entrada al sistema a través de controladores REST. Estos controladores permiten la interacción con las entidades del dominio mediante solicitudes HTTP, facilitando la comunicación entre los clientes (u otros Bounded Contexts, como Risk Detection) y el sistema. Además, esta capa incluye recursos y transformadores que aseguran una representación adecuada de los datos y su conversión entre las capas de la aplicación.
+
+**Controllers**
+
+Los controladores son responsables de manejar las solicitudes HTTP y delegar la lógica de negocio a los servicios correspondientes. A continuación, se describen los principales controladores:
+
+1. **EmergencyResponsesController**
+   - **Propósito**: Gestiona las operaciones relacionadas con las respuestas de emergencia.
+   - **Endpoints**:
+     - `GET /api/v1/emergency-responses`: Obtiene la lista de todas las respuestas de emergencia.
+     - `GET /api/v1/emergency-responses/{emergencyResponseId}`: Obtiene los detalles de una respuesta de emergencia específica, incluyendo sus acciones.
+     - `POST /api/v1/emergency-responses`: Inicia una nueva respuesta de emergencia a partir de una situación de riesgo detectada.
+   - **Dependencias**:
+     - `EmergencyResponseQueryService`: Servicio encargado de manejar las consultas relacionadas con las respuestas de emergencia.
+     - `EmergencyResponseCommandService`: Servicio encargado de manejar los comandos relacionados con la creación y actualización de respuestas de emergencia.
+
+2. **EmergencyProtocolsController**
+   - **Propósito**: Gestiona las operaciones relacionadas con los protocolos de emergencia.
+   - **Endpoints**:
+     - `GET /api/v1/emergency-protocols`: Obtiene la lista de todos los protocolos de emergencia disponibles.
+     - `GET /api/v1/emergency-protocols/{protocolId}`: Obtiene los detalles de un protocolo específico, incluyendo sus pasos.
+   - **Dependencias**:
+     - `EmergencyProtocolQueryService`: Servicio encargado de manejar las consultas relacionadas con los protocolos de emergencia.
+
+3. **ResponseActionsController**
+   - **Propósito**: Gestiona las operaciones relacionadas con las acciones individuales de una respuesta de emergencia.
+   - **Endpoints**:
+     - `GET /api/v1/emergency-responses/{emergencyResponseId}/actions`: Obtiene la lista de acciones asociadas a una respuesta de emergencia.
+     - `PATCH /api/v1/emergency-responses/{emergencyResponseId}/actions/{actionId}`: Actualiza el estado de ejecución de una acción (usado como callback tras la ejecución de un comando sobre un actuador).
+   - **Dependencias**:
+     - `ResponseActionCommandService`: Servicio encargado de manejar los comandos relacionados con la actualización del estado de las acciones.
+
+**Resources**
+
+Los recursos representan los datos que se exponen a través de la API REST. Estos recursos son utilizados para estructurar las respuestas de los controladores y asegurar una representación clara y consistente de los datos. A continuación, se describen los principales recursos:
+
+1. **EmergencyResponseResource** Representa una respuesta de emergencia en el sistema.
+   - **Atributos**:
+     - `id`: Identificador único de la respuesta de emergencia.
+     - `emergencyType`: Tipo de emergencia asociada.
+     - `status`: Estado actual de la respuesta.
+     - `riskSituationId`: Identificador de la situación de riesgo que originó la respuesta.
+     - `actions`: Lista de acciones asociadas a la respuesta.
+
+2. **EmergencyProtocolResource** Representa un protocolo de emergencia en el sistema.
+   - **Atributos**:
+     - `id`: Identificador único del protocolo.
+     - `emergencyType`: Tipo de emergencia al que aplica el protocolo.
+     - `steps`: Lista ordenada de pasos que componen el protocolo.
+
+3. **ResponseActionResource** Representa una acción de respuesta en el sistema.
+   - **Atributos**:
+     - `id`: Identificador único de la acción.
+     - `actuatorType`: Tipo de actuador destinatario de la acción.
+     - `instruction`: Instrucción enviada al actuador.
+     - `status`: Estado de ejecución de la acción.
+
+4. **InitiateEmergencyResponseResource** Representa los datos necesarios para iniciar una nueva respuesta de emergencia.
+   - **Atributos**:
+     - `emergencyType`: Tipo de emergencia detectada.
+     - `riskSituationId`: Identificador de la situación de riesgo asociada.
+     - `detectedAt`: Fecha y hora en que fue detectada la situación de riesgo.
+
+5. **UpdateResponseActionStatusResource** Representa los datos necesarios para actualizar el estado de una acción de respuesta.
+   - **Atributos**:
+     - `status`: Nuevo estado de la acción.
+     - `resultDetails`: Detalles del resultado devuelto por el actuador (opcional, usado en caso de fallo).
+
+**Transformers**
+
+Los transformadores son responsables de convertir las entidades del dominio en recursos y viceversa. Esto asegura que los datos expuestos a través de la API REST sean consistentes y estén en el formato esperado. A continuación, se describen los principales transformadores:
+
+1. **EmergencyResponseResourceFromEntityAssembler** Convierte una entidad `EmergencyResponse` en un recurso `EmergencyResponseResource`.
+   - **Método principal**:
+     - `toResourceFromEntity(EmergencyResponse entity)`: Transforma una respuesta de emergencia del dominio en un recurso.
+
+2. **EmergencyProtocolResourceFromEntityAssembler** Convierte una entidad `EmergencyProtocol` en un recurso `EmergencyProtocolResource`.
+   - **Método principal**:
+     - `toResourceFromEntity(EmergencyProtocol entity)`: Transforma un protocolo de emergencia del dominio en un recurso.
+
+3. **ResponseActionResourceFromEntityAssembler** Convierte una entidad `ResponseAction` en un recurso `ResponseActionResource`.
+   - **Método principal**:
+     - `toResourceFromEntity(ResponseAction entity)`: Transforma una acción de respuesta del dominio en un recurso.
+
+4. **InitiateEmergencyResponseCommandFromResourceAssembler** Convierte un recurso `InitiateEmergencyResponseResource` en un comando `InitiateEmergencyResponseCommand`.
+   - **Método principal**:
+     - `toCommandFromResource(InitiateEmergencyResponseResource resource)`: Transforma los datos de inicio de una respuesta en un comando.
+
+5. **UpdateResponseActionStatusCommandFromResourceAssembler** Convierte un recurso `UpdateResponseActionStatusResource` en un comando `UpdateResponseActionStatusCommand`.
+   - **Método principal**:
+     - `toCommandFromResource(UpdateResponseActionStatusResource resource)`: Transforma los datos de actualización de una acción en un comando.
+
+**Relaciones entre componentes**
+
+- Los controladores utilizan los servicios de consulta (`EmergencyResponseQueryService`, `EmergencyProtocolQueryService`) y de comandos (`EmergencyResponseCommandService`, `ResponseActionCommandService`) para delegar la lógica de negocio.
+- Los transformadores convierten las entidades del dominio en recursos para las respuestas HTTP, y transforman los recursos entrantes en comandos para las solicitudes que modifican el estado del sistema.
+- Los recursos estructuran los datos expuestos a los clientes y a otros Bounded Contexts (como Risk Detection, que consume el endpoint de inicio de respuesta), asegurando una representación clara y consistente.
+
+Esta estructura asegura que la Interface Layer sea modular, reutilizable y fácil de mantener, facilitando la interacción entre los clientes, otros Bounded Contexts y el sistema.
 
 #### 4.2.X.3. Application Layer
 
