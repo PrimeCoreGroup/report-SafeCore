@@ -156,8 +156,9 @@ Consolidarnos como la empresa líder en Latinoamérica en soluciones inteligente
 | Imagen aqui| Taquiri Calderón, Jhunior Giussepe | Descripción aqui |
 | ![Kael_Foto](assets/Fotos/Kael_Foto.jpg) | Lagos Rivera, Kael Valentino       | Me llamo Kael Lagos, estudio en la UPC de Monterrico. Tengo muchas ganas de aprender, me considero una persona responsable que busca aprender de sus errores cada vez que puede y también me considero alguien que se centra en los detalles. Me comprometo a ayudar a mis compañeros para la elaboración de nuestro trabajo que nos pueda asegurar una buena nota al final. |
 | Imagen aqui      | Gonzalez Custodio, Carlos Alberto | Descripción aqui |
-|Imagen aqui   | Tasayco Almonacid, Rafael Augusto    | Descripción aqui  |
-| Imagen aqui | Tasayco Osorio, Raúl Hiroshi    | Descripción aqui |
+| ![Rafa_Foto]() | Tasayco Almonacid, Rafael Augusto    | Descripción aqui  |
+| ![Raul_Foto](assets/Fotos/Raul_Tasayco_Profile.jpeg) | Tasayco Osorio, Raúl Hiroshi    | Soy estudiante de Ingeniería de Software en la Universidad Peruana de Ciencias Aplicadas (UPC), con experiencia en C++, Python, SQL, Angular, TypeScript, HTML y CSS, además de conocimientos en buenas prácticas de desarrollo, estructuras de datos y bases de datos. He participado en proyectos universitarios y en proyectos desarrollados en entornos reales, fortaleciendo mis habilidades de desarrollo frontend y backend, trabajo en equipo y resolución de problemas. Me caracterizo por ser responsable, comprometido y orientado al aprendizaje continuo. |
+
 | Imagen aqui| Inga Hernandez, Ayrton Damian | Descripción aqui |
 | Imagen aqui|Huaman De La Cruz, Jean Pool| Descripción aqui |
 
