@@ -1486,9 +1486,48 @@ La **Infrastructure Layer** del **Emergency Response Bounded Context** proporcio
 
 Esta estructura asegura que la Infrastructure Layer sea modular, reutilizable y fácil de mantener, facilitando la integración con otros sistemas y servicios externos.
 
-#### 4.2.X.5. Bounded Context Software Architecture Component Level Diagrams
+#### 4.2.1.5. Bounded Context Software Architecture Component Level Diagrams
 
-_[...]_
+En esta sección se presenta el diagrama de componentes del **Emergency Response Bounded Context**, el cual detalla los principales módulos y sus interacciones dentro del contexto delimitado. Este diagrama sigue el enfoque del **C4 Model** para representar los componentes clave, como servicios de aplicación, controladores, repositorios y servicios externos, junto con sus relaciones.
+
+El propósito de este diagrama es proporcionar una visión clara y estructurada de cómo se organizan los componentes dentro del contexto, facilitando la comprensión de su arquitectura y permitiendo identificar puntos de integración y responsabilidades.
+
+El **Emergency Response Bounded Context** está compuesto por los siguientes módulos principales:
+
+1. **Interface Layer**:
+   - Expone los puntos de entrada al sistema a través de controladores REST.
+   - Incluye recursos y transformadores que aseguran una representación adecuada de los datos y su conversión entre las capas de la aplicación.
+   - Proporciona endpoints para operaciones como el inicio de una respuesta de emergencia, la consulta de protocolos y la actualización del estado de las acciones.
+
+2. **Application Layer**:
+   - Coordina las operaciones de negocio relacionadas con la ejecución y el seguimiento de las respuestas de emergencia.
+   - Incluye servicios de comandos y consultas que interactúan con la Domain Layer y la Infrastructure Layer.
+   - Orquesta la selección y ejecución de protocolos de emergencia, así como el despacho de comandos hacia los actuadores.
+
+3. **Domain Layer**:
+   - Encapsula la lógica de negocio relacionada con la ejecución de protocolos y acciones de respuesta ante emergencias.
+   - Define los agregados, entidades y objetos de valor que representan los conceptos clave del dominio, como respuestas de emergencia, protocolos y comandos de actuadores.
+   - Asegura que las reglas de negocio, como la secuencia de ejecución de un protocolo, se cumplan de manera consistente.
+
+4. **Infrastructure Layer**:
+   - Proporciona las implementaciones técnicas necesarias para soportar las operaciones del sistema.
+   - Incluye repositorios para la persistencia de datos y componentes que conectan la lógica de negocio con los recursos externos, como la base de datos y la infraestructura IoT.
+   - Implementa servicios auxiliares como la comunicación con actuadores (Anti-Corruption Layer hacia AWS IoT) y la publicación de eventos de dominio.
+
+```mermaid
+graph TD
+    IL["Interface Layer<br/>Emergency Response<br/>[Component: Spring Boot]"]
+    AL["Application Layer<br/>Emergency Response<br/>[Component: Spring Boot]"]
+    INFRA["Infrastructure Layer<br/>Emergency Response<br/>[Component: Spring Boot]"]
+    DL["Domain Layer<br/>Emergency Response<br/>[Component: Spring Boot]"]
+    DB[("Database<br/>[Container: PostgreSQL]")]
+
+    IL -->|calls| AL
+    AL -->|uses| INFRA
+    AL -->|uses| DL
+    INFRA -->|uses| DL
+    INFRA -.->|JSON/HTTPS| DB
+```
 
 #### 4.2.X.6. Bounded Context Software Architecture Code Level Diagrams
 
