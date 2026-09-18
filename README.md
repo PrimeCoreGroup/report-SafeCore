@@ -1190,9 +1190,109 @@ El contexto mantiene su propia lógica de dominio para determinar cómo deben ej
 
 De esta manera, el **Emergency Response Bounded Context** permite separar la lógica relacionada con la respuesta ante emergencias de otros contextos del sistema, como **Risk Detection**, encargado de identificar las condiciones de riesgo, y **Notification**, encargado de gestionar las comunicaciones y notificaciones asociadas a las alertas.
 
-#### 4.2.X.1. Domain Layer
+#### 4.2.1.1. Domain Layer
 
-_[...]_
+La **Domain Layer** del **Emergency Response Bounded Context** encapsula la lógica de negocio relacionada con la ejecución y coordinación de las acciones de respuesta ante una emergencia. En esta capa se definen los elementos principales del dominio, como agregados, entidades y objetos de valor, que representan los conceptos clave del contexto.
+
+**Aggregates**
+
+1. **EmergencyResponse**
+   - **Propósito**: El agregado principal es la respuesta de emergencia (`EmergencyResponse`), que encapsula la lógica de negocio relacionada con la ejecución coordinada de las acciones frente a una situación de riesgo.
+   - **Atributos**:
+     - `id`: Identificador único de la respuesta de emergencia.
+     - `emergencyType`: Tipo de emergencia que origina la respuesta, representado como un objeto de valor (`EmergencyType`).
+     - `riskSituationReference`: Referencia inmutable a la situación de riesgo que originó la respuesta.
+     - `status`: Estado actual de la respuesta, representado como un objeto de valor (`ResponseStatus`).
+     - `actions`: Conjunto de acciones asociadas a la respuesta, representadas como una relación **OneToMany** con la entidad `ResponseAction`.
+   - **Métodos**:
+     - `addAction(ResponseAction action)`: Agrega una acción de respuesta al agregado.
+     - `markActionAsExecuted(String actionId)`: Marca una acción específica como ejecutada y actualiza el estado general de la respuesta.
+     - `complete()`: Marca la respuesta como completada cuando todas sus acciones han finalizado.
+   - **Características**:
+     - Extiende `AuditableAbstractAggregateRoot`, lo que permite auditar cambios en las respuestas de emergencia.
+     - Gestiona la relación entre la respuesta y sus acciones, asegurando consistencia en el orden y estado de ejecución.
+
+2. **EmergencyProtocol**
+   - **Propósito**: El agregado `EmergencyProtocol` representa la definición reutilizable de un protocolo de emergencia, a partir del cual se instancia un `EmergencyResponse`.
+   - **Atributos**:
+     - `id`: Identificador único del protocolo.
+     - `emergencyType`: Tipo de emergencia al que aplica el protocolo, representado como un objeto de valor (`EmergencyType`).
+     - `steps`: Conjunto ordenado de pasos del protocolo, representados como una relación **OneToMany** con la entidad `ProtocolStep`.
+   - **Métodos**:
+     - `addStep(ProtocolStep step)`: Agrega un paso al protocolo, validando su orden de ejecución.
+     - `getOrderedSteps()`: Devuelve los pasos del protocolo ordenados según su secuencia de ejecución.
+   - **Características**:
+     - Extiende `AuditableAbstractAggregateRoot`, lo que permite auditar cambios en los protocolos.
+     - Gestiona la relación entre el protocolo y sus pasos, asegurando consistencia en su orden.
+
+**Entities**
+
+1. **ResponseAction**
+   - **Propósito**: La entidad `ResponseAction` representa una acción concreta ejecutada dentro de una respuesta de emergencia.
+   - **Atributos**:
+     - `id`: Identificador único de la acción.
+     - `command`: Comando enviado al actuador, representado como un objeto de valor (`ActuatorCommand`).
+     - `status`: Estado de ejecución de la acción, representado como un objeto de valor (`ResponseStatus`).
+   - **Métodos**:
+     - `markAsExecuted()`: Marca la acción como ejecutada exitosamente.
+     - `markAsFailed(String reason)`: Marca la acción como fallida, registrando el motivo.
+   - **Características**:
+     - Su ciclo de vida depende del agregado `EmergencyResponse`, del cual forma parte.
+     - Facilita el seguimiento individual de cada acción dentro de una respuesta.
+
+2. **ProtocolStep**
+   - **Propósito**: La entidad `ProtocolStep` representa un paso individual dentro de un protocolo de emergencia.
+   - **Atributos**:
+     - `id`: Identificador único del paso.
+     - `order`: Posición del paso dentro de la secuencia del protocolo.
+     - `actuatorType`: Tipo de actuador sobre el cual debe ejecutarse el paso.
+     - `actionTemplate`: Plantilla de la acción a generar cuando el paso se ejecuta.
+   - **Métodos**:
+     - `toResponseAction()`: Genera una instancia de `ResponseAction` a partir del paso, al momento de ejecutar el protocolo.
+   - **Características**:
+     - Define una relación ordenada entre los pasos y su secuencia de ejecución dentro del protocolo.
+     - Facilita la generación consistente de acciones de respuesta.
+
+**Value Objects**
+
+1. **EmergencyType**
+   - **Propósito**: El objeto de valor `EmergencyType` es una enumeración que define los tipos de emergencia soportados por el sistema.
+   - **Valores**:
+     - `SEISMIC_EVENT`: Movimiento sísmico.
+     - `FIRE`: Incendio.
+     - `GAS_LEAK`: Fuga de gas.
+   - **Características**:
+     - Representa los tipos de emergencia como valores inmutables, determinando qué protocolo debe activarse.
+
+2. **ResponseStatus**
+   - **Propósito**: El objeto de valor `ResponseStatus` es una enumeración que define los posibles estados de una respuesta o acción de emergencia.
+   - **Valores**:
+     - `INITIATED`: Respuesta o acción iniciada.
+     - `IN_PROGRESS`: En ejecución.
+     - `COMPLETED`: Completada exitosamente.
+     - `FAILED`: Fallida.
+   - **Características**:
+     - Representa el ciclo de vida de ejecución como valores inmutables, asegurando consistencia en el seguimiento del estado.
+
+3. **ActuatorCommand**
+   - **Propósito**: El objeto de valor `ActuatorCommand` representa el comando enviado a un actuador IoT como parte de una acción de respuesta.
+   - **Atributos**:
+     - `actuatorType`: Tipo de actuador destinatario del comando (p. ej. válvula de gas, sistema de iluminación).
+     - `instruction`: Instrucción específica a ejecutar por el actuador.
+     - `parameters`: Parámetros adicionales requeridos para la ejecución del comando.
+   - **Características**:
+     - No posee identidad propia; dos comandos con los mismos datos se consideran equivalentes.
+     - Encapsula la información necesaria para la comunicación con actuadores, sin exponer detalles de infraestructura.
+
+4. **RiskSituationReference**
+   - **Propósito**: El objeto de valor `RiskSituationReference` representa una referencia inmutable a la situación de riesgo que originó una respuesta de emergencia.
+   - **Atributos**:
+     - `riskSituationId`: Identificador de la situación de riesgo, proveniente del Risk Detection Bounded Context.
+     - `detectedAt`: Fecha y hora en que fue detectada la situación de riesgo.
+   - **Características**:
+     - Evita acoplar el agregado `EmergencyResponse` al modelo interno de otro Bounded Context.
+
+En conjunto, estos elementos permiten modelar de manera robusta la lógica de negocio relacionada con la ejecución de protocolos y acciones de emergencia, asegurando que las reglas del dominio se cumplan de manera consistente e independiente de los detalles de infraestructura.
 
 #### 4.2.X.2. Interface Layer
 
