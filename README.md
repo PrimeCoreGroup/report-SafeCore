@@ -505,15 +505,15 @@ Tácticas:
 
 | Campo | Información |
 |---|---|
-| **Fotografía** | ![Foto del entrevistado](resources/Cap-2/Entrevistas/segmento-1/entrevista-02.png) |
-| Entrevistado | [Nombre y apellido] |
-| Edad | [Edad] |
-| Distrito | [Distrito] |
-| Ocupación / Cargo | [Cargo del entrevistado] |
-| Fecha | 11/09/2026 |
-| Duración | 10:12 min |
-| Inicio en el video | 08:35 |
-| Link del video | [Ver entrevista](https://stream.microsoft.com/) |
+| **Fotografía** | ![Foto del entrevistado](assets/Entrevistas/entrevista2.png) |
+| Entrevistado | [Freddy Torre] |
+| Edad | [30] |
+| Distrito | [Surco] |
+| Ocupación / Cargo | [Médico] |
+| Fecha | 17/09/2026 |
+| Duración | 10:10 min |
+| Inicio en el video | 00:00 |
+| Link del video | [Ver entrevista](https://www.youtube.com/watch?v=LSnkTj_Xj1Q) |
 
 
 
@@ -555,7 +555,7 @@ Tácticas:
 
 | Campo | Información |
 |---|---|
-| **Fotografía** | ![Foto del entrevistado](resources/Cap-2/Entrevistas/segmento-2/entrevista-02.png) |
+| **Fotografía** | ![Foto del entrevistado]() |
 | Entrevistado | [Nombre y apellido] |
 | Edad | [Edad] |
 | Distrito | [Distrito] |
