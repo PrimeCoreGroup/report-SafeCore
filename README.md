@@ -536,20 +536,18 @@ Tácticas:
 ## Segmento 2: Dueños de vivienda unifamiliar en Lima
 
 ### Entrevista 1
-## Entrevista 1 — Yvon Cerrón
 
-| **Campo** | **Información** |
+ Campo | Información |
 |---|---|
-| **Fotografía** | ![Foto de Yvon Cerrón](assets/Entrevistas/entrevista-yvon.png) |
-| **Entrevistado** | Yvon Cerrón |
-| **Edad** | 22 años |
-| **Distrito** | Surquillo |
-| **Ocupación / Cargo** | Estudiante de Ingeniería Civil y trabajadora en una empresa inmobiliaria |
-| **Fecha de entrevista** | 10/09/2026 |
-| **Duración** | 08:35 min |
-| **Inicio en el video** | 00:00:00 |
-| **Video de la entrevista** | [Ver entrevista](https://stream.microsoft.com/) |
-
+| **Fotografía** | ![Foto del entrevistado](resources/Cap-2/Entrevistas/segmento-2/entrevista-03.png) |
+| Entrevistado | [Nombre y apellido] |
+| Edad | [Edad] |
+| Distrito | [Distrito] |
+| Ocupación | [Ocupación] |
+| Fecha | 15/09/2026 |
+| Duración | 09:05 min |
+| Inicio en el video | 44:52 |
+| Link del video | [Ver entrevista](https://stream.microsoft.com/) |
 
 ### Entrevista 2
 
