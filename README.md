@@ -164,7 +164,7 @@ Consolidarnos como la empresa líder en Latinoamérica en soluciones inteligente
 | ![Rafa_Foto]() | Tasayco Almonacid, Rafael Augusto | Descripción aqui |
 | ![Raul_Foto](assets/Fotos/Raul_Tasayco_Profile.jpeg) | Tasayco Osorio, Raúl Hiroshi | Soy estudiante de Ingeniería de Software en la Universidad Peruana de Ciencias Aplicadas (UPC), con experiencia en C++, Python, SQL, Angular, TypeScript, HTML y CSS, además de conocimientos en buenas prácticas de desarrollo, estructuras de datos y bases de datos. He participado en proyectos universitarios y en proyectos desarrollados en entornos reales, fortaleciendo mis habilidades de desarrollo frontend y backend, trabajo en equipo y resolución de problemas. Me caracterizo por ser responsable, comprometido y orientado al aprendizaje continuo. |
 | ![Ayrton_Foto](assets/Fotos/Ayrton-foto.png) | Inga Hernandez, Ayrton Damian | Mi nombre es Ayrton Inga, soy estudiante de Ingenieria de Software en la Universidad Peruana de Ciencias Aplicadas, tengo experiencia programando en C++, Python, C# y Java. Mi enfoque es en el trabajo de equipo y un desarrollo enfocado al cliente. |
-| Imagen aqui| Huaman De La Cruz, Jean Pool| Descripción aqui |
+| ![Jean_Foto](assets/Fotos/JeanXP.png)| Huaman De La Cruz, Jean Pool| Soy estudiante de Ingeniería de Software en la Universidad Peruana de Ciencias Aplicadas (UPC), actualmente cursando el séptimo ciclo. Me considero una persona orientada a objetivos, comprometida con mi aprendizaje y con un gran interés por la tecnología y la innovación. Mi objetivo es seguir fortaleciendo mis conocimientos y desarrollar soluciones innovadoras y disruptivas que generen valor y contribuyan a transformar positivamente el mercado y la sociedad.   |
 
 ## 1.2. Solution Profile
 
