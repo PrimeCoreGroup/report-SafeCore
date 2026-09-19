@@ -486,20 +486,19 @@ Tácticas:
 
 ## Segmento 1: Empresas inmobiliarias en Lima
 
-### Entrevista 1
+## Entrevista 1 — Yvon Cerrón
 
-| Campo | Información |
-|---|---|
-| **Fotografía** | ![Foto del entrevistado](resources/Cap-2/Entrevistas/segmento-1/entrevista-01.png) |
-| Entrevistado | [Nombre y apellido] |
-| Edad | [Edad] |
-| Distrito | [Distrito] |
-| Ocupación / Cargo | [Cargo del entrevistado] |
-| Fecha | 10/09/2026 |
-| Duración | 08:35 min |
-| Inicio en el video | 00:00:00 |
-| Link del video | [Ver entrevista](https://stream.microsoft.com/) |
-
+| **Campo** | **Información** |
+|:---|:---|
+| **Fotografía** | <p align="center"><img src="assets/Entrevistas/entrevista-yvon.png" alt="Foto de Yvon Cerrón" width="280"></p> |
+| **Entrevistado** | Yvon Cerrón |
+| **Edad** | 22 años |
+| **Distrito** | Surquillo |
+| **Ocupación / Cargo** | Estudiante de Ingeniería Civil y trabajadora en una empresa inmobiliaria |
+| **Fecha de entrevista** | 10/09/2026 |
+| **Duración** | 08:35 min |
+| **Inicio en el video** | 00:00:00 |
+| **Video de la entrevista** | [Ver entrevista](https://stream.microsoft.com/) |
 
 
 ### Entrevista 2
@@ -537,19 +536,19 @@ Tácticas:
 ## Segmento 2: Dueños de vivienda unifamiliar en Lima
 
 ### Entrevista 1
+## Entrevista 1 — Yvon Cerrón
 
-| Campo | Información |
+| **Campo** | **Información** |
 |---|---|
-| **Fotografía** | ![Foto del entrevistado](resources/Cap-2/Entrevistas/segmento-2/entrevista-01.png) |
-| Entrevistado | [Nombre y apellido] |
-| Edad | [Edad] |
-| Distrito | [Distrito] |
-| Ocupación | [Ocupación] |
-| Fecha | 13/09/2026 |
-| Duración | 07:56 min |
-| Inicio en el video | 28:35 |
-| Link del video | [Ver entrevista](https://stream.microsoft.com/) |
-
+| **Fotografía** | ![Foto de Yvon Cerrón](assets/Entrevistas/entrevista-yvon.png) |
+| **Entrevistado** | Yvon Cerrón |
+| **Edad** | 22 años |
+| **Distrito** | Surquillo |
+| **Ocupación / Cargo** | Estudiante de Ingeniería Civil y trabajadora en una empresa inmobiliaria |
+| **Fecha de entrevista** | 10/09/2026 |
+| **Duración** | 08:35 min |
+| **Inicio en el video** | 00:00:00 |
+| **Video de la entrevista** | [Ver entrevista](https://stream.microsoft.com/) |
 
 
 ### Entrevista 2
@@ -587,38 +586,56 @@ Tácticas:
 
 ### **2.2.3. Análisis de entrevistas**
 
-**Segmento 1: Empresas inmobiliarias en Lima**
+## **Segmento 1: Empresas inmobiliarias en Lima**
 
-#### **Entrevistado 1: [Nombre y apellido] (Enfoque en [tema principal])**
+### **Entrevistado 1: Yvon Cerrón (Enfoque en seguridad y prevención de emergencias)**
 
 * **Perfil**
 
-    * [Describir brevemente al entrevistado: edad, distrito, cargo y características relevantes relacionadas con el segmento.]
+    * Yvon, 22 años, residente de Surquillo.
+    * Estudiante de Ingeniería Civil.
+    * Actualmente trabaja en una empresa inmobiliaria, donde participa en actividades relacionadas con proyectos y edificaciones.
+    * Su experiencia le permite conocer de cerca procesos de seguridad, mantenimiento y gestión en proyectos inmobiliarios.
 
 * **Insights clave**
 
-    * [Insight principal obtenido de la entrevista.]
-
-    * [Segundo insight relevante obtenido de la entrevista.]
+    * La seguridad y prevención de emergencias se gestionan mediante protocolos de emergencia, señalización, rutas de evacuación, extintores, alarmas, simulacros e inspecciones periódicas.
+    * Los principales riesgos identificados son los sismos, incendios, fallas eléctricas y fugas de gas o agua.
+    * Durante una emergencia, es importante disponer de información inmediata sobre lo que ocurre en las diferentes zonas de la edificación.
+    * La solución debería mantener sus funciones críticas durante una pérdida de Internet o energía eléctrica.
+    * La información de seguridad debería visualizarse de manera centralizada y permitir conocer rápidamente el estado de la edificación.
 
 * **Problemas y frustraciones**
 
-    * [Problema o dificultad identificada durante la entrevista.]
-
-    * [Otra frustración relacionada con la seguridad, emergencias o gestión de la edificación.]
+    * Dificultad para obtener información inmediata sobre lo que ocurre en las diferentes zonas de la edificación durante una emergencia.
+    * Dificultad para coordinar la evacuación cuando existe una gran cantidad de personas.
+    * Necesidad de verificar rápidamente si alguna zona presenta un problema.
+    * En algunos casos, la información relacionada con la seguridad todavía se controla de manera manual.
+    * Una emergencia puede afectar la conectividad o el suministro eléctrico, dificultando el funcionamiento de los sistemas.
 
 * **Necesidades**
 
-    * [Necesidad identificada en el entrevistado.]
-
-    * [Segunda necesidad identificada.]
+    * Contar con información en tiempo real sobre el estado de los sensores y alarmas.
+    * Identificar rápidamente la ubicación de una emergencia y las zonas afectadas.
+    * Visualizar en un solo lugar información como temperatura, presencia de humo, estado eléctrico y estado de las rutas de evacuación.
+    * Recibir alertas inmediatas mediante diferentes medios, como alarmas locales y notificaciones en el celular.
+    * Diferenciar las alertas según el nivel de gravedad y la zona afectada.
+    * Mantener las funciones críticas del sistema mediante mecanismos de respaldo, como baterías.
+    * Contar con una solución confiable, fácil de utilizar, escalable, compatible con sistemas existentes y fácil de mantener.
 
 * **Oportunidades para SafeCore**
 
-    * **[Nombre de oportunidad]:** [Explicar cómo SafeCore podría responder a la necesidad identificada.]
+    * **Monitoreo centralizado:** permitir visualizar en un solo lugar el estado de sensores, alarmas, temperatura, humo, estado eléctrico, zonas afectadas y rutas de evacuación.
 
-    * **[Nombre de oportunidad]:** [Explicar otra funcionalidad o característica que podría incorporarse a SafeCore.]
+    * **Detección y respuesta automática:** detectar situaciones de emergencia, activar alarmas, enviar notificaciones, identificar la zona afectada y activar dispositivos como luces de emergencia o sistemas de control.
 
+    * **Alertas multicanal:** enviar alertas mediante alarmas locales y notificaciones al celular, diferenciando los mensajes según la gravedad de la emergencia y la zona afectada.
+
+    * **Funcionamiento ante pérdida de conectividad o energía:** incorporar mecanismos de respaldo, como baterías, y mantener las funciones críticas de manera local durante una emergencia.
+
+    * **Historial de eventos:** registrar los eventos ocurridos para permitir revisar posteriormente qué sucedió durante una emergencia.
+
+    * **Compatibilidad y escalabilidad:** diseñar una solución que pueda integrarse con sistemas existentes y adaptarse a diferentes tipos de edificaciones.
 ---
 
 #### **Entrevistado 2: [Nombre y apellido] (Enfoque en [tema principal])**
