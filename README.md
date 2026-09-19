@@ -1527,6 +1527,21 @@ graph TD
 
 En esta sección se presentan los diagramas de nivel de código del Bounded Context Emergency Response, que detallan la implementación de su modelo de dominio y su persistencia.
 
+Los diagramas de nivel de código de los siete bounded contexts de SafeCore se elaboraron con **PlantUML** bajo el enfoque *Diagram-as-Code*. El código fuente se organiza en dos carpetas:
+
+- **Diagramas de clases:** [`assets/Chapter-4/Tactical/class/sourceCode`](assets/Chapter-4/Tactical/class/sourceCode)
+- **Diagramas de base de datos:** [`assets/Chapter-4/Tactical/database/sourceCode`](assets/Chapter-4/Tactical/database/sourceCode)
+
+| Bounded Context | Domain Layer Class Diagram | Database Design Diagram |
+|---|---|---|
+| Emergency Response | [safecore-emergency-response-domain-class-diagram.puml](assets/Chapter-4/Tactical/class/sourceCode/safecore-emergency-response-domain-class-diagram.puml) | [safecore-emergency-response-database-diagram.puml](assets/Chapter-4/Tactical/database/sourceCode/safecore-emergency-response-database-diagram.puml) |
+| Identity and Access | [safecore-identity-access-domain-class-diagram.puml](assets/Chapter-4/Tactical/class/sourceCode/safecore-identity-access-domain-class-diagram.puml) | [safecore-identity-access-database-diagram.puml](assets/Chapter-4/Tactical/database/sourceCode/safecore-identity-access-database-diagram.puml) |
+| Device Management | [safecore-device-management-domain-class-diagram.puml](assets/Chapter-4/Tactical/class/sourceCode/safecore-device-management-domain-class-diagram.puml) | [safecore-device-management-database-diagram.puml](assets/Chapter-4/Tactical/database/sourceCode/safecore-device-management-database-diagram.puml) |
+| Sensor Data Ingestion | [safecore-sensor-data-ingestion-domain-class-diagram.puml](assets/Chapter-4/Tactical/class/sourceCode/safecore-sensor-data-ingestion-domain-class-diagram.puml) | [safecore-sensor-data-ingestion-database-diagram.puml](assets/Chapter-4/Tactical/database/sourceCode/safecore-sensor-data-ingestion-database-diagram.puml) |
+| Risk Detection | [safecore-risk-detection-domain-class-diagram.puml](assets/Chapter-4/Tactical/class/sourceCode/safecore-risk-detection-domain-class-diagram.puml) | [safecore-risk-detection-database-diagram.puml](assets/Chapter-4/Tactical/database/sourceCode/safecore-risk-detection-database-diagram.puml) |
+| Notification | [safecore-notification-domain-class-diagram.puml](assets/Chapter-4/Tactical/class/sourceCode/safecore-notification-domain-class-diagram.puml) | [safecore-notification-database-diagram.puml](assets/Chapter-4/Tactical/database/sourceCode/safecore-notification-database-diagram.puml) |
+| Monitoring and Configuration | [safecore-monitoring-configuration-domain-class-diagram.puml](assets/Chapter-4/Tactical/class/sourceCode/safecore-monitoring-configuration-domain-class-diagram.puml) | [safecore-monitoring-configuration-database-diagram.puml](assets/Chapter-4/Tactical/database/sourceCode/safecore-monitoring-configuration-database-diagram.puml) |
+
 Los diagramas de clases de la capa de dominio siguen la notación UML:
 
 - Cada miembro indica su visibilidad (`-` private, `+` public, `#` protected).
