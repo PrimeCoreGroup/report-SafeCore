@@ -1,0 +1,140 @@
+@startuml safecore-monitoring-configuration-database-diagram
+set separator none
+skinparam dpi 150
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+skinparam linetype ortho
+skinparam nodesep 60
+skinparam ranksep 60
+skinparam ArrowColor #37474F
+skinparam ArrowFontSize 10
+skinparam PackageBorderColor #546E7A
+skinparam class {
+  BorderColor #1565C0
+  BackgroundColor #FFFFFF
+  HeaderBackgroundColor #E3F2FD
+  BorderColor<<Reference>> #9E9E9E
+  BackgroundColor<<Reference>> #FAFAFA
+  FontColor<<Reference>> #616161
+}
+skinparam note {
+  BackgroundColor #FFFDE7
+  BorderColor #F9A825
+}
+hide circle
+hide empty members
+
+title Monitoring & Configuration Bounded Context — Database Design Diagram (PostgreSQL)
+
+package "Schema: monitoring" <<Rectangle>> {
+  entity "system_configurations" as sc {
+    * id : BIGSERIAL <<PK>>
+    --
+    * property_id : BIGINT <<UK>>
+    * version : INTEGER = 1
+    * sync_status : VARCHAR(15)
+      last_synced_at : TIMESTAMP
+    * created_at : TIMESTAMP
+    * updated_at : TIMESTAMP
+  }
+
+  entity "risk_thresholds" as rt {
+    * id : BIGSERIAL <<PK>>
+    --
+    * configuration_id : BIGINT <<FK>>
+    * risk_type : VARCHAR(15)
+    * threshold_value : NUMERIC(10,4)
+    * unit : VARCHAR(25)
+    * min_allowed : NUMERIC(10,4)
+    * max_allowed : NUMERIC(10,4)
+    * created_at : TIMESTAMP
+    * updated_at : TIMESTAMP
+    ..
+    <<UK>> (configuration_id, risk_type)
+    <<CHK>> threshold_value BETWEEN min_allowed AND max_allowed
+  }
+
+  entity "drill_sessions" as ds {
+    * id : BIGSERIAL <<PK>>
+    --
+    * property_id : BIGINT
+    * drill_type : VARCHAR(25)
+      target_actuator : VARCHAR(30)
+    * requested_by_user_id : BIGINT
+    * status : VARCHAR(15)
+      started_at : TIMESTAMP
+      finished_at : TIMESTAMP
+    * created_at : TIMESTAMP
+    * updated_at : TIMESTAMP
+    ..
+    <<IDX>> (property_id, started_at DESC)
+  }
+
+  entity "drill_check_results" as dcr {
+    * id : BIGSERIAL <<PK>>
+    --
+    * drill_session_id : BIGINT <<FK>>
+    * device_id : BIGINT
+    * actuator_type : VARCHAR(30)
+    * passed : BOOLEAN
+    * response_time_ms : INTEGER
+      observations : VARCHAR(255)
+    * created_at : TIMESTAMP
+    * updated_at : TIMESTAMP
+  }
+
+  entity "event_history_entries" as eh {
+    * id : BIGSERIAL <<PK>>
+    --
+    * property_id : BIGINT
+    * category : VARCHAR(20)
+    * source_context : VARCHAR(40)
+    * source_id : BIGINT
+    * description : VARCHAR(255)
+      severity : VARCHAR(10)
+    * occurred_at : TIMESTAMP
+    * created_at : TIMESTAMP
+    * updated_at : TIMESTAMP
+    ..
+    <<UK>> (source_context, source_id, category)
+    <<IDX>> (property_id, occurred_at DESC)
+  }
+
+  entity "device_status_snapshots" as dss {
+    * id : BIGSERIAL <<PK>>
+    --
+    * device_id : BIGINT <<UK>>
+    * property_id : BIGINT
+    * device_type : VARCHAR(30)
+    * connectivity : VARCHAR(10)
+      battery_percentage : SMALLINT
+      last_seen_at : TIMESTAMP
+    * created_at : TIMESTAMP
+    * updated_at : TIMESTAMP
+    ..
+    <<IDX>> (property_id)
+  }
+}
+
+entity "properties\n(Identity & Access BC)" as pr <<Reference>> {
+  id : BIGINT
+}
+entity "devices\n(Device Management BC)" as dv <<Reference>> {
+  id : BIGINT
+}
+
+sc ||--|{ rt : "defines"
+ds ||--o{ dcr : "records"
+sc |o..|| pr : "property_id\n(logical reference)"
+eh }o..|| pr : "property_id\n(logical reference)"
+dss |o..|| dv : "device_id\n(logical reference)"
+dcr }o..|| dv : "device_id\n(logical reference)"
+
+note top of dss
+  Read Models (CQRS): event_history_entries y
+  device_status_snapshots se alimentan de eventos
+  publicados por los demás Bounded Contexts.
+end note
+
+@enduml

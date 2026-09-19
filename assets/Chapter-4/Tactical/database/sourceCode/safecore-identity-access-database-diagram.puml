@@ -1,0 +1,111 @@
+@startuml safecore-identity-access-database-diagram
+set separator none
+skinparam dpi 150
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+skinparam linetype ortho
+skinparam nodesep 60
+skinparam ranksep 60
+skinparam ArrowColor #37474F
+skinparam ArrowFontSize 10
+skinparam PackageBorderColor #546E7A
+skinparam class {
+  BorderColor #1565C0
+  BackgroundColor #FFFFFF
+  HeaderBackgroundColor #E3F2FD
+  BorderColor<<Reference>> #9E9E9E
+  BackgroundColor<<Reference>> #FAFAFA
+  FontColor<<Reference>> #616161
+}
+skinparam note {
+  BackgroundColor #FFFDE7
+  BorderColor #F9A825
+}
+hide circle
+hide empty members
+
+title Identity & Access Bounded Context — Database Design Diagram (PostgreSQL)
+
+package "Schema: iam" <<Rectangle>> {
+  entity "users" as u {
+    * id : BIGSERIAL <<PK>>
+    --
+    * email : VARCHAR(120) <<UK>>
+      phone_number : VARCHAR(20) <<UK>>
+    * first_name : VARCHAR(60)
+    * last_name : VARCHAR(60)
+    * password_hash : VARCHAR(255)
+    * status : VARCHAR(25)
+      last_login_at : TIMESTAMP
+    * created_at : TIMESTAMP
+    * updated_at : TIMESTAMP
+    ..
+    <<CHK>> status IN ('PENDING_VERIFICATION','ACTIVE','SUSPENDED')
+  }
+
+  entity "roles" as r {
+    * id : BIGSERIAL <<PK>>
+    --
+    * name : VARCHAR(40) <<UK>>
+    * created_at : TIMESTAMP
+    * updated_at : TIMESTAMP
+  }
+
+  entity "user_roles" as ur {
+    * user_id : BIGINT <<PK, FK>>
+    * role_id : BIGINT <<PK, FK>>
+    --
+    * assigned_at : TIMESTAMP
+  }
+
+  entity "role_permissions" as rp {
+    * role_id : BIGINT <<PK, FK>>
+    * permission : VARCHAR(40) <<PK>>
+  }
+
+  entity "properties" as p {
+    * id : BIGSERIAL <<PK>>
+    --
+    * owner_user_id : BIGINT <<FK>>
+    * name : VARCHAR(100)
+    * property_type : VARCHAR(30)
+    * street : VARCHAR(150)
+    * district : VARCHAR(60)
+    * city : VARCHAR(60)
+    * country : VARCHAR(60)
+    * floors : SMALLINT
+    * created_at : TIMESTAMP
+    * updated_at : TIMESTAMP
+    ..
+    <<UK>> (owner_user_id, name)
+    <<CHK>> floors >= 1
+  }
+
+  entity "property_members" as pm {
+    * id : BIGSERIAL <<PK>>
+    --
+    * property_id : BIGINT <<FK>>
+    * user_id : BIGINT <<FK>>
+    * relation : VARCHAR(20)
+    * joined_at : TIMESTAMP
+    * created_at : TIMESTAMP
+    * updated_at : TIMESTAMP
+    ..
+    <<UK>> (property_id, user_id)
+  }
+}
+
+u ||--o{ ur : "has"
+r ||--o{ ur : "assigned in"
+r ||--|{ rp : "grants"
+u ||--o{ p : "owns"
+p ||--o{ pm : "groups"
+u ||--o{ pm : "belongs to"
+
+note top of u
+  properties.id es referenciado lógicamente
+  (property_id) por los demás Bounded Contexts.
+end note
+
+@enduml

@@ -1,0 +1,110 @@
+@startuml safecore-emergency-response-database-diagram
+set separator none
+skinparam dpi 150
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+skinparam linetype ortho
+skinparam nodesep 60
+skinparam ranksep 60
+skinparam ArrowColor #37474F
+skinparam ArrowFontSize 10
+skinparam PackageBorderColor #546E7A
+skinparam class {
+  BorderColor #1565C0
+  BackgroundColor #FFFFFF
+  HeaderBackgroundColor #E3F2FD
+  BorderColor<<Reference>> #9E9E9E
+  BackgroundColor<<Reference>> #FAFAFA
+  FontColor<<Reference>> #616161
+}
+skinparam note {
+  BackgroundColor #FFFDE7
+  BorderColor #F9A825
+}
+hide circle
+hide empty members
+
+title Emergency Response Bounded Context — Database Design Diagram (PostgreSQL)
+
+package "Schema: emergency_response" <<Rectangle>> {
+  entity "emergency_protocols" as ep {
+    * id : BIGSERIAL <<PK>>
+    --
+    * name : VARCHAR(100)
+    * emergency_type : VARCHAR(20) <<UK>>
+    * is_active : BOOLEAN = TRUE
+    * created_at : TIMESTAMP
+    * updated_at : TIMESTAMP
+  }
+
+  entity "protocol_steps" as ps {
+    * id : BIGSERIAL <<PK>>
+    --
+    * protocol_id : BIGINT <<FK>>
+    * step_order : SMALLINT
+    * actuator_type : VARCHAR(30)
+    * action_template : VARCHAR(255)
+    * created_at : TIMESTAMP
+    * updated_at : TIMESTAMP
+    ..
+    <<UK>> (protocol_id, step_order)
+    <<CHK>> step_order > 0
+  }
+
+  entity "emergency_responses" as er {
+    * id : BIGSERIAL <<PK>>
+    --
+    * protocol_id : BIGINT <<FK>>
+    * property_id : BIGINT
+    * emergency_type : VARCHAR(20)
+    * risk_situation_id : BIGINT <<UK>>
+    * risk_detected_at : TIMESTAMP
+    * status : VARCHAR(20)
+    * started_at : TIMESTAMP
+      completed_at : TIMESTAMP
+    * created_at : TIMESTAMP
+    * updated_at : TIMESTAMP
+    ..
+    <<CHK>> status IN ('INITIATED','IN_PROGRESS','COMPLETED','FAILED')
+    <<IDX>> (property_id, status)
+  }
+
+  entity "response_actions" as ra {
+    * id : BIGSERIAL <<PK>>
+    --
+    * emergency_response_id : BIGINT <<FK>>
+    * step_order : SMALLINT
+    * actuator_type : VARCHAR(30)
+    * instruction : VARCHAR(255)
+      parameters : JSONB
+    * status : VARCHAR(20)
+      failure_reason : VARCHAR(255)
+      executed_at : TIMESTAMP
+    * created_at : TIMESTAMP
+    * updated_at : TIMESTAMP
+    ..
+    <<UK>> (emergency_response_id, step_order)
+  }
+}
+
+entity "risk_situations\n(Risk Detection BC)" as rs <<Reference>> {
+  id : BIGINT
+}
+entity "properties\n(Identity & Access BC)" as pr <<Reference>> {
+  id : BIGINT
+}
+
+ep ||--|{ ps : "defines"
+ep ||--o{ er : "instantiates"
+er ||--|{ ra : "executes"
+er }o..|| pr : "property_id\n(logical reference)"
+er |o..|| rs : "risk_situation_id\n(logical reference)"
+
+note bottom of rs
+  Referencias lógicas entre Bounded Contexts:
+  se guarda solo el identificador, sin FOREIGN KEY
+  física, para preservar la autonomía de cada contexto.
+end note
+
+@enduml

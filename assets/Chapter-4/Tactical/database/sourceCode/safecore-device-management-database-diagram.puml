@@ -1,0 +1,102 @@
+@startuml safecore-device-management-database-diagram
+set separator none
+skinparam dpi 150
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+skinparam linetype ortho
+skinparam nodesep 60
+skinparam ranksep 60
+skinparam ArrowColor #37474F
+skinparam ArrowFontSize 10
+skinparam PackageBorderColor #546E7A
+skinparam class {
+  BorderColor #1565C0
+  BackgroundColor #FFFFFF
+  HeaderBackgroundColor #E3F2FD
+  BorderColor<<Reference>> #9E9E9E
+  BackgroundColor<<Reference>> #FAFAFA
+  FontColor<<Reference>> #616161
+}
+skinparam note {
+  BackgroundColor #FFFDE7
+  BorderColor #F9A825
+}
+hide circle
+hide empty members
+
+title Device Management Bounded Context — Database Design Diagram (PostgreSQL)
+
+package "Schema: device_management" <<Rectangle>> {
+  entity "edge_nodes" as en {
+    * id : BIGSERIAL <<PK>>
+    --
+    * property_id : BIGINT
+    * serial_number : VARCHAR(60) <<UK>>
+    * name : VARCHAR(100)
+      firmware_version : VARCHAR(20)
+      thing_name : VARCHAR(128) <<UK>>
+      certificate_id : VARCHAR(128)
+      provisioned_at : TIMESTAMP
+    * lifecycle_status : VARCHAR(20)
+    * connectivity_status : VARCHAR(10)
+      last_seen_at : TIMESTAMP
+    * created_at : TIMESTAMP
+    * updated_at : TIMESTAMP
+    ..
+    <<IDX>> (property_id)
+  }
+
+  entity "devices" as d {
+    * id : BIGSERIAL <<PK>>
+    --
+    * edge_node_id : BIGINT <<FK>>
+    * property_id : BIGINT
+    * serial_number : VARCHAR(60) <<UK>>
+    * name : VARCHAR(100)
+    * category : VARCHAR(10)
+    * device_type : VARCHAR(30)
+    * floor : SMALLINT
+    * zone : VARCHAR(60)
+      location_description : VARCHAR(150)
+      thing_name : VARCHAR(128) <<UK>>
+      certificate_id : VARCHAR(128)
+      provisioned_at : TIMESTAMP
+    * lifecycle_status : VARCHAR(20)
+    * connectivity_status : VARCHAR(10)
+      battery_percentage : SMALLINT
+    * installed_at : DATE
+    * useful_life_months : SMALLINT
+      last_maintenance_at : DATE
+      last_seen_at : TIMESTAMP
+    * created_at : TIMESTAMP
+    * updated_at : TIMESTAMP
+    ..
+    <<CHK>> category IN ('SENSOR','ACTUATOR')
+    <<CHK>> battery_percentage BETWEEN 0 AND 100
+    <<IDX>> (property_id, connectivity_status)
+  }
+
+  entity "maintenance_records" as mr {
+    * id : BIGSERIAL <<PK>>
+    --
+    * device_id : BIGINT <<FK>>
+    * maintenance_type : VARCHAR(25)
+    * performed_at : TIMESTAMP
+    * performed_by : VARCHAR(100)
+      notes : TEXT
+    * created_at : TIMESTAMP
+    * updated_at : TIMESTAMP
+  }
+}
+
+entity "properties\n(Identity & Access BC)" as pr <<Reference>> {
+  id : BIGINT
+}
+
+en ||--o{ d : "connects"
+d ||--o{ mr : "keeps"
+en }o..|| pr : "property_id\n(logical reference)"
+d }o..|| pr : "property_id\n(logical reference)"
+
+@enduml

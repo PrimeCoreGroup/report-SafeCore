@@ -1,0 +1,119 @@
+@startuml safecore-notification-database-diagram
+set separator none
+skinparam dpi 150
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+skinparam linetype ortho
+skinparam nodesep 60
+skinparam ranksep 60
+skinparam ArrowColor #37474F
+skinparam ArrowFontSize 10
+skinparam PackageBorderColor #546E7A
+skinparam class {
+  BorderColor #1565C0
+  BackgroundColor #FFFFFF
+  HeaderBackgroundColor #E3F2FD
+  BorderColor<<Reference>> #9E9E9E
+  BackgroundColor<<Reference>> #FAFAFA
+  FontColor<<Reference>> #616161
+}
+skinparam note {
+  BackgroundColor #FFFDE7
+  BorderColor #F9A825
+}
+hide circle
+hide empty members
+
+title Notification Bounded Context — Database Design Diagram (PostgreSQL)
+
+package "Schema: notification" <<Rectangle>> {
+  entity "notifications" as n {
+    * id : BIGSERIAL <<PK>>
+    --
+    * property_id : BIGINT
+    * recipient_user_id : BIGINT
+      recipient_phone : VARCHAR(20)
+      recipient_device_token : VARCHAR(255)
+    * reason : VARCHAR(30)
+    * source_context : VARCHAR(40)
+    * source_id : BIGINT
+    * title : VARCHAR(120)
+    * body : VARCHAR(500)
+    * language_code : VARCHAR(10) = 'en-US'
+    * channel : VARCHAR(10)
+    * status : VARCHAR(15)
+    * attempts : SMALLINT = 0
+    * test_mode : BOOLEAN = FALSE
+      sent_at : TIMESTAMP
+      acknowledged_at : TIMESTAMP
+      failure_reason : VARCHAR(255)
+    * created_at : TIMESTAMP
+    * updated_at : TIMESTAMP
+    ..
+    <<CHK>> attempts BETWEEN 0 AND 3
+    <<IDX>> (recipient_user_id, created_at DESC)
+    <<IDX>> (source_context, source_id)
+  }
+
+  entity "emergency_escalations" as ee {
+    * id : BIGSERIAL <<PK>>
+    --
+    * alert_id : BIGINT <<UK>>
+    * property_id : BIGINT
+    * risk_type : VARCHAR(15)
+    * severity : VARCHAR(10)
+    * status : VARCHAR(25)
+      confirmed_by_user_id : BIGINT
+      confirmed_at : TIMESTAMP
+    * opened_at : TIMESTAMP
+    * created_at : TIMESTAMP
+    * updated_at : TIMESTAMP
+  }
+
+  entity "emergency_service_requests" as esr {
+    * id : BIGSERIAL <<PK>>
+    --
+    * escalation_id : BIGINT <<FK>>
+    * service_type : VARCHAR(20)
+    * status : VARCHAR(15)
+      reference_code : VARCHAR(60)
+    * requested_at : TIMESTAMP
+      acknowledged_at : TIMESTAMP
+    * created_at : TIMESTAMP
+    * updated_at : TIMESTAMP
+    ..
+    <<UK>> (escalation_id, service_type)
+  }
+
+  entity "notification_preferences" as np {
+    * id : BIGSERIAL <<PK>>
+    --
+    * user_id : BIGINT <<UK>>
+    * sms_fallback_enabled : BOOLEAN = FALSE
+      device_token : VARCHAR(255)
+    * created_at : TIMESTAMP
+    * updated_at : TIMESTAMP
+  }
+
+  entity "preference_channels" as pc {
+    * preference_id : BIGINT <<PK, FK>>
+    * channel : VARCHAR(10) <<PK>>
+  }
+}
+
+entity "alerts\n(Risk Detection BC)" as al <<Reference>> {
+  id : BIGINT
+}
+entity "users\n(Identity & Access BC)" as us <<Reference>> {
+  id : BIGINT
+}
+
+ee ||--o{ esr : "escalates to"
+np ||--|{ pc : "enables"
+ee |o..|| al : "alert_id\n(logical reference)"
+n }o..|| us : "recipient_user_id\n(logical reference)"
+np |o..|| us : "user_id\n(logical reference)"
+ee ||..o{ n : "source_id\n(source_context = 'EMERGENCY')"
+
+@enduml
