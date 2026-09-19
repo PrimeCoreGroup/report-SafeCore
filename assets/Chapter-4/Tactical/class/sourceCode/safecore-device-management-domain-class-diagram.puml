@@ -1,0 +1,282 @@
+@startuml safecore-device-management-domain-class-diagram
+set separator none
+skinparam dpi 150
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+skinparam classAttributeIconSize 0
+skinparam packageStyle rectangle
+skinparam nodesep 35
+skinparam ranksep 45
+skinparam ArrowColor #37474F
+skinparam ArrowFontSize 10
+skinparam ArrowFontColor #263238
+skinparam PackageBorderColor #546E7A
+skinparam PackageFontSize 12
+skinparam class {
+  BorderColor #455A64
+  BackgroundColor #FFFFFF
+  HeaderBackgroundColor #ECEFF1
+  StereotypeFontSize 9
+  StereotypeFontColor #37474F
+  BackgroundColor<<Aggregate Root>> #FFF3E0
+  BorderColor<<Aggregate Root>> #E65100
+  BackgroundColor<<Entity>> #E3F2FD
+  BorderColor<<Entity>> #1565C0
+  BackgroundColor<<Value Object>> #E8F5E9
+  BorderColor<<Value Object>> #2E7D32
+  BackgroundColor<<Enumeration>> #F1F8E9
+  BorderColor<<Enumeration>> #558B2F
+  BackgroundColor<<Domain Event>> #FCE4EC
+  BorderColor<<Domain Event>> #AD1457
+  BackgroundColor<<Repository>> #EDE7F6
+  BorderColor<<Repository>> #4527A0
+  BackgroundColor<<Domain Service>> #E0F7FA
+  BorderColor<<Domain Service>> #00838F
+  BackgroundColor<<Shared Kernel>> #F5F5F5
+  BorderColor<<Shared Kernel>> #757575
+}
+hide empty members
+
+title Device Management Bounded Context — Domain Layer Class Diagram
+
+package "shared.domain.model" <<Rectangle>> {
+  abstract class "AuditableAbstractAggregateRoot<T>" as AAR <<Shared Kernel>> {
+    - id : Long
+    - createdAt : Date
+    - updatedAt : Date
+    + getId() : Long
+    # registerEvent(event : Object) : void
+  }
+  abstract class AuditableModel <<Shared Kernel>> {
+    - id : Long
+    - createdAt : Date
+    - updatedAt : Date
+    + getId() : Long
+  }
+}
+
+
+package "devicemanagement.domain.model.aggregates" <<Rectangle>> {
+  class EdgeNode <<Aggregate Root>> {
+    - propertyId : PropertyId
+    - serialNumber : SerialNumber
+    - name : String
+    - firmwareVersion : String
+    - cloudIdentity : CloudThingIdentity
+    - lifecycleStatus : DeviceLifecycleStatus
+    - connectivity : ConnectivityStatus
+    - lastSeenAt : Date
+    + EdgeNode(propertyId : PropertyId, serialNumber : SerialNumber, name : String)
+    + provision(identity : CloudThingIdentity) : void
+    + reportHeartbeat(at : Date) : void
+    + markAsOffline() : void
+    + updateFirmware(version : String) : void
+    + isOnline() : boolean
+  }
+
+  class Device <<Aggregate Root>> {
+    - propertyId : PropertyId
+    - edgeNodeId : Long
+    - serialNumber : SerialNumber
+    - name : String
+    - category : DeviceCategory
+    - deviceType : DeviceType
+    - location : InstallationLocation
+    - cloudIdentity : CloudThingIdentity
+    - lifecycleStatus : DeviceLifecycleStatus
+    - connectivity : ConnectivityStatus
+    - battery : BatteryLevel
+    - lifespan : ServiceLifespan
+    - lastSeenAt : Date
+    - maintenanceRecords : List<MaintenanceRecord>
+    + Device(propertyId : PropertyId, edgeNodeId : Long, serialNumber : SerialNumber,\n      deviceType : DeviceType, location : InstallationLocation)
+    + provision(identity : CloudThingIdentity) : void
+    + connect() : void
+    + disconnect() : void
+    + reportHeartbeat(battery : BatteryLevel, at : Date) : void
+    + registerMaintenance(record : MaintenanceRecord) : void
+    + requiresMaintenance(today : Date) : boolean
+    + decommission() : void
+    + isSensor() : boolean
+    + isActuator() : boolean
+    - changeConnectivity(status : ConnectivityStatus) : void
+  }
+}
+
+package "devicemanagement.domain.model.entities" <<Rectangle>> {
+  class MaintenanceRecord <<Entity>> {
+    - maintenanceType : MaintenanceType
+    - performedAt : Date
+    - performedBy : String
+    - notes : String
+    + MaintenanceRecord(type : MaintenanceType, performedAt : Date,\n      performedBy : String, notes : String)
+    + resetsLifespan() : boolean
+  }
+}
+
+package "devicemanagement.domain.model.valueobjects" <<Rectangle>> {
+  class PropertyId <<Value Object>> {
+    - propertyId : Long
+  }
+  class SerialNumber <<Value Object>> {
+    - value : String
+    + SerialNumber(value : String)
+  }
+  class CloudThingIdentity <<Value Object>> {
+    - thingName : String
+    - certificateId : String
+    - provisionedAt : Date
+  }
+  class InstallationLocation <<Value Object>> {
+    - floor : int
+    - zone : String
+    - description : String
+  }
+  class BatteryLevel <<Value Object>> {
+    - percentage : int
+    + {static} LOW_THRESHOLD : int = 20
+    + BatteryLevel(percentage : int)
+    + isLow() : boolean
+  }
+  class ServiceLifespan <<Value Object>> {
+    - installedAt : Date
+    - usefulLifeMonths : int
+    - lastMaintenanceAt : Date
+    + nextMaintenanceDate() : Date
+    + isExpired(today : Date) : boolean
+    + restart(at : Date) : ServiceLifespan
+  }
+  enum DeviceCategory <<Enumeration>> {
+    SENSOR
+    ACTUATOR
+  }
+  enum DeviceType <<Enumeration>> {
+    SEISMIC_SENSOR
+    SMOKE_SENSOR
+    FLAME_SENSOR
+    GAS_SENSOR
+    TEMPERATURE_SENSOR
+    MAGNETIC_LOCK
+    POWER_RELAY
+    EMERGENCY_LIGHTING
+    SPRINKLER
+    SOUND_ALARM
+    VENTILATION
+    GAS_VALVE
+    + getCategory() : DeviceCategory
+  }
+  enum DeviceLifecycleStatus <<Enumeration>> {
+    REGISTERED
+    PROVISIONED
+    CONNECTED
+    DECOMMISSIONED
+  }
+  enum ConnectivityStatus <<Enumeration>> {
+    ONLINE
+    OFFLINE
+    UNKNOWN
+  }
+  enum MaintenanceType <<Enumeration>> {
+    PREVENTIVE
+    CORRECTIVE
+    BATTERY_REPLACEMENT
+  }
+}
+
+package "devicemanagement.domain.model.events" <<Rectangle>> {
+  class DeviceRegistered <<Domain Event>> {
+    + deviceId : Long
+    + deviceType : DeviceType
+    + propertyId : Long
+    + occurredOn : Date
+  }
+  class DeviceProvisioned <<Domain Event>> {
+    + deviceId : Long
+    + thingName : String
+    + occurredOn : Date
+  }
+  class DeviceConnected <<Domain Event>> {
+    + deviceId : Long
+    + occurredOn : Date
+  }
+  class ConnectivityStatusChanged <<Domain Event>> {
+    + deviceId : Long
+    + status : ConnectivityStatus
+    + occurredOn : Date
+  }
+  class DeviceBatteryLow <<Domain Event>> {
+    + deviceId : Long
+    + percentage : int
+    + occurredOn : Date
+  }
+  class DeviceMaintenanceDue <<Domain Event>> {
+    + deviceId : Long
+    + dueDate : Date
+    + occurredOn : Date
+  }
+}
+
+package "devicemanagement.domain.services" <<Rectangle>> {
+  interface MaintenanceSchedulingService <<Domain Service>> {
+    + findDevicesDueForMaintenance(propertyId : PropertyId, today : Date) : List<Device>
+  }
+}
+
+package "devicemanagement.domain.repositories" <<Rectangle>> {
+  interface DeviceRepository <<Repository>> {
+    + save(device : Device) : Device
+    + findById(id : Long) : Optional<Device>
+    + findBySerialNumber(serial : SerialNumber) : Optional<Device>
+    + findByPropertyId(propertyId : PropertyId) : List<Device>
+    + findByEdgeNodeId(edgeNodeId : Long) : List<Device>
+    + findByConnectivity(status : ConnectivityStatus) : List<Device>
+    + existsBySerialNumber(serial : SerialNumber) : boolean
+  }
+  interface EdgeNodeRepository <<Repository>> {
+    + save(node : EdgeNode) : EdgeNode
+    + findByPropertyId(propertyId : PropertyId) : List<EdgeNode>
+    + findBySerialNumber(serial : SerialNumber) : Optional<EdgeNode>
+  }
+}
+
+AAR <|-- EdgeNode
+AAR <|-- Device
+AuditableModel <|-- MaintenanceRecord
+
+EdgeNode "1" <-- "0..*" Device : connected through >
+Device "1" *--> "0..*" MaintenanceRecord : keeps >
+MaintenanceRecord "0..*" --> "1" MaintenanceType : typed as >
+
+Device "1" --> "1" SerialNumber : identified by >
+EdgeNode "1" --> "1" SerialNumber : identified by >
+Device "1" --> "0..1" CloudThingIdentity : provisioned as >
+EdgeNode "1" --> "0..1" CloudThingIdentity : provisioned as >
+Device "0..*" --> "1" PropertyId : installed in >
+EdgeNode "0..*" --> "1" PropertyId : installed in >
+Device "1" --> "1" InstallationLocation : placed at >
+Device "1" --> "0..1" BatteryLevel : powered by >
+Device "1" --> "1" ServiceLifespan : has >
+Device "0..*" --> "1" DeviceType : is of >
+Device "0..*" --> "1" DeviceCategory : belongs to >
+Device "0..*" --> "1" DeviceLifecycleStatus : in >
+Device "0..*" --> "1" ConnectivityStatus : reports >
+
+Device ..> DeviceRegistered : <<publishes>>
+Device ..> DeviceProvisioned : <<publishes>>
+Device ..> DeviceConnected : <<publishes>>
+Device ..> ConnectivityStatusChanged : <<publishes>>
+Device ..> DeviceBatteryLow : <<publishes>>
+Device ..> DeviceMaintenanceDue : <<publishes>>
+
+MaintenanceSchedulingService ..> DeviceRepository : uses
+DeviceRepository ..> Device : persists
+EdgeNodeRepository ..> EdgeNode : persists
+
+DeviceRegistered -[hidden]down- DeviceProvisioned
+DeviceProvisioned -[hidden]down- DeviceConnected
+DeviceConnected -[hidden]down- ConnectivityStatusChanged
+ConnectivityStatusChanged -[hidden]down- DeviceBatteryLow
+DeviceBatteryLow -[hidden]down- DeviceMaintenanceDue
+
+@enduml

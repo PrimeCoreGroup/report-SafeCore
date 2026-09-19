@@ -1,6 +1,6 @@
 <div align="center">
 
-<img alt="upc-logo" src="assets\logos\upc-logo.png" width="200"/><br>
+<img alt="upc-logo" src="assets/logos/upc-logo.png" width="200"/><br>
 
 <h3>Universidad Peruana de Ciencias Aplicadas</h3>
  
@@ -39,7 +39,7 @@
 # Project Report Collaboration Insights
 
 **AV1:**
-_[Captura de analíticos de colaboración/commits en GitHub — assets/project collaboration/av1.png]_
+_[Captura de analíticos de colaboración/commits en GitHub — assets/ProjectCollaboration/av1.png]_
 
 <div style="page-break-after: always;"></div>
 
@@ -127,8 +127,8 @@ En el siguiente cuadro se describe las acciones realizadas y enunciados de concl
  
 | Criterio específico | Acciones realizadas | Conclusiones | 
 |---|---|---| 
-| **Trabaja en equipo para proporcionar liderazgo en forma conjunta** | **Taquiri, Giuseppe**<br>AV1: Desarrolló y documentó el diseño estratégico de la solución, trabajando en EventStorming, Candidate Context Discovery, Domain Message Flows Modeling, incorporando Domain Storytelling, Bounded Context Canvases con sus 6 pasos de elaboración y Context Mapping mediante las Opciones 1, 2 y 3.<br><br>**Lagos Rivera, Kael Valentino**<br>AV1: Elaboró los puntos del capitulo 1 que van desde el Startup Profile, Solution Profile, Lean Ux Process incorporando el Lean Ux Canvas y definio los segmentos objetivo.<br><br>**Gonzalez Custodio, Carlos Alberto**<br>AV1: Desarrolló el diseño táctico de la solución en el Capítulo IV, elaborando los Bounded Context de Emergency Management y Emergency Response junto con sus capas de Domain, Interface, Application e Infrastructure, así como el diagrama de componentes del Bounded Context de Emergency Response.<br><br>**Tasayco Almonacid, Rafael Augusto**<br>AV1: Elaboró las User Stories y el Product Backlog del Capítulo III, definiendo los requerimientos funcionales priorizados de la solución SafeCore a partir de los hallazgos del proceso de elicitación de requerimientos.<br><br>**Tasayco Osorio, Raúl Hiroshi**<br>AV1: Elaboró el Impact Mapping del Capítulo III, relacionando los objetivos del negocio con los actores, impactos y entregables de la solución, y coordinó la revisión e integración de los pull requests correspondientes a dicho capítulo.<br><br>**Inga Hernandez, Ayrton Damian**<br>AV1: Desarrolló el análisis de competidores y las secciones de needfinding del Capítulo II, incluyendo el análisis competitivo (landscape y SWOT) y las estrategias y tácticas frente a los competidores identificados para SafeCore.<br><br>**Huaman De La Cruz, Jean Pool**<br>AV1: Elaboró la descripción de la startup, la misión y visión de PrimeCore Group en el Capítulo I, la sección de referencias bibliográficas, y desarrolló los diagramas de nivel de código del Capítulo IV (diagramas de clases de dominio y diseño de base de datos) del Bounded Context correspondiente. | La participación conjunta de los integrantes permitió distribuir responsabilidades y desarrollar diferentes actividades del trabajo final. La elaboración de los artefactos de diseño permitió coordinar aportes individuales dentro de una estructura común y avanzar en el desarrollo de la solución IoT.<br><br> | 
-| **Crea un entorno colaborativo e inclusivo, establece metas, planifica tareas y cumple objetivos.** | **Taquiri, Giuseppe**<br>AV1: Participó en la elaboración y documentación del diseño de la solución, contribuyendo al desarrollo de EventStorming, Domain Storytelling, Bounded Context Canvases y Context Mapping.<br><br>**Lagos Rivera, Kael Valentino**<br>AV1: Participó en la documentación del informe, elaboró la estructura que seguiría el ppt de presentación, estuvo atento a cualquier error en la nomenclatura del documento para su posterior corrección y aportó en la redacción de los puntos que conformaban el capítulo 1 así como en la inclusión de citas bibliográficas.<br><br>**Gonzalez Custodio, Carlos Alberto**<br>AV1: Participó en la coordinación y revisión de los pull requests del Capítulo IV, colaboró en la estructuración del informe y aportó su perfil y fotografía para completar la sección de integrantes del equipo.<br><br>**Tasayco Almonacid, Rafael Augusto**<br>AV1: Colaboró en la organización de las tareas del equipo para el desarrollo del Capítulo III y contribuyó a mantener la coherencia entre las historias de usuario y el backlog del producto dentro del informe.<br><br>**Tasayco Osorio, Raúl Hiroshi**<br>AV1: Lideró la organización de las tareas asociadas a la especificación de requerimientos, gestionó la fusión de las ramas del equipo hacia la rama principal y aportó su perfil y fotografía para el informe.<br><br>**Inga Hernandez, Ayrton Damian**<br>AV1: Participó en la documentación del Capítulo II, colaboró en la estructuración de las secciones de needfinding del informe y apoyó en la revisión de la coherencia entre el análisis competitivo y los hallazgos de las entrevistas.<br><br>**Huaman De La Cruz, Jean Pool**<br>AV1: Participó en la redacción y revisión del Capítulo I, estuvo atento a la coherencia de la descripción de la startup dentro del informe y aportó en la documentación técnica de los diagramas de nivel de código del Capítulo IV. | El trabajo realizado de manera colaborativa permitió organizar las actividades del equipo y contribuir al cumplimiento de los objetivos establecidos para el trabajo final. Los aportes de los integrantes se integraron en el informe y permitieron avanzar progresivamente en el desarrollo de la solución.<br><br> |
+| **Trabaja en equipo para proporcionar liderazgo en forma conjunta** | **Taquiri, Giuseppe**<br>AV1: Desarrolló y documentó el diseño estratégico de la solución, trabajando en EventStorming, Candidate Context Discovery, Domain Message Flows Modeling, incorporando Domain Storytelling, Bounded Context Canvases con sus 6 pasos de elaboración y Context Mapping mediante las Opciones 1, 2 y 3.<br><br>**Lagos Rivera, Kael Valentino**<br>AV1: <br><br>**Gonzalez Custodio, Carlos Alberto**<br>AV1: <br><br>**Tasayco Almonacid, Rafael Augusto**<br>AV1: <br><br>**Tasayco Osorio, Raúl Hiroshi**<br>AV1: <br><br>**Inga Hernandez, Ayrton Damian**<br>AV1: <br><br>**Huaman De La Cruz, Jean Pool**<br>AV1: | La participación conjunta de los integrantes permitió distribuir responsabilidades y desarrollar diferentes actividades del trabajo final. La elaboración de los artefactos de diseño permitió coordinar aportes individuales dentro de una estructura común y avanzar en el desarrollo de la solución IoT.<br><br> | 
+| **Crea un entorno colaborativo e inclusivo, establece metas, planifica tareas y cumple objetivos.** | **Taquiri, Giuseppe**<br>AV1: Participó en la elaboración y documentación del diseño de la solución, contribuyendo al desarrollo de EventStorming, Domain Storytelling, Bounded Context Canvases y Context Mapping.<br><br>**Lagos Rivera, Kael Valentino**<br>AV1: <br><br>**Gonzalez Custodio, Carlos Alberto**<br>AV1: <br><br>**Tasayco Almonacid, Rafael Augusto**<br>AV1: <br><br>**Tasayco Osorio, Raúl Hiroshi**<br>AV1: <br><br>**Inga Hernandez, Ayrton Damian**<br>AV1: <br><br>**Huaman De La Cruz, Jean Pool**<br>AV1: | El trabajo realizado de manera colaborativa permitió organizar las actividades del equipo y contribuir al cumplimiento de los objetivos establecidos para el trabajo final. Los aportes de los integrantes se integraron en el informe y permitieron avanzar progresivamente en el desarrollo de la solución.<br><br> |
 
 <div style="page-break-after: always;"></div>
 
@@ -161,10 +161,10 @@ Consolidarnos como la empresa líder en Latinoamérica en soluciones inteligente
 | ![Giussepe_Foto](assets/Fotos/giussepe.png)| Taquiri Calderón, Jhunior Giussepe | Soy estudiante del séptimo ciclo de Ingeniería de Software en la UPC. Tengo experiencia en C++, Python, Java y SQL, además de conocimientos en desarrollo frontend, backend y aplicaciones móviles. Me considero una persona responsable, organizada y comprometida, con facilidad para trabajar en equipo y con interés en seguir aprendiendo. Mis expectativas para el curso de Desarrollo de Soluciones IoT son fortalecer mis conocimientos sobre dispositivos, conectividad y desarrollo de soluciones IoT, aplicando mis habilidades de programación para crear soluciones orientadas a problemas reales. |
 | ![Kael_Foto](assets/Fotos/Kael_Foto.jpg) | Lagos Rivera, Kael Valentino | Me llamo Kael Lagos, estudio en la UPC de Monterrico. Tengo muchas ganas de aprender, me considero una persona responsable que busca aprender de sus errores cada vez que puede y también me considero alguien que se centra en los detalles. Me comprometo a ayudar a mis compañeros para la elaboración de nuestro trabajo que nos pueda asegurar una buena nota al final. |
 | ![Carlos_Foto](assets/Fotos/Carlos_Profile.jpg) | Gonzalez Custodio, Carlos Alberto | Mi nombre es Carlos Alberto Gonzalez Custodio, estudio Ingeniería de Software en la UPC. Me considero una persona en proceso de aprendizaje en cuanto a la programación se refiere. Me encanta desarrollar aplicaciones web o móviles y espero especializarme en el área de Frontend. |
-| ![Rafa_Foto]() | Tasayco Almonacid, Rafael Augusto | Descripción aqui |
+| ![Rafa_Foto](assets/Fotos/Rafa_Foto.jpg) | Tasayco Almonacid, Rafael Augusto | Soy estudiante de la carrera de Ingeniería de Software y actualmente estoy cursando el septimo ciclo de mi carrera universitaria. Entre mis hobbies se encuentran jugar básquet, disfrutar de los videojuegos y escuchar música en mis momentos libres. Cuando culmine mis estudios, me encantaría especializarme y concentrarme en el campo de la ciberseguridad, un área que me apasiona y en la que deseo desarrollarme profesionalmente. |
 | ![Raul_Foto](assets/Fotos/Raul_Tasayco_Profile.jpeg) | Tasayco Osorio, Raúl Hiroshi | Soy estudiante de Ingeniería de Software en la Universidad Peruana de Ciencias Aplicadas (UPC), con experiencia en C++, Python, SQL, Angular, TypeScript, HTML y CSS, además de conocimientos en buenas prácticas de desarrollo, estructuras de datos y bases de datos. He participado en proyectos universitarios y en proyectos desarrollados en entornos reales, fortaleciendo mis habilidades de desarrollo frontend y backend, trabajo en equipo y resolución de problemas. Me caracterizo por ser responsable, comprometido y orientado al aprendizaje continuo. |
-| ![Ayrton_Foto](assets/Fotos/Ayrton-foto.png) | Inga Hernandez, Ayrton Damian | Mi nombre es Ayrton Inga, soy estudiante de Ingenieria de Software en la Universidad Peruana de Ciencias Aplicadas, tengo experiencia programando en C++, Python, C# y Java. Mi enfoque es en el trabajo de equipo y un desarrollo enfocado al cliente. |
-| ![Jean_Foto](assets/Fotos/JeanXP.png)| Huaman De La Cruz, Jean Pool| Soy estudiante de Ingeniería de Software en la Universidad Peruana de Ciencias Aplicadas (UPC), actualmente cursando el séptimo ciclo. Me considero una persona orientada a objetivos, comprometida con mi aprendizaje y con un gran interés por la tecnología y la innovación. Mi objetivo es seguir fortaleciendo mis conocimientos y desarrollar soluciones innovadoras y disruptivas que generen valor y contribuyan a transformar positivamente el mercado y la sociedad.   |
+| Imagen aqui| Inga Hernandez, Ayrton Damian | Descripción aqui |
+| Imagen aqui| Huaman De La Cruz, Jean Pool| Descripción aqui |
 
 ## 1.2. Solution Profile
 
@@ -241,7 +241,7 @@ A partir de la base de nuestros supuestos iniciales, hemos definido las siguient
 #### 1.2.2.4. Lean UX Canvas
 
 <p align="center">
-  <img src="assets/Fotos/Lean Ux Canvas.png" alt="Lean_Ux" />
+  <img src="assets/Fotos/LeanUxCanvas.png" alt="Lean_Ux" />
 </p>
 
 ## 1.3. Segmentos objetivo
@@ -1007,7 +1007,7 @@ Durante el análisis también se identificaron eventos relevantes para establece
 
 El resultado de este proceso constituye una primera propuesta de **Bounded Contexts** que será utilizada como entrada para el **Domain Message Flows Modeling** y posteriormente para la elaboración de los **Bounded Context Canvases**.
 
-![SafeCore - Candidate Context Discovery](assets/Chapter-4/Design/Candidate%20Context%20Discovery.png)
+![SafeCore - Candidate Context Discovery](assets/Chapter-4/Design/CandidateContextDiscovery.png)
 
 **Figura 4.1.1.1. Candidate Context Discovery de SafeCore.**
 
@@ -1027,7 +1027,7 @@ Los flujos permiten identificar la interacción entre los principales **Bounded 
 
 Este modelado sirve como base para analizar las dependencias entre contextos y definir posteriormente las relaciones estructurales mediante el **Context Mapping**.
 
-![SafeCore - Domain Message Flows Modeling](assets/Chapter-4/Design/Message%20Flows.png)
+![SafeCore - Domain Message Flows Modeling](assets/Chapter-4/Design/MessageFlows.png)
 
 **Figura 4.1.1.2. Domain Message Flows Modeling de SafeCore.**
 
@@ -1058,31 +1058,31 @@ Cada Canvas permite representar de manera individual los límites y responsabili
 
 ##### Identity & Access
 
-![Identity & Access](assets/Chapter-4/Design/Identity%20%26%20Access.png)
+![Identity & Access](assets/Chapter-4/Design/IdentityAndAccess.png)
 
 **Figura 4.1.1.3-1. Bounded Context Canvas - Identity & Access.**
 
 ##### Device Management
 
-![Device Management](assets/Chapter-4/Design/Device%20Management.png)
+![Device Management](assets/Chapter-4/Design/DeviceManagement.png)
 
 **Figura 4.1.1.3-2. Bounded Context Canvas - Device Management.**
 
 ##### Sensor Data Ingestion
 
-![Sensor Data Ingestion](assets/Chapter-4/Design/Sensor%20Data%20Ingestion.png)
+![Sensor Data Ingestion](assets/Chapter-4/Design/SensorDataIngestion.png)
 
 **Figura 4.1.1.3-3. Bounded Context Canvas - Sensor Data Ingestion.**
 
 ##### Risk Detection
 
-![Risk Detection](assets/Chapter-4/Design/Risk%20Detection.png)
+![Risk Detection](assets/Chapter-4/Design/RiskDetection.png)
 
 **Figura 4.1.1.3-4. Bounded Context Canvas - Risk Detection.**
 
 ##### Emergency Response
 
-![Emergency Response](assets/Chapter-4/Design/Emergency%20Response.png)
+![Emergency Response](assets/Chapter-4/Design/EmergencyResponse.png)
 
 **Figura 4.1.1.3-5. Bounded Context Canvas - Emergency Response.**
 
@@ -1094,7 +1094,7 @@ Cada Canvas permite representar de manera individual los límites y responsabili
 
 ##### Monitoring & Configuration
 
-![Monitoring & Configuration](assets/Chapter-4/Design/Monitoring%20%26%20Configuration.png)
+![Monitoring & Configuration](assets/Chapter-4/Design/MonitoringAndConfiguration.png)
 
 **Figura 4.1.1.3-7. Bounded Context Canvas - Monitoring & Configuration.**
 
@@ -1113,7 +1113,7 @@ Se mantienen los siete contextos identificados, conservando la separación de re
 
 Las principales relaciones identificadas corresponden a la comunicación entre contextos para registrar usuarios, administrar dispositivos, procesar datos de sensores, detectar riesgos, ejecutar respuestas de emergencia y gestionar notificaciones.
 
-![SafeCore - Context Mapping Opción 1](assets/Chapter-4/Design/Context%20Mapping%20Option%201.png)
+![SafeCore - Context Mapping Opción 1](assets/Chapter-4/Design/ContextMappingOption1.png)
 
 **Figura 4.1.2-1. Context Mapping de SafeCore - Opción 1.**
 
@@ -1123,7 +1123,7 @@ Se propone integrar **Sensor Data Ingestion** y **Risk Detection** en un único 
 
 Esta alternativa reduce la comunicación entre ambos contextos, ya que la captura, procesamiento inicial y detección de condiciones de riesgo se encontrarían dentro de un mismo límite. Sin embargo, también concentra responsabilidades que actualmente se encuentran separadas.
 
-![SafeCore - Context Mapping Opción 2](assets/Chapter-4/Design/Context%20Mapping%20Option%202.png)
+![SafeCore - Context Mapping Opción 2](assets/Chapter-4/Design/ContextMappingOption2.png)
 
 **Figura 4.1.2-2. Context Mapping de SafeCore - Opción 2.**
 
@@ -1133,7 +1133,7 @@ Se propone separar la responsabilidad de **Emergency Response** en dos contextos
 
 Esta alternativa permite diferenciar la lógica de coordinación de una emergencia de la interacción con los dispositivos físicos, aunque introduce una nueva relación entre ambos contextos.
 
-![SafeCore - Context Mapping Opción 3](assets/Chapter-4/Design/Context%20Mapping%20Option%203.png)
+![SafeCore - Context Mapping Opción 3](assets/Chapter-4/Design/ContextMappingOption3.png)
 
 **Figura 4.1.2-3. Context Mapping de SafeCore - Opción 3.**
 
@@ -1181,21 +1181,90 @@ Esta aproximación permite conservar límites claros entre las responsabilidades
 
 ### 4.1.3. Software Architecture
 
+La arquitectura propuesta para SafeCore se representa mediante el modelo C4, utilizando las vistas **System Landscape**, **System Context**, **Container** y **Deployment**. Estas vistas permiten describir el ecosistema de la solución, sus límites, las unidades de software que la conforman y su distribución en los entornos de ejecución. Los diagramas de componentes y código se desarrollan posteriormente en el diseño táctico de cada Bounded Context.
+
+La solución combina procesamiento local en el inmueble (**Edge Computing**) con servicios en la nube. El nodo Edge es responsable de detectar condiciones de riesgo y ejecutar los protocolos de emergencia, incluso cuando no existe conexión a Internet. La nube permite administrar usuarios e inmuebles, consultar el historial, distribuir configuraciones y gestionar notificaciones remotas. Por tanto, la comunicación con la nube no constituye un requisito para ejecutar las acciones locales de protección.
+
+Esta propuesta conserva los siete Bounded Contexts seleccionados en el Context Mapping. Sus límites representan responsabilidades del dominio y no implican que cada contexto deba desplegarse como un microservicio independiente. Las tecnologías y la distribución descritas constituyen decisiones de diseño propuestas, no evidencia de una implementación ya desplegada.
+
 #### 4.1.3.1. Software Architecture System Landscape Diagram
 
-_[...]_
+La vista System Landscape presenta el ecosistema de SafeCore y las relaciones entre los actores y sistemas que participan en la protección de los inmuebles. Se consideran cuatro actores: el **administrador de edificio**, que supervisa inmuebles, dispositivos, umbrales y simulacros; el **propietario de vivienda**, que administra la protección de su vivienda; el **residente**, que consulta información y recibe alertas según sus permisos; y el **visitante**, que accede a la información comercial de la solución.
+
+En esta vista general, **SafeCore** se representa como un único sistema que integra la protección y la supervisión de los inmuebles. Los administradores y propietarios gestionan la protección, los residentes consultan el estado y las alertas, y los visitantes conocen la propuesta de valor.
+
+Como servicio externo principal se muestra el **servicio de notificaciones**, que permite entregar alertas a los usuarios. El detalle de sensores, actuadores y comunicación IoT se desarrolla en la vista de contexto. Esta selección permite presentar el propósito de SafeCore y sus usuarios de manera sencilla.
+
+![Diagrama System Landscape de SafeCore](assets/architecture/SafeCoreLandscape-dark.png)
+
+**Figura 4.1.3.1. Diagrama System Landscape de SafeCore.**
+
+[Abrir diagrama en resolución original](assets/architecture/SafeCoreLandscape-dark.png) · [Consultar leyenda](assets/architecture/SafeCoreLandscape-dark-key.png)
 
 #### 4.1.3.2. Software Architecture Context Level Diagrams
 
-_[...]_
+La vista de contexto representa a **SafeCore como un único sistema de software**, incluyendo tanto sus aplicaciones y servicios en la nube como su capacidad de procesamiento local. El administrador y el propietario utilizan el sistema para registrar inmuebles, supervisar sensores, consultar eventos y gestionar configuraciones y pruebas de acuerdo con sus permisos. El residente consulta el estado y las alertas que le corresponden, mientras que el visitante conoce los beneficios de la solución mediante la landing page.
+
+Las relaciones con los dispositivos describen dos intercambios principales: la recepción de lecturas desde la red de sensores y el envío de órdenes hacia los actuadores, junto con la recepción de sus resultados de ejecución. AWS IoT Core transporta telemetría, eventos, configuraciones y solicitudes remotas entre la nube y los nodos Edge. El servicio de notificaciones recibe solicitudes de entrega de alertas y las distribuye por SMS o push.
+
+El límite del sistema permite distinguir las responsabilidades propias de SafeCore de las funciones proporcionadas por dispositivos y servicios externos. Ante la pérdida de Internet, la detección y la actuación permanecen disponibles localmente; las consultas desde clientes remotos, los cambios de configuración enviados desde la nube y las notificaciones externas requieren conectividad. Los eventos pendientes se conservan en el inmueble para sincronizarlos cuando se restablece la conexión.
+
+![Diagrama System Context de SafeCore](assets/architecture/SafeCoreContext-dark.png)
+
+**Figura 4.1.3.2. Diagrama System Context de SafeCore.**
+
+[Abrir diagrama en resolución original](assets/architecture/SafeCoreContext-dark.png) · [Consultar leyenda](assets/architecture/SafeCoreContext-dark-key.png)
 
 #### 4.1.3.3. Software Architecture Container Level Diagrams
 
-_[...]_
+La vista de contenedores descompone SafeCore en aplicaciones y almacenes de datos con responsabilidades diferenciadas. En el modelo C4, un contenedor representa una unidad de ejecución o almacenamiento y no exige el uso de Docker. Se propone la siguiente organización:
+
+| Contenedor | Responsabilidad |
+|---|---|
+| **Landing Page** | Presentar la propuesta de valor, los beneficios y los canales de contacto, y dirigir al visitante hacia el acceso a la plataforma. |
+| **Aplicación Web** | Proporcionar el dashboard para la administración de inmuebles, monitoreo, configuración de umbrales, consulta del historial y solicitud de pruebas. |
+| **Aplicación Móvil** | Permitir la consulta del estado y las alertas, y ofrecer operaciones de administración según el rol del usuario. |
+| **API y Servicios de Aplicación** | Exponer la API REST, autenticar usuarios, aplicar permisos, administrar inmuebles y dispositivos, registrar eventos y coordinar la configuración y las notificaciones remotas. Se propone Java con Spring Boot, en coherencia con la persistencia JPA descrita en el diseño táctico. |
+| **Base de Datos Central** | Persistir usuarios, inmuebles, dispositivos, configuraciones e historial de eventos y respuestas sincronizadas. El motor queda pendiente de selección. |
+| **Servicio Edge** | Capturar lecturas, evaluar condiciones de riesgo, ejecutar protocolos sobre actuadores y registrar resultados localmente. También valida las solicitudes remotas y sincroniza eventos con la nube. |
+| **Almacenamiento Local** | Conservar la configuración vigente, los protocolos y los eventos pendientes de sincronización, permitiendo que el Servicio Edge continúe operando sin Internet. |
+
+Las aplicaciones Web y Móvil consumen la API mediante **HTTPS**. La API accede a la Base de Datos Central y solicita al proveedor externo la entrega de notificaciones. La integración con **AWS IoT Core** se plantea mediante MQTT sobre TLS para transportar eventos, configuraciones y solicitudes entre el Servicio Edge y los servicios de aplicación. Las interfaces físicas y protocolos locales de sensores y actuadores se definirán según el hardware seleccionado.
+
+El recorrido crítico de una emergencia es **sensores → Servicio Edge → actuadores**. El Servicio Edge registra los resultados en el Almacenamiento Local y publica los eventos hacia la nube cuando existe conectividad. Cada evento contará con un identificador estable para evitar registros duplicados durante los reintentos de sincronización. Las configuraciones se conservarán con una versión y una confirmación de aplicación; una configuración enviada desde la nube no se considerará activa hasta que el nodo confirme su validación y almacenamiento.
+
+Las responsabilidades de **Sensor Data Ingestion**, **Risk Detection** y la ejecución de **Emergency Response** se sitúan en el Servicio Edge para sostener la respuesta autónoma. **Identity & Access**, **Device Management**, **Notification** y la administración central de **Monitoring & Configuration** se organizan como módulos de los servicios de aplicación. El nodo mantiene la configuración operativa y los resultados de emergencia necesarios para su funcionamiento, mientras que la nube conserva su representación sincronizada para consulta y seguimiento.
+
+La integración `ActuatorGatewayServiceImpl` con AWS IoT Core descrita en el apartado 4.2 se interpreta como el canal para solicitudes remotas dirigidas al nodo Edge. La ejecución autónoma requiere además un adaptador local hacia los actuadores. De esta manera, las pruebas y solicitudes remotas pueden utilizar la nube, mientras que una emergencia detectada en el inmueble se resuelve mediante el recorrido local. Una solicitud enviada no equivale a una acción completada: el resultado se registra a partir de la confirmación del nodo y del dispositivo correspondiente.
+
+![Diagrama Container de SafeCore](assets/architecture/SafeCoreContainers-dark.png)
+
+**Figura 4.1.3.3. Diagrama Container de SafeCore.**
+
+[Abrir diagrama en resolución original](assets/architecture/SafeCoreContainers-dark.png) · [Consultar leyenda](assets/architecture/SafeCoreContainers-dark-key.png)
 
 #### 4.1.3.4. Software Architecture Deployment Diagrams
 
-_[...]_
+La vista de despliegue distribuye los contenedores propuestos en los siguientes entornos:
+
+| Entorno | Elementos desplegados |
+|---|---|
+| **Dispositivos de los usuarios** | Navegadores que ejecutan la Landing Page o la Aplicación Web, y dispositivos móviles que ejecutan la Aplicación Móvil. |
+| **Infraestructura en la nube** | Alojamiento de los recursos web, entorno de ejecución de la API y los servicios de aplicación, y servidor de Base de Datos Central. Los servicios concretos de alojamiento quedan pendientes de selección. |
+| **Servicios externos administrados** | AWS IoT Core para la comunicación con los nodos Edge y el proveedor de notificaciones SMS y push. |
+| **Inmueble protegido** | Nodo Edge con el Servicio Edge y el Almacenamiento Local, red de sensores y sistema de actuadores. Se contempla alimentación de respaldo para los elementos necesarios de la operación local. |
+
+Los navegadores obtienen los recursos de las aplicaciones desde el alojamiento web por HTTPS y ejecutan las interfaces en el dispositivo del usuario. La Aplicación Web y la Aplicación Móvil se comunican con la API mediante HTTPS. El nodo Edge establece la comunicación con AWS IoT Core mediante MQTT sobre TLS y utiliza interfaces locales para interactuar con los sensores y actuadores. La Base de Datos Central se sitúa en una red privada accesible desde los servicios de aplicación, sin acceso directo desde los clientes.
+
+El diagrama representa un inmueble como patrón de despliegue repetible. Cada inmueble contará con identidad de dispositivo, configuración y almacenamiento local propios. La plataforma verificará los permisos por usuario e inmueble y restringirá los canales de comunicación de cada nodo a sus recursos autorizados.
+
+Durante una interrupción de Internet, el nodo continúa evaluando lecturas y ejecutando protocolos con su última configuración válida. Ante la pérdida de energía comercial, la continuidad prevista depende de la capacidad del respaldo energético y de los componentes alimentados por este. Cuando se recupera la conectividad, el nodo sincroniza los registros pendientes sin volver a ejecutar las acciones de emergencia ya realizadas. La autonomía energética, los tiempos de respuesta y la recuperación de comunicaciones deberán validarse mediante pruebas del prototipo.
+
+![Diagrama Deployment de SafeCore](assets/architecture/SafeCoreDeployment-dark.png)
+
+**Figura 4.1.3.4. Diagrama Deployment de SafeCore.**
+
+[Abrir diagrama en resolución original](assets/architecture/SafeCoreDeployment-dark.png) · [Consultar leyenda](assets/architecture/SafeCoreDeployment-dark-key.png)
 
 ## 4.2. Tactical-Level Domain-Driven Design
 
@@ -1507,48 +1576,9 @@ La **Infrastructure Layer** del **Emergency Response Bounded Context** proporcio
 
 Esta estructura asegura que la Infrastructure Layer sea modular, reutilizable y fácil de mantener, facilitando la integración con otros sistemas y servicios externos.
 
-#### 4.2.1.5. Bounded Context Software Architecture Component Level Diagrams
+#### 4.2.X.5. Bounded Context Software Architecture Component Level Diagrams
 
-En esta sección se presenta el diagrama de componentes del **Emergency Response Bounded Context**, el cual detalla los principales módulos y sus interacciones dentro del contexto delimitado. Este diagrama sigue el enfoque del **C4 Model** para representar los componentes clave, como servicios de aplicación, controladores, repositorios y servicios externos, junto con sus relaciones.
-
-El propósito de este diagrama es proporcionar una visión clara y estructurada de cómo se organizan los componentes dentro del contexto, facilitando la comprensión de su arquitectura y permitiendo identificar puntos de integración y responsabilidades.
-
-El **Emergency Response Bounded Context** está compuesto por los siguientes módulos principales:
-
-1. **Interface Layer**:
-   - Expone los puntos de entrada al sistema a través de controladores REST.
-   - Incluye recursos y transformadores que aseguran una representación adecuada de los datos y su conversión entre las capas de la aplicación.
-   - Proporciona endpoints para operaciones como el inicio de una respuesta de emergencia, la consulta de protocolos y la actualización del estado de las acciones.
-
-2. **Application Layer**:
-   - Coordina las operaciones de negocio relacionadas con la ejecución y el seguimiento de las respuestas de emergencia.
-   - Incluye servicios de comandos y consultas que interactúan con la Domain Layer y la Infrastructure Layer.
-   - Orquesta la selección y ejecución de protocolos de emergencia, así como el despacho de comandos hacia los actuadores.
-
-3. **Domain Layer**:
-   - Encapsula la lógica de negocio relacionada con la ejecución de protocolos y acciones de respuesta ante emergencias.
-   - Define los agregados, entidades y objetos de valor que representan los conceptos clave del dominio, como respuestas de emergencia, protocolos y comandos de actuadores.
-   - Asegura que las reglas de negocio, como la secuencia de ejecución de un protocolo, se cumplan de manera consistente.
-
-4. **Infrastructure Layer**:
-   - Proporciona las implementaciones técnicas necesarias para soportar las operaciones del sistema.
-   - Incluye repositorios para la persistencia de datos y componentes que conectan la lógica de negocio con los recursos externos, como la base de datos y la infraestructura IoT.
-   - Implementa servicios auxiliares como la comunicación con actuadores (Anti-Corruption Layer hacia AWS IoT) y la publicación de eventos de dominio.
-
-```mermaid
-graph TD
-    IL["Interface Layer<br/>Emergency Response<br/>[Component: Spring Boot]"]
-    AL["Application Layer<br/>Emergency Response<br/>[Component: Spring Boot]"]
-    INFRA["Infrastructure Layer<br/>Emergency Response<br/>[Component: Spring Boot]"]
-    DL["Domain Layer<br/>Emergency Response<br/>[Component: Spring Boot]"]
-    DB[("Database<br/>[Container: PostgreSQL]")]
-
-    IL -->|calls| AL
-    AL -->|uses| INFRA
-    AL -->|uses| DL
-    INFRA -->|uses| DL
-    INFRA -.->|JSON/HTTPS| DB
-```
+_[...]_
 
 #### 4.2.X.6. Bounded Context Software Architecture Code Level Diagrams
 

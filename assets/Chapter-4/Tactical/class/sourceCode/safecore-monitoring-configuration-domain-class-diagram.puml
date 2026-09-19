@@ -1,0 +1,292 @@
+@startuml safecore-monitoring-configuration-domain-class-diagram
+set separator none
+skinparam dpi 150
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+skinparam classAttributeIconSize 0
+skinparam packageStyle rectangle
+skinparam nodesep 35
+skinparam ranksep 45
+skinparam ArrowColor #37474F
+skinparam ArrowFontSize 10
+skinparam ArrowFontColor #263238
+skinparam PackageBorderColor #546E7A
+skinparam PackageFontSize 12
+skinparam class {
+  BorderColor #455A64
+  BackgroundColor #FFFFFF
+  HeaderBackgroundColor #ECEFF1
+  StereotypeFontSize 9
+  StereotypeFontColor #37474F
+  BackgroundColor<<Aggregate Root>> #FFF3E0
+  BorderColor<<Aggregate Root>> #E65100
+  BackgroundColor<<Entity>> #E3F2FD
+  BorderColor<<Entity>> #1565C0
+  BackgroundColor<<Value Object>> #E8F5E9
+  BorderColor<<Value Object>> #2E7D32
+  BackgroundColor<<Enumeration>> #F1F8E9
+  BorderColor<<Enumeration>> #558B2F
+  BackgroundColor<<Domain Event>> #FCE4EC
+  BorderColor<<Domain Event>> #AD1457
+  BackgroundColor<<Repository>> #EDE7F6
+  BorderColor<<Repository>> #4527A0
+  BackgroundColor<<Domain Service>> #E0F7FA
+  BorderColor<<Domain Service>> #00838F
+  BackgroundColor<<Shared Kernel>> #F5F5F5
+  BorderColor<<Shared Kernel>> #757575
+}
+hide empty members
+
+title Monitoring & Configuration Bounded Context — Domain Layer Class Diagram
+
+package "shared.domain.model" <<Rectangle>> {
+  abstract class "AuditableAbstractAggregateRoot<T>" as AAR <<Shared Kernel>> {
+    - id : Long
+    - createdAt : Date
+    - updatedAt : Date
+    + getId() : Long
+    # registerEvent(event : Object) : void
+  }
+  abstract class AuditableModel <<Shared Kernel>> {
+    - id : Long
+    - createdAt : Date
+    - updatedAt : Date
+    + getId() : Long
+  }
+}
+
+
+package "monitoring.domain.model.aggregates" <<Rectangle>> {
+  class SystemConfiguration <<Aggregate Root>> {
+    - propertyId : PropertyId
+    - thresholds : List<RiskThreshold>
+    - version : ConfigurationVersion
+    - syncStatus : SyncStatus
+    - lastSyncedAt : Date
+    + SystemConfiguration(propertyId : PropertyId)
+    + updateThreshold(riskType : RiskType, value : ThresholdValue) : void
+    + getThreshold(riskType : RiskType) : RiskThreshold
+    + markAsSynchronized(at : Date) : void
+    + markSynchronizationFailed() : void
+    + isSynchronized() : boolean
+    - incrementVersion() : void
+  }
+
+  class DrillSession <<Aggregate Root>> {
+    - propertyId : PropertyId
+    - drillType : DrillType
+    - targetActuator : String
+    - requestedByUserId : Long
+    - status : DrillStatus
+    - startedAt : Date
+    - finishedAt : Date
+    - results : List<DrillCheckResult>
+    + DrillSession(propertyId : PropertyId, drillType : DrillType,\n      targetActuator : String, requestedByUserId : Long)
+    + start() : void
+    + registerResult(result : DrillCheckResult) : void
+    + finish() : void
+    + getSuccessRate() : double
+    + hasFailures() : boolean
+  }
+
+  class EventHistoryEntry <<Aggregate Root>> {
+    - propertyId : PropertyId
+    - category : EventCategory
+    - source : SourceReference
+    - description : String
+    - severity : String
+    - occurredAt : Date
+    + EventHistoryEntry(propertyId : PropertyId, category : EventCategory,\n      source : SourceReference, description : String, occurredAt : Date)
+    + isWithin(period : DateRange) : boolean
+  }
+
+  class DeviceStatusSnapshot <<Aggregate Root>> {
+    - deviceId : Long
+    - propertyId : PropertyId
+    - deviceType : String
+    - connectivity : String
+    - batteryPercentage : int
+    - lastSeenAt : Date
+    + DeviceStatusSnapshot(deviceId : Long, propertyId : PropertyId, deviceType : String)
+    + update(connectivity : String, batteryPercentage : int, lastSeenAt : Date) : void
+    + isOffline() : boolean
+    + isBatteryLow() : boolean
+  }
+}
+
+package "monitoring.domain.model.entities" <<Rectangle>> {
+  class RiskThreshold <<Entity>> {
+    - riskType : RiskType
+    - value : ThresholdValue
+    - allowedRange : ThresholdRange
+    + RiskThreshold(riskType : RiskType, value : ThresholdValue, allowedRange : ThresholdRange)
+    + change(newValue : ThresholdValue) : void
+  }
+  class DrillCheckResult <<Entity>> {
+    - deviceId : Long
+    - actuatorType : String
+    - passed : boolean
+    - responseTimeMillis : long
+    - observations : String
+    + DrillCheckResult(deviceId : Long, actuatorType : String, passed : boolean,\n      responseTimeMillis : long, observations : String)
+  }
+}
+
+package "monitoring.domain.model.valueobjects" <<Rectangle>> {
+  class PropertyId <<Value Object>> {
+    - propertyId : Long
+  }
+  class ThresholdValue <<Value Object>> {
+    - value : double
+    - unit : String
+  }
+  class ThresholdRange <<Value Object>> {
+    - minimum : double
+    - maximum : double
+    + contains(value : ThresholdValue) : boolean
+  }
+  class ConfigurationVersion <<Value Object>> {
+    - number : int
+    + next() : ConfigurationVersion
+  }
+  class SourceReference <<Value Object>> {
+    - sourceContext : String
+    - sourceId : Long
+  }
+  class DateRange <<Value Object>> {
+    - from : Date
+    - to : Date
+    + contains(date : Date) : boolean
+  }
+  class SystemHealthIndicator <<Value Object>> {
+    - onlineDevicesRate : double
+    - averageBatteryLevel : double
+    - lowBatteryDevices : int
+    - eventsLast30Days : int
+    - drillSuccessRate : double
+  }
+  enum RiskType <<Enumeration>> {
+    SEISMIC
+    FIRE
+    GAS_LEAK
+  }
+  enum SyncStatus <<Enumeration>> {
+    PENDING
+    SYNCHRONIZED
+    FAILED
+  }
+  enum DrillType <<Enumeration>> {
+    FULL_DRILL
+    SINGLE_ACTUATOR_TEST
+  }
+  enum DrillStatus <<Enumeration>> {
+    SCHEDULED
+    IN_PROGRESS
+    PASSED
+    FAILED
+  }
+  enum EventCategory <<Enumeration>> {
+    SEISMIC
+    FIRE
+    GAS_LEAK
+    SYSTEM_FAILURE
+    MAINTENANCE
+    DRILL
+    CONFIGURATION
+  }
+}
+
+package "monitoring.domain.model.events" <<Rectangle>> {
+  class ConfigurationUpdated <<Domain Event>> {
+    + propertyId : Long
+    + riskType : RiskType
+    + thresholdValue : double
+    + version : int
+    + occurredOn : Date
+  }
+  class DevicesReconfigured <<Domain Event>> {
+    + propertyId : Long
+    + version : int
+    + occurredOn : Date
+  }
+  class DrillStarted <<Domain Event>> {
+    + drillSessionId : Long
+    + propertyId : Long
+    + drillType : DrillType
+    + occurredOn : Date
+  }
+  class DrillCompleted <<Domain Event>> {
+    + drillSessionId : Long
+    + status : DrillStatus
+    + successRate : double
+    + occurredOn : Date
+  }
+}
+
+package "monitoring.domain.services" <<Rectangle>> {
+  interface SystemHealthCalculator <<Domain Service>> {
+    + calculate(snapshots : List<DeviceStatusSnapshot>, history : List<EventHistoryEntry>,\n      drills : List<DrillSession>) : SystemHealthIndicator
+  }
+}
+
+package "monitoring.domain.repositories" <<Rectangle>> {
+  interface SystemConfigurationRepository <<Repository>> {
+    + save(configuration : SystemConfiguration) : SystemConfiguration
+    + findByPropertyId(propertyId : PropertyId) : Optional<SystemConfiguration>
+  }
+  interface DrillSessionRepository <<Repository>> {
+    + save(session : DrillSession) : DrillSession
+    + findByPropertyIdOrderByStartedAtDesc(propertyId : PropertyId) : List<DrillSession>
+  }
+  interface EventHistoryEntryRepository <<Repository>> {
+    + save(entry : EventHistoryEntry) : EventHistoryEntry
+    + findByPropertyIdAndOccurredAtBetween(propertyId : PropertyId, from : Date, to : Date) : List<EventHistoryEntry>
+    + findByPropertyIdAndCategory(propertyId : PropertyId, category : EventCategory) : List<EventHistoryEntry>
+  }
+  interface DeviceStatusSnapshotRepository <<Repository>> {
+    + save(snapshot : DeviceStatusSnapshot) : DeviceStatusSnapshot
+    + findByDeviceId(deviceId : Long) : Optional<DeviceStatusSnapshot>
+    + findByPropertyId(propertyId : PropertyId) : List<DeviceStatusSnapshot>
+  }
+}
+
+AAR <|-- SystemConfiguration
+AAR <|-- DrillSession
+AAR <|-- EventHistoryEntry
+AAR <|-- DeviceStatusSnapshot
+AuditableModel <|-- RiskThreshold
+AuditableModel <|-- DrillCheckResult
+
+SystemConfiguration "1" *--> "1..3" RiskThreshold : defines >
+DrillSession "1" *--> "0..*" DrillCheckResult : records >
+RiskThreshold "1" *--> "1" ThresholdValue : sets >
+RiskThreshold "1" *--> "1" ThresholdRange : bounded by >
+RiskThreshold "0..*" --> "1" RiskType : applies to >
+SystemConfiguration "1" *--> "1" ConfigurationVersion : versioned as >
+SystemConfiguration "0..*" --> "1" SyncStatus : has >
+SystemConfiguration "0..1" --> "1" PropertyId : configures >
+DrillSession "0..*" --> "1" DrillType : of type >
+DrillSession "0..*" --> "1" DrillStatus : has >
+EventHistoryEntry "0..*" --> "1" EventCategory : classified as >
+EventHistoryEntry "1" *--> "1" SourceReference : originated by >
+EventHistoryEntry ..> DateRange : filtered by
+DeviceStatusSnapshot "0..*" --> "1" PropertyId : installed in >
+
+SystemConfiguration ..> ConfigurationUpdated : <<publishes>>
+SystemConfiguration ..> DevicesReconfigured : <<publishes>>
+DrillSession ..> DrillStarted : <<publishes>>
+DrillSession ..> DrillCompleted : <<publishes>>
+
+SystemHealthCalculator ..> SystemHealthIndicator : produces
+SystemHealthCalculator ..> DeviceStatusSnapshot : aggregates
+SystemConfigurationRepository ..> SystemConfiguration : persists
+DrillSessionRepository ..> DrillSession : persists
+EventHistoryEntryRepository ..> EventHistoryEntry : persists
+DeviceStatusSnapshotRepository ..> DeviceStatusSnapshot : persists
+
+ConfigurationUpdated -[hidden]down- DevicesReconfigured
+DevicesReconfigured -[hidden]down- DrillStarted
+DrillStarted -[hidden]down- DrillCompleted
+
+@enduml

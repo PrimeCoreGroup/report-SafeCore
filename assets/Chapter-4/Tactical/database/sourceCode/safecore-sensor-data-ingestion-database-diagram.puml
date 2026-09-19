@@ -1,0 +1,98 @@
+@startuml safecore-sensor-data-ingestion-database-diagram
+set separator none
+skinparam dpi 150
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+skinparam linetype ortho
+skinparam nodesep 60
+skinparam ranksep 60
+skinparam ArrowColor #37474F
+skinparam ArrowFontSize 10
+skinparam PackageBorderColor #546E7A
+skinparam class {
+  BorderColor #1565C0
+  BackgroundColor #FFFFFF
+  HeaderBackgroundColor #E3F2FD
+  BorderColor<<Reference>> #9E9E9E
+  BackgroundColor<<Reference>> #FAFAFA
+  FontColor<<Reference>> #616161
+}
+skinparam note {
+  BackgroundColor #FFFDE7
+  BorderColor #F9A825
+}
+hide circle
+hide empty members
+
+title Sensor Data Ingestion Bounded Context — Database Design Diagram (PostgreSQL)
+
+package "Schema: sensor_ingestion" <<Rectangle>> {
+  entity "plausible_ranges" as prg {
+    * id : BIGSERIAL <<PK>>
+    --
+    * sensor_type : VARCHAR(20) <<UK>>
+    * minimum_value : NUMERIC(10,4)
+    * maximum_value : NUMERIC(10,4)
+    * unit : VARCHAR(25)
+    * created_at : TIMESTAMP
+    * updated_at : TIMESTAMP
+    ..
+    <<CHK>> maximum_value > minimum_value
+  }
+
+  entity "sensor_readings" as sr {
+    * id : BIGSERIAL <<PK>>
+    --
+    * device_id : BIGINT
+    * edge_node_id : BIGINT
+    * property_id : BIGINT
+    * sensor_type : VARCHAR(20)
+    * measured_value : NUMERIC(10,4)
+    * unit : VARCHAR(25)
+    * captured_at : TIMESTAMP
+    * received_at : TIMESTAMP
+    * validation_status : VARCHAR(15)
+      validation_notes : VARCHAR(255)
+    * created_at : TIMESTAMP
+    * updated_at : TIMESTAMP
+    ..
+    <<UK>> (device_id, captured_at)
+    <<IDX>> (property_id, sensor_type, captured_at DESC)
+  }
+
+  entity "sensor_events" as se {
+    * id : BIGSERIAL <<PK>>
+    --
+    * reading_id : BIGINT <<FK, UK>>
+    * device_id : BIGINT
+    * property_id : BIGINT
+    * event_type : VARCHAR(35)
+    * measured_value : NUMERIC(10,4)
+    * unit : VARCHAR(25)
+    * occurred_at : TIMESTAMP
+    * created_at : TIMESTAMP
+    * updated_at : TIMESTAMP
+    ..
+    <<IDX>> (property_id, occurred_at DESC)
+  }
+}
+
+entity "devices\n(Device Management BC)" as dv <<Reference>> {
+  id : BIGINT
+}
+entity "properties\n(Identity & Access BC)" as pr <<Reference>> {
+  id : BIGINT
+}
+
+sr ||--o| se : "originates"
+prg ||..o{ sr : "validates\n(sensor_type)"
+sr }o..|| dv : "device_id\n(logical reference)"
+sr }o..|| pr : "property_id\n(logical reference)"
+
+note bottom of sr
+  Tabla de alto volumen (telemetría). Se recomienda
+  particionarla por rango mensual sobre captured_at.
+end note
+
+@enduml

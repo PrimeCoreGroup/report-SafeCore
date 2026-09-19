@@ -1,0 +1,108 @@
+@startuml safecore-risk-detection-database-diagram
+set separator none
+skinparam dpi 150
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+skinparam linetype ortho
+skinparam nodesep 60
+skinparam ranksep 60
+skinparam ArrowColor #37474F
+skinparam ArrowFontSize 10
+skinparam PackageBorderColor #546E7A
+skinparam class {
+  BorderColor #1565C0
+  BackgroundColor #FFFFFF
+  HeaderBackgroundColor #E3F2FD
+  BorderColor<<Reference>> #9E9E9E
+  BackgroundColor<<Reference>> #FAFAFA
+  FontColor<<Reference>> #616161
+}
+skinparam note {
+  BackgroundColor #FFFDE7
+  BorderColor #F9A825
+}
+hide circle
+hide empty members
+
+title Risk Detection Bounded Context — Database Design Diagram (PostgreSQL)
+
+package "Schema: risk_detection" <<Rectangle>> {
+  entity "detection_rules" as dr {
+    * id : BIGSERIAL <<PK>>
+    --
+    * property_id : BIGINT
+    * risk_type : VARCHAR(15)
+    * threshold_value : NUMERIC(10,4)
+    * threshold_unit : VARCHAR(25)
+    * confirmation_window_seconds : SMALLINT
+    * configuration_version : INTEGER
+    * created_at : TIMESTAMP
+    * updated_at : TIMESTAMP
+    ..
+    <<UK>> (property_id, risk_type)
+    <<CHK>> confirmation_window_seconds > 0
+  }
+
+  entity "risk_situations" as rs {
+    * id : BIGSERIAL <<PK>>
+    --
+    * property_id : BIGINT
+    * risk_type : VARCHAR(15)
+    * status : VARCHAR(20)
+      severity : VARCHAR(10)
+    * detected_at : TIMESTAMP
+      validated_at : TIMESTAMP
+      discard_reason : VARCHAR(255)
+    * created_at : TIMESTAMP
+    * updated_at : TIMESTAMP
+    ..
+    <<CHK>> status IN ('UNDER_VALIDATION','VALIDATED','FALSE_POSITIVE')
+    <<IDX>> (property_id, risk_type, status)
+  }
+
+  entity "detection_evidences" as de {
+    * id : BIGSERIAL <<PK>>
+    --
+    * risk_situation_id : BIGINT <<FK>>
+    * sensor_event_id : BIGINT <<UK>>
+    * device_id : BIGINT
+    * evidence_type : VARCHAR(25)
+    * measured_value : NUMERIC(10,4)
+    * unit : VARCHAR(25)
+    * occurred_at : TIMESTAMP
+    * created_at : TIMESTAMP
+    * updated_at : TIMESTAMP
+  }
+
+  entity "alerts" as a {
+    * id : BIGSERIAL <<PK>>
+    --
+    * risk_situation_id : BIGINT <<FK, UK>>
+    * property_id : BIGINT
+    * risk_type : VARCHAR(15)
+    * severity : VARCHAR(10)
+    * message : VARCHAR(255)
+    * status : VARCHAR(15)
+    * generated_at : TIMESTAMP
+    * created_at : TIMESTAMP
+    * updated_at : TIMESTAMP
+    ..
+    <<IDX>> (property_id, generated_at DESC)
+  }
+}
+
+entity "sensor_events\n(Sensor Data Ingestion BC)" as se <<Reference>> {
+  id : BIGINT
+}
+entity "properties\n(Identity & Access BC)" as pr <<Reference>> {
+  id : BIGINT
+}
+
+rs ||--|{ de : "supported by"
+rs ||--o| a : "raises"
+dr ||..o{ rs : "evaluates\n(property_id, risk_type)"
+de |o..|| se : "sensor_event_id\n(logical reference)"
+rs }o..|| pr : "property_id\n(logical reference)"
+
+@enduml

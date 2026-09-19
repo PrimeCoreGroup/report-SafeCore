@@ -1,0 +1,270 @@
+@startuml safecore-notification-domain-class-diagram
+set separator none
+skinparam dpi 150
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+skinparam classAttributeIconSize 0
+skinparam packageStyle rectangle
+skinparam nodesep 35
+skinparam ranksep 45
+skinparam ArrowColor #37474F
+skinparam ArrowFontSize 10
+skinparam ArrowFontColor #263238
+skinparam PackageBorderColor #546E7A
+skinparam PackageFontSize 12
+skinparam class {
+  BorderColor #455A64
+  BackgroundColor #FFFFFF
+  HeaderBackgroundColor #ECEFF1
+  StereotypeFontSize 9
+  StereotypeFontColor #37474F
+  BackgroundColor<<Aggregate Root>> #FFF3E0
+  BorderColor<<Aggregate Root>> #E65100
+  BackgroundColor<<Entity>> #E3F2FD
+  BorderColor<<Entity>> #1565C0
+  BackgroundColor<<Value Object>> #E8F5E9
+  BorderColor<<Value Object>> #2E7D32
+  BackgroundColor<<Enumeration>> #F1F8E9
+  BorderColor<<Enumeration>> #558B2F
+  BackgroundColor<<Domain Event>> #FCE4EC
+  BorderColor<<Domain Event>> #AD1457
+  BackgroundColor<<Repository>> #EDE7F6
+  BorderColor<<Repository>> #4527A0
+  BackgroundColor<<Domain Service>> #E0F7FA
+  BorderColor<<Domain Service>> #00838F
+  BackgroundColor<<Shared Kernel>> #F5F5F5
+  BorderColor<<Shared Kernel>> #757575
+}
+hide empty members
+
+title Notification Bounded Context — Domain Layer Class Diagram
+
+package "shared.domain.model" <<Rectangle>> {
+  abstract class "AuditableAbstractAggregateRoot<T>" as AAR <<Shared Kernel>> {
+    - id : Long
+    - createdAt : Date
+    - updatedAt : Date
+    + getId() : Long
+    # registerEvent(event : Object) : void
+  }
+  abstract class AuditableModel <<Shared Kernel>> {
+    - id : Long
+    - createdAt : Date
+    - updatedAt : Date
+    + getId() : Long
+  }
+}
+
+
+package "notification.domain.model.aggregates" <<Rectangle>> {
+  class Notification <<Aggregate Root>> {
+    - propertyId : PropertyId
+    - recipient : Recipient
+    - reason : NotificationReason
+    - source : SourceReference
+    - content : NotificationContent
+    - channel : NotificationChannel
+    - status : DeliveryStatus
+    - attempts : int
+    - testMode : boolean
+    - sentAt : Date
+    - acknowledgedAt : Date
+    - failureReason : String
+    + {static} MAX_ATTEMPTS : int = 3
+    + Notification(propertyId : PropertyId, recipient : Recipient, reason : NotificationReason,\n      source : SourceReference, content : NotificationContent, channel : NotificationChannel)
+    + markAsSent() : void
+    + markAsDelivered() : void
+    + markAsFailed(reason : String) : void
+    + acknowledge() : void
+    + canRetry() : boolean
+    + requiresAcknowledgement() : boolean
+  }
+
+  class EmergencyEscalation <<Aggregate Root>> {
+    - alertId : Long
+    - propertyId : PropertyId
+    - riskType : String
+    - severity : String
+    - status : EscalationStatus
+    - confirmedByUserId : Long
+    - confirmedAt : Date
+    - openedAt : Date
+    - serviceRequests : List<EmergencyServiceRequest>
+    + EmergencyEscalation(alertId : Long, propertyId : PropertyId, riskType : String, severity : String)
+    + registerUserConfirmation(userId : Long) : void
+    + notifyEmergencyService(type : EmergencyServiceType) : EmergencyServiceRequest
+    + coordinateResponse() : void
+    + close() : void
+    + isConfirmed() : boolean
+    - ensureStatus(expected : EscalationStatus) : void
+  }
+
+  class NotificationPreference <<Aggregate Root>> {
+    - userId : Long
+    - enabledChannels : Set<NotificationChannel>
+    - smsFallbackEnabled : boolean
+    - deviceToken : String
+    + NotificationPreference(userId : Long)
+    + enableChannel(channel : NotificationChannel) : void
+    + disableChannel(channel : NotificationChannel) : void
+    + registerDeviceToken(token : String) : void
+    + allowsSmsFallback() : boolean
+  }
+}
+
+package "notification.domain.model.entities" <<Rectangle>> {
+  class EmergencyServiceRequest <<Entity>> {
+    - serviceType : EmergencyServiceType
+    - status : ServiceRequestStatus
+    - referenceCode : String
+    - requestedAt : Date
+    - acknowledgedAt : Date
+    + EmergencyServiceRequest(serviceType : EmergencyServiceType)
+    + acknowledge(referenceCode : String) : void
+    + markAsCoordinated() : void
+  }
+}
+
+package "notification.domain.model.valueobjects" <<Rectangle>> {
+  class PropertyId <<Value Object>> {
+    - propertyId : Long
+  }
+  class Recipient <<Value Object>> {
+    - userId : Long
+    - fullName : String
+    - phoneNumber : String
+    - deviceToken : String
+  }
+  class SourceReference <<Value Object>> {
+    - sourceContext : String
+    - sourceId : Long
+  }
+  class NotificationContent <<Value Object>> {
+    - title : String
+    - body : String
+    - languageCode : String
+  }
+  enum NotificationReason <<Enumeration>> {
+    EMERGENCY_ALERT
+    EMERGENCY_STATUS_UPDATE
+    SYSTEM_FAILURE
+    MAINTENANCE_REMINDER
+    DRILL_RESULT
+  }
+  enum NotificationChannel <<Enumeration>> {
+    PUSH
+    SMS
+    EMAIL
+  }
+  enum DeliveryStatus <<Enumeration>> {
+    PENDING
+    SENT
+    DELIVERED
+    FAILED
+    ACKNOWLEDGED
+  }
+  enum EscalationStatus <<Enumeration>> {
+    PENDING_CONFIRMATION
+    CONFIRMED_BY_USER
+    SERVICES_NOTIFIED
+    RESPONSE_COORDINATED
+    CLOSED
+  }
+  enum EmergencyServiceType <<Enumeration>> {
+    FIREFIGHTERS
+    POLICE
+    AMBULANCE
+    CIVIL_DEFENSE
+  }
+  enum ServiceRequestStatus <<Enumeration>> {
+    REQUESTED
+    ACKNOWLEDGED
+    COORDINATED
+  }
+}
+
+package "notification.domain.model.events" <<Rectangle>> {
+  class NotificationSent <<Domain Event>> {
+    + notificationId : Long
+    + channel : NotificationChannel
+    + occurredOn : Date
+  }
+  class AlertConfirmedByUser <<Domain Event>> {
+    + escalationId : Long
+    + alertId : Long
+    + userId : Long
+    + occurredOn : Date
+  }
+  class EmergencyServicesNotified <<Domain Event>> {
+    + escalationId : Long
+    + serviceType : EmergencyServiceType
+    + occurredOn : Date
+  }
+  class ResponseCoordinated <<Domain Event>> {
+    + escalationId : Long
+    + alertId : Long
+    + occurredOn : Date
+  }
+}
+
+package "notification.domain.services" <<Rectangle>> {
+  interface ChannelSelectionPolicy <<Domain Service>> {
+    + selectChannels(preference : NotificationPreference,\n      reason : NotificationReason) : List<NotificationChannel>
+  }
+}
+
+package "notification.domain.repositories" <<Rectangle>> {
+  interface NotificationRepository <<Repository>> {
+    + save(notification : Notification) : Notification
+    + findByRecipientUserId(userId : Long) : List<Notification>
+    + findByStatusAndAttemptsLessThan(status : DeliveryStatus, attempts : int) : List<Notification>
+    + findBySourceSourceId(sourceId : Long) : List<Notification>
+  }
+  interface EmergencyEscalationRepository <<Repository>> {
+    + save(escalation : EmergencyEscalation) : EmergencyEscalation
+    + findByAlertId(alertId : Long) : Optional<EmergencyEscalation>
+    + findByPropertyIdAndStatus(propertyId : PropertyId, status : EscalationStatus) : List<EmergencyEscalation>
+  }
+  interface NotificationPreferenceRepository <<Repository>> {
+    + save(preference : NotificationPreference) : NotificationPreference
+    + findByUserId(userId : Long) : Optional<NotificationPreference>
+  }
+}
+
+AAR <|-- Notification
+AAR <|-- EmergencyEscalation
+AAR <|-- NotificationPreference
+AuditableModel <|-- EmergencyServiceRequest
+
+EmergencyEscalation "1" *--> "0..*" EmergencyServiceRequest : escalates to >
+EmergencyEscalation "1" <.. "1..*" Notification : notified through >
+Notification "0..*" ..> "1" NotificationPreference : respects >
+
+Notification "1" *--> "1" Recipient : addressed to >
+Notification "1" *--> "1" NotificationContent : contains >
+Notification "1" *--> "1" SourceReference : originated by >
+Notification "0..*" --> "1" PropertyId : about >
+Notification "0..*" --> "1" NotificationReason : motivated by >
+Notification "0..*" --> "1" NotificationChannel : sent via >
+Notification "0..*" --> "1" DeliveryStatus : has >
+EmergencyEscalation "0..*" --> "1" EscalationStatus : has >
+EmergencyServiceRequest "0..*" --> "1" EmergencyServiceType : directed to >
+EmergencyServiceRequest "0..*" --> "1" ServiceRequestStatus : has >
+NotificationPreference "0..*" --> "1..*" NotificationChannel : enables >
+
+Notification ..> NotificationSent : <<publishes>>
+EmergencyEscalation ..> AlertConfirmedByUser : <<publishes>>
+EmergencyEscalation ..> EmergencyServicesNotified : <<publishes>>
+EmergencyEscalation ..> ResponseCoordinated : <<publishes>>
+
+ChannelSelectionPolicy ..> NotificationPreference : evaluates
+NotificationRepository ..> Notification : persists
+EmergencyEscalationRepository ..> EmergencyEscalation : persists
+NotificationPreferenceRepository ..> NotificationPreference : persists
+
+NotificationSent -[hidden]down- AlertConfirmedByUser
+AlertConfirmedByUser -[hidden]down- EmergencyServicesNotified
+EmergencyServicesNotified -[hidden]down- ResponseCoordinated
+
+@enduml

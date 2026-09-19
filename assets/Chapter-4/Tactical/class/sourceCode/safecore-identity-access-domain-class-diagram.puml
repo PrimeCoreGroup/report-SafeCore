@@ -1,0 +1,248 @@
+@startuml safecore-identity-access-domain-class-diagram
+set separator none
+skinparam dpi 150
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+skinparam classAttributeIconSize 0
+skinparam packageStyle rectangle
+skinparam nodesep 35
+skinparam ranksep 45
+skinparam ArrowColor #37474F
+skinparam ArrowFontSize 10
+skinparam ArrowFontColor #263238
+skinparam PackageBorderColor #546E7A
+skinparam PackageFontSize 12
+skinparam class {
+  BorderColor #455A64
+  BackgroundColor #FFFFFF
+  HeaderBackgroundColor #ECEFF1
+  StereotypeFontSize 9
+  StereotypeFontColor #37474F
+  BackgroundColor<<Aggregate Root>> #FFF3E0
+  BorderColor<<Aggregate Root>> #E65100
+  BackgroundColor<<Entity>> #E3F2FD
+  BorderColor<<Entity>> #1565C0
+  BackgroundColor<<Value Object>> #E8F5E9
+  BorderColor<<Value Object>> #2E7D32
+  BackgroundColor<<Enumeration>> #F1F8E9
+  BorderColor<<Enumeration>> #558B2F
+  BackgroundColor<<Domain Event>> #FCE4EC
+  BorderColor<<Domain Event>> #AD1457
+  BackgroundColor<<Repository>> #EDE7F6
+  BorderColor<<Repository>> #4527A0
+  BackgroundColor<<Domain Service>> #E0F7FA
+  BorderColor<<Domain Service>> #00838F
+  BackgroundColor<<Shared Kernel>> #F5F5F5
+  BorderColor<<Shared Kernel>> #757575
+}
+hide empty members
+
+title Identity & Access Bounded Context — Domain Layer Class Diagram
+
+package "shared.domain.model" <<Rectangle>> {
+  abstract class "AuditableAbstractAggregateRoot<T>" as AAR <<Shared Kernel>> {
+    - id : Long
+    - createdAt : Date
+    - updatedAt : Date
+    + getId() : Long
+    # registerEvent(event : Object) : void
+  }
+  abstract class AuditableModel <<Shared Kernel>> {
+    - id : Long
+    - createdAt : Date
+    - updatedAt : Date
+    + getId() : Long
+  }
+}
+
+
+package "iam.domain.model.aggregates" <<Rectangle>> {
+  class User <<Aggregate Root>> {
+    - email : EmailAddress
+    - phoneNumber : PhoneNumber
+    - name : PersonName
+    - passwordHash : String
+    - status : AccountStatus
+    - roles : Set<Role>
+    - lastLoginAt : Date
+    + User(email : EmailAddress, phoneNumber : PhoneNumber,\n      name : PersonName, passwordHash : String)
+    + assignRoles(roles : Set<Role>) : void
+    + addRole(role : Role) : void
+    + hasRole(role : Roles) : boolean
+    + hasPermission(permission : Permissions) : boolean
+    + recordSuccessfulLogin() : void
+    + changePassword(newPasswordHash : String) : void
+    + activate() : void
+    + suspend() : void
+    + isActive() : boolean
+  }
+
+  class Property <<Aggregate Root>> {
+    - ownerUserId : Long
+    - name : String
+    - propertyType : PropertyType
+    - address : Address
+    - floors : int
+    - members : List<PropertyMember>
+    + Property(ownerUserId : Long, name : String,\n      propertyType : PropertyType, address : Address, floors : int)
+    + linkMember(userId : Long, relation : MemberRelation) : void
+    + unlinkMember(userId : Long) : void
+    + isOwnedBy(userId : Long) : boolean
+    + getMemberUserIds() : List<Long>
+    - ensureMemberNotLinked(userId : Long) : void
+  }
+}
+
+package "iam.domain.model.entities" <<Rectangle>> {
+  class Role <<Entity>> {
+    - name : Roles
+    - permissions : Set<Permissions>
+    + Role(name : Roles)
+    + grant(permission : Permissions) : void
+    + revoke(permission : Permissions) : void
+    + includes(permission : Permissions) : boolean
+    + {static} getDefaultRole() : Role
+  }
+  class PropertyMember <<Entity>> {
+    - userId : Long
+    - relation : MemberRelation
+    - joinedAt : Date
+    + PropertyMember(userId : Long, relation : MemberRelation)
+    + isAdministrator() : boolean
+  }
+}
+
+package "iam.domain.model.valueobjects" <<Rectangle>> {
+  class EmailAddress <<Value Object>> {
+    - address : String
+    + EmailAddress(address : String)
+    - validate(address : String) : void
+  }
+  class PhoneNumber <<Value Object>> {
+    - number : String
+    + PhoneNumber(number : String)
+  }
+  class PersonName <<Value Object>> {
+    - firstName : String
+    - lastName : String
+    + getFullName() : String
+  }
+  class Address <<Value Object>> {
+    - street : String
+    - district : String
+    - city : String
+    - country : String
+    + getFullAddress() : String
+  }
+  enum Roles <<Enumeration>> {
+    ROLE_BUILDING_ADMINISTRATOR
+    ROLE_HOMEOWNER
+    ROLE_RESIDENT
+  }
+  enum Permissions <<Enumeration>> {
+    MANAGE_PROPERTIES
+    MANAGE_DEVICES
+    CONFIGURE_THRESHOLDS
+    RUN_DRILLS
+    VIEW_DASHBOARD
+    RECEIVE_ALERTS
+  }
+  enum AccountStatus <<Enumeration>> {
+    PENDING_VERIFICATION
+    ACTIVE
+    SUSPENDED
+  }
+  enum PropertyType <<Enumeration>> {
+    RESIDENTIAL_BUILDING
+    COMMERCIAL_BUILDING
+    OFFICE_BUILDING
+    SINGLE_FAMILY_HOME
+  }
+  enum MemberRelation <<Enumeration>> {
+    ADMINISTRATOR
+    RESIDENT
+    OCCUPANT
+  }
+}
+
+package "iam.domain.model.events" <<Rectangle>> {
+  class UserRegistered <<Domain Event>> {
+    + userId : Long
+    + email : String
+    + occurredOn : Date
+  }
+  class UserAuthenticated <<Domain Event>> {
+    + userId : Long
+    + occurredOn : Date
+  }
+  class PermissionsAssigned <<Domain Event>> {
+    + userId : Long
+    + roles : Set<Roles>
+    + occurredOn : Date
+  }
+  class PropertyRegistered <<Domain Event>> {
+    + propertyId : Long
+    + ownerUserId : Long
+    + occurredOn : Date
+  }
+}
+
+package "iam.domain.services" <<Rectangle>> {
+  interface PropertyQuotaPolicy <<Domain Service>> {
+    + canRegisterProperty(ownerUserId : Long) : boolean
+    + maxPropertiesFor(ownerUserId : Long) : int
+  }
+}
+
+package "iam.domain.repositories" <<Rectangle>> {
+  interface UserRepository <<Repository>> {
+    + save(user : User) : User
+    + findById(id : Long) : Optional<User>
+    + findByEmail(email : EmailAddress) : Optional<User>
+    + existsByEmail(email : EmailAddress) : boolean
+    + existsByPhoneNumber(phone : PhoneNumber) : boolean
+  }
+  interface RoleRepository <<Repository>> {
+    + findByName(name : Roles) : Optional<Role>
+    + existsByName(name : Roles) : boolean
+  }
+  interface PropertyRepository <<Repository>> {
+    + save(property : Property) : Property
+    + findByOwnerUserId(ownerUserId : Long) : List<Property>
+    + countByOwnerUserId(ownerUserId : Long) : long
+    + existsByOwnerUserIdAndName(ownerUserId : Long, name : String) : boolean
+  }
+}
+
+AAR <|-- User
+AAR <|-- Property
+AuditableModel <|-- Role
+AuditableModel <|-- PropertyMember
+
+User "0..*" o--> "1..*" Role : is assigned >
+Property "1" *--> "0..*" PropertyMember : groups >
+Property "0..*" --> "1" User : owned by >
+PropertyMember "0..*" --> "1" User : refers to >
+
+User "1" --> "1" EmailAddress : identified by >
+User "1" --> "0..1" PhoneNumber : contacted at >
+User "1" --> "1" PersonName : named >
+User "0..*" --> "1" AccountStatus : has >
+Role "0..*" --> "1" Roles : named as >
+Role "0..*" --> "1..*" Permissions : grants >
+Property "1" --> "1" Address : located at >
+Property "0..*" --> "1" PropertyType : classified as >
+PropertyMember "0..*" --> "1" MemberRelation : has >
+
+User ..> UserRegistered : <<publishes>>
+User ..> UserAuthenticated : <<publishes>>
+User ..> PermissionsAssigned : <<publishes>>
+Property ..> PropertyRegistered : <<publishes>>
+
+PropertyQuotaPolicy ..> PropertyRepository : uses
+UserRepository ..> User : persists
+RoleRepository ..> Role : persists
+PropertyRepository ..> Property : persists
+
+@enduml
