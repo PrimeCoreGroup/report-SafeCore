@@ -103,7 +103,7 @@ workspace "SafeCore" "Arquitectura propuesta: procesamiento local autonomo y ges
 
     views {
         systemLandscape SafeCoreLandscape "4.1.3.1. Ecosistema de SafeCore" {
-            include *
+            include admin owner resident visitor safecore notifications
             autoLayout lr
         }
         systemContext safecore SafeCoreContext "4.1.3.2. Contexto de SafeCore" {
