@@ -1523,15 +1523,355 @@ graph TD
     INFRA -.->|JSON/HTTPS| DB
 ```
 
-#### 4.2.X.6. Bounded Context Software Architecture Code Level Diagrams
+#### 4.2.1.6. Bounded Context Software Architecture Code Level Diagrams
 
-##### 4.2.X.6.1. Bounded Context Domain Layer Class Diagrams
+En esta sección se presentan los diagramas de nivel de código del Bounded Context Emergency Response, que detallan la implementación de su modelo de dominio y su persistencia.
 
-_[...]_
+Los diagramas de clases de la capa de dominio siguen la notación UML:
 
-##### 4.2.X.6.2. Bounded Context Database Design Diagram
+- Cada miembro indica su visibilidad (`-` private, `+` public, `#` protected).
+- Las relaciones incluyen nombre, dirección y multiplicidad.
+- Los elementos se diferencian por estereotipo: `<<Aggregate Root>>`, `<<Entity>>`, `<<Value Object>>`, `<<Enumeration>>`, `<<Domain Event>>`, `<<Domain Service>>` y `<<Repository>>`.
+- Todos los aggregates extienden la clase compartida `AuditableAbstractAggregateRoot`, y todas las entities extienden `AuditableModel`. Ambas proveen el identificador y los campos de auditoría `createdAt` y `updatedAt`.
 
-_[...]_
+Los diagramas de diseño de base de datos corresponden a PostgreSQL, con un esquema por bounded context:
+
+- Se indican las claves primarias (`PK`), foráneas (`FK`) y únicas (`UK`), las restricciones `CHECK` y los índices (`IDX`).
+- Los campos marcados con `*` son `NOT NULL`.
+- Las relaciones con tablas de otros bounded contexts se representan con líneas punteadas y constituyen **referencias lógicas**: se almacena únicamente el identificador, sin clave foránea física. Así, cada bounded context conserva la propiedad exclusiva de sus datos.
+
+##### 4.2.1.6.1. Bounded Context Domain Layer Class Diagrams
+
+El modelo coordina la ejecución de los protocolos de emergencia mediante dos aggregate roots.
+
+**`EmergencyProtocol`** define una plantilla reutilizable de pasos ordenados para cada tipo de emergencia:
+
+- Compone entities `ProtocolStep` (1 a 1..*).
+- Cada paso referencia el `ActuatorType` sobre el que actúa y crea una `ResponseAction` mediante `toResponseAction()`.
+
+**`EmergencyResponse`** representa una ejecución concreta de un protocolo frente a una situación de riesgo validada:
+
+- Compone entities `ResponseAction` (1 a 1..*) y controla su ciclo de vida mediante `markActionAsExecuted()`, `markActionAsFailed()` y `complete()`.
+- Su método privado `recalculateStatus()` garantiza que una respuesta se complete solo cuando todas sus acciones han finalizado.
+
+Otros elementos del modelo:
+
+- **Referencias a otros bounded contexts:** el value object `RiskSituationReference` modela el origen en Risk Detection sin acoplar el aggregate a su modelo interno, y `PropertyId` identifica el inmueble.
+- **`ActuatorCommand`** encapsula la instrucción enviada a un actuador sin exponer detalles de infraestructura.
+- **Domain services e interfaces de repositorio:** `ProtocolSelectionService`, `ProtocolExecutionService`, `EmergencyResponseRepository` y `EmergencyProtocolRepository`.
+- **Domain events publicados:** `EmergencyResponseInitiated`, `ResponseActionExecuted`, `ResponseActionFailed` y `EmergencyResponseCompleted`.
+
+![Emergency Response - Domain Layer Class Diagram](assets/Chapter-4/Tactical/class/safecore-emergency-response-domain-class-diagram.png)
+
+**Figura 4.2.1.6.1. Diagrama de clases de la capa de dominio del Bounded Context Emergency Response.**
+
+##### 4.2.1.6.2. Bounded Context Database Design Diagram
+
+El esquema `emergency_response` contiene cuatro tablas.
+
+**`emergency_protocols`** y **`protocol_steps`** (uno a muchos) almacenan la definición de los protocolos:
+
+- `UK (emergency_type)` garantiza un único protocolo por tipo de emergencia.
+- `UK (protocol_id, step_order)` impide posiciones de paso duplicadas.
+
+**`emergency_responses`** y **`response_actions`** (uno a muchos) registran cada ejecución y el resultado de cada acción:
+
+- `UK (risk_situation_id)` impide que una misma situación de riesgo genere más de una respuesta.
+- Una restricción `CHECK` limita `status` a los valores de `ResponseStatus`.
+- La columna `JSONB` `parameters` almacena los parámetros variables de los comandos.
+
+Además, `property_id` y `risk_situation_id` son referencias lógicas hacia Identity and Access y Risk Detection.
+
+![Emergency Response - Database Design Diagram](assets/Chapter-4/Tactical/database/safecore-emergency-response-database-diagram.png)
+
+**Figura 4.2.1.6.2. Diagrama de diseño de base de datos del Bounded Context Emergency Response.**
+
+#### 4.2.2.6. Bounded Context Software Architecture Code Level Diagrams
+
+En esta sección se presentan los diagramas de nivel de código del Bounded Context Identity and Access, que detallan la implementación de su modelo de dominio y su persistencia.
+
+##### 4.2.2.6.1. Bounded Context Domain Layer Class Diagrams
+
+El modelo representa la identidad de los usuarios y los inmuebles que administran.
+
+**`User`** es el aggregate root de identidad:
+
+- Sus datos se protegen mediante value objects con validación propia: `EmailAddress`, `PhoneNumber` y `PersonName`.
+- Su ciclo de vida se controla con la enumeración `AccountStatus`.
+- Agrega entities `Role` (0..* a 1..*), cada una de las cuales otorga un conjunto de `Permissions`.
+
+**`Property`** es el aggregate root que representa un edificio o vivienda registrado por su propietario (`ownerUserId`):
+
+- Se describe mediante un `Address` y un `PropertyType`.
+- Compone entities `PropertyMember` (1 a 0..*), que vinculan residentes y ocupantes al inmueble mediante una `MemberRelation`.
+
+Otros elementos del modelo:
+
+- **Domain service:** `PropertyQuotaPolicy` encapsula la regla que limita la cantidad de inmuebles por cuenta.
+- **Domain events publicados:** `UserRegistered`, `UserAuthenticated`, `PermissionsAssigned` y `PropertyRegistered`.
+
+![Identity and Access - Domain Layer Class Diagram](assets/Chapter-4/Tactical/class/safecore-identity-access-domain-class-diagram.png)
+
+**Figura 4.2.2.6.1. Diagrama de clases de la capa de dominio del Bounded Context Identity and Access.**
+
+##### 4.2.2.6.2. Bounded Context Database Design Diagram
+
+El esquema `iam` contiene seis tablas:
+
+- **`users`** almacena las credenciales como `password_hash` y aplica claves únicas sobre `email` y `phone_number`.
+- **`roles`** y **`user_roles`** implementan la relación de muchos a muchos entre usuarios y roles mediante una clave primaria compuesta.
+- **`role_permissions`** almacena los permisos otorgados por cada rol.
+- **`properties`** pertenece a un propietario. `UK (owner_user_id, name)` impide nombres duplicados dentro de una misma cuenta.
+- **`property_members`** vincula usuarios con inmuebles. `UK (property_id, user_id)` impide vincular dos veces al mismo usuario.
+
+El identificador `properties.id` es el que los demás bounded contexts referencian lógicamente como `property_id`.
+
+![Identity and Access - Database Design Diagram](assets/Chapter-4/Tactical/database/safecore-identity-access-database-diagram.png)
+
+**Figura 4.2.2.6.2. Diagrama de diseño de base de datos del Bounded Context Identity and Access.**
+
+#### 4.2.3.6. Bounded Context Software Architecture Code Level Diagrams
+
+En esta sección se presentan los diagramas de nivel de código del Bounded Context Device Management, que detallan la implementación de su modelo de dominio y su persistencia.
+
+##### 4.2.3.6.1. Bounded Context Domain Layer Class Diagrams
+
+El modelo representa el ciclo de vida de los dispositivos IoT: registro, aprovisionamiento y conexión.
+
+**`EdgeNode`** representa la unidad de procesamiento Edge instalada en un inmueble.
+
+**`Device`** representa cada sensor o actuador conectado a un nodo Edge (0..* a 1):
+
+- Ambos aggregates se identifican mediante un `SerialNumber` y, una vez aprovisionados, mediante un `CloudThingIdentity`.
+- Controla su estado mediante `DeviceLifecycleStatus`.
+- Controla su conectividad mediante `ConnectivityStatus` y `reportHeartbeat()`.
+- Compone entities `MaintenanceRecord` (1 a 0..*).
+
+Otros elementos del modelo:
+
+- **Value objects:**
+  - `BatteryLevel` encapsula la regla de batería baja (`LOW_THRESHOLD = 20`).
+  - `ServiceLifespan` calcula la próxima fecha de mantenimiento a partir de la vida útil.
+- **`DeviceType`** enumera los dispositivos soportados:
+  - Sensores: sísmico, humo, llama, gas y temperatura.
+  - Actuadores: cerrojo magnético, relé eléctrico, iluminación de emergencia, aspersor, alarma sonora, ventilación y válvula de gas.
+- **Domain events publicados:** `DeviceRegistered`, `DeviceProvisioned`, `DeviceConnected`, `ConnectivityStatusChanged`, `DeviceBatteryLow` y `DeviceMaintenanceDue`.
+
+![Device Management - Domain Layer Class Diagram](assets/Chapter-4/Tactical/class/safecore-device-management-domain-class-diagram.png)
+
+**Figura 4.2.3.6.1. Diagrama de clases de la capa de dominio del Bounded Context Device Management.**
+
+##### 4.2.3.6.2. Bounded Context Database Design Diagram
+
+El esquema `device_management` contiene tres tablas.
+
+**`edge_nodes`** y **`devices`** (uno a muchos) almacenan dos identidades de cada dispositivo:
+
+- La identidad física, en `serial_number` (único).
+- La identidad en la nube, en `thing_name` (único).
+
+**`devices`** aplana sus value objects en columnas como `floor`, `zone`, `battery_percentage`, `installed_at` y `useful_life_months`:
+
+- Las restricciones `CHECK` limitan la categoría del dispositivo y mantienen la batería entre 0 y 100.
+- El índice `(property_id, connectivity_status)` soporta las consultas de conectividad por inmueble.
+
+**`maintenance_records`** almacena el historial de mantenimiento de cada dispositivo (uno a muchos).
+
+Además, `property_id` es una referencia lógica hacia Identity and Access.
+
+![Device Management - Database Design Diagram](assets/Chapter-4/Tactical/database/safecore-device-management-database-diagram.png)
+
+**Figura 4.2.3.6.2. Diagrama de diseño de base de datos del Bounded Context Device Management.**
+
+#### 4.2.4.6. Bounded Context Software Architecture Code Level Diagrams
+
+En esta sección se presentan los diagramas de nivel de código del Bounded Context Sensor Data Ingestion, que detallan la implementación de su modelo de dominio y su persistencia.
+
+##### 4.2.4.6.1. Bounded Context Domain Layer Class Diagrams
+
+El modelo representa la captura y el procesamiento inicial de las lecturas IoT, sin determinar si existe una emergencia.
+
+**`SensorReading`** es el aggregate root que representa cada lectura recibida desde un nodo Edge:
+
+- Contiene un `Measurement`, compuesto por un valor y una `MeasurementUnit`.
+- Se valida contra un `PlausibleRange`.
+- El resultado de la validación se registra como un `ReadingValidationStatus`: válida, fuera de rango, duplicada o corrupta.
+
+**`SensorEvent`** es el aggregate root que se deriva de una lectura válida (0..1 a 1) cuando esta constituye una detección relevante. Se clasifica mediante un `SensorEventType`.
+
+Otros elementos del modelo:
+
+- **Domain services:** `ReadingValidationService` y `SensorEventClassifier` mantienen separadas las reglas de validación y las de clasificación.
+- **Domain events publicados:** `SeismicMovementDetected`, `SmokeDetected`, `FlameDetected` y `GasConcentrationExceeded`, que corresponden a los mensajes de salida hacia Risk Detection.
+
+![Sensor Data Ingestion - Domain Layer Class Diagram](assets/Chapter-4/Tactical/class/safecore-sensor-data-ingestion-domain-class-diagram.png)
+
+**Figura 4.2.4.6.1. Diagrama de clases de la capa de dominio del Bounded Context Sensor Data Ingestion.**
+
+##### 4.2.4.6.2. Bounded Context Database Design Diagram
+
+El esquema `sensor_ingestion` contiene tres tablas:
+
+- **`plausible_ranges`** define el rango físico válido por tipo de sensor, con `UK (sensor_type)` y `CHECK maximum_value > minimum_value`.
+- **`sensor_readings`** almacena los datos de telemetría:
+  - `UK (device_id, captured_at)` asegura una ingesta idempotente ante reenvíos del nodo Edge.
+  - El índice `(property_id, sensor_type, captured_at DESC)` soporta las consultas de series de tiempo.
+- **`sensor_events`** referencia su lectura de origen mediante `reading_id`, que es a la vez clave foránea y clave única (uno a cero o uno).
+
+Además, `device_id` y `property_id` son referencias lógicas hacia Device Management e Identity and Access.
+
+![Sensor Data Ingestion - Database Design Diagram](assets/Chapter-4/Tactical/database/safecore-sensor-data-ingestion-database-diagram.png)
+
+**Figura 4.2.4.6.2. Diagrama de diseño de base de datos del Bounded Context Sensor Data Ingestion.**
+
+#### 4.2.5.6. Bounded Context Software Architecture Code Level Diagrams
+
+En esta sección se presentan los diagramas de nivel de código del Bounded Context Risk Detection, que detallan la implementación de su modelo de dominio y su persistencia.
+
+##### 4.2.5.6.1. Bounded Context Domain Layer Class Diagrams
+
+El modelo representa la detección y validación de condiciones de riesgo y la generación de alertas.
+
+**`RiskSituation`** es el aggregate root central:
+
+- Compone entities `DetectionEvidence` (1 a 1..*) provenientes de Sensor Data Ingestion.
+- Transita por los estados `UNDER_VALIDATION`, `VALIDATED` y `FALSE_POSITIVE` de `RiskSituationStatus`.
+- Su método `isFireConfirmed()` implementa la regla de que un incendio se confirma únicamente mediante la detección conjunta de humo y llama.
+
+**`DetectionRule`** es el aggregate root que almacena, por inmueble y tipo de riesgo, un `ThresholdValue` y una `ConfirmationWindow`.
+
+**`Alert`** se crea únicamente después de que la situación de riesgo ha sido validada.
+
+Otros elementos del modelo:
+
+- **Domain services:**
+  - `SeverityCalculationService` determina la `RiskSeverity` a partir de las evidencias y de la regla configurada.
+  - `RiskValidationService` evalúa las situaciones frente a sus reglas.
+- **Domain events publicados:** `SeismicRiskValidated`, `FireConfirmed`, `GasLeakValidated`, `FalsePositiveDiscarded` y `AlertGenerated`.
+
+![Risk Detection - Domain Layer Class Diagram](assets/Chapter-4/Tactical/class/safecore-risk-detection-domain-class-diagram.png)
+
+**Figura 4.2.5.6.1. Diagrama de clases de la capa de dominio del Bounded Context Risk Detection.**
+
+##### 4.2.5.6.2. Bounded Context Database Design Diagram
+
+El esquema `risk_detection` contiene cuatro tablas:
+
+- **`detection_rules`** almacena un único umbral por inmueble y tipo de riesgo (`UK (property_id, risk_type)`), junto con una `configuration_version`.
+- **`risk_situations`** y **`detection_evidences`** (uno a muchos) registran cada situación y sus evidencias. `UK (sensor_event_id)` impide procesar dos veces un mismo evento de sensor.
+- **`alerts`** referencia su situación de origen mediante `risk_situation_id`, que es a la vez clave foránea y clave única. Esto garantiza como máximo una alerta por situación.
+
+Además, `sensor_event_id` y `property_id` son referencias lógicas hacia Sensor Data Ingestion e Identity and Access.
+
+![Risk Detection - Database Design Diagram](assets/Chapter-4/Tactical/database/safecore-risk-detection-database-diagram.png)
+
+**Figura 4.2.5.6.2. Diagrama de diseño de base de datos del Bounded Context Risk Detection.**
+
+#### 4.2.6.6. Bounded Context Software Architecture Code Level Diagrams
+
+En esta sección se presentan los diagramas de nivel de código del Bounded Context Notification, que detallan la implementación de su modelo de dominio y su persistencia.
+
+##### 4.2.6.6.1. Bounded Context Domain Layer Class Diagrams
+
+El modelo representa el envío de notificaciones, la confirmación de recepción y la coordinación con los servicios de emergencia.
+
+**`Notification`** es el aggregate root de cada mensaje enviado a un `Recipient` a través de un `NotificationChannel` (`PUSH`, `SMS` o `EMAIL`):
+
+- Controla los intentos de envío (`MAX_ATTEMPTS = 3`) y el estado de entrega (`DeliveryStatus`).
+- El atributo `testMode` permite ejecutar simulacros sin alertar a los residentes.
+- `NotificationReason` y `SourceReference` permiten reutilizar el modelo para alertas de emergencia, fallas del sistema y recordatorios de mantenimiento.
+
+**`EmergencyEscalation`** es el aggregate root que representa el escalamiento de una alerta:
+
+- Registra la confirmación del usuario.
+- Compone entities `EmergencyServiceRequest` (1 a 0..*) dirigidas a bomberos, policía, servicio de ambulancia o Defensa Civil.
+- Su método privado `ensureStatus()` hace cumplir la regla de que la coordinación ocurre solo después de la notificación.
+
+**`NotificationPreference`** almacena los canales habilitados por cada usuario y si acepta el SMS de respaldo. El domain service `ChannelSelectionPolicy` evalúa estas preferencias para seleccionar los canales.
+
+Domain events publicados: `NotificationSent`, `AlertConfirmedByUser`, `EmergencyServicesNotified` y `ResponseCoordinated`.
+
+![Notification - Domain Layer Class Diagram](assets/Chapter-4/Tactical/class/safecore-notification-domain-class-diagram.png)
+
+**Figura 4.2.6.6.1. Diagrama de clases de la capa de dominio del Bounded Context Notification.**
+
+##### 4.2.6.6.2. Bounded Context Database Design Diagram
+
+El esquema `notification` contiene cinco tablas.
+
+**`notifications`** almacena cada envío con su canal, estado y origen (`source_context`, `source_id`):
+
+- Una restricción `CHECK` limita `attempts` al rango de 0 a 3.
+- Un índice por destinatario soporta las consultas del historial de cada usuario.
+
+**`emergency_escalations`** y **`emergency_service_requests`** (uno a muchos) registran el escalamiento:
+
+- `UK (alert_id)` garantiza un único escalamiento por alerta.
+- `UK (escalation_id, service_type)` impide notificar dos veces al mismo servicio.
+
+**`notification_preferences`** y **`preference_channels`** (uno a muchos) almacenan las preferencias de cada usuario.
+
+Además, `alert_id` y `recipient_user_id` son referencias lógicas hacia Risk Detection e Identity and Access.
+
+![Notification - Database Design Diagram](assets/Chapter-4/Tactical/database/safecore-notification-database-diagram.png)
+
+**Figura 4.2.6.6.2. Diagrama de diseño de base de datos del Bounded Context Notification.**
+
+#### 4.2.7.6. Bounded Context Software Architecture Code Level Diagrams
+
+En esta sección se presentan los diagramas de nivel de código del Bounded Context Monitoring and Configuration, que detallan la implementación de su modelo de dominio y su persistencia.
+
+##### 4.2.7.6.1. Bounded Context Domain Layer Class Diagrams
+
+El modelo representa la configuración del sistema, el historial de eventos, el estado de los dispositivos y la ejecución de simulacros.
+
+**`SystemConfiguration`** es el aggregate root que contiene la configuración de cada inmueble:
+
+- Compone entities `RiskThreshold` (1 a 1..3), una por tipo de riesgo, cada una validada contra un `ThresholdRange`.
+- Cada cambio incrementa la `ConfigurationVersion` y deja la sincronización en `PENDING` hasta confirmar la reconfiguración de los dispositivos.
+
+**`DrillSession`** modela los simulacros completos y las pruebas individuales de actuadores:
+
+- Compone entities `DrillCheckResult` (1 a 0..*).
+- Calcula su tasa de éxito mediante `getSuccessRate()`.
+
+**`EventHistoryEntry`** y **`DeviceStatusSnapshot`** implementan los modelos de lectura del historial de eventos y del estado de los dispositivos.
+
+**`SystemHealthCalculator`** es un domain service que produce el value object `SystemHealthIndicator`, con los siguientes indicadores:
+
+- tasa de dispositivos en línea
+- nivel promedio de batería
+- cantidad de dispositivos con batería baja
+- cantidad de eventos de los últimos 30 días
+- tasa de éxito de los simulacros
+
+Domain events publicados: `ConfigurationUpdated`, `DevicesReconfigured`, `DrillStarted` y `DrillCompleted`.
+
+![Monitoring Configuration - Domain Layer Class Diagram](assets/Chapter-4/Tactical/class/safecore-monitoring-configuration-domain-class-diagram.png)
+
+**Figura 4.2.7.6.1. Diagrama de clases de la capa de dominio del Bounded Context Monitoring and Configuration.**
+
+##### 4.2.7.6.2. Bounded Context Database Design Diagram
+
+El esquema `monitoring` contiene seis tablas.
+
+**`system_configurations`** contiene una configuración por inmueble (`UK (property_id)`):
+
+- Junto con **`risk_thresholds`** (uno a muchos), almacena los umbrales configurados.
+- La restricción `CHECK threshold_value BETWEEN min_allowed AND max_allowed` aplica el rango permitido a nivel de base de datos.
+
+**`drill_sessions`** y **`drill_check_results`** (uno a muchos) almacenan cada simulacro, con el resultado y el tiempo de respuesta de cada actuador.
+
+**`event_history_entries`** y **`device_status_snapshots`** son tablas de modelo de lectura:
+
+- `UK (source_context, source_id, category)` impide registrar dos veces el mismo evento externo.
+- `UK (device_id)` mantiene un único estado vigente por dispositivo.
+
+Además, `property_id` y `device_id` son referencias lógicas hacia Identity and Access y Device Management.
+
+![Monitoring Configuration - Database Design Diagram](assets/Chapter-4/Tactical/database/safecore-monitoring-configuration-database-diagram.png)
+
+**Figura 4.2.7.6.2. Diagrama de diseño de base de datos del Bounded Context Monitoring and Configuration.**
 
 <div style="page-break-after: always;"></div>
 
