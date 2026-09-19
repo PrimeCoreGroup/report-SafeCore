@@ -497,6 +497,7 @@ Tácticas:
 
 
 
+
 ### Entrevista 2
 
 | Campo | Información |
@@ -506,18 +507,17 @@ Tácticas:
 | Edad | [Edad] |
 | Distrito | [Distrito] |
 | Ocupación / Cargo | [Cargo del entrevistado] |
-| Fecha | 11/09/2026 |
-| Duración | 10:12 min |
-| Inicio en el video | 08:35 |
+| Fecha | 12/09/2026 |
+| Duración | 09:48 min |
+| Inicio en el video | 18:47 |
 | Link del video | [Ver entrevista](https://stream.microsoft.com/) |
-
 
 
 ### Entrevista 3
 
 | Campo | Información |
 |---|---|
-| **Fotografía** | ![Foto del entrevistado](resources/Cap-2/Entrevistas/segmento-1/entrevista-03.png) |
+| **Fotografía** | ![Foto del entrevistado](resources/Cap-2/Entrevistas/segmento-1/entrevista-02.png) |
 | Entrevistado | [Nombre y apellido] |
 | Edad | [Edad] |
 | Distrito | [Distrito] |
@@ -535,7 +535,7 @@ Tácticas:
 
 | Campo | Información |
 |---|---|
-| **Fotografía** | ![Foto del entrevistado](resources/Cap-2/Entrevistas/segmento-2/entrevista-01.png) |
+| **Fotografía** | ![Foto del entrevistado](assets/Entrevista_Nicol.png) |
 | Entrevistado | [Nombre y apellido] |
 | Edad | [Edad] |
 | Distrito | [Distrito] |
@@ -551,15 +551,15 @@ Tácticas:
 
 | Campo | Información |
 |---|---|
-| **Fotografía** | ![Foto del entrevistado](resources/Cap-2/Entrevistas/segmento-2/entrevista-02.png) |
-| Entrevistado | [Nombre y apellido] |
-| Edad | [Edad] |
-| Distrito | [Distrito] |
-| Ocupación | [Ocupación] |
-| Fecha | 14/09/2026 |
-| Duración | 08:21 min |
-| Inicio en el video | 36:31 |
-| Link del video | [Ver entrevista](https://stream.microsoft.com/) |
+| **Fotografía** | <p align="center"><img src="assets/Fotos/Entrevista_Nicol.png" alt="Foto de Yvon Cerrón" width="280"></p> |
+| Entrevistado | Nicol Fernández Quispe |
+| Edad | 26 |
+| Distrito | Comas |
+| Ocupación / Cargo | Interna de Medicina |
+| Fecha | 19/09/2026 |
+| Duración | 05:23 min |
+| Inicio en el video | 00:00 |
+| Link del video | [Ver entrevista](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202020230_upc_edu_pe/IQAMiALSVBD2ToSk2_OyQghBAdWTTDU2Zpr9GbpsPVucuq4?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=SQIJFe) |
 
 
 
@@ -714,35 +714,35 @@ Tácticas:
 
 ---
 
-#### **Entrevistado 2: [Nombre y apellido] (Enfoque en [tema principal])**
+#### **Entrevistado 2: Nicol Fernández Quispe (Enfoque en dueños de vivienda unifamiliar en Lima)**
 
 * **Perfil**
 
-    * [Descripción del perfil del entrevistado.]
+    * Residente en el distrito de La Molina. Vive en una vivienda unifamiliar de dos pisos junto a su esposo y sus dos hijos. Suele salir varias veces, por lo que no siempre hay alguien presente en el hogar. Ya cuenta con un sistema básico de cámaras de seguridad conectado a una aplicación móvil, lo que indica cierta familiaridad con soluciones tecnológicas domésticas.
 
 * **Insights clave**
 
-    * [Insight principal.]
+    * La preocupación principal no es la falta de dispositivos de seguridad, sino la falta de reacción a tiempo: sin nadie en casa, la familia se entera de una emergencia solo al llegar, cuando ya puede ser tarde.
 
-    * [Segundo insight.]
+    * Existe una experiencia previa real con una falla eléctrica que casi se convierte en incendio, lo cual hace que la amenaza no sea percibida como abstracta sino como algo que ya ocurrió y puede repetirse.
 
 * **Problemas y frustraciones**
 
-    * [Problema identificado.]
+    * Ausencia de automatización: no existe ningún mecanismo que actúe por sí solo (cortar la luz, cerrar el gas, activar alarmas) cuando la familia no está presente o no reacciona a tiempo.
 
-    * [Otra frustración identificada.]
+    * Incertidumbre sobre qué hacer primero durante una emergencia, incluso cuando la familia sí está en casa, lo que genera pérdida de tiempo valioso en los primeros segundos críticos.
 
 * **Necesidades**
 
-    * [Necesidad identificada.]
+    * Un sistema que actúe de forma autónoma ante una emergencia (corte eléctrico focalizado, señalización de rutas o zonas seguras), sin depender de que alguien esté presente para reaccionar.
 
-    * [Segunda necesidad identificada.]
+    * Un sistema de alertas resiliente, que funcione incluso sin electricidad ni conexión a Internet, ya que ambos servicios suelen fallar justamente durante sismos o incendios.
 
 * **Oportunidades para SafeCore**
 
-    * **[Nombre de oportunidad]:** [Descripción.]
+    * **Multicanalidad de alertas**: Combinar aviso en el celular, llamada/SMS y alarma física local, para cubrir el riesgo de que la familia no revise el celular a tiempo, especialmente cuando hay menores en casa sin dispositivo propio.
 
-    * **[Nombre de oportunidad]:** [Descripción.]
+    * **Operación autónoma vía Edge Computing**: Reforzar como diferenciador clave que las acciones críticas (cortar suministro, activar señalización) se ejecuten localmente sin depender de Internet ni energía externa, atacando directamente la mayor preocupación expresada por este segmento.
 
 ---
 
