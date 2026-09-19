@@ -1,0 +1,261 @@
+@startuml safecore-risk-detection-domain-class-diagram
+set separator none
+skinparam dpi 150
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+skinparam classAttributeIconSize 0
+skinparam packageStyle rectangle
+skinparam nodesep 35
+skinparam ranksep 45
+skinparam ArrowColor #37474F
+skinparam ArrowFontSize 10
+skinparam ArrowFontColor #263238
+skinparam PackageBorderColor #546E7A
+skinparam PackageFontSize 12
+skinparam class {
+  BorderColor #455A64
+  BackgroundColor #FFFFFF
+  HeaderBackgroundColor #ECEFF1
+  StereotypeFontSize 9
+  StereotypeFontColor #37474F
+  BackgroundColor<<Aggregate Root>> #FFF3E0
+  BorderColor<<Aggregate Root>> #E65100
+  BackgroundColor<<Entity>> #E3F2FD
+  BorderColor<<Entity>> #1565C0
+  BackgroundColor<<Value Object>> #E8F5E9
+  BorderColor<<Value Object>> #2E7D32
+  BackgroundColor<<Enumeration>> #F1F8E9
+  BorderColor<<Enumeration>> #558B2F
+  BackgroundColor<<Domain Event>> #FCE4EC
+  BorderColor<<Domain Event>> #AD1457
+  BackgroundColor<<Repository>> #EDE7F6
+  BorderColor<<Repository>> #4527A0
+  BackgroundColor<<Domain Service>> #E0F7FA
+  BorderColor<<Domain Service>> #00838F
+  BackgroundColor<<Shared Kernel>> #F5F5F5
+  BorderColor<<Shared Kernel>> #757575
+}
+hide empty members
+
+title Risk Detection Bounded Context — Domain Layer Class Diagram
+
+package "shared.domain.model" <<Rectangle>> {
+  abstract class "AuditableAbstractAggregateRoot<T>" as AAR <<Shared Kernel>> {
+    - id : Long
+    - createdAt : Date
+    - updatedAt : Date
+    + getId() : Long
+    # registerEvent(event : Object) : void
+  }
+  abstract class AuditableModel <<Shared Kernel>> {
+    - id : Long
+    - createdAt : Date
+    - updatedAt : Date
+    + getId() : Long
+  }
+}
+
+
+package "riskdetection.domain.model.aggregates" <<Rectangle>> {
+  class RiskSituation <<Aggregate Root>> {
+    - propertyId : PropertyId
+    - riskType : RiskType
+    - status : RiskSituationStatus
+    - severity : RiskSeverity
+    - evidences : List<DetectionEvidence>
+    - detectedAt : Date
+    - validatedAt : Date
+    - discardReason : String
+    + RiskSituation(propertyId : PropertyId, riskType : RiskType, firstEvidence : DetectionEvidence)
+    + addEvidence(evidence : DetectionEvidence) : void
+    + validate(rule : DetectionRule, severity : RiskSeverity) : void
+    + discardAsFalsePositive(reason : String) : void
+    + isFireConfirmed() : boolean
+    + isValidated() : boolean
+    + generateAlert() : Alert
+    - hasEvidenceOf(type : EvidenceType) : boolean
+  }
+
+  class Alert <<Aggregate Root>> {
+    - riskSituationId : Long
+    - propertyId : PropertyId
+    - riskType : RiskType
+    - severity : RiskSeverity
+    - message : String
+    - status : AlertStatus
+    - generatedAt : Date
+    + Alert(situation : RiskSituation, message : String)
+    + markAsDispatched() : void
+    + close() : void
+    + requiresEmergencyProtocol() : boolean
+  }
+
+  class DetectionRule <<Aggregate Root>> {
+    - propertyId : PropertyId
+    - riskType : RiskType
+    - threshold : ThresholdValue
+    - confirmationWindow : ConfirmationWindow
+    - configurationVersion : int
+    + DetectionRule(propertyId : PropertyId, riskType : RiskType,\n      threshold : ThresholdValue, window : ConfirmationWindow)
+    + isExceededBy(value : double) : boolean
+    + update(threshold : ThresholdValue, window : ConfirmationWindow, version : int) : void
+  }
+}
+
+package "riskdetection.domain.model.entities" <<Rectangle>> {
+  class DetectionEvidence <<Entity>> {
+    - sensorEventId : Long
+    - deviceId : Long
+    - evidenceType : EvidenceType
+    - measuredValue : double
+    - unit : String
+    - occurredAt : Date
+    + DetectionEvidence(sensorEventId : Long, deviceId : Long, type : EvidenceType,\n      measuredValue : double, unit : String, occurredAt : Date)
+    + isWithin(window : ConfirmationWindow, reference : Date) : boolean
+  }
+}
+
+package "riskdetection.domain.model.valueobjects" <<Rectangle>> {
+  class PropertyId <<Value Object>> {
+    - propertyId : Long
+  }
+  class ThresholdValue <<Value Object>> {
+    - value : double
+    - unit : String
+    + isExceededBy(measured : double) : boolean
+  }
+  class ConfirmationWindow <<Value Object>> {
+    - seconds : int
+    + contains(first : Date, last : Date) : boolean
+  }
+  enum RiskType <<Enumeration>> {
+    SEISMIC
+    FIRE
+    GAS_LEAK
+  }
+  enum EvidenceType <<Enumeration>> {
+    SEISMIC_MOVEMENT
+    SMOKE
+    FLAME
+    GAS_CONCENTRATION
+    HIGH_TEMPERATURE
+  }
+  enum RiskSituationStatus <<Enumeration>> {
+    UNDER_VALIDATION
+    VALIDATED
+    FALSE_POSITIVE
+  }
+  enum RiskSeverity <<Enumeration>> {
+    LOW
+    MODERATE
+    HIGH
+    CRITICAL
+  }
+  enum AlertStatus <<Enumeration>> {
+    GENERATED
+    DISPATCHED
+    CLOSED
+  }
+}
+
+package "riskdetection.domain.model.events" <<Rectangle>> {
+  class SeismicRiskValidated <<Domain Event>> {
+    + riskSituationId : Long
+    + propertyId : Long
+    + severity : RiskSeverity
+    + occurredOn : Date
+  }
+  class FireConfirmed <<Domain Event>> {
+    + riskSituationId : Long
+    + propertyId : Long
+    + severity : RiskSeverity
+    + occurredOn : Date
+  }
+  class GasLeakValidated <<Domain Event>> {
+    + riskSituationId : Long
+    + propertyId : Long
+    + severity : RiskSeverity
+    + occurredOn : Date
+  }
+  class AlertGenerated <<Domain Event>> {
+    + alertId : Long
+    + riskSituationId : Long
+    + propertyId : Long
+    + riskType : RiskType
+    + severity : RiskSeverity
+    + detectedAt : Date
+    + occurredOn : Date
+  }
+  class FalsePositiveDiscarded <<Domain Event>> {
+    + riskSituationId : Long
+    + reason : String
+    + occurredOn : Date
+  }
+}
+
+package "riskdetection.domain.services" <<Rectangle>> {
+  interface RiskValidationService <<Domain Service>> {
+    + evaluate(situation : RiskSituation, rule : DetectionRule) : boolean
+  }
+  interface SeverityCalculationService <<Domain Service>> {
+    + calculate(riskType : RiskType, evidences : List<DetectionEvidence>,\n      rule : DetectionRule) : RiskSeverity
+  }
+}
+
+package "riskdetection.domain.repositories" <<Rectangle>> {
+  interface RiskSituationRepository <<Repository>> {
+    + save(situation : RiskSituation) : RiskSituation
+    + findById(id : Long) : Optional<RiskSituation>
+    + findOpenByPropertyIdAndRiskType(propertyId : PropertyId, type : RiskType) : Optional<RiskSituation>
+    + findByPropertyIdAndStatus(propertyId : PropertyId, status : RiskSituationStatus) : List<RiskSituation>
+  }
+  interface AlertRepository <<Repository>> {
+    + save(alert : Alert) : Alert
+    + findByPropertyId(propertyId : PropertyId) : List<Alert>
+    + findByRiskSituationId(riskSituationId : Long) : Optional<Alert>
+  }
+  interface DetectionRuleRepository <<Repository>> {
+    + save(rule : DetectionRule) : DetectionRule
+    + findByPropertyIdAndRiskType(propertyId : PropertyId, type : RiskType) : Optional<DetectionRule>
+  }
+}
+
+AAR <|-- RiskSituation
+AAR <|-- Alert
+AAR <|-- DetectionRule
+AuditableModel <|-- DetectionEvidence
+
+RiskSituation "1" *--> "1..*" DetectionEvidence : supported by >
+RiskSituation "1" <-- "0..1" Alert : raised for >
+RiskSituation ..> DetectionRule : validated with
+RiskSituation ..> Alert : <<create>>
+DetectionRule "1" *--> "1" ThresholdValue : defines >
+DetectionRule "1" *--> "1" ConfirmationWindow : waits >
+
+RiskSituation "0..*" --> "1" PropertyId : occurs in >
+RiskSituation "0..*" --> "1" RiskType : classified as >
+RiskSituation "0..*" --> "1" RiskSituationStatus : has >
+RiskSituation "0..*" --> "0..1" RiskSeverity : rated >
+Alert "0..*" --> "1" AlertStatus : has >
+DetectionRule "0..*" --> "1" RiskType : applies to >
+DetectionEvidence "0..*" --> "1" EvidenceType : typed as >
+
+RiskSituation ..> SeismicRiskValidated : <<publishes>>
+RiskSituation ..> FireConfirmed : <<publishes>>
+RiskSituation ..> GasLeakValidated : <<publishes>>
+RiskSituation ..> FalsePositiveDiscarded : <<publishes>>
+Alert ..> AlertGenerated : <<publishes>>
+
+RiskValidationService ..> RiskSituation : evaluates
+SeverityCalculationService ..> DetectionEvidence : analyzes
+RiskSituationRepository ..> RiskSituation : persists
+AlertRepository ..> Alert : persists
+DetectionRuleRepository ..> DetectionRule : persists
+
+SeismicRiskValidated -[hidden]down- FireConfirmed
+FireConfirmed -[hidden]down- GasLeakValidated
+GasLeakValidated -[hidden]down- FalsePositiveDiscarded
+FalsePositiveDiscarded -[hidden]down- AlertGenerated
+
+@enduml

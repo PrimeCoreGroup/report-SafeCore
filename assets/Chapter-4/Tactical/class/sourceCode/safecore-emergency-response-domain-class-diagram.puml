@@ -1,0 +1,236 @@
+@startuml safecore-emergency-response-domain-class-diagram
+set separator none
+skinparam dpi 150
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+skinparam classAttributeIconSize 0
+skinparam packageStyle rectangle
+skinparam nodesep 35
+skinparam ranksep 45
+skinparam ArrowColor #37474F
+skinparam ArrowFontSize 10
+skinparam ArrowFontColor #263238
+skinparam PackageBorderColor #546E7A
+skinparam PackageFontSize 12
+skinparam class {
+  BorderColor #455A64
+  BackgroundColor #FFFFFF
+  HeaderBackgroundColor #ECEFF1
+  StereotypeFontSize 9
+  StereotypeFontColor #37474F
+  BackgroundColor<<Aggregate Root>> #FFF3E0
+  BorderColor<<Aggregate Root>> #E65100
+  BackgroundColor<<Entity>> #E3F2FD
+  BorderColor<<Entity>> #1565C0
+  BackgroundColor<<Value Object>> #E8F5E9
+  BorderColor<<Value Object>> #2E7D32
+  BackgroundColor<<Enumeration>> #F1F8E9
+  BorderColor<<Enumeration>> #558B2F
+  BackgroundColor<<Domain Event>> #FCE4EC
+  BorderColor<<Domain Event>> #AD1457
+  BackgroundColor<<Repository>> #EDE7F6
+  BorderColor<<Repository>> #4527A0
+  BackgroundColor<<Domain Service>> #E0F7FA
+  BorderColor<<Domain Service>> #00838F
+  BackgroundColor<<Shared Kernel>> #F5F5F5
+  BorderColor<<Shared Kernel>> #757575
+}
+hide empty members
+
+title Emergency Response Bounded Context — Domain Layer Class Diagram
+
+package "shared.domain.model" <<Rectangle>> {
+  abstract class "AuditableAbstractAggregateRoot<T>" as AAR <<Shared Kernel>> {
+    - id : Long
+    - createdAt : Date
+    - updatedAt : Date
+    + getId() : Long
+    # registerEvent(event : Object) : void
+  }
+  abstract class AuditableModel <<Shared Kernel>> {
+    - id : Long
+    - createdAt : Date
+    - updatedAt : Date
+    + getId() : Long
+  }
+}
+
+package "emergencyresponse.domain.model.aggregates" <<Rectangle>> {
+  class EmergencyResponse <<Aggregate Root>> {
+    - emergencyType : EmergencyType
+    - riskSituationReference : RiskSituationReference
+    - propertyId : PropertyId
+    - protocolId : Long
+    - status : ResponseStatus
+    - actions : List<ResponseAction>
+    - startedAt : Date
+    - completedAt : Date
+    + EmergencyResponse(type : EmergencyType, reference : RiskSituationReference,\n      propertyId : PropertyId, protocolId : Long)
+    + addAction(action : ResponseAction) : void
+    + markActionAsExecuted(actionId : Long) : void
+    + markActionAsFailed(actionId : Long, reason : String) : void
+    + complete() : void
+    + isCompleted() : boolean
+    + getPendingActions() : List<ResponseAction>
+    - findAction(actionId : Long) : ResponseAction
+    - recalculateStatus() : void
+  }
+
+  class EmergencyProtocol <<Aggregate Root>> {
+    - name : String
+    - emergencyType : EmergencyType
+    - active : boolean
+    - steps : List<ProtocolStep>
+    + EmergencyProtocol(name : String, emergencyType : EmergencyType)
+    + addStep(step : ProtocolStep) : void
+    + getOrderedSteps() : List<ProtocolStep>
+    + activate() : void
+    + deactivate() : void
+    + isApplicableTo(type : EmergencyType) : boolean
+    - validateStepOrder(order : int) : void
+  }
+}
+
+package "emergencyresponse.domain.model.entities" <<Rectangle>> {
+  class ResponseAction <<Entity>> {
+    - stepOrder : int
+    - command : ActuatorCommand
+    - status : ResponseStatus
+    - failureReason : String
+    - executedAt : Date
+    + ResponseAction(stepOrder : int, command : ActuatorCommand)
+    + markAsExecuted() : void
+    + markAsFailed(reason : String) : void
+    + isPending() : boolean
+    + isFinished() : boolean
+  }
+
+  class ProtocolStep <<Entity>> {
+    - order : int
+    - actuatorType : ActuatorType
+    - actionTemplate : String
+    + ProtocolStep(order : int, actuatorType : ActuatorType, actionTemplate : String)
+    + toResponseAction() : ResponseAction
+    + getOrder() : int
+  }
+}
+
+package "emergencyresponse.domain.model.valueobjects" <<Rectangle>> {
+  class RiskSituationReference <<Value Object>> {
+    - riskSituationId : Long
+    - detectedAt : Date
+    + RiskSituationReference(riskSituationId : Long, detectedAt : Date)
+  }
+  class ActuatorCommand <<Value Object>> {
+    - actuatorType : ActuatorType
+    - instruction : String
+    - parameters : Map<String, String>
+    + ActuatorCommand(actuatorType : ActuatorType,\n      instruction : String, parameters : Map<String, String>)
+  }
+  class PropertyId <<Value Object>> {
+    - propertyId : Long
+    + PropertyId(propertyId : Long)
+  }
+  enum EmergencyType <<Enumeration>> {
+    SEISMIC_EVENT
+    FIRE
+    GAS_LEAK
+  }
+  enum ResponseStatus <<Enumeration>> {
+    INITIATED
+    IN_PROGRESS
+    COMPLETED
+    FAILED
+  }
+  enum ActuatorType <<Enumeration>> {
+    MAGNETIC_LOCK
+    POWER_RELAY
+    EMERGENCY_LIGHTING
+    SPRINKLER
+    SOUND_ALARM
+    VENTILATION
+    GAS_VALVE
+  }
+}
+
+package "emergencyresponse.domain.model.events" <<Rectangle>> {
+  class EmergencyResponseInitiated <<Domain Event>> {
+    + emergencyResponseId : Long
+    + emergencyType : EmergencyType
+    + propertyId : Long
+    + occurredOn : Date
+  }
+  class ResponseActionExecuted <<Domain Event>> {
+    + emergencyResponseId : Long
+    + actionId : Long
+    + actuatorType : ActuatorType
+    + occurredOn : Date
+  }
+  class ResponseActionFailed <<Domain Event>> {
+    + emergencyResponseId : Long
+    + actionId : Long
+    + reason : String
+    + occurredOn : Date
+  }
+  class EmergencyResponseCompleted <<Domain Event>> {
+    + emergencyResponseId : Long
+    + finalStatus : ResponseStatus
+    + occurredOn : Date
+  }
+}
+
+package "emergencyresponse.domain.services" <<Rectangle>> {
+  interface ProtocolSelectionService <<Domain Service>> {
+    + selectProtocolFor(type : EmergencyType) : Optional<EmergencyProtocol>
+  }
+  interface ProtocolExecutionService <<Domain Service>> {
+    + generateActions(protocol : EmergencyProtocol) : List<ResponseAction>
+  }
+}
+
+package "emergencyresponse.domain.repositories" <<Rectangle>> {
+  interface EmergencyResponseRepository <<Repository>> {
+    + save(response : EmergencyResponse) : EmergencyResponse
+    + findById(id : Long) : Optional<EmergencyResponse>
+    + findByStatus(status : ResponseStatus) : List<EmergencyResponse>
+    + findByEmergencyType(type : EmergencyType) : List<EmergencyResponse>
+  }
+  interface EmergencyProtocolRepository <<Repository>> {
+    + findById(id : Long) : Optional<EmergencyProtocol>
+    + findByEmergencyType(type : EmergencyType) : Optional<EmergencyProtocol>
+    + existsByEmergencyType(type : EmergencyType) : boolean
+  }
+}
+
+AAR <|-- EmergencyResponse
+AAR <|-- EmergencyProtocol
+AuditableModel <|-- ResponseAction
+AuditableModel <|-- ProtocolStep
+
+EmergencyResponse "1" *--> "1..*" ResponseAction : executes >
+EmergencyProtocol "1" *--> "1..*" ProtocolStep : defines >
+EmergencyResponse "0..*" --> "1" EmergencyProtocol : instantiated from >
+ProtocolStep ..> ResponseAction : <<create>>
+
+EmergencyResponse "1" --> "1" RiskSituationReference : originated by >
+EmergencyResponse "1" --> "1" PropertyId : located in >
+EmergencyResponse "0..*" --> "1" EmergencyType : classified as >
+EmergencyResponse "0..*" --> "1" ResponseStatus : has >
+EmergencyProtocol "0..*" --> "1" EmergencyType : applies to >
+ResponseAction "1" --> "1" ActuatorCommand : sends >
+ResponseAction "0..*" --> "1" ResponseStatus : has >
+ProtocolStep "0..*" --> "1" ActuatorType : targets >
+ActuatorCommand "0..*" --> "1" ActuatorType : addressed to >
+
+EmergencyResponse ..> EmergencyResponseInitiated : <<publishes>>
+EmergencyResponse ..> ResponseActionExecuted : <<publishes>>
+EmergencyResponse ..> ResponseActionFailed : <<publishes>>
+EmergencyResponse ..> EmergencyResponseCompleted : <<publishes>>
+
+ProtocolSelectionService ..> EmergencyProtocolRepository : uses
+ProtocolExecutionService ..> ResponseAction : generates
+EmergencyResponseRepository ..> EmergencyResponse : persists
+EmergencyProtocolRepository ..> EmergencyProtocol : persists
+
+@enduml

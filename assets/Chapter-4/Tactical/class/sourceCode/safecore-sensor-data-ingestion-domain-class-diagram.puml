@@ -1,0 +1,218 @@
+@startuml safecore-sensor-data-ingestion-domain-class-diagram
+set separator none
+skinparam dpi 150
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 11
+skinparam classAttributeIconSize 0
+skinparam packageStyle rectangle
+skinparam nodesep 35
+skinparam ranksep 45
+skinparam ArrowColor #37474F
+skinparam ArrowFontSize 10
+skinparam ArrowFontColor #263238
+skinparam PackageBorderColor #546E7A
+skinparam PackageFontSize 12
+skinparam class {
+  BorderColor #455A64
+  BackgroundColor #FFFFFF
+  HeaderBackgroundColor #ECEFF1
+  StereotypeFontSize 9
+  StereotypeFontColor #37474F
+  BackgroundColor<<Aggregate Root>> #FFF3E0
+  BorderColor<<Aggregate Root>> #E65100
+  BackgroundColor<<Entity>> #E3F2FD
+  BorderColor<<Entity>> #1565C0
+  BackgroundColor<<Value Object>> #E8F5E9
+  BorderColor<<Value Object>> #2E7D32
+  BackgroundColor<<Enumeration>> #F1F8E9
+  BorderColor<<Enumeration>> #558B2F
+  BackgroundColor<<Domain Event>> #FCE4EC
+  BorderColor<<Domain Event>> #AD1457
+  BackgroundColor<<Repository>> #EDE7F6
+  BorderColor<<Repository>> #4527A0
+  BackgroundColor<<Domain Service>> #E0F7FA
+  BorderColor<<Domain Service>> #00838F
+  BackgroundColor<<Shared Kernel>> #F5F5F5
+  BorderColor<<Shared Kernel>> #757575
+}
+hide empty members
+
+title Sensor Data Ingestion Bounded Context — Domain Layer Class Diagram
+
+package "shared.domain.model" <<Rectangle>> {
+  abstract class "AuditableAbstractAggregateRoot<T>" as AAR <<Shared Kernel>> {
+    - id : Long
+    - createdAt : Date
+    - updatedAt : Date
+    + getId() : Long
+    # registerEvent(event : Object) : void
+  }
+}
+
+
+package "ingestion.domain.model.aggregates" <<Rectangle>> {
+  class SensorReading <<Aggregate Root>> {
+    - deviceId : DeviceId
+    - edgeNodeId : Long
+    - propertyId : PropertyId
+    - sensorType : SensorType
+    - measurement : Measurement
+    - capturedAt : Date
+    - receivedAt : Date
+    - validationStatus : ReadingValidationStatus
+    - validationNotes : String
+    + SensorReading(deviceId : DeviceId, edgeNodeId : Long, propertyId : PropertyId,\n      sensorType : SensorType, measurement : Measurement, capturedAt : Date)
+    + validateAgainst(range : PlausibleRange) : void
+    + markAsDuplicated() : void
+    + isValid() : boolean
+    + getLatencyMillis() : long
+  }
+
+  class SensorEvent <<Aggregate Root>> {
+    - readingId : Long
+    - deviceId : DeviceId
+    - propertyId : PropertyId
+    - eventType : SensorEventType
+    - measurement : Measurement
+    - occurredAt : Date
+    + SensorEvent(reading : SensorReading, eventType : SensorEventType)
+    + {static} fromReading(reading : SensorReading, type : SensorEventType) : SensorEvent
+  }
+}
+
+package "ingestion.domain.model.valueobjects" <<Rectangle>> {
+  class DeviceId <<Value Object>> {
+    - deviceId : Long
+  }
+  class PropertyId <<Value Object>> {
+    - propertyId : Long
+  }
+  class Measurement <<Value Object>> {
+    - value : double
+    - unit : MeasurementUnit
+    + Measurement(value : double, unit : MeasurementUnit)
+    + convertTo(target : MeasurementUnit) : Measurement
+    + isGreaterThan(other : Measurement) : boolean
+  }
+  class PlausibleRange <<Value Object>> {
+    - sensorType : SensorType
+    - minimum : double
+    - maximum : double
+    - unit : MeasurementUnit
+    + contains(measurement : Measurement) : boolean
+  }
+  enum SensorType <<Enumeration>> {
+    SEISMIC
+    SMOKE
+    FLAME
+    GAS
+    TEMPERATURE
+  }
+  enum MeasurementUnit <<Enumeration>> {
+    G_ACCELERATION
+    PPM
+    CELSIUS
+    PERCENT_OBSCURATION
+    BOOLEAN_SIGNAL
+  }
+  enum ReadingValidationStatus <<Enumeration>> {
+    RECEIVED
+    VALID
+    OUT_OF_RANGE
+    DUPLICATED
+    CORRUPTED
+  }
+  enum SensorEventType <<Enumeration>> {
+    SEISMIC_MOVEMENT_DETECTED
+    SMOKE_DETECTED
+    FLAME_DETECTED
+    GAS_CONCENTRATION_EXCEEDED
+    HIGH_TEMPERATURE_DETECTED
+  }
+}
+
+package "ingestion.domain.model.events" <<Rectangle>> {
+  class SeismicMovementDetected <<Domain Event>> {
+    + sensorEventId : Long
+    + deviceId : Long
+    + propertyId : Long
+    + peakAcceleration : double
+    + occurredOn : Date
+  }
+  class SmokeDetected <<Domain Event>> {
+    + sensorEventId : Long
+    + deviceId : Long
+    + propertyId : Long
+    + obscuration : double
+    + occurredOn : Date
+  }
+  class FlameDetected <<Domain Event>> {
+    + sensorEventId : Long
+    + deviceId : Long
+    + propertyId : Long
+    + occurredOn : Date
+  }
+  class GasConcentrationExceeded <<Domain Event>> {
+    + sensorEventId : Long
+    + deviceId : Long
+    + propertyId : Long
+    + concentrationPpm : double
+    + occurredOn : Date
+  }
+}
+
+package "ingestion.domain.services" <<Rectangle>> {
+  interface ReadingValidationService <<Domain Service>> {
+    + validate(reading : SensorReading) : ReadingValidationStatus
+    + plausibleRangeFor(type : SensorType) : PlausibleRange
+  }
+  interface SensorEventClassifier <<Domain Service>> {
+    + classify(reading : SensorReading) : Optional<SensorEvent>
+  }
+}
+
+package "ingestion.domain.repositories" <<Rectangle>> {
+  interface SensorReadingRepository <<Repository>> {
+    + save(reading : SensorReading) : SensorReading
+    + findByDeviceIdAndCapturedAtBetween(deviceId : DeviceId, from : Date, to : Date) : List<SensorReading>
+    + findTopByDeviceIdOrderByCapturedAtDesc(deviceId : DeviceId) : Optional<SensorReading>
+    + existsByDeviceIdAndCapturedAt(deviceId : DeviceId, capturedAt : Date) : boolean
+  }
+  interface SensorEventRepository <<Repository>> {
+    + save(event : SensorEvent) : SensorEvent
+    + findByPropertyIdAndOccurredAtAfter(propertyId : PropertyId, from : Date) : List<SensorEvent>
+  }
+}
+
+AAR <|-- SensorReading
+AAR <|-- SensorEvent
+
+SensorReading "1" <-- "0..1" SensorEvent : derived from >
+SensorReading "1" *--> "1" Measurement : measures >
+SensorEvent "1" *--> "1" Measurement : carries >
+SensorReading "0..*" --> "1" DeviceId : captured by >
+SensorReading "0..*" --> "1" PropertyId : belongs to >
+SensorEvent "0..*" --> "1" DeviceId : raised by >
+SensorReading "0..*" --> "1" SensorType : of type >
+SensorReading "0..*" --> "1" ReadingValidationStatus : has >
+SensorEvent "0..*" --> "1" SensorEventType : classified as >
+Measurement "0..*" --> "1" MeasurementUnit : expressed in >
+PlausibleRange "0..*" --> "1" SensorType : applies to >
+SensorReading ..> PlausibleRange : validated against
+
+SensorEvent ..> SeismicMovementDetected : <<publishes>>
+SensorEvent ..> SmokeDetected : <<publishes>>
+SensorEvent ..> FlameDetected : <<publishes>>
+SensorEvent ..> GasConcentrationExceeded : <<publishes>>
+
+ReadingValidationService ..> PlausibleRange : provides
+SensorEventClassifier ..> SensorEvent : creates
+SensorReadingRepository ..> SensorReading : persists
+SensorEventRepository ..> SensorEvent : persists
+
+SeismicMovementDetected -[hidden]down- SmokeDetected
+SmokeDetected -[hidden]down- FlameDetected
+FlameDetected -[hidden]down- GasConcentrationExceeded
+
+@enduml
