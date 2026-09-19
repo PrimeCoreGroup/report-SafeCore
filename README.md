@@ -948,14 +948,6 @@ _[...]_
 
 ### 4.1.1. Design-Level EventStorming
 
-
-# Capítulo IV: Solution Software Design
-
-## 4.1. Strategic-Level Domain-Driven Design
-
-### 4.1.1. Design-Level EventStorming
-
-
 En esta sección se presenta el **Design-Level EventStorming** realizado para la solución **SafeCore**. El objetivo de esta actividad es identificar y organizar los principales elementos del dominio, tales como actores, comandos, eventos de dominio, políticas, sistemas externos, modelos de lectura y componentes IoT.
 
 A partir del análisis realizado se modelaron los principales flujos de negocio relacionados con la detección y atención de situaciones de riesgo, así como las actividades de monitoreo, gestión de usuarios y administración de dispositivos IoT.
@@ -967,8 +959,6 @@ El resultado de este EventStorming constituye la base para las siguientes activi
 ![SafeCore - Design-Level EventStorming](assets/Chapter-4/Design/EventStorming.jpg)
 
 **Figura 4.1. Design-Level EventStorming de SafeCore.**
-
-#### 4.1.1.1. Candidate Context Discovery
 
 #### 4.1.1.1. Candidate Context Discovery
 
