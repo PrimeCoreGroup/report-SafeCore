@@ -14,7 +14,7 @@
  
 <strong>Nombre del profesor:</strong> Marco Antonio Leon Baca<br>
  
-<br><strong>*Informe de Trabajo Final*</strong><br><br>
+<br><strong>*Informe de Trabajo AV1*</strong><br><br>
  
 <strong>Nombre del startup: </strong>PrimeCore Group<br>
 <strong>Nombre del producto: </strong>SafeCore<br>
@@ -167,8 +167,8 @@ Consolidarnos como la empresa líder en Latinoamérica en soluciones inteligente
 | ![Carlos_Foto](assets/Fotos/Carlos_Profile.jpg) | Gonzalez Custodio, Carlos Alberto | Mi nombre es Carlos Alberto Gonzalez Custodio, estudio Ingeniería de Software en la UPC. Me considero una persona en proceso de aprendizaje en cuanto a la programación se refiere. Me encanta desarrollar aplicaciones web o móviles y espero especializarme en el área de Frontend. |
 | ![Rafa_Foto](assets/Fotos/Rafa_Foto.jpg) | Tasayco Almonacid, Rafael Augusto | Soy estudiante de la carrera de Ingeniería de Software y actualmente estoy cursando el septimo ciclo de mi carrera universitaria. Entre mis hobbies se encuentran jugar básquet, disfrutar de los videojuegos y escuchar música en mis momentos libres. Cuando culmine mis estudios, me encantaría especializarme y concentrarme en el campo de la ciberseguridad, un área que me apasiona y en la que deseo desarrollarme profesionalmente. |
 | ![Raul_Foto](assets/Fotos/Raul_Tasayco_Profile.jpeg) | Tasayco Osorio, Raúl Hiroshi | Soy estudiante de Ingeniería de Software en la Universidad Peruana de Ciencias Aplicadas (UPC), con experiencia en C++, Python, SQL, Angular, TypeScript, HTML y CSS, además de conocimientos en buenas prácticas de desarrollo, estructuras de datos y bases de datos. He participado en proyectos universitarios y en proyectos desarrollados en entornos reales, fortaleciendo mis habilidades de desarrollo frontend y backend, trabajo en equipo y resolución de problemas. Me caracterizo por ser responsable, comprometido y orientado al aprendizaje continuo. |
-| Imagen aqui| Inga Hernandez, Ayrton Damian | Descripción aqui |
-| Imagen aqui| Huaman De La Cruz, Jean Pool| Descripción aqui |
+| ![Ayrton_Foto](assets/Fotos/Ayrton-foto.png) | Inga Hernandez, Ayrton Damian | Mi nombre es Ayrton Inga, soy estudiante de Ingenieria de Software en la Universidad Peruana de Ciencias Aplicadas, tengo experiencia programando en C++, Python, C# y Java. Mi enfoque es en el trabajo de equipo y un desarrollo enfocado al cliente. |
+| ![Jean_Foto](assets/Fotos/JeanXP.png)| Huaman De La Cruz, Jean Pool| Soy estudiante de Ingeniería de Software en la Universidad Peruana de Ciencias Aplicadas (UPC), actualmente cursando el séptimo ciclo. Me considero una persona orientada a objetivos, comprometida con mi aprendizaje y con un gran interés por la tecnología y la innovación. Mi objetivo es seguir fortaleciendo mis conocimientos y desarrollar soluciones innovadoras y disruptivas que generen valor y contribuyan a transformar positivamente el mercado y la sociedad.   |
 
 ## 1.2. Solution Profile
 
@@ -1579,17 +1579,144 @@ Esta estructura asegura que la Infrastructure Layer sea modular, reutilizable y 
 
 #### 4.2.X.5. Bounded Context Software Architecture Component Level Diagrams
 
-_[...]_
 
-#### 4.2.X.6. Bounded Context Software Architecture Code Level Diagrams
+#### 4.2.1.6. Bounded Context Software Architecture Code Level Diagrams
 
-##### 4.2.X.6.1. Bounded Context Domain Layer Class Diagrams
+##### 4.2.1.6.1. Bounded Context Domain Layer Class Diagrams
 
-_[...]_
+The following diagram represents the Domain Layer of the Emergency Response Bounded Context. It shows the main domain entities, their attributes, relationships, and responsibilities involved in managing emergency protocols and response actions.
 
-##### 4.2.X.6.2. Bounded Context Database Design Diagram
+![SafeCore Emergency Response Domain Class Diagram](assets/Chapter-4/Tactical/class/safecore-emergency-response-domain-class-diagram.png)
 
-_[...]_
+**Figura 4.2.1.6.1. Bounded Context Domain Layer Class Diagram - Emergency Response.**
+
+##### 4.2.1.6.2. Bounded Context Database Design Diagram
+
+The database design diagram represents the persistence structure of the Emergency Response Bounded Context, including its main tables, attributes, relationships, primary keys, and foreign keys.
+
+![SafeCore Emergency Response Database Diagram](assets/Chapter-4/Tactical/database/safecore-emergency-response-database-diagram.png)
+
+**Figura 4.2.1.6.2. Bounded Context Database Design Diagram - Emergency Response.**
+
+---
+
+#### 4.2.2.6. Bounded Context Software Architecture Code Level Diagrams
+
+##### 4.2.2.6.1. Bounded Context Domain Layer Class Diagrams
+
+The following diagram represents the Domain Layer of the Identity and Access Bounded Context. It shows the main domain entities and relationships involved in identity, authentication, authorization, users, roles, and access control.
+
+![SafeCore Identity and Access Domain Class Diagram](assets/Chapter-4/Tactical/class/safecore-identity-access-domain-class-diagram.png)
+
+**Figura 4.2.2.6.1. Bounded Context Domain Layer Class Diagram - Identity and Access.**
+
+##### 4.2.2.6.2. Bounded Context Database Design Diagram
+
+The database design diagram represents the persistence structure of the Identity and Access Bounded Context.
+
+![SafeCore Identity and Access Database Diagram](assets/Chapter-4/Tactical/database/safecore-identity-access-database-diagram.png)
+
+**Figura 4.2.2.6.2. Bounded Context Database Design Diagram - Identity and Access.**
+
+---
+
+#### 4.2.3.6. Bounded Context Software Architecture Code Level Diagrams
+
+##### 4.2.3.6.1. Bounded Context Domain Layer Class Diagrams
+
+The following diagram represents the Domain Layer of the Device Management Bounded Context. It shows the entities and relationships involved in registering, configuring, monitoring, and managing IoT devices.
+
+![SafeCore Device Management Domain Class Diagram](assets/Chapter-4/Tactical/class/safecore-device-management-domain-class-diagram.png)
+
+**Figura 4.2.3.6.1. Bounded Context Domain Layer Class Diagram - Device Management.**
+
+##### 4.2.3.6.2. Bounded Context Database Design Diagram
+
+The database design diagram represents the persistence structure of the Device Management Bounded Context.
+
+![SafeCore Device Management Database Diagram](assets/Chapter-4/Tactical/database/safecore-device-management-database-diagram.png)
+
+**Figura 4.2.3.6.2. Bounded Context Database Design Diagram - Device Management.**
+
+---
+
+#### 4.2.4.6. Bounded Context Software Architecture Code Level Diagrams
+
+##### 4.2.4.6.1. Bounded Context Domain Layer Class Diagrams
+
+The following diagram represents the Domain Layer of the Sensor Data Ingestion Bounded Context. It shows the entities and relationships involved in receiving, validating, processing, and storing sensor data generated by IoT devices.
+
+![SafeCore Sensor Data Ingestion Domain Class Diagram](assets/Chapter-4/Tactical/class/safecore-sensor-data-ingestion-domain-class-diagram.png)
+
+**Figura 4.2.4.6.1. Bounded Context Domain Layer Class Diagram - Sensor Data Ingestion.**
+
+##### 4.2.4.6.2. Bounded Context Database Design Diagram
+
+The database design diagram represents the persistence structure of the Sensor Data Ingestion Bounded Context.
+
+![SafeCore Sensor Data Ingestion Database Diagram](assets/Chapter-4/Tactical/database/safecore-sensor-data-ingestion-database-diagram.png)
+
+**Figura 4.2.4.6.2. Bounded Context Database Design Diagram - Sensor Data Ingestion.**
+
+---
+
+#### 4.2.5.6. Bounded Context Software Architecture Code Level Diagrams
+
+##### 4.2.5.6.1. Bounded Context Domain Layer Class Diagrams
+
+The following diagram represents the Domain Layer of the Risk Detection Bounded Context. It shows the entities and relationships involved in detecting, evaluating, and managing risks identified from IoT sensor information.
+
+![SafeCore Risk Detection Domain Class Diagram](assets/Chapter-4/Tactical/class/safecore-risk-detection-domain-class-diagram.png)
+
+**Figura 4.2.5.6.1. Bounded Context Domain Layer Class Diagram - Risk Detection.**
+
+##### 4.2.5.6.2. Bounded Context Database Design Diagram
+
+The database design diagram represents the persistence structure of the Risk Detection Bounded Context.
+
+![SafeCore Risk Detection Database Diagram](assets/Chapter-4/Tactical/database/safecore-risk-detection-database-diagram.png)
+
+**Figura 4.2.5.6.2. Bounded Context Database Design Diagram - Risk Detection.**
+
+---
+
+#### 4.2.6.6. Bounded Context Software Architecture Code Level Diagrams
+
+##### 4.2.6.6.1. Bounded Context Domain Layer Class Diagrams
+
+The following diagram represents the Domain Layer of the Notification Bounded Context. It shows the entities and relationships involved in managing notifications, notification channels, recipients, and delivery status.
+
+![SafeCore Notification Domain Class Diagram](assets/Chapter-4/Tactical/class/safecore-notification-domain-class-diagram.png)
+
+**Figura 4.2.6.6.1. Bounded Context Domain Layer Class Diagram - Notification.**
+
+##### 4.2.6.6.2. Bounded Context Database Design Diagram
+
+The database design diagram represents the persistence structure of the Notification Bounded Context.
+
+![SafeCore Notification Database Diagram](assets/Chapter-4/Tactical/database/safecore-notification-database-diagram.png)
+
+**Figura 4.2.6.6.2. Bounded Context Database Design Diagram - Notification.**
+
+---
+
+#### 4.2.7.6. Bounded Context Software Architecture Code Level Diagrams
+
+##### 4.2.7.6.1. Bounded Context Domain Layer Class Diagrams
+
+The following diagram represents the Domain Layer of the Monitoring and Configuration Bounded Context. It shows the entities and relationships involved in monitoring the health of the system and managing its configuration.
+
+![SafeCore Monitoring and Configuration Domain Class Diagram](assets/Chapter-4/Tactical/class/safecore-monitoring-configuration-domain-class-diagram.png)
+
+**Figura 4.2.7.6.1. Bounded Context Domain Layer Class Diagram - Monitoring and Configuration.**
+
+##### 4.2.7.6.2. Bounded Context Database Design Diagram
+
+The database design diagram represents the persistence structure of the Monitoring and Configuration Bounded Context.
+
+![SafeCore Monitoring and Configuration Database Diagram](assets/Chapter-4/Tactical/database/safecore-monitoring-configuration-database-diagram.png)
+
+**Figura 4.2.7.6.2. Bounded Context Database Design Diagram - Monitoring and Configuration.**
 
 <div style="page-break-after: always;"></div>
 
@@ -1609,7 +1736,11 @@ _[Avance de conclusiones para AV1]_
 
 
 # Anexos
+# Landing Page
 
-## Anexo A: Links
+[![Landing Page](https://img.shields.io/badge/Visit-Landing%20Page-blue?style=for-the-badge&logo=githubpages&logoColor=white)](https://primecoregroup.github.io/Landing_SafeCore/)
 
-_[URLs de videos, repositorios, herramientas, etc.]_
+## Anexo A: 
+# Video Exposición AV1 
+[![Video exposicion](https://img.shields.io/badge/video-About%20the%20Team-red?style=for-the-badge&logo=youtube&logoColor=white)](https://upcedupe-my.sharepoint.com/personal/u20201e781_upc_edu_pe/_layouts/15/stream.aspx?id=%2Fpersonal%2Fu20201e781%5Fupc%5Fedu%5Fpe%2FDocuments%2Fupc%2Dpre%2D202620%2D1asi0572%2D8725%2DSafeCore%2Dexpo%2Dav1%2Emp4&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0&ga=1&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview%2Ebe8633e2%2D2e18%2D414e%2D95b7%2D83edb487f886)
+
