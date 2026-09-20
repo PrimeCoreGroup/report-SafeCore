@@ -875,11 +875,208 @@ En esta sección mostramos los empathy mapping de los segmentos objetivos realiz
 
 ## 2.4. Big Picture EventStorming
 
-_[...]_
+El Big Picture EventStorming permitió representar de manera visual el flujo general del
+dominio de SafeCore, identificando los principales eventos y actividades relacionados con
+la detección, monitoreo y atención de situaciones de emergencia dentro de una edificación.
 
+El flujo inicia cuando los dispositivos y sensores de SafeCore recopilan información del
+entorno. Los sensores pueden detectar condiciones asociadas a riesgos como humo,
+temperatura anormal, presencia de gases, cambios ambientales u otras condiciones que
+puedan representar una situación de emergencia.
+
+A partir de los datos recopilados, el sistema procesa la información y determina si existe
+una condición que requiere atención. Cuando se identifica una situación de riesgo, se
+genera un evento de detección y se inicia el proceso de respuesta correspondiente.
+
+Los principales eventos identificados en el dominio son:
+
+- Sensor detecta condición anormal.
+- Datos del sensor son registrados.
+- Condición de riesgo es identificada.
+- Emergencia es detectada.
+- Nivel de riesgo es determinado.
+- Alerta es generada.
+- Notificación es enviada.
+- Usuario recibe una alerta.
+- Emergencia es atendida.
+- Estado de la emergencia es actualizado.
+- Evento de emergencia es registrado.
+- Dispositivo reporta su estado.
+- Configuración del dispositivo es actualizada.
+
+El flujo considera también la interacción entre los diferentes componentes de la solución.
+Los dispositivos IoT recopilan los datos, los servicios de procesamiento analizan la
+información y los mecanismos de notificación comunican la situación a los usuarios
+responsables.
+
+SafeCore considera además escenarios en los que la conectividad con servicios externos
+puede verse afectada. Por ello, determinadas operaciones críticas pueden ejecutarse de
+forma local mediante los dispositivos y componentes de Edge, permitiendo mantener la
+detección y respuesta ante eventos importantes incluso cuando existe una interrupción
+temporal de la conexión o del servicio en la nube.
+
+A nivel general, el Big Picture EventStorming permitió identificar los siguientes bloques
+principales del dominio:
+
+1. **Monitoreo y adquisición de datos:** recopilación continua de información mediante
+   sensores y dispositivos IoT.
+2. **Detección de riesgos:** análisis de las condiciones detectadas para identificar
+   situaciones potencialmente peligrosas.
+3. **Gestión de emergencias:** registro, seguimiento y actualización del estado de una
+   emergencia.
+4. **Notificaciones y alertas:** generación y distribución de alertas a los usuarios
+   correspondientes.
+5. **Gestión de dispositivos:** administración del estado y configuración de los
+   dispositivos IoT.
+6. **Identidad y acceso:** control de los usuarios y de los permisos necesarios para
+   acceder a las funcionalidades de SafeCore.
+7. **Monitoreo y configuración:** supervisión del funcionamiento de la solución y
+   administración de sus parámetros.
+
+El resultado del EventStorming sirvió como base para identificar los límites del dominio y
+posteriormente definir los Bounded Contexts utilizados en el diseño estratégico de
+SafeCore.
 ## 2.5. Ubiquitous Language
 
-_[...]_
+El Ubiquitous Language de SafeCore define los términos principales utilizados por el
+equipo para representar el dominio de gestión de riesgos y emergencias mediante
+tecnologías IoT. Estos términos deben utilizarse de manera consistente durante el
+análisis, diseño, desarrollo y documentación de la solución, evitando ambigüedades entre
+los miembros del equipo y los stakeholders.
+
+### Emergency & Risk Management
+
+**Emergency (Emergencia):** Situación que requiere una respuesta debido a la presencia
+de una condición que puede afectar la seguridad de las personas, infraestructura o
+instalaciones.
+
+**Risk (Riesgo):** Condición o situación que puede generar un evento perjudicial dentro
+del entorno monitoreado.
+
+**Hazard (Peligro):** Fuente o condición con potencial para provocar daños o generar una
+emergencia.
+
+**Risk Detection (Detección de Riesgo):** Proceso mediante el cual una condición
+detectada por los dispositivos y sensores es evaluada para determinar si representa un
+riesgo.
+
+**Emergency Event (Evento de Emergencia):** Evento generado cuando una condición de
+riesgo alcanza las características necesarias para iniciar una respuesta de emergencia.
+
+**Emergency Status (Estado de Emergencia):** Estado actual de una emergencia durante
+su ciclo de atención.
+
+**Emergency Response (Respuesta ante Emergencia):** Conjunto de acciones realizadas
+después de identificar una emergencia con el objetivo de informar y facilitar su
+atención.
+
+### Monitoring & Sensor Data
+
+**Sensor (Sensor):** Dispositivo encargado de medir una condición física o ambiental del
+entorno.
+
+**IoT Device (Dispositivo IoT):** Dispositivo conectado que permite recopilar, procesar
+o transmitir información relacionada con el entorno monitoreado.
+
+**Sensor Reading (Lectura del Sensor):** Valor obtenido por un sensor en un momento
+determinado.
+
+**Sensor Data (Datos del Sensor):** Información generada a partir de las lecturas
+obtenidas por los sensores.
+
+**Telemetry (Telemetría):** Datos generados por los dispositivos IoT que permiten
+conocer las condiciones observadas y el estado operativo de los dispositivos.
+
+**Monitoring (Monitoreo):** Actividad de observar continuamente las condiciones del
+entorno y el comportamiento de los dispositivos.
+
+**Monitoring Configuration (Configuración de Monitoreo):** Conjunto de parámetros que
+determinan las condiciones y reglas utilizadas para supervisar el entorno.
+
+**Threshold (Umbral):** Valor de referencia utilizado para determinar cuándo una lectura
+de sensor puede representar una condición anormal o de riesgo.
+
+### Devices & Infrastructure
+
+**Device Management (Gestión de Dispositivos):** Conjunto de actividades relacionadas
+con el registro, configuración, supervisión y administración de los dispositivos IoT.
+
+**Device Status (Estado del Dispositivo):** Condición actual de un dispositivo IoT,
+incluyendo información necesaria para conocer si se encuentra disponible y operativo.
+
+**Device Configuration (Configuración del Dispositivo):** Parámetros utilizados para
+definir el comportamiento y funcionamiento de un dispositivo IoT.
+
+**Sensor Configuration (Configuración del Sensor):** Parámetros utilizados para definir
+la operación de un sensor y las condiciones bajo las cuales sus lecturas deben ser
+evaluadas.
+
+**Edge Processing (Procesamiento en el Edge):** Procesamiento de información realizado
+cerca de los dispositivos que generan los datos, reduciendo la dependencia de servicios
+remotos para determinadas operaciones.
+
+**Offline Operation (Operación sin Conectividad):** Capacidad de continuar realizando
+determinadas funciones críticas cuando la conexión con servicios externos no está
+disponible.
+
+### Alerts & Notifications
+
+**Alert (Alerta):** Aviso generado cuando se identifica una condición que requiere
+atención.
+
+**Notification (Notificación):** Comunicación enviada a un usuario o responsable para
+informarle sobre una alerta, emergencia o cambio relevante en el sistema.
+
+**Notification Channel (Canal de Notificación):** Medio utilizado para entregar una
+notificación al usuario.
+
+**Critical Alert (Alerta Crítica):** Alerta asociada a una condición de riesgo que
+requiere atención prioritaria.
+
+**Alert Status (Estado de Alerta):** Estado que permite conocer la situación actual de
+una alerta, por ejemplo, generada, enviada, recibida o atendida.
+
+### Identity & Access
+
+**User (Usuario):** Persona que utiliza SafeCore para consultar información, recibir
+notificaciones o realizar acciones autorizadas.
+
+**Role (Rol):** Conjunto de permisos que determina las acciones que un usuario puede
+realizar dentro de SafeCore.
+
+**Permission (Permiso):** Autorización que permite realizar una determinada operación
+sobre los recursos de la solución.
+
+**Identity (Identidad):** Representación de un usuario dentro del sistema que permite
+reconocerlo y asociarlo con sus permisos.
+
+**Access Control (Control de Acceso):** Mecanismo utilizado para determinar si un
+usuario puede acceder a una funcionalidad o recurso.
+
+### SafeCore Domain
+
+**Monitored Zone (Zona Monitoreada):** Área física donde se encuentran instalados los
+dispositivos y sensores encargados de recopilar información.
+
+**Incident (Incidente):** Situación detectada que requiere seguimiento y puede
+evolucionar hacia una emergencia.
+
+**Event (Evento):** Hecho relevante ocurrido dentro del dominio que representa un cambio
+o una acción significativa del sistema.
+
+**Response Action (Acción de Respuesta):** Acción realizada como consecuencia de una
+alerta o emergencia.
+
+**Audit Record (Registro de Auditoría):** Registro de una acción o evento relevante que
+permite mantener trazabilidad sobre las operaciones realizadas.
+
+**System Configuration (Configuración del Sistema):** Conjunto de parámetros generales
+que determinan el comportamiento de SafeCore.
+
+Este lenguaje común permite mantener una representación consistente del dominio entre
+los diferentes componentes de SafeCore, incluyendo los dispositivos IoT, procesamiento
+Edge, servicios de la plataforma, mecanismos de notificación y aplicaciones utilizadas
+por los usuarios.
 
 <div style="page-break-after: always;"></div>
 
