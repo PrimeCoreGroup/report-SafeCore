@@ -167,8 +167,8 @@ Consolidarnos como la empresa líder en Latinoamérica en soluciones inteligente
 | ![Carlos_Foto](assets/Fotos/Carlos_Profile.jpg) | Gonzalez Custodio, Carlos Alberto | Mi nombre es Carlos Alberto Gonzalez Custodio, estudio Ingeniería de Software en la UPC. Me considero una persona en proceso de aprendizaje en cuanto a la programación se refiere. Me encanta desarrollar aplicaciones web o móviles y espero especializarme en el área de Frontend. |
 | ![Rafa_Foto](assets/Fotos/Rafa_Foto.jpg) | Tasayco Almonacid, Rafael Augusto | Soy estudiante de la carrera de Ingeniería de Software y actualmente estoy cursando el septimo ciclo de mi carrera universitaria. Entre mis hobbies se encuentran jugar básquet, disfrutar de los videojuegos y escuchar música en mis momentos libres. Cuando culmine mis estudios, me encantaría especializarme y concentrarme en el campo de la ciberseguridad, un área que me apasiona y en la que deseo desarrollarme profesionalmente. |
 | ![Raul_Foto](assets/Fotos/Raul_Tasayco_Profile.jpeg) | Tasayco Osorio, Raúl Hiroshi | Soy estudiante de Ingeniería de Software en la Universidad Peruana de Ciencias Aplicadas (UPC), con experiencia en C++, Python, SQL, Angular, TypeScript, HTML y CSS, además de conocimientos en buenas prácticas de desarrollo, estructuras de datos y bases de datos. He participado en proyectos universitarios y en proyectos desarrollados en entornos reales, fortaleciendo mis habilidades de desarrollo frontend y backend, trabajo en equipo y resolución de problemas. Me caracterizo por ser responsable, comprometido y orientado al aprendizaje continuo. |
-| Imagen aqui| Inga Hernandez, Ayrton Damian | Descripción aqui |
-| Imagen aqui| Huaman De La Cruz, Jean Pool| Descripción aqui |
+| ![Ayrton_Foto](assets/Fotos/Ayrton-foto.png) | Inga Hernandez, Ayrton Damian | Mi nombre es Ayrton Inga, soy estudiante de Ingenieria de Software en la Universidad Peruana de Ciencias Aplicadas, tengo experiencia programando en C++, Python, C# y Java. Mi enfoque es en el trabajo de equipo y un desarrollo enfocado al cliente. |
+| ![Jean_Foto](assets/Fotos/JeanXP.png) | Huaman De La Cruz, Jean Pool | Soy estudiante de Ingeniería de Software en la Universidad Peruana de Ciencias Aplicadas (UPC), actualmente cursando el séptimo ciclo. Me considero una persona orientada a objetivos, comprometida con mi aprendizaje y con un gran interés por la tecnología y la innovación. Mi objetivo es seguir fortaleciendo mis conocimientos y desarrollar soluciones innovadoras y disruptivas que generen valor y contribuyan a transformar positivamente el mercado y la sociedad. |
 
 ## 1.2. Solution Profile
 
@@ -959,13 +959,6 @@ _[...]_
 | 21    | US21  | Notificación de mantenimiento       | Como administrador, quiero recibir recordatorios cuando un componente del sistema requiera mantenimiento preventivo.                                  | 2            |
 
 <div style="page-break-after: always;"></div>
-
-# Capítulo IV: Solution Software Design
-
-## 4.1. Strategic-Level Domain-Driven Design
-
-### 4.1.1. Design-Level EventStorming
-
 
 # Capítulo IV: Solution Software Design
 
