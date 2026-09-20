@@ -38,17 +38,18 @@
 
 # Project Report Collaboration Insights
 
-**AV1:**
-_[Captura de analíticos de colaboración/commits en GitHub — assets/ProjectCollaboration/av1.png]_
+## AV1. GitHub Collaboration Analytics
 
-<div style="page-break-after: always;"></div>
+La siguiente captura presenta los analíticos de colaboración del repositorio de GitHub durante el periodo del 12 al 19 de septiembre de 2026. Se evidencian las contribuciones realizadas por los integrantes del equipo mediante commits y pull requests.
 
+**AV1:** *Analíticos de colaboración y commits realizados en GitHub.*
+
+![Analíticos de colaboración del proyecto](assets/ProjectCollaboration/av1.png)
 # Registro de Versiones del Informe
 
-| Versión | Fecha      | Autor        | Descripción de modificación                   |
-|---------|------------|--------------|-----------------------------------------------|
-| 1.0     | _[dd/mm/aaaa]_ | _[Nombre]_ | _[Descripción de lo realizado]_ |
-| | | | |
+| Versión | Fecha | Autor | Descripción de modificación |
+|---------|-------|-------|-------------------------------|
+| 1.0 | 19/09/2026 | PrimeCore Group | Desarrollo y consolidación del informe del proyecto SafeCore, incluyendo la presentación de la Startup y Solution Profile, análisis de la problemática, Lean UX, segmentos objetivo, investigación mediante entrevistas, Needfinding, User Personas, User Task Matrix, User Journey Mapping, Empathy Mapping, requisitos, User Stories, Impact Mapping, Product Backlog, Big Picture EventStorming, Ubiquitous Language, Strategic-Level Domain-Driven Design, Bounded Contexts, Context Mapping, Domain Message Flows, arquitectura de software, diagramas de arquitectura y diagramas de clases de dominio. Se integraron además los aportes y documentación desarrollados por los integrantes del equipo. |
 
 <div style="page-break-after: always;"></div>
 
