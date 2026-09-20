@@ -1906,9 +1906,56 @@ The database design diagram represents the persistence structure of the Monitori
 
 **Figura 4.2.7.6.2. Bounded Context Database Design Diagram - Monitoring and Configuration.**
 
-# Conclusiones
+## Conclusiones (Avance para AV1)
 
-_[Avance de conclusiones para AV1]_
+- **Definición del proyecto:** Se consolidó la identidad de la startup PrimeCore Group y la propuesta de valor de SafeCore, un sistema IoT de protección autónoma ante sismos e incendios. Se describió la problemática con datos estadísticos y se aplicó la técnica 5W2H para estructurar el contexto.
+
+- **Lean UX:** Se formularon los Problem Statements, Assumptions e Hypothesis Statements, y se elaboró el Lean UX Canvas. Esto permitió alinear al equipo en torno a los resultados esperados y las métricas de éxito.
+
+- **Segmentos objetivo:** Se identificaron dos segmentos claros: empresas inmobiliarias en Lima (B2B) y dueños de vivienda unifamiliar en Lima (B2C), con sus características demográficas y necesidades.
+
+- **Elicitación de requisitos:** Se diseñaron y registraron entrevistas para ambos segmentos, aunque la información está incompleta en varios casos (faltan entrevistados 2 y 3, y datos como nombres, edades, distritos y enlaces a videos). Se realizó un análisis preliminar que sirvió de base para los User Personas.
+
+- **Needfinding:** Se construyeron los User Personas (Carlos Espinoza y Rosa Mendoza), el User Task Matrix, los User Journey Maps (As-Is) y los Empathy Maps. También se elaboró el Big Picture EventStorming y el Ubiquitous Language del dominio.
+
+- **Especificación de requisitos:** Se definieron 21 User Stories con criterios de aceptación en Gherkin, agrupadas en 9 Epics. Se elaboró el Impact Mapping y el Product Backlog priorizado por valor de negocio, con estimaciones en Story Points.
+
+- **Diseño estratégico (DDD):** Se aplicó Design-Level EventStorming, Candidate Context Discovery, Domain Message Flows Modeling, Bounded Context Canvases (7 contextos) y Context Mapping con tres opciones de organización. Se seleccionó la opción de mantener los 7 bounded contexts.
+
+- **Arquitectura de software:** Se representó la arquitectura con el modelo C4: System Landscape, System Context, Container y Deployment. Se definieron los contenedores principales (Landing Page, Aplicación Web, Aplicación Móvil, API, Base de Datos, Servicio Edge, Almacenamiento Local) y su distribución en entornos.
+
+- **Diseño táctico (DDD):** Se desarrolló el detalle del bounded context **Emergency Response** (Domain Layer, Interface Layer, Application Layer, Infrastructure Layer, diagramas de clases y base de datos). Para los demás contextos se presentaron diagramas de clases de dominio y diseños de base de datos, aunque sin la misma profundidad textual.
+
+- **Colaboración:** El repositorio de GitHub evidencia actividad del equipo mediante commits y pull requests, con analíticos que muestran la participación de los integrantes. Se actualizó el Registro de Versiones del Informe y la sección Student Outcome.
+
+- **Cumplimiento parcial del AV1:** Se cubrieron los capítulos I, II, III y IV, pero persisten secciones con placeholders, datos faltantes y algunos artefactos sin explicación completa. El informe no incluye aún Conclusiones finales, Bibliografía completa ni Anexos desarrollados.
+
+---
+
+## Recomendaciones para AV1 y preparación de TB1
+
+- **Completar la información de entrevistas:** Rellenar los datos faltantes de los entrevistados (nombres, edades, distritos, ocupaciones, fechas, duraciones, enlaces a videos). Incluir los resúmenes y análisis de las entrevistas 2 y 3 para ambos segmentos, con sustento estadístico.
+
+- **Revisar y completar User Stories:** Asegurar que todas las historias tengan criterios de aceptación en formato Gherkin, que estén vinculadas a sus Epics y que no falte ninguna. Verificar la coherencia con el Impact Mapping y el Product Backlog.
+
+- **Incluir todos los artefactos gráficos:** Insertar las capturas de los diagramas (EventStorming, Bounded Context Canvases, Context Mapping, diagramas C4, diagramas de clases, diseños de base de datos) con explicaciones claras y referencias a las herramientas utilizadas.
+
+- **Validar supuestos de Lean UX:** Realizar más entrevistas o experimentos para validar los assumptions e hypotheses, y ajustar los Problem Statements si es necesario.
+
+- **Refinar el modelo de dominio:** Completar el detalle táctico de los bounded contexts que quedaron pendientes (Identity & Access, Device Management, Sensor Data Ingestion, Risk Detection, Notification, Monitoring & Configuration), incluyendo capas de dominio, interfaz, aplicación e infraestructura, así como diagramas de componentes y código.
+
+- **Mejorar la consistencia del informe:** Unificar la numeración de secciones (hay duplicados como 4.1.3.2, 5.4.2), corregir errores de codificación y formato, y asegurar que el documento cumpla con la estructura completa del AV1 (incluir Conclusiones, Bibliografía y Anexos).
+
+- **Preparar TB1:** Iniciar la implementación del Landing Page y la primera versión de Frontend Web Applications. Definir el entorno de desarrollo, aplicar GitFlow, Conventional Commits y Semantic Versioning. Documentar el Sprint 1 con todas sus evidencias.
+
+- **Gestionar videos y enlaces:** Grabar el video de exposición de AV1, subirlo a Microsoft Stream/Clipchamp y añadir el enlace en el anexo “Videos de Exposiciones”. Asegurar que el video cumpla con la nomenclatura y duración especificadas.
+
+- **Actualizar Student Outcome y Performance Report:** Registrar las acciones de cada integrante para AV1 y completar el Participant Performance Report con las calificaciones correspondientes.
+
+- **Revisar rúbricas y nomenclatura:** Consultar las rúbricas específicas del AV1 y verificar que todos los archivos (report, keynote, performance, expo) sigan la nomenclatura `upc-pre-202620-1asi0572-<NRC>-<startup>-<tipo>-<avn/tbn>`.
+
+- **Documentar el proceso de colaboración:** Ampliar la sección Project Report Collaboration Insights con capturas de los analíticos de GitHub y una interpretación de los mismos, evidenciando la participación de todos los miembros.
+
 
 # Bibliografía
 
