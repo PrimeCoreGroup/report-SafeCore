@@ -103,15 +103,33 @@ La siguiente captura presenta los analíticos de colaboración del repositorio d
       - [4.1.3.3. Software Architecture Container Level Diagrams](#4133-software-architecture-container-level-diagrams)
       - [4.1.3.4. Software Architecture Deployment Diagrams](#4134-software-architecture-deployment-diagrams)
   - [4.2. Tactical-Level Domain-Driven Design](#42-tactical-level-domain-driven-design)
-    - [4.2.X. Bounded Context: `<Nombre>`](#42x-bounded-context-nombre)
-      - [4.2.X.1. Domain Layer](#42x1-domain-layer)
-      - [4.2.X.2. Interface Layer](#42x2-interface-layer)
-      - [4.2.X.3. Application Layer](#42x3-application-layer)
-      - [4.2.X.4. Infrastructure Layer](#42x4-infrastructure-layer)
-      - [4.2.X.5. Bounded Context Software Architecture Component Level Diagrams](#42x5-bounded-context-software-architecture-component-level-diagrams)
-      - [4.2.X.6. Bounded Context Software Architecture Code Level Diagrams](#42x6-bounded-context-software-architecture-code-level-diagrams)
-        - [4.2.X.6.1. Bounded Context Domain Layer Class Diagrams](#42x61-bounded-context-domain-layer-class-diagrams)
-        - [4.2.X.6.2. Bounded Context Database Design Diagram](#42x62-bounded-context-database-design-diagram)
+    - [4.2.1. Bounded Context: Emergency Response](#421-bounded-context-emergency-response)
+      - [4.2.1.1. Domain Layer](#4211-domain-layer)
+      - [4.2.1.2. Interface Layer](#4212-interface-layer)
+      - [4.2.1.3. Application Layer](#4213-application-layer)
+      - [4.2.1.4. Infrastructure Layer](#4214-infrastructure-layer)
+      - [4.2.1.5. Bounded Context Software Architecture Component Level Diagrams](#4215-bounded-context-software-architecture-component-level-diagrams)
+      - [4.2.1.6. Bounded Context Software Architecture Code Level Diagrams](#4216-bounded-context-software-architecture-code-level-diagrams)
+        - [4.2.1.6.1. Bounded Context Domain Layer Class Diagrams](#42161-bounded-context-domain-layer-class-diagrams)
+        - [4.2.1.6.2. Bounded Context Database Design Diagram](#42162-bounded-context-database-design-diagram)
+      - [4.2.2.6. Bounded Context Software Architecture Code Level Diagrams](#4226-bounded-context-software-architecture-code-level-diagrams)
+        - [4.2.2.6.1. Bounded Context Domain Layer Class Diagrams](#42261-bounded-context-domain-layer-class-diagrams)
+        - [4.2.2.6.2. Bounded Context Database Design Diagram](#42262-bounded-context-database-design-diagram)
+      - [4.2.3.6. Bounded Context Software Architecture Code Level Diagrams](#4236-bounded-context-software-architecture-code-level-diagrams)
+        - [4.2.3.6.1. Bounded Context Domain Layer Class Diagrams](#42361-bounded-context-domain-layer-class-diagrams)
+        - [4.2.3.6.2. Bounded Context Database Design Diagram](#42362-bounded-context-database-design-diagram)
+      - [4.2.4.6. Bounded Context Software Architecture Code Level Diagrams](#4246-bounded-context-software-architecture-code-level-diagrams)
+        - [4.2.4.6.1. Bounded Context Domain Layer Class Diagrams](#42461-bounded-context-domain-layer-class-diagrams)
+        - [4.2.4.6.2. Bounded Context Database Design Diagram](#42462-bounded-context-database-design-diagram)
+      - [4.2.5.6. Bounded Context Software Architecture Code Level Diagrams](#4256-bounded-context-software-architecture-code-level-diagrams)
+        - [4.2.5.6.1. Bounded Context Domain Layer Class Diagrams](#42561-bounded-context-domain-layer-class-diagrams)
+        - [4.2.5.6.2. Bounded Context Database Design Diagram](#42562-bounded-context-database-design-diagram)
+      - [4.2.6.6. Bounded Context Software Architecture Code Level Diagrams](#4266-bounded-context-software-architecture-code-level-diagrams)
+        - [4.2.6.6.1. Bounded Context Domain Layer Class Diagrams](#42661-bounded-context-domain-layer-class-diagrams)
+        - [4.2.6.6.2. Bounded Context Database Design Diagram](#42662-bounded-context-database-design-diagram)
+      - [4.2.7.6. Bounded Context Software Architecture Code Level Diagrams](#4276-bounded-context-software-architecture-code-level-diagrams)
+        - [4.2.7.6.1. Bounded Context Domain Layer Class Diagrams](#42761-bounded-context-domain-layer-class-diagrams)
+        - [4.2.7.6.2. Bounded Context Database Design Diagram](#42762-bounded-context-database-design-diagram)
 - [Conclusiones](#conclusiones)
 - [Bibliografía](#bibliografía)
 - [Anexos](#anexos)
@@ -1768,6 +1786,49 @@ La **Infrastructure Layer** del **Emergency Response Bounded Context** proporcio
 
 Esta estructura asegura que la Infrastructure Layer sea modular, reutilizable y fácil de mantener, facilitando la integración con otros sistemas y servicios externos.
 
+#### 4.2.1.5. Bounded Context Software Architecture Component Level Diagrams
+
+En esta sección se presenta el diagrama de componentes del **Emergency Response Bounded Context**, el cual detalla los principales módulos y sus interacciones dentro del contexto delimitado. Este diagrama sigue el enfoque del **C4 Model** para representar los componentes clave, como servicios de aplicación, controladores, repositorios y servicios externos, junto con sus relaciones.
+
+El propósito de este diagrama es proporcionar una visión clara y estructurada de cómo se organizan los componentes dentro del contexto, facilitando la comprensión de su arquitectura y permitiendo identificar puntos de integración y responsabilidades.
+
+El **Emergency Response Bounded Context** está compuesto por los siguientes módulos principales:
+
+1. **Interface Layer**:
+   - Expone los puntos de entrada al sistema a través de controladores REST.
+   - Incluye recursos y transformadores que aseguran una representación adecuada de los datos y su conversión entre las capas de la aplicación.
+   - Proporciona endpoints para operaciones como el inicio de una respuesta de emergencia, la consulta de protocolos y la actualización del estado de las acciones.
+
+2. **Application Layer**:
+   - Coordina las operaciones de negocio relacionadas con la ejecución y el seguimiento de las respuestas de emergencia.
+   - Incluye servicios de comandos y consultas que interactúan con la Domain Layer y la Infrastructure Layer.
+   - Orquesta la selección y ejecución de protocolos de emergencia, así como el despacho de comandos hacia los actuadores.
+
+3. **Domain Layer**:
+   - Encapsula la lógica de negocio relacionada con la ejecución de protocolos y acciones de respuesta ante emergencias.
+   - Define los agregados, entidades y objetos de valor que representan los conceptos clave del dominio, como respuestas de emergencia, protocolos y comandos de actuadores.
+   - Asegura que las reglas de negocio, como la secuencia de ejecución de un protocolo, se cumplan de manera consistente.
+
+4. **Infrastructure Layer**:
+   - Proporciona las implementaciones técnicas necesarias para soportar las operaciones del sistema.
+   - Incluye repositorios para la persistencia de datos y componentes que conectan la lógica de negocio con los recursos externos, como la base de datos y la infraestructura IoT.
+   - Implementa servicios auxiliares como la comunicación con actuadores (Anti-Corruption Layer hacia AWS IoT) y la publicación de eventos de dominio.
+
+```mermaid
+graph TD
+    IL["Interface Layer<br/>Emergency Response<br/>[Component: Spring Boot]"]
+    AL["Application Layer<br/>Emergency Response<br/>[Component: Spring Boot]"]
+    INFRA["Infrastructure Layer<br/>Emergency Response<br/>[Component: Spring Boot]"]
+    DL["Domain Layer<br/>Emergency Response<br/>[Component: Spring Boot]"]
+    DB[("Database<br/>[Container: PostgreSQL]")]
+
+    IL -->|calls| AL
+    AL -->|uses| INFRA
+    AL -->|uses| DL
+    INFRA -->|uses| DL
+    INFRA -.->|JSON/HTTPS| DB
+```
+
 #### 4.2.1.6. Bounded Context Software Architecture Code Level Diagrams
 
 ##### 4.2.1.6.1. Bounded Context Domain Layer Class Diagrams
@@ -1906,7 +1967,7 @@ The database design diagram represents the persistence structure of the Monitori
 
 **Figura 4.2.7.6.2. Bounded Context Database Design Diagram - Monitoring and Configuration.**
 
-## Conclusiones (Avance para AV1)
+## Conclusiones 
 
 - **Definición del proyecto:** Se consolidó la identidad de la startup PrimeCore Group y la propuesta de valor de SafeCore, un sistema IoT de protección autónoma ante sismos e incendios. Se describió la problemática con datos estadísticos y se aplicó la técnica 5W2H para estructurar el contexto.
 
