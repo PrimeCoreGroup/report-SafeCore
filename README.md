@@ -529,7 +529,7 @@ Tácticas:
 
 | Campo | Información |
 |---|---|
-| **Fotografía** | ![Foto del entrevistado](assets/Entrevistas/entrevista2.png) |
+| **Fotografía** | <p align="center"><img src="assets/Entrevistas/entrevista2.png" alt="Foto de Freddy Jesús Torre" width="280"></p> |
 | Entrevistado | [Freddy Torre] |
 | Edad | [30] |
 | Distrito | [Surco] |
@@ -562,15 +562,15 @@ Tácticas:
 
  Campo | Información |
 |---|---|
-| **Fotografía** | ![Foto del entrevistado](resources/Cap-2/Entrevistas/segmento-2/entrevista-03.png) |
-| Entrevistado | [Nombre y apellido] |
-| Edad | [Edad] |
-| Distrito | [Distrito] |
-| Ocupación | [Ocupación] |
-| Fecha | 15/09/2026 |
-| Duración | 09:05 min |
-| Inicio en el video | 44:52 |
-| Link del video | [Ver entrevista](https://stream.microsoft.com/) |
+| **Fotografía** | <p align="center"><img src="assets/Entrevistas/Entrevista 1 (Segmento 2).png" alt="Foto de Roberto Lagos Figueroa" width="280"></p> |
+| Entrevistado | Roberto Lagos Figueroa |
+| Edad | 52 |
+| Distrito | Surquillo |
+| Ocupación | Médico administrativo del Ejército |
+| Fecha | 29/09/2026 |
+| Duración | 07:22 min |
+| Inicio en el video | 00:00 |
+| Link del video | [Ver entrevista](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202210104_upc_edu_pe/IQCcCptgMNKHQoaWOOvSXQ4aAc70Js77iu3o5Wp3NhigJoU?e=WhkJOZ&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D) |
 
 ### Entrevista 2
 
@@ -724,35 +724,35 @@ Tácticas:
 
 **Segmento 2: Dueños de vivienda unifamiliar en Lima**
 
-#### **Entrevistado 1: [Nombre y apellido] (Enfoque en [tema principal])**
+#### **Entrevistado 1: Roberto Lagos Figueroa (Enfoque en vulnerabilidad en la evacuación multinivel y resiliencia ante cortes de suministro)**
 
 * **Perfil**
 
-    * [Describir brevemente al entrevistado: edad, distrito, ocupación y características relevantes relacionadas con el segmento.]
+    * Roberto Lagos Figueroa es un médico administrativo del Ejército de 52 años que reside en Surquillo. Vive en una casa unifamiliar tradicional de dos pisos con azotea junto a 4 familiares (su esposa, dos hijos y su suegra adulta mayor). Cuenta con una mochila de emergencia y una alarma nocturna con sensor de movimiento contra robos, pero carece de extintores y detectores de incendios.
 
 * **Insights clave**
 
-    * [Insight principal obtenido de la entrevista.]
+    * La presencia de personas vulnerables (adultos mayores y niños) en inmuebles de múltiples niveles hace que el pánico, la desorientación y la falta de visibilidad durante un sismo o incendio nocturno sean el factor crítico de riesgo para la vida humana.
 
-    * [Segundo insight relevante obtenido de la entrevista.]
+    * Los usuarios perciben que la dependencia de servicios de conectividad (Wi-Fi/Internet) y red eléctrica convencional invalida la utilidad real de un sistema de seguridad ante emergencias graves.
 
 * **Problemas y frustraciones**
 
-    * [Problema o dificultad identificada.]
+    * Dificultad para coordinar una evacuación rápida y segura desde los pisos superiores (2do nivel y azotea) cuando hay adultos mayores con movilidad reducida y niños.
 
-    * [Otra frustración relacionada con la seguridad del hogar.]
+    * Sensación de desprotección ante incendios e imprevisibilidad de propagación por siniestros vecinales cercanos o fallas en instalaciones eléctricas antiguas.
 
 * **Necesidades**
 
-    * [Necesidad identificada.]
+    * Necesidad de guiado e iluminación de emergencia automatizada en vías de escape (escaleras y pasadizos) para evacuaciones nocturnas o a ciegas.
 
-    * [Segunda necesidad identificada.]
+    * Necesidad de un sistema con autonomía energética y procesamiento local que corte automáticamente suministros peligrosos (electricidad/gas) ante amenazas detectadas.
 
 * **Oportunidades para SafeCore**
 
-    * **[Nombre de oportunidad]:** [Explicar cómo SafeCore podría responder a la necesidad.]
+    * **Iluminación Inteligente y Guía de Evacuación Automatizada:** SafeCore puede activar luces de emergencia y destrabar accesos automáticamente al detectar un sismo o humo, facilitando el tránsito seguro de personas vulnerables por las escaleras.
 
-    * **[Nombre de oportunidad]:** [Explicar otra funcionalidad o característica.]
+    * **Procesamiento Edge y Redundancia Energética (Offline-First):** SafeCore puede operar mediante un nodo local respaldado por batería, ejecutando cortes de energía/gas y emitiendo alertas sonoras locales aun ante la caída general de la red eléctrica o el Wi-Fi.
 
 ---
 
