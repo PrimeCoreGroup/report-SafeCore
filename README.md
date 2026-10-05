@@ -130,6 +130,55 @@ La siguiente captura presenta los analíticos de colaboración del repositorio d
       - [4.2.7.6. Bounded Context Software Architecture Code Level Diagrams](#4276-bounded-context-software-architecture-code-level-diagrams)
         - [4.2.7.6.1. Bounded Context Domain Layer Class Diagrams](#42761-bounded-context-domain-layer-class-diagrams)
         - [4.2.7.6.2. Bounded Context Database Design Diagram](#42762-bounded-context-database-design-diagram)
+    - [4.2.7. Bounded Context: Nombre del contexto 7](#427-bounded-context-nombre-del-contexto-7)
+      - [4.2.7.1. Domain Layer](#4271-domain-layer)
+      - [4.2.7.2. Interface Layer](#4272-interface-layer)
+      - [4.2.7.3. Application Layer](#4273-application-layer)
+      - [4.2.7.4. Infrastructure Layer](#4274-infrastructure-layer)
+      - [4.2.7.5. Bounded Context Software Architecture Component Level Diagrams](#4275-bounded-context-software-architecture-component-level-diagrams)
+      - [4.2.7.6. Bounded Context Software Architecture Code Level Diagrams](#4276-bounded-context-software-architecture-code-level-diagrams)
+        - [4.2.7.6.1. Bounded Context Domain Layer Class Diagrams](#42761-bounded-context-domain-layer-class-diagrams)
+        - [4.2.7.6.2. Bounded Context Database Design Diagram](#42762-bounded-context-database-design-diagram)
+
+- [Capítulo V: Solution UI/UX Design](#capítulo-v-solution-uiux-design)
+  - [5.1. Style Guidelines](#51-style-guidelines)
+    - [5.1.1. General Style Guidelines](#511-general-style-guidelines)
+    - [5.1.2. Web, Mobile and IoT Style Guidelines](#512-web-mobile-and-iot-style-guidelines)
+  - [5.2. Information Architecture](#52-information-architecture)
+    - [5.2.1. Organization Systems](#521-organization-systems)
+    - [5.2.2. Labeling Systems](#522-labeling-systems)
+    - [5.2.3. SEO Tags and Meta Tags](#523-seo-tags-and-meta-tags)
+    - [5.2.4. Searching Systems](#524-searching-systems)
+    - [5.2.5. Navigation Systems](#525-navigation-systems)
+  - [5.3. Landing Page UI Design](#53-landing-page-ui-design)
+    - [5.3.1. Landing Page Wireframe](#531-landing-page-wireframe)
+    - [5.3.2. Landing Page Mock-up](#532-landing-page-mock-up)
+  - [5.4. Applications UX/UI Design](#54-applications-uxui-design)
+    - [5.4.1. Applications Wireframes](#541-applications-wireframes)
+    - [5.4.2. Applications Wireflow Diagrams](#542-applications-wireflow-diagrams)
+    - [5.4.3. Applications Mock-ups](#543-applications-mock-ups)
+    - [5.4.4. Applications User Flow Diagrams](#544-applications-user-flow-diagrams)
+  - [5.5. Applications Prototyping](#55-applications-prototyping)
+  - [5.6. IoT Device Design](#56-iot-device-design)
+
+  - [Capítulo VI: Product Implementation, Validation & Deployment]          (#capítulo-vi-product-implementation-validation--deployment)
+  - [6.1. Software Configuration Management](#61-software-configuration-management)
+    - [6.1.1. Software Development Environment Configuration](#611-software-development-environment-configuration)
+    - [6.1.2. Source Code Management](#612-source-code-management)
+    - [6.1.3. Source Code Style Guide & Conventions](#613-source-code-style-guide--conventions)
+    - [6.1.4. Software Deployment Configuration](#614-software-deployment-configuration)
+  - [6.2. Landing Page, Services & Applications Implementation](#62-landing-page-services--applications-implementation)
+    - [6.2.1. Sprint 1](#621-sprint-1)
+      - [6.2.1.1. Sprint Planning 1](#6211-sprint-planning-1)
+      - [6.2.1.2. Aspect Leaders and Collaborators](#6212-aspect-leaders-and-collaborators)
+      - [6.2.1.3. Sprint Backlog 1](#6213-sprint-backlog-1)
+      - [6.2.1.4. Development Evidence for Sprint Review](#6214-development-evidence-for-sprint-review)
+      - [6.2.1.5. Testing Suite Evidence for Sprint Review](#6215-testing-suite-evidence-for-sprint-review)
+      - [6.2.1.6. Execution Evidence for Sprint Review](#6216-execution-evidence-for-sprint-review)
+      - [6.2.1.7. Services Documentation Evidence for Sprint Review](#6217-services-documentation-evidence-for-sprint-review)
+      - [6.2.1.8. Software Deployment Evidence for Sprint Review](#6218-software-deployment-evidence-for-sprint-review)
+      - [6.2.1.9. Team Collaboration Insights during Sprint](#6219-team-collaboration-insights-during-sprint)
+
 - [Conclusiones](#conclusiones)
 - [Bibliografía](#bibliografía)
 - [Anexos](#anexos)
@@ -1966,6 +2015,309 @@ The database design diagram represents the persistence structure of the Monitori
 ![SafeCore Monitoring and Configuration Database Diagram](assets/Chapter-4/Tactical/database/safecore-monitoring-configuration-database-diagram.png)
 
 **Figura 4.2.7.6.2. Bounded Context Database Design Diagram - Monitoring and Configuration.**
+
+
+
+## Capítulo V: Solution UI/UX Design
+
+### 5.1. Style Guidelines
+
+#### 5.1.1. General Style Guidelines
+
+Los lineamientos generales de estilo de SafeCore se establecen a partir de la identidad visual implementada en la Landing Page y buscan mantener una experiencia consistente entre los diferentes componentes de la solución. Estos lineamientos consideran branding, iconografía, tipografía, colores, espaciado, tono de comunicación y dimensiones de los componentes.
+
+##### Branding
+
+SafeCore utiliza una identidad visual orientada a comunicar seguridad, tecnología y capacidad de respuesta. La identidad gráfica se mantiene consistente mediante el uso del logotipo SafeCore, la paleta cromática de azules y grises, la tipografía Segoe UI y los elementos visuales empleados en la Landing Page.
+
+El branding debe conservarse de manera uniforme en la Landing Page, aplicaciones web, aplicación móvil e interfaces locales que formen parte de la solución. El logotipo debe mantener márgenes de protección suficientes y no debe alterarse en color, proporción o forma.
+
+##### Iconografía
+
+La iconografía utilizada en SafeCore debe ser simple, reconocible y coherente con las funcionalidades de la solución. Se utiliza Material Design Icons como referencia para mantener consistencia visual.
+
+Los íconos se emplean principalmente para representar funcionalidades relacionadas con:
+
+- Seguridad y protección.
+- Emergencias (sismos, incendios, gas).
+- Alertas y notificaciones.
+- Monitoreo y estado del sistema.
+- Ubicación y zonas.
+- Dispositivos IoT y sensores.
+- Notificaciones y mensajes.
+- Usuarios y permisos.
+- Estado de los servicios (online, offline, error).
+- Acciones (editar, eliminar, guardar, cerrar).
+
+Los íconos deben mantener un estilo visual consistente (líneas uniformes, peso visual similar) y complementar el contenido textual de la interfaz. En situaciones de emergencia, los íconos deben reforzar el mensaje textual, no reemplazarlo.
+
+##### Typography
+
+La Landing Page utiliza una tipografía moderno y de fácil lectura, manteniendo una jerarquía visual clara entre títulos, subtítulos, textos descriptivos y elementos interactivos.
+
+**Font Stack implementado:**
+```
+Primario: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif
+Monospace: 'Courier New', 'Consolas', monospace (para códigos e IDs)
+```
+
+**Jerarquía tipográfica:**
+
+| Elemento | Tamaño | Peso | Uso |
+|----------|--------|------|-----|
+| H1 - Título principal | 40-48px (2.5-3rem) | 700 Bold | Encabezados de página, hero section |
+| H2 - Sección principal | 32px (2rem) | 700 Bold | Títulos de sección |
+| H3 - Subsección | 24px (1.5rem) | 600 Semi-bold | Subtítulos dentro de sección |
+| H4 - Sub-subsección | 20px (1.25rem) | 600 Semi-bold | Títulos de tarjetas y elementos |
+| Body text | 16px (1rem) | 400 Regular | Párrafos principales |
+| Body small | 14px (0.875rem) | 400 Regular | Labels, información secundaria |
+| Caption | 12px (0.75rem) | 400 Regular | Notas, fuentes, timestamps |
+
+La tipografía debe mantenerse consistente en las diferentes interfaces de SafeCore. Se recomienda usar unidades `rem` en lugar de píxeles para mejorar la escalabilidad en diferentes dispositivos.
+
+##### Colors
+
+La paleta de colores de SafeCore se basa en los colores utilizados en la Landing Page y tiene como objetivo transmitir seguridad, tecnología y confianza.
+
+**Colores corporativos (implementados en landing):**
+
+| Uso | Color | Código HEX | RGB | Observaciones |
+|---|---|---|---|---|
+| Color primario (botones, navegación) | Azul corporativo | `#1E90FF` | 30, 144, 255 | Utilizado en botones "Solicita una demo", encabezados |
+| Color primario alternativo | Azul más oscuro | `#0066CC` | 0, 102, 204 | Para mejor contraste WCAG AA (recomendado para botones) |
+| Fondo principal (modo claro) | Blanco | `#FFFFFF` | 255, 255, 255 | Fondo de página |
+| Fondo secundario (modo claro) | Gris muy claro | `#F5F5F5` | 245, 245, 245 | Fondos alternos en secciones |
+| Texto principal (modo claro) | Gris oscuro | `#333333` | 51, 51, 51 | Párrafos, contenido principal |
+| Texto secundario (modo claro) | Gris medio | `#666666` | 102, 102, 102 | Labels, información secundaria |
+| Fondo principal (modo oscuro) | Negro suave | `#1A1A1A` | 26, 26, 26 | Fondo en tema oscuro |
+| Fondo secundario (modo oscuro) | Gris muy oscuro | `#2D2D2D` | 45, 45, 45 | Cards y elementos en dark mode |
+| Texto principal (modo oscuro) | Gris muy claro | `#E0E0E0` | 224, 224, 224 | Párrafos en dark mode |
+| Texto secundario (modo oscuro) | Gris claro | `#B0B0B0` | 176, 176, 176 | Labels en dark mode |
+
+**Colores de estado (para dashboard y alertas):**
+
+| Estado | Color | Código HEX | Uso |
+|--------|-------|-----------|-----|
+| Emergencia / Crítica | Rojo | `#FF3333` | Sismo detectado, incendio activo, alerta crítica |
+| Advertencia / Precaución | Naranja | `#FFB84D` | Sensor anómalo, humo detectado (no confirmado), precaución |
+| Operacional / Éxito | Verde | `#00B84D` | Sistema funcionando correctamente, dispositivo online |
+| Información | Azul corporativo | `#1E90FF` | Notificaciones neutras, historial, estado general |
+| Deshabilitado | Gris | `#999999` | Dispositivo offline, funcionalidad no disponible |
+
+Los colores deben utilizarse de forma consistente para diferenciar elementos principales, información secundaria, acciones y estados de alerta. El tema oscuro debe proporcionar el mismo nivel de funcionalidad que el modo claro, adaptando automáticamente los colores.
+
+##### Spacing
+
+La interfaz de SafeCore mantiene una distribución ordenada de los elementos mediante espacios consistentes entre secciones, componentes y elementos interactivos. Se utiliza un sistema de espaciado de 8px como base.
+
+**Escala de espaciado:**
+
+| Valor | Píxeles | Uso |
+|-------|---------|-----|
+| Micro | 4px | Espacios muy pequeños (no frecuente) |
+| Pequeño | 8px | Gaps muy pequeños, espacios internos |
+| Pequeño-medio | 12px | Padding de labels, gaps moderados |
+| Medio | 16px | Padding botones, gaps entre párrafos |
+| Medio-grande | 24px | Padding cards, gap entre elementos |
+| Grande | 32px | Gap encabezados, padding secciones |
+| Extra grande | 48-64px | Gap entre secciones principales |
+
+**Criterios principales:**
+
+- Mantener separación suficiente entre secciones (48-64px vertical).
+- Utilizar espacios internos consistentes en botones (12px vertical, 24-32px horizontal) y tarjetas (24px uniforme).
+- Mantener una alineación uniforme entre textos, imágenes y componentes.
+- Utilizar el espaciado para establecer jerarquía visual (mayor separación para elementos principales).
+- Evitar la saturación de información dentro de una misma sección.
+- En dispositivos móviles, reducir espaciado lateral a 16px para optimizar uso de pantalla.
+
+##### Communication Tone
+
+El tono de comunicación de SafeCore debe ser claro, directo y profesional, debido a que la solución está orientada a situaciones relacionadas con seguridad y atención de emergencias.
+
+Los mensajes deben:
+
+- **Ser claros:** utilizar un lenguaje sencillo, evitando ambigüedades.
+- **Ser directos:** evitar términos técnicos innecesarios, ir al punto.
+- **Ser profesionales:** mantener un lenguaje apropiado para una solución de seguridad.
+- **Ser accionables:** comunicar claramente qué puede o debe hacer el usuario.
+- **Transmitir seguridad:** usar un tono sereno pero urgente cuando sea necesario.
+- **Ser consistentes:** utilizar los mismos términos para representar las mismas funcionalidades y estados.
+
+Ejemplos:
+
+- En lugar de: "Se ha generado un evento de riesgo sísmico de severidad crítica que requiere actuación inmediata"
+- Usar: "Sismo detectado. Puertas desbloqueadas. Evacuación iniciada."
+
+- En lugar de: "Error en la comunicación del dispositivo IoT"
+- Usar: "Dispositivo sin conexión"
+
+##### Dimension Guidelines
+
+Las dimensiones de los componentes deben permitir una interacción sencilla tanto en dispositivos móviles como en interfaces web.
+
+**Botones:**
+- Área mínima: 44×44px (recomendación de accesibilidad)
+- Padding: 12px vertical, 24-32px horizontal
+- Border-radius: 4-6px (suave, no angular)
+- Texto dentro debe ser legible (mínimo 14px)
+
+**Textos:**
+- Body text: mínimo 16px para lectura confortante
+- Labels: mínimo 12px
+- Captions: mínimo 12px (aceptable, con mayor contrast)
+
+**Íconos:**
+- Icono pequeño: 16×16px (inline, no crítico)
+- Icono regular: 24×24px (botones, navegación)
+- Icono grande: 32×32px (hero sections, alertas)
+
+**Tarjetas y contenedores:**
+- Padding interno: 24px
+- Border-radius: 8px
+- Sombra: 0 2px 8px rgba(0, 0, 0, 0.08)
+- Ancho mínimo: 280px (mobile), 320px (tablet)
+- Ancho máximo: sin límite (responsive)
+
+**Imágenes:**
+- Mantener proporción original (aspect-ratio)
+- Ancho máximo: 100% del contenedor
+- Height: automático basado en proporción
+- Resolución mínima: 1200px ancho para web
+
+**Elementos principales:**
+- Mantener espaciado mínimo de 16px alrededor de elementos críticos (botones de acción, alertas)
+- Asegurar que no se solapan entre sí
+- Distribuir visualmente de forma equilibrada
+
+Las dimensiones deberán adaptarse de acuerdo con el tipo de dispositivo y mantener consistencia visual entre la Landing Page y las aplicaciones de SafeCore. En dispositivos móviles, priorizar el uso vertical del espacio y reducir márgenes laterales.
+
+---
+
+#### Observaciones sobre Modo Oscuro
+
+SafeCore implementa un modo oscuro (toggle en navegación) que debe mantenerse consistente con el modo claro. Los usuarios pueden alternar entre modos, y la preferencia debe guardarse en `localStorage` para persistencia.
+
+**Implementación:**
+- Toggle button: símbolo 🌙 en navbar
+- CSS Variable approach: cambiar valores de color según `[data-theme="dark"]`
+- Fallback: usar `prefers-color-scheme` de navegador si no hay preferencia guardada
+
+**Cambios de color en dark mode:**
+- Fondos: claros → oscuros
+- Textos: oscuros → claros
+- Bordes y sombras: aumentar contraste
+- Imágenes: mantener legibilidad (opcional: aplicar filtro `brightness(0.9)`)
+## Guía de estilos de SafeCore
+
+![Guía de estilos de SafeCore](<Guía de estilos de SafeCore.png>)
+
+
+#### 5.1.2. Web, Mobile and IoT Style Guidelines
+
+### 5.2. Information Architecture
+
+#### 5.2.1. Organization Systems
+
+#### 5.2.2. Labeling Systems
+
+#### 5.2.3. SEO Tags and Meta Tags
+
+#### 5.2.4. Searching Systems
+
+#### 5.2.5. Navigation Systems
+
+### 5.3. Landing Page UI Design
+
+#### 5.3.1. Landing Page Wireframe
+
+#### 5.3.2. Landing Page Mock-up
+
+### 5.4. Applications UX/UI Design
+
+#### 5.4.1. Applications Wireframes
+
+#### 5.4.2. Applications Wireflow Diagrams
+
+#### 5.4.3. Applications Mock-ups
+
+#### 5.4.4. Applications User Flow Diagrams
+
+### 5.5. Applications Prototyping
+
+### 5.6. IoT Device Design
+
+
+## Capítulo VI: Product Implementation, Validation & Deployment
+
+### 6.1. Software Configuration Management
+
+#### 6.1.1. Software Development Environment Configuration
+
+#### 6.1.2. Source Code Management
+
+#### 6.1.3. Source Code Style Guide & Conventions
+
+#### 6.1.4. Software Deployment Configuration
+
+### 6.2. Landing Page, Services & Applications Implementation
+
+#### 6.2.1. Sprint 1
+
+##### 6.2.1.1. Sprint Planning 1
+
+##### 6.2.1.2. Aspect Leaders and Collaborators
+
+##### 6.2.1.3. Sprint Backlog 1
+
+##### 6.2.1.4. Development Evidence for Sprint Review
+
+##### 6.2.1.5. Testing Suite Evidence for Sprint Review
+
+##### 6.2.1.6. Execution Evidence for Sprint Review
+
+##### 6.2.1.7. Services Documentation Evidence for Sprint Review
+
+##### 6.2.1.8. Software Deployment Evidence for Sprint Review
+
+##### 6.2.1.9. Team Collaboration Insights during Sprint
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Conclusiones 
 
