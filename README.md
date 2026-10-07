@@ -554,8 +554,6 @@ Tácticas:
 
 ### 2.2.2. Registro de entrevistas
 
-
-
 ## Segmento 1: Empresas inmobiliarias en Lima
 
 ## Entrevista 1 — Yvon Cerrón
@@ -2210,8 +2208,7 @@ SafeCore implementa un modo oscuro (toggle en navegación) que debe mantenerse c
 - Imágenes: mantener legibilidad (opcional: aplicar filtro `brightness(0.9)`)
 ## Guía de estilos de SafeCore
 
-![Guía de estilos de SafeCore](<Guía de estilos de SafeCore.png>)
-
+![Guía de estilos de SafeCore](assets/Chapter-5/Guía_de_estilos.png)
 
 #### 5.1.2. Web, Mobile and IoT Style Guidelines
 
@@ -2256,6 +2253,10 @@ usuario con el producto.
 ##### Alertas - Desktop
 
 ![Alertas - Desktop](assets/Chapter-5/Alertas_DesktopV2.png)
+
+##### Alertas detalladas - Desktop
+
+![Alertasdetalladas - Desktop](assets/Chapter-5/Alertasdetalladas_Desktop.png)
 
 ##### Analitica - Desktop
 
