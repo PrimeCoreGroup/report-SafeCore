@@ -2361,6 +2361,48 @@ usuario con el producto.
 
 #### 5.4.3. Applications Mock-ups
 
+En esta sección se presentan los mock-ups de la aplicación de SafeCore, los cuales ilustran la interfaz de usuario propuesta para la gestión y monitoreo de emergencias. Estos diseños permiten visualizar cómo los usuarios interactuarán con el sistema, facilitando la comprensión de los flujos principales.
+
+##### Login - Desktop
+
+![Login - Desktop](assets/Chapter-5/Login_Desktop_Mock.png)
+
+##### Ubicaciones - Desktop
+
+![Ubicaciones - Desktop](assets/Chapter-5/Ubicaciones_Desktop_Mock.png)
+
+##### Analítica - Desktop
+
+![Analitica - Desktop](assets/Chapter-5/Analítica_Desktop_Mock.png)
+
+##### Configuración - Desktop
+
+![Configuración - Desktop](assets/Chapter-5/Configuración_Desktop_Mock.png)
+
+##### Detalles de alerta - Desktop
+
+![DetallesDeAlerta - Desktop](assets/Chapter-5/Detalles_de_alerta_Desktop_Mock.png)
+
+##### Resolver alerta - Desktop
+
+![ResolverAlerta - Desktop](assets/Chapter-5/Resolver_alerta_Desktop_Mock.png)
+
+##### Login - Mobile
+
+![Login - Mobile](assets/Chapter-5/Login_Mobile_Mock.png)
+
+##### Ubicaciones - Mobile
+
+![Ubicaciones - Mobile](assets/Chapter-5/Ubicaciones_Mobile_Mock.png)
+
+##### Analítica - Mobile
+
+![Analitica - Mobile](assets/Chapter-5/Analítica_Mobile_Mock.png)
+
+##### Configuración - Mobile
+
+![Configuración - Mobile](assets/Chapter-5/Configuración_Mobile_Mock.png)
+
 #### 5.4.4. Applications User Flow Diagrams
 
 ### 5.5. Applications Prototyping
