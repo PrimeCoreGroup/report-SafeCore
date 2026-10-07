@@ -2235,7 +2235,39 @@ SafeCore implementa un modo oscuro (toggle en navegación) que debe mantenerse c
 
 ### 5.4. Applications UX/UI Design
 
+En esta sección se incluyen las secciones internas donde se presentan y explican las propuestas
+visuales y de interacción para las aplicaciones que constituyen la experiencia de
+usuario con el producto.
+
 #### 5.4.1. Applications Wireframes
+
+##### Login - Desktop
+
+![Login - Desktop](assets/Chapter-5/Login_DesktopV2.png)
+
+##### Dashboard - Desktop
+
+![Dashboard - Desktop](assets/Chapter-5/Dashboard_DesktopV2.png)
+
+##### Ubicaciones - Desktop
+
+![Ubicaciones - Desktop](assets/Chapter-5/Ubicaciones_DesktopV2.png)
+
+##### Alertas - Desktop
+
+![Alertas - Desktop](assets/Chapter-5/Alertas_DesktopV2.png)
+
+##### Analitica - Desktop
+
+![Analitica - Desktop](assets/Chapter-5/Analitica_DesktopV2.png)
+
+##### Usuarios - Desktop
+
+![Usuarios - Desktop](assets/Chapter-5/Usuarios_DesktopV2.png)
+
+##### Configuracion - Desktop
+
+![Configuracion - Desktop](assets/Chapter-5/Configuracion_DesktopV2.png)
 
 #### 5.4.2. Applications Wireflow Diagrams
 
