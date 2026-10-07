@@ -2269,6 +2269,34 @@ usuario con el producto.
 
 ![Configuracion - Desktop](assets/Chapter-5/Configuracion_DesktopV2.png)
 
+##### Login - Mobile
+
+![Login - Mobile](assets/Chapter-5/Login_Mobile.png)
+
+##### Dashboard - Mobile
+
+![Dashboard - Mobile](assets/Chapter-5/Dashboard_Mobile.png)
+
+##### Ubicaciones - Mobile
+
+![Ubicaciones - Mobile](assets/Chapter-5/Ubicaciones_Mobile.png)
+
+##### Alertas - Mobile
+
+![Alertas - Mobile](assets/Chapter-5/Alertas_Mobile.png)
+
+##### Analitica - Mobile
+
+![Analitica - Mobile](assets/Chapter-5/Analitica_Mobile.png)
+
+##### Usuarios - Mobile
+
+![Usuarios - Mobile](assets/Chapter-5/Usuarios_Mobile.png)
+
+##### Configuracion - Mobile
+
+![Configuracion - Mobile](assets/Chapter-5/Configuracion_Mobile.png)
+
 #### 5.4.2. Applications Wireflow Diagrams
 
 #### 5.4.3. Applications Mock-ups
