@@ -2245,6 +2245,28 @@ inicia con una introducción en la que mostramos como nuestras decisiones de arq
 
 #### 5.3.2. Landing Page Mock-up
 
+##### Landing Page Mock up - Desktop
+
+![Landing Page Mock up - Desktop](assets/Chapter-5/Landingmockup_Desktop1.png)
+
+![Landing Page Mock up - Desktop](assets/Chapter-5/Landingmockup_Desktop2.png)
+
+##### Landing Page Mock up - Tablet
+
+![Landing Page Mock up - Tablet](assets/Chapter-5/Landingmockup_Tablet1.png)
+
+![Landing Page Mock up - Tablet](assets/Chapter-5/Landingmockup_Tablet2.png)
+
+![Landing Page Mock up - Tablet](assets/Chapter-5/Landingmockup_Tablet3.png)
+
+##### Landing Page Mock up - Mobile
+
+![Landing Page Mock up - Mobile](assets/Chapter-5/Landingmockup_Mobile1.png)
+
+![Landing Page Mock up - Mobile](assets/Chapter-5/Landingmockup_Mobile2.png)
+
+![Landing Page Mock up - Mobile](assets/Chapter-5/Landingmockup_Mobile3.png)
+
 ### 5.4. Applications UX/UI Design
 
 En esta sección se incluyen las secciones internas donde se presentan y explican las propuestas
