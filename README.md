@@ -2300,6 +2300,28 @@ usuario con el producto.
 
 #### 5.4.2. Applications Wireflow Diagrams
 
+##### Wireflow 1 - Ubicaciones
+
+![Wireflow 1 - Ubicaciones](assets/Chapter-5/Wireflow1_1.png)
+
+![Wireflow 1 - Ubicaciones](assets/Chapter-5/Wireflow1_2.png)
+
+![Wireflow 1 - Ubicaciones](assets/Chapter-5/Wireflow1_3.png)
+
+##### Wireflow 2 - Alertas
+
+![Wireflow 2 - Alertas](assets/Chapter-5/Wireflow2_1.png)
+
+![Wireflow 2 - Alertas](assets/Chapter-5/Wireflow2_2.png)
+
+![Wireflow 2 - Alertas](assets/Chapter-5/Wireflow2_3.png)
+
+##### Wireflow 3 - Analitica
+
+![Wireflow 3 - Analitica](assets/Chapter-5/Wireflow3_1.png)
+
+![Wireflow 3 - Analitica](assets/Chapter-5/Wireflow3_2.png)
+
 #### 5.4.3. Applications Mock-ups
 
 #### 5.4.4. Applications User Flow Diagrams
