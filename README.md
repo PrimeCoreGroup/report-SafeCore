@@ -2226,7 +2226,22 @@ SafeCore implementa un modo oscuro (toggle en navegación) que debe mantenerse c
 
 ### 5.3. Landing Page UI Design
 
+En esta sección el equipo elabora la propuesta de UI para el Landing Page. La sección
+inicia con una introducción en la que mostramos como nuestras decisiones de arquitectura y diseño dieron como resultado nuestra visión de la página principal. 
+
 #### 5.3.1. Landing Page Wireframe
+
+##### Landing Page Wireframe - Desktop
+
+![Landing Page Wireframe - Desktop](assets/Chapter-5/Landingpage_Desktop.png)
+
+##### Landing Page Wireframe - Mobile
+
+![Landing Page Wireframe - Mobile](assets/Chapter-5/Landingpage_Mobile1.png)
+
+![Landing Page Wireframe - Mobile](assets/Chapter-5/Landingpage_Mobile2.png)
+
+![Landing Page Wireframe - Mobile](assets/Chapter-5/Landingpage_Mobile3.png)
 
 #### 5.3.2. Landing Page Mock-up
 
