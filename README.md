@@ -3340,7 +3340,7 @@ En esta sección se presentan los diagramas de flujo de usuario (User Flow Diagr
 
 ### User Flow 3 - Consultar analítica
 
-![Consultar analítica](assets/Chapter-5/User_Flow_3_Consultar_analític.png)
+![Consultar analítica](assets/Chapter-5/User_Flow_3_Consultar_analítica.png)
 
 ### User Flow 4 - Registrar y consultar sensor
 
