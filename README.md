@@ -2215,19 +2215,938 @@ SafeCore implementa un modo oscuro (toggle en navegación) que debe mantenerse c
 ![Guía de estilos de SafeCore](assets/Chapter-5/Guía_de_estilos.png)
 
 #### 5.1.2. Web, Mobile and IoT Style Guidelines
+Los lineamientos de estilo varían según el dispositivo y contexto de uso. SafeCore debe mantener consistencia visual mientras se adapta a las limitaciones y oportunidades de cada plataforma.
 
-### 5.2. Information Architecture
+### 5.2. Information Architecture 
+
+##### Web Style Guidelines
+
+El diseño web de SafeCore está orientado a **pantallas de escritorio y tablets grandes** (≥768px). El objetivo es proporcionar una experiencia clara y eficiente para administradores y usuarios que requieran acceso a funcionalidades completas.
+
+**Estructura de página:**
+
+- **Sidebar fijo:** 240px de ancho con navegación principal.
+- **Contenido principal:** Grid de 12 columnas, ancho máximo 1200px.
+- **Breakpoints:**
+  - Desktop extra large: ≥1920px.
+  - Desktop: 1200px – 1920px.
+  - Tablet landscape: 768px – 1199px.
+
+**Navegación web:**
+
+- Sidebar vertical fijo en la izquierda en modo escritorio.
+- Menú hamburger colapsable en tablet.
+- Breadcrumbs debajo del encabezado para orientación.
+- Búsqueda global (`Ctrl+K`) accesible desde cualquier página.
+
+**Componentes web:**
+
+- Cards con ancho mínimo de 320px y máximo de 600px en layouts de 2–3 columnas.
+- Tablas con scroll horizontal en dispositivos menores a 1024px.
+- Modales centradas con ancho máximo de 600px.
+- Tooltips al pasar el mouse sobre íconos y elementos.
+- Dropdowns con opciones claramente visibles.
+
+**Padding y márgenes:**
+
+- Padding lateral de secciones: 32–48px.
+- Gap entre columnas: 24–32px.
+- Márgenes verticales: 48–64px entre secciones.
+
+**Tipografía web:**
+
+- H1: 40–48px para encabezados principales.
+- Body: 16px para mantener una legibilidad estándar.
+- Line-height: 1.6 para body text.
+- Line-height: 1.4 para encabezados.
+
+##### Mobile Style Guidelines
+
+El diseño móvil de SafeCore está orientado a **smartphones** (≤767px) y requiere optimización para interacción táctil y legibilidad en pantallas pequeñas.
+
+**Estructura de página:**
+
+- **Navegación inferior:** Bottom navigation con 4 ítems principales:
+  - Home.
+  - Alertas.
+  - Configuración.
+  - Perfil.
+- **Contenido full-width:** 100% del ancho, con padding lateral de 16px.
+- **Breakpoints:**
+  - Mobile large: 480px – 767px.
+  - Mobile: <480px.
+
+**Navegación móvil:**
+
+- Bottom navigation con íconos y etiquetas.
+- Menú lateral deslizable (drawer) para opciones adicionales.
+- Breadcrumbs colapsables o sustituidos por títulos claros.
+- Búsqueda mediante ícono expandible.
+
+**Componentes móvil:**
+
+- Cards full-width con padding lateral de 16px.
+- Botones full-width para acciones principales, con una altura mínima de 44px.
+- Inputs con padding de 12px y fuente de 16px para prevenir el zoom automático en iOS.
+- Modales full-screen o bottom sheets en lugar de diálogos centrados.
+
+**Gestos móviles:**
+
+- **Tap:** seleccionar un elemento.
+- **Double tap:** realizar zoom cuando corresponda.
+- **Long press:** abrir menú contextual o realizar selección múltiple.
+- **Swipe horizontal:** navegar entre tabs o cerrar alertas.
+- **Pull-to-refresh:** actualizar contenido, especialmente en listas de alertas.
+- **Swipe up:** abrir menús o descartar bottom sheets.
+
+**Padding y márgenes:**
+
+- Padding lateral: 16px.
+- Padding vertical de secciones: 24–32px.
+- Gap entre elementos: 12–16px.
+
+**Tipografía móvil:**
+
+- H1: 28–32px.
+- H2: 24px.
+- Body: 16px.
+- Line-height: 1.6.
+
+**Imágenes móvil:**
+
+- Ancho máximo: 100% del contenedor.
+- Resolución mínima: 600px de ancho.
+- Aspect-ratio: mantener la proporción original para evitar distorsiones.
+
+**Tema oscuro móvil:**
+
+- Mantener el mismo comportamiento que la versión web mediante un toggle en navbar o settings.
+- Los colores deben cumplir WCAG AA incluso en pantallas OLED.
+
+##### IoT Local Display Style Guidelines
+
+El dispositivo IoT local utiliza como referencia una **pantalla de 7" HDMI con resolución 1024×600**. Los siguientes lineamientos corresponden a **requerimientos de diseño para la implementación de la interfaz IoT**, orientados a mostrar información del sistema y estados de los sensores de manera rápida y clara.
+
+**Estructura de pantalla local:**
+
+- **Status bar superior:** 40px para hora, conexión y batería cuando corresponda.
+- **Alert zone:** 120px para alertas críticas.
+- **Main info:** 240px para la lectura principal de sensores.
+- **Action buttons:** 120px para botones de interacción manual.
+- **Footer:** 80px para información del sistema.
+
+**Estados visuales:**
+
+| Estado | Color | Border | Descripción |
+|---|---|---|---|
+| Normal | Verde `#00B84D` | 4px sólido | Sistema operacional, sin alertas |
+| Warning | Naranja `#FFB84D` | 4px pulsante (1s) | Lectura anómala, requiere atención |
+| Critical | Rojo `#FF3333` | 4px pulsante (0.5s) | Emergencia activa |
+
+**Componentes IoT:**
+
+- **Lectura principal:** número grande de 72px y unidad de 24px debajo.
+- **Botones de acción:** 120×60px, texto de 16px y área táctil mínima de 44×44px.
+- **Indicadores:** círculos o barras de progreso con color según el estado.
+- **Ícono de sensor:** 32×32px, visible pero no dominante.
+
+**Tipografía IoT:**
+
+- Números principales: 72px, weight 700.
+- Etiquetas: 16px, weight 600.
+- Información secundaria: 12px, weight 400.
+- Monospace para timestamps: 11px.
+
+**Navegación IoT:**
+
+- Sin menú hamburger ni sidebar.
+- Uso de botones físicos o pantalla táctil con zonas claramente definidas.
+- Gestos simples:
+  - Tap para confirmar.
+  - Long press para resetear.
+- Pantalla de configuración accesible mediante una secuencia especial de taps.
+
+**Actualización de información — requerimientos de diseño:**
+
+- La interfaz debe mostrar las lecturas de los sensores en tiempo real.
+- Se establece como requerimiento un **auto-refresh cada 1 segundo**.
+- El dispositivo debe mantener las funcionalidades principales sin depender de una conexión a Internet.
+- No se requieren animaciones complejas; se priorizan cambios de estado, colores y valores numéricos.
+- Se contempla una notificación sonora para cambios de estado críticos.
+
+**Accesibilidad IoT:**
+
+- Utilizar alto contraste entre colores.
+- Mantener los textos sin rotación.
+- Delimitar claramente los botones.
+- La información crítica debe comunicarse mediante **color y texto**, nunca únicamente mediante color.
+
+##### Resumen de diferencias por dispositivo
+
+| Aspecto | Web | Mobile | IoT |
+|---|---|---|---|
+| **Ancho contenido** | 1200px máx. | 100% (16px padding) | 1024px fijo |
+| **Navegación** | Sidebar izquierdo | Bottom nav + drawer | Botones directos |
+| **Padding lateral** | 32–48px | 16px | 0 (full screen) |
+| **Tipografía body** | 16px | 16px | 12–16px |
+| **Íconos** | 24–32px | 24px | 32px |
+| **Botones height** | 40px | 44px | 60px |
+| **Breakpoint mín.** | 768px | <768px | Fixed 1024×600 |
+| **Gestos** | Mouse/scroll | Tap, swipe, long-press | Tap, long-press |
+| **Tema oscuro** | Sí (toggle) | Sí (toggle) | No (siempre claro) |
+| **Actualización** | On-demand | Pull-to-refresh | Auto 1s |
+
+Esta diferenciación por dispositivo permite que SafeCore funcione de manera óptima en cada contexto de uso, manteniendo la identidad visual y la consistencia de marca entre las plataformas **Web, Mobile e IoT**.
+
+![Web, Mobile and IoT Style Guidelines - SafeCore](assets/Chapter-5/Web-Mobile-IoT-Style-Guidelines-SafeCore.png)
+
+**Figura 5.1.2. Web, Mobile and IoT Style Guidelines de SafeCore.**
 
 #### 5.2.1. Organization Systems
+La arquitectura de información de **SafeCore** define cómo se estructura, organiza y presenta la información en las diferentes interfaces de la solución. El objetivo es facilitar que los usuarios encuentren información relevante y ejecuten acciones de manera rápida e intuitiva.
+
+##### Modelo Hub-and-Spoke
+
+SafeCore propone un modelo de organización **Hub-and-Spoke**, donde el **Dashboard** funciona como punto central (*hub*) desde el cual los usuarios pueden acceder a las principales áreas funcionales de la solución (*spokes*).
+
+**Hub – Dashboard Principal**
+
+El Dashboard constituye el punto central de acceso después del inicio de sesión. Presenta una visión general del estado del sistema y permite acceder a las funcionalidades principales.
+
+**Spokes – Áreas principales**
+
+1. **Locations / Ubicaciones**
+   - Administración de edificios.
+   - Gestión de zonas.
+   - Visualización de dispositivos asociados.
+
+2. **Alerts / Alertas**
+   - Visualización de alertas.
+   - Consulta de eventos activos.
+   - Consulta del historial de eventos.
+
+3. **Analytics / Analítica**
+   - Reportes.
+   - Estadísticas.
+   - Tendencias de información registrada.
+
+4. **Users / Usuarios**
+   - Gestión de usuarios.
+   - Roles.
+   - Permisos.
+
+5. **Settings / Configuración**
+   - Configuración general del sistema.
+   - Protocolos de emergencia.
+   - Preferencias.
+
+##### Flujo de organización
+
+```text
+Dashboard
+├── Locations
+│   ├── Building
+│   │   ├── Zones
+│   │   └── Devices
+│   └── Building
+├── Alerts
+│   ├── Active
+│   ├── Resolved
+│   └── Archived
+├── Analytics
+│   ├── Overview
+│   ├── Reports
+│   └── Trends
+├── Users
+│   ├── Add User
+│   └── Edit User
+└── Settings
+    ├── System Configuration
+    ├── Emergency Protocols
+    └── Preferences
+```
+
+##### Categorización de contenido
+
+La información se organiza según su función dentro de la solución:
+
+| Categoría | Información |
+|---|---|
+| **Operacional** | Estado de sensores, dispositivos y conectividad |
+| **Emergencia** | Alertas, eventos críticos e historial |
+| **Administrativa** | Usuarios, roles, permisos y configuración |
+| **Analítica** | Reportes, estadísticas y tendencias |
+
+##### Jerarquía de información
+
+La interfaz prioriza la información según su nivel de importancia para el usuario.
+
+**Nivel 1 – Crítica**
+
+- Alertas activas de emergencia.
+- Eventos críticos.
+- Situaciones que requieren atención inmediata.
+
+**Nivel 2 – Importante**
+
+- Lecturas anómalas de sensores.
+- Dispositivos sin conexión.
+- Alertas recientemente resueltas.
+- Configuraciones pendientes.
+
+**Nivel 3 – Informativa**
+
+- Estado general del sistema.
+- Historial de eventos.
+- Reportes y tendencias.
+
+**Nivel 4 – Secundaria**
+
+- Preferencias del usuario.
+- Información de soporte.
+- Documentación.
+
+##### Organización según plataforma
+
+La organización de la información se adapta a las características de cada plataforma.
+
+**Web**
+
+El Dashboard funciona como punto central de acceso. La información se distribuye mediante el sidebar y las diferentes secciones funcionales.
+
+**Mobile**
+
+La arquitectura se simplifica para priorizar las funciones de uso frecuente. Las principales áreas se presentan mediante la navegación inferior definida en los lineamientos de estilo:
+
+- Home.
+- Alerts.
+- Settings.
+- Profile.
+
+Las funciones secundarias pueden encontrarse mediante un menú adicional.
+
+**IoT**
+
+La interfaz local presenta una organización simplificada y orientada al monitoreo inmediato:
+
+1. Estado actual del sistema.
+2. Alertas críticas.
+3. Lecturas principales de sensores.
+4. Acciones disponibles.
+5. Información secundaria del dispositivo.
+
+Esta organización permite mantener una estructura consistente entre **Web, Mobile e IoT**, adaptando la cantidad y jerarquía de información al contexto de uso de cada plataforma.
+
 
 #### 5.2.2. Labeling Systems
+El sistema de etiquetado de SafeCore define cómo se nombran y presentan los elementos, estados y acciones en las interfaces. El objetivo es utilizar un lenguaje **claro, consistente y orientado al usuario**, evitando términos técnicos innecesarios.
+#### Convenciones de nomenclatura
+ 
+**Botones de acción:**
+ 
+- Utilizar verbo + sustantivo para claridad.
+- ✓ "Crear ubicación"
+- ✓ "Ver detalles"
+- ✓ "Resolver alerta"
+- ✗ "Procesar"
+- ✗ "Ir"
+**Campos de formulario:**
+ 
+- Utilizar etiquetas claras que indiquen qué información se espera.
+- ✓ "Nombre de edificio"
+- ✓ "Dirección"
+- ✓ "Número de piso"
+- ✗ "Ubicación física"
+- ✗ "Parámetro de localización"
+**Estados y mensajes:**
+ 
+- Utilizar una descripción clara del estado o situación.
+- ✓ "Sistema funcionando correctamente"
+- ✓ "Sensor desconectado"
+- ✓ "Alerta resuelta"
+- ✗ "Error 0x404"
+- ✗ "Anomalía detectada"
+#### Traducción de términos técnicos
+ 
+Los términos técnicos utilizados internamente por el sistema se traducen a etiquetas comprensibles y amigables para el usuario:
+ 
+| Término Técnico | Etiqueta UI | Contexto |
+|---|---|---|
+| `risk_type: "SEISMIC"` | "Sismo" | Alertas, eventos |
+| `risk_type: "FIRE"` | "Incendio" | Alertas, eventos |
+| `risk_type: "GAS"` | "Fuga de gas" | Alertas, eventos |
+| `severity: "CRITICAL"` | "Crítica" | Indicador de severidad |
+| `severity: "WARNING"` | "Advertencia" | Indicador de severidad |
+| `severity: "INFO"` | "Información" | Indicador de severidad |
+| `status: "ONLINE"` | "En línea" | Estado de dispositivos |
+| `status: "OFFLINE"` | "Sin conexión" | Estado de dispositivos |
+| `device_type: "SEISMIC_SENSOR"` | "Sensor sísmico" | Listado de dispositivos |
+| `device_type: "SMOKE_DETECTOR"` | "Detector de humo" | Listado de dispositivos |
+| `device_type: "TEMPERATURE_SENSOR"` | "Sensor de temperatura" | Listado de dispositivos |
+| `event_status: "ACTIVE"` | "Activa" | Estado de alerta |
+| `event_status: "RESOLVED"` | "Resuelta" | Estado de alerta |
+| `event_status: "ARCHIVED"` | "Archivada" | Estado de alerta |
+| `response_protocol: "EVACUATION"` | "Protocolo de evacuación" | Configuración |
+| `response_protocol: "LOCKDOWN"` | "Cierre de seguridad" | Configuración |
+| `connection: "EDGE_ENABLED"` | "Procesamiento local activo" | Estado del sistema |
+| `connection: "CLOUD_SYNC"` | "Sincronizado con nube" | Estado del sistema |
+ 
+#### Consistencia en toda la solución
+ 
+SafeCore debe evitar variaciones innecesarias para un mismo concepto.
+ 
+**Evitar variaciones:**
+ 
+- No utilizar "Fallo sísmico" y "Sismo detectado" indistintamente.
+- Mantener "Sin conexión" como etiqueta de estado en lugar de alternar con "Desconectado" u "Offline".
+- Utilizar siempre "Protocolo de evacuación" para la misma funcionalidad.
+**Aplicación en los diferentes contextos:**
+ 
+- **Landing Page:** utilizar términos simples y accesibles.
+- **Dashboard Web:** mantener la misma nomenclatura.
+- **Aplicación Mobile:** utilizar etiquetas consistentes.
+- **Pantalla IoT:** simplificar las etiquetas cuando sea necesario, manteniendo el mismo significado.
+#### Etiquetado por sección
+ 
+**Locations (Ubicaciones)**
+ 
+- "Edificio" en lugar de "Estructura" o "Inmueble".
+- "Piso" en lugar de "Nivel" o "Story".
+- "Zona" en lugar de "Área" o "Sección".
+- "Dispositivo" en lugar de "Nodo" o "Elemento".
+**Alerts (Alertas)**
+ 
+- "Alerta activa" para eventos en progreso.
+- "Alerta resuelta" para eventos manejados.
+- "Alerta archivada" para eventos históricos.
+- Evitar "Evento pendiente" o "Incidencia abierta".
+**Analytics (Analítica)**
+ 
+- "Reporte" en lugar de "Informe" o "Documento".
+- "Estadísticas" en lugar de "Métricas" o "KPIs".
+- "Tendencias" en lugar de "Proyecciones" o "Análisis predictivo".
+**Users (Usuarios)**
+ 
+- "Usuario" en lugar de "Account" o "Perfil".
+- "Rol" en lugar de "Permiso" o "Nivel".
+- "Administrador" para usuarios con permisos totales.
+- "Propietario" para usuarios encargados de gestionar ubicaciones específicas.
+- "Residente" para usuarios con acceso a las alertas de su zona.
+**Settings (Configuración)**
+ 
+- "Configuración" en lugar de "Ajustes", aunque ambos términos pueden utilizarse según el contexto.
+- "Protocolo" para procedimientos de respuesta.
+- "Preferencia" para opciones personales del usuario.
+#### Iconografía y etiquetas
+ 
+Los íconos que representen **información crítica, estados importantes o acciones que no sean evidentes** deben estar acompañados por una etiqueta o texto descriptivo.
+ 
+**Recomendado:**
+ 
+- Icono de notificación + "Notificación"
+- Icono de advertencia + "Advertencia"
+- Icono de dispositivo + "Sin conexión"
+**No recomendado para información crítica:**
+ 
+- Icono de notificación como único indicador.
+- Icono de advertencia como único indicador.
+Los elementos críticos no deben depender únicamente de un ícono o color para transmitir su significado. El texto debe complementar la representación visual cuando sea necesario.
+ 
+#### Identificadores técnicos
+ 
+Los identificadores internos del sistema no deben utilizarse como etiquetas principales de la interfaz.
+ 
+Por ejemplo:
+ 
+```
+evt_20261005_0230
+```
+ 
+debe presentarse mediante información comprensible para el usuario, como:
+ 
+```
+Evento del 5 de octubre, 02:30
+```
+ 
+Los identificadores técnicos pueden mantenerse como información secundaria cuando sean necesarios para tareas administrativas, soporte o diagnóstico.
+ 
+#### Mensajes de error
+ 
+Los mensajes de error deben explicar de manera sencilla qué ocurrió y, cuando sea posible, indicar al usuario qué acción puede realizar.
+ 
+**Recomendado:**
+ 
+> "Dispositivo sin conexión. Verifique la conexión del dispositivo."
+ 
+**No recomendado:**
+ 
+> "Error 0x404 en dispositivo."
+ 
+El objetivo es que el mensaje permita comprender el problema sin requerir conocimientos técnicos.
+ 
+
+
+
+
+
 
 #### 5.2.3. SEO Tags and Meta Tags
 
+SafeCore utiliza tags SEO y meta tags para mejorar la visibilidad en motores de búsqueda y facilitar el compartir en redes sociales. Estos tags se aplican a la Landing Page y páginas públicas.
+##### Meta tags principales
+ 
+**Landing Page (implementados):**
+ 
+```html
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="SafeCore: Sistema autónomo de protección ante sismos, incendios y fugas de gas. Detecta, valida y actúa en tiempo real.">
+<meta name="keywords" content="SafeCore, IoT, sismos, incendios, fuga de gas, protección, emergencias, Perú, seguridad inteligente">
+<meta name="robots" content="index, follow">
+<meta name="author" content="PrimeCore Group">
+ 
+<link rel="canonical" href="https://primecoregroup.github.io/Landing_SafeCore/">
+```
+ 
+**Open Graph (para redes sociales):**
+ 
+```html
+<meta property="og:title" content="SafeCore | Protección Autónoma ante Sismos e Incendios">
+<meta property="og:description" content="Detecta emergencias, ejecuta protocolos automáticos y protege infraestructura en tiempo real.">
+<meta property="og:image" content="https://primecoregroup.github.io/Landing_SafeCore/assets/og-image.svg">
+<meta property="og:url" content="https://primecoregroup.github.io/Landing_SafeCore/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SafeCore">
+<meta property="og:locale" content="es_PE">
+```
+ 
+**Twitter Card:**
+ 
+```html
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SafeCore | Protección Autónoma ante Sismos e Incendios">
+<meta name="twitter:description" content="Sistema autónomo de alerta sísmica, evacuación inteligente y prevención de incendios.">
+<meta name="twitter:image" content="https://primecoregroup.github.io/Landing_SafeCore/assets/og-image.svg">
+```
+ 
+**Dashboard (propuesta - no indexar):**
+ 
+```html
+<meta name="robots" content="noindex, nofollow">
+```
+ 
+##### Estructura de URLs propuesta
+ 
+**Landing Page (implementada):**
+ 
+```
+https://primecoregroup.github.io/Landing_SafeCore/
+```
+ 
+**Dashboard (propuesta para implementación):**
+ 
+```
+/dashboard
+/dashboard/locations
+/dashboard/locations/:id
+/dashboard/alerts
+/dashboard/alerts/:id
+/dashboard/analytics
+/dashboard/users
+/dashboard/settings
+```
+ 
+Las URLs del dashboard deben incluir la directiva `noindex` porque serán páginas protegidas que requieren autenticación.
+ 
+##### Canonical tags
+ 
+Los canonical tags indican la versión preferida de una página cuando existen múltiples URLs que muestran contenido similar.
+ 
+**Ejemplo:**
+ 
+```html
+<!-- URL canónica -->
+<link rel="canonical" href="https://primecoregroup.github.io/Landing_SafeCore/">
+```
+ 
+Una URL con parámetros de rastreo, como la siguiente, debe mantener como referencia canónica la URL principal:
+ 
+```
+https://primecoregroup.github.io/Landing_SafeCore/?utm_source=social
+```
+ 
+##### Title tags
+ 
+Los title tags deben ser descriptivos, concisos y contener palabras clave relevantes.
+ 
+| Página | Title Tag Propuesto | Longitud |
+|---|---|---|
+| Landing principal | SafeCore \| Protección Autónoma ante Sismos e Incendios | 59 caracteres |
+| Características | SafeCore: Características \| Sistema de Protección IoT | 55 caracteres |
+| Precios | SafeCore: Planes y Precios \| Soluciones de Seguridad | 57 caracteres |
+| Contacto | SafeCore: Contacto \| Solicita una Demo Gratis | 52 caracteres |
+| Dashboard | SafeCore Dashboard \| Monitoreo en Tiempo Real | 53 caracteres |
+ 
+Los title tags deben estar entre 50-60 caracteres para mostrar completamente en resultados de búsqueda.
+ 
+##### Meta descriptions
+ 
+Las meta descriptions deben resumir el contenido de la página de manera clara y breve.
+ 
+| Página | Meta Description Propuesta |
+|---|---|
+| Landing principal | SafeCore: Sistema autónomo de protección ante sismos, incendios y fugas de gas. Detecta, valida y actúa en tiempo real. |
+| Características | Detecta emergencias, ejecuta protocolos automáticos y protege infraestructura en tiempo real. Procesamiento Edge-Cloud. |
+| Contacto | Solicita una demo gratuita de SafeCore. Nuestro equipo te mostrará cómo proteger tu infraestructura. |
+ 
+Las meta descriptions deben estar entre 150-160 caracteres para mostrar completamente en resultados de búsqueda.
+ 
+##### Robots directives
+ 
+El archivo `robots.txt` debe controlar qué páginas los buscadores pueden rastrear:
+ 
+```
+User-agent: *
+Allow: /
+Disallow: /dashboard
+Disallow: /admin
+Disallow: /user/profile
+Disallow: /*.json$
+Disallow: /*?*sort=
+Disallow: /*?*filter=
+ 
+Sitemap: /sitemap.xml
+```
+ 
+##### Structured Data (Schema.org)
+ 
+SafeCore debe utilizar structured data para mejorar la presentación en resultados de búsqueda:
+ 
+```html
+<!-- Organization Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "SafeCore",
+  "url": "https://primecoregroup.github.io/Landing_SafeCore/",
+  "logo": "https://primecoregroup.github.io/Landing_SafeCore/assets/logo.svg",
+  "description": "Sistema autónomo de protección ante sismos, incendios y fugas de gas",
+  "sameAs": [
+    "https://www.linkedin.com/company/[nombre-empresa]",
+    "https://www.instagram.com/[cuenta]"
+  ]
+}
+</script>
+ 
+<!-- Product Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "SafeCore",
+  "description": "Sistema IoT de protección autónoma ante emergencias",
+  "manufacturer": {
+    "@type": "Organization",
+    "name": "PrimeCore Group"
+  }
+}
+</script>
+```
+
 #### 5.2.4. Searching Systems
+SafeCore propone sistemas de búsqueda diferenciados para permitir que los usuarios encuentren información crítica de forma rápida y eficiente. Los sistemas de búsqueda varían según la plataforma y el contexto de uso.
+ 
+##### Búsqueda en el Dashboard
+ 
+El Dashboard de SafeCore propone un sistema de búsqueda de texto libre y filtros especializados para cada sección.
+ 
+**Ubicaciones (Locations):**
+ 
+- **Búsqueda de texto:** Buscar por nombre de edificio, dirección o distrito.
+- **Filtros disponibles:** 
+  - Por estado (activo/inactivo)
+  - Por tipo de edificio (residencial, comercial, industrial)
+  - Por número de dispositivos
+  - Por zona geográfica
+**Alertas (Alerts):**
+ 
+- **Búsqueda de texto:** Buscar por ID de evento, ubicación o descripción.
+- **Filtros disponibles:**
+  - Por tipo de riesgo (Sismo, Incendio, Fuga de gas)
+  - Por severidad (Crítica, Advertencia, Información)
+  - Por estado (Activa, Resuelta, Archivada)
+  - Por rango de fechas
+  - Por ubicación
+  - Por dispositivo que disparó la alerta
+**Analítica (Analytics):**
+ 
+- **Búsqueda de texto:** Buscar por nombre de ubicación o reporte.
+- **Filtros disponibles:**
+  - Por tipo de riesgo
+  - Por rango de fechas
+  - Por ubicación
+  - Por período de análisis (hoy, última semana, último mes, personalizado)
+**Usuarios (Users):**
+ 
+- **Búsqueda de texto:** Buscar por nombre o correo electrónico.
+- **Filtros disponibles:**
+  - Por rol (Administrador, Operador, Revisor)
+  - Por estado (Activo, Inactivo)
+**Configuración (Settings):**
+ 
+- **Búsqueda de texto:** Buscar por nombre de protocolo o configuración.
+- **Filtros disponibles:** Por tipo de configuración (general, seguridad, notificaciones)
+##### Búsqueda en la Landing Page
+ 
+La Landing Page propone mecanismos de búsqueda y navegación simples para usuarios que no están autenticados.
+ 
+**Búsqueda de información:**
+ 
+- Campo de búsqueda en la barra de navegación (Ctrl+K en web).
+- Búsqueda en secciones: Características, Documentación, Blog (si aplica).
+- Sugerencias de autocompletado basadas en términos comunes relacionados con SafeCore.
+##### Búsqueda avanzada (propuesta para implementación)
+ 
+**Operadores de búsqueda (Dashboard):**
+ 
+La búsqueda avanzada debe permitir operadores para refinar resultados:
+ 
+| Operador | Ejemplo | Resultado |
+|---|---|---|
+| `AND` | `Sismo AND Crítica` | Alertas de sismos con severidad crítica |
+| `OR` | `Incendio OR Fuga de gas` | Alertas de incendios o fugas de gas |
+| `NOT` | `Alerta NOT Resuelta` | Alertas que no están resueltas |
+| `date:` | `date:2026-10-01` | Eventos desde fecha específica |
+| `type:` | `type:SEISMIC` | Eventos de tipo específico |
+| `status:` | `status:ACTIVE` | Alertas con estado específico |
+ 
+##### Autocomplete y sugerencias
+ 
+**En el Dashboard:**
+ 
+- Sugerencias de búsqueda basadas en:
+  - Búsquedas recientes del usuario
+  - Ubicaciones frecuentes
+  - Tipos de riesgo más comunes
+  - Dispositivos más consultados
+**En la Landing Page:**
+ 
+- Sugerencias contextuales:
+  - "Características de SafeCore"
+  - "Cómo funciona la detección de sismos"
+  - "Preguntas frecuentes"
+  - "Contacto y soporte"
+##### Accesibilidad en búsqueda
+ 
+**Criterios de accesibilidad:**
+ 
+1. El campo de búsqueda debe ser claramente identificable y etiquetado.
+2. Usar atributo `aria-label` para describir la función de búsqueda.
+3. Los resultados de búsqueda deben anunciarse a lectores de pantalla.
+4. Las teclas de atajo (Ctrl+K) deben ser documentadas y comunicadas.
+5. Los filtros deben ser accesibles mediante teclado.
+**Ejemplo de etiqueta accesible:**
+ 
+```html
+<input 
+  type="search" 
+  aria-label="Buscar ubicaciones, alertas o dispositivos"
+  placeholder="Buscar..."
+>
+```
+ 
+##### Resultados de búsqueda
+ 
+**Estructura de presentación:**
+ 
+- Mostrar número total de resultados encontrados.
+- Agrupar resultados por categoría (Ubicaciones, Alertas, Dispositivos).
+- Destacar términos de búsqueda en los resultados.
+- Indicar si no hay resultados y sugerir alternativas.
+- Permitir ordenar resultados por relevancia, fecha o nombre.
+**Ejemplo de mensaje sin resultados:**
+ 
+```
+No se encontraron resultados para "Sensor defectuoso".
+Prueba:
+- Revisar la ortografía
+- Usar términos más generales
+- Consultar la sección de Ayuda
+```
+ 
+##### Búsqueda móvil
+ 
+**En dispositivos móviles (≤767px):**
+ 
+- Campo de búsqueda accesible desde la navegación inferior mediante un botón de búsqueda (lupa).
+- Teclado numérico o de texto según el contexto de búsqueda.
+- Sugerencias mostradas en popup deslizable desde la parte inferior.
+- Sin operadores avanzados; búsqueda simple de texto.
+##### Búsqueda en IoT
+ 
+**En pantallas IoT (1024×600):**
+ 
+- Búsqueda deshabilitada; navegación directa mediante botones.
+- Información de estado y alertas presentada sin necesidad de buscar.
+- Acceso rápido a acciones críticas sin intermediarios de búsqueda.
 
 #### 5.2.5. Navigation Systems
 
+ 
+SafeCore propone sistemas de navegación diferenciados para facilitar la orientación de usuarios en la Landing Page, el Dashboard y dispositivos IoT. La navegación está diseñada para ser intuitiva, accesible y eficiente en cada contexto de uso.
+ 
+##### Navegación en el Dashboard
+ 
+El Dashboard propone una estructura de navegación jerárquica que permite acceder a las cinco secciones principales: Locations, Alerts, Analytics, Users y Settings.
+ 
+**Navegación Web (≥768px):**
+ 
+- **Sidebar lateral izquierdo** (240px de ancho):
+  - Logo de SafeCore en la parte superior
+  - Navegación principal: Locations, Alerts, Analytics, Users, Settings
+  - Ícono + etiqueta para cada sección
+  - Indicador de sección activa (color, fondo resaltado)
+  - Colapsible en pantallas ≥1200px con hover expanding
+  - Breadcrumbs bajo la barra de navegación superior
+- **Barra de navegación superior (navbar)**:
+  - Logo de SafeCore a la izquierda (opcional, si el sidebar es colapsible)
+  - Campo de búsqueda (Ctrl+K) en el centro
+  - Acciones globales a la derecha: Perfil, Configuración, Notificaciones
+  - Toggle de tema oscuro/claro (luna/sol)
+**Navegación Mobile (≤767px):**
+ 
+- **Navegación inferior (Bottom Navigation)**:
+  - 4 opciones principales: Home, Alerts, Settings, Profile
+  - Ícono + etiqueta para cada opción
+  - Indicador visual de sección activa
+  - Altura fija: 64px
+- **Menú drawer (hamburguesa)**:
+  - Acceso a opciones adicionales
+  - Swipe desde la izquierda para abrir
+  - Cierre al seleccionar una opción
+  - Full-width en mobile (máximo 80% del ancho)
+##### Navegación en la Landing Page
+ 
+La Landing Page propone una estructura de navegación lineal y clara para usuarios no autenticados.
+ 
+**Navegación principal:**
+ 
+- **Barra de navegación superior (sticky)**:
+  - Logo de SafeCore a la izquierda
+  - Menú principal: Inicio, Características, Cómo Funciona, Precios, Contacto
+  - Campo de búsqueda (Ctrl+K) en Web
+  - Botón de Call-to-Action (CTA): "Solicitar Demo" o "Ingresar"
+  - Toggle de tema oscuro/claro
+- **Footer (pie de página)**:
+  - Enlaces rápidos: Inicio, Características, Precios, Blog, Contacto
+  - Redes sociales: LinkedIn, Instagram, Twitter
+  - Información legal: Términos, Privacidad, Cookies
+  - Copyright: PrimeCore Group
+- **Navegación en secciones**:
+  - Botones "Siguiente" y "Anterior" en secciones largas
+  - Tabla de contenidos (si hay mucho contenido)
+  - Enlaces internos al mismo nivel (secciones relacionadas)
+##### Breadcrumbs
+ 
+Los breadcrumbs proporcionan contexto de ubicación en la jerarquía de navegación.
+ 
+**En el Dashboard:**
+ 
+- Mostrar solo en niveles de profundidad ≥2
+- Formato: `Sección > Subsección > Elemento`
+- Ejemplo: `Alertas > Incendio > Evento_2026_10_05_0230`
+- Cada nivel es clickeable (excepto el actual)
+- Ubicación: Bajo la barra de navegación superior, antes del contenido
+**En la Landing Page:**
+ 
+- No son necesarios; usar en secciones profundas si aplica
+##### Tablas y pestañas
+ 
+**Pestañas (Tabs):**
+ 
+- Utilizadas para organizar información dentro de una vista
+- Indicador visual claro de pestaña activa
+- Contenido síncrono; no requiere navegación hacia arriba
+- Ejemplo en Dashboard: "Información General", "Eventos Recientes", "Configuración"
+**Tablas:**
+ 
+- Uso en secciones como Locations, Alerts, Users
+- Filas clickeables para acceder a detalles
+- Paginación de 20-50 filas por página
+- Ordenamiento por columnas
+##### Modales y Drawers
+ 
+**Modales:**
+ 
+- Diálogos de confirmación y formularios pequeños
+- Overlay oscuro detrás del modal
+- Botones de cierre (X, Cancelar) claramente visibles
+- Enfoque (focus trap) dentro del modal
+**Drawers (Paneles laterales):**
+ 
+- Paneles que se deslizan desde un lado de la pantalla
+- Utilizado en Mobile para navegación adicional
+- Contenido: Menú secundario, filtros, opciones
+- Cierre: Botón X, click fuera del drawer, tecla Escape
+##### Navegación por teclado
+ 
+**Criterios de accesibilidad:**
+ 
+1. Tab: Navegar entre elementos focusables
+2. Shift+Tab: Navegar hacia atrás
+3. Enter: Activar elemento enfocado
+4. Escape: Cerrar modal, drawer o menú desplegable
+5. Ctrl+K: Activar búsqueda (Web)
+6. Flechas (↑ ↓ ← →): Navegar en menús desplegables
+**Implementación:**
+ 
+- Indicador visual de enfoque en todos los elementos interactivos
+- Orden lógico de Tab (izquierda a derecha, arriba a abajo)
+- Skip links en el Dashboard para saltar al contenido principal
+##### Navegación en Mobile
+ 
+**Gestos:**
+ 
+- **Tap**: Seleccionar elemento
+- **Swipe horizontal**: Navegar entre pestañas
+- **Swipe vertical**: Desplazarse en listas
+- **Long press**: Menú contextual (si aplica)
+- **Pull-to-refresh**: Actualizar contenido en listas (Alerts, Locations)
+**Bottom Navigation:**
+ 
+- Accesible con el dedo pulgar
+- Máximo 4-5 opciones
+- Alternancia rápida entre secciones
+##### Navegación en IoT
+ 
+**En pantallas IoT (1024×600):**
+ 
+- Navegación sin sidebar; solo botones principales
+- Estructura: Estado | Alertas | Lecturas | Acciones | Información
+- Navegación mediante botones directos (no menu)
+- Auto-navegación en caso de alerta crítica
+- Sin breadcrumbs; navegación lineal simple
+##### Indicadores visuales de navegación
+ 
+**Componentes visuales:**
+ 
+1. **Icono + etiqueta**: Identifica claramente cada sección
+2. **Color activo**: Diferencia la sección actual
+3. **Transiciones suaves**: Animaciones de 200-300ms entre vistas
+4. **Hover states**: Cambio de color/fondo en hover
+5. **Indicadores de estado**: Badge rojo para alertas activas, número de notificaciones
+**Ejemplo de badge en Alerts:**
+ 
+```html
+<nav>
+  <a href="/dashboard/alerts" class="nav-link active">
+    <i class="icon-alert"></i>
+    Alertas
+    <span class="badge">3</span>
+  </a>
+</nav>
+```
 ### 5.3. Landing Page UI Design
 
 En esta sección el equipo elabora la propuesta de UI para el Landing Page. La sección
