@@ -364,19 +364,19 @@ En esta sección se analiza el panorama competitivo del mercado de sistemas de s
       <th colspan="2" scope="row">(En la cabecera colocar por cada competidor nombre y logo)</th>
       <th scope="column" style="width:20%; text-align:center;">
         SafeCore<br>
-        <img src="" style="max-width:100px; display:block; margin:6px auto;">
+        <img src="assets/logos/safecore-logo.png" alt="Logo SafeCore" style="width:120px; height:60px; object-fit:contain; display:block; margin:6px auto;">
       </th>
       <th scope="column" style="width:20%; text-align:center;">
         Honeywell Notifier<br>
-        <img src="" style="max-width:100px; display:block; margin:6px auto;">
+        <img src="assets/logos/honeywell-logo.png" alt="Logo Honeywell" style="width:120px; height:60px; object-fit:contain; display:block; margin:6px auto;">
       </th>
       <th scope="column" style="width:20%; text-align:center;">
         Ajax Systems<br>
-        <img src="" style="max-width:100px; display:block; margin:6px auto;">
+        <img src="assets/logos/ajax-logo.png" alt="Logo Ajax Systems" style="width:120px; height:60px; object-fit:contain; display:block; margin:6px auto;">
       </th>
       <th scope="column" style="width:20%; text-align:center;">
         Nest Protect + Ring Alarm<br>
-        <img src="" style="max-width:100px; display:block; margin:6px auto;">
+        <img src="assets/logos/nest-logo.png" alt="Logo Nest Protect" style="width:120px; height:60px; object-fit:contain; display:block; margin:6px auto;">
       </th>
     </tr>
   </thead>
@@ -638,15 +638,15 @@ Tácticas:
 
 | Campo | Información |
 |---|---|
-| **Fotografía** | ![Foto del entrevistado](resources/Cap-2/Entrevistas/segmento-2/entrevista-03.png) |
-| Entrevistado | [Nombre y apellido] |
-| Edad | [Edad] |
-| Distrito | [Distrito] |
-| Ocupación | [Ocupación] |
-| Fecha | 15/09/2026 |
-| Duración | 09:05 min |
-| Inicio en el video | 44:52 |
-| Link del video | [Ver entrevista](https://stream.microsoft.com/) |
+| **Fotografía** | <p align="center"><img src="assets/Entrevistas/Entrevista-Antonella.png" alt="Foto de Antonella Silva" width="280"></p> |
+| Entrevistado | Antonella Silva |
+| Edad | 29 |
+| Distrito | San Juan de Lurigancho |
+| Ocupación | Administradora |
+| Fecha | 19/09/2026 |
+| Duración | 02:02 min |
+| Inicio en el video | 00:00 |
+| Link del video | [Ver entrevista](https://youtu.be/8lDVH4N4oEI) |
 
 
 
@@ -835,35 +835,39 @@ Tácticas:
 
 ---
 
-#### **Entrevistado 3: [Nombre y apellido] (Enfoque en [tema principal])**
+#### **Entrevistado 3: Antonella Silva (Enfoque en falta de preparación y simplicidad de uso en el hogar)**
 
 * **Perfil**
 
-    * [Descripción del perfil del entrevistado.]
+    * Antonella Silva es una administradora de 29 años que reside en San Juan de Lurigancho, en una vivienda unifamiliar. Su preparación ante emergencias es mínima: solo cuenta con una linterna y algunos documentos guardados, sin plan definido ni punto de reunión acordado.
 
 * **Insights clave**
 
-    * [Insight principal.]
+    * La mayor preocupación es no saber qué hacer en el momento de un sismo fuerte, reforzada por una experiencia previa en la que la familia salió corriendo sin orden y de forma caótica.
 
-    * [Segundo insight.]
+    * Su expectativa de la tecnología es simple y directa: una alarma sonora fuerte que haga reaccionar rápido a todos en casa, que funcione sin electricidad y sin mantenimiento complicado.
 
 * **Problemas y frustraciones**
 
-    * [Problema identificado.]
+    * Ausencia de un plan de emergencia familiar y de un lugar de reunión acordado.
 
-    * [Otra frustración identificada.]
+    * Evacuación desordenada durante un temblor real, lo que generó riesgo adicional para los ocupantes.
 
 * **Necesidades**
 
-    * [Necesidad identificada.]
+    * Una alerta sonora fuerte, simple y directa, que avise de inmediato a todos los miembros del hogar.
 
-    * [Segunda necesidad identificada.]
+    * Funcionamiento indispensable sin electricidad ni Internet, ya que ambos pueden fallar durante una emergencia.
+
+    * Una solución fácil de usar y sin mantenimiento complicado, apta para usuarios sin conocimientos técnicos.
 
 * **Oportunidades para SafeCore**
 
-    * **[Nombre de oportunidad]:** [Descripción.]
+    * **Alarma sonora local inmediata:** activar una alarma audible fuerte ante la detección de una emergencia, para que todos los ocupantes reaccionen rápidamente.
 
-    * **[Nombre de oportunidad]:** [Descripción.]
+    * **Operación autónoma sin electricidad ni Internet:** mantener la detección y la alarma de manera local con respaldo de batería, incluso ante cortes de energía o conectividad.
+
+    * **Simplicidad de instalación y mantenimiento:** diseñar una solución de uso sencillo y bajo mantenimiento, orientada a usuarios sin experiencia técnica.
 
 ## 2.3. Needfinding
 
