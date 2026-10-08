@@ -3363,13 +3363,185 @@ En esta sección se presentan los diagramas de flujo de usuario (User Flow Diagr
 
 ### 6.1. Software Configuration Management
 
+El objetivo de esta sección es asegurar que todos los miembros del equipo de PrimeCore Group utilicen las mismas herramientas, convenciones y procesos para desarrollar código, realizar pruebas, desplegar versiones y documentar el software del producto SafeCore.
+
 #### 6.1.1. Software Development Environment Configuration
+
+| Categoría | Herramienta / Producto | Propósito en el proyecto | Tipo | Ruta / Enlace de referencia |
+| --------- | ---------------------- | ------------------------ | ---- | --------------------------- |
+| UX/UI Design | Figma | Diseño y prototipado de las interfaces de la aplicación web. | SaaS | https://www.figma.com/ |
+| Source Code Management | Git & GitHub | Control de versiones y alojamiento de los repositorios del equipo. | SaaS / Local | https://github.com/PrimeCoreGroup |
+| Landing Page Development | HTML5, CSS3 y JavaScript | Construcción de la Landing Page como sitio estático, sin frameworks. | Local | https://developer.mozilla.org/ |
+| Frontend Development | Vue 3.5 + Vite 6.3 | Framework para la interfaz de la aplicación web, con Vite como bundler. | Local | https://vuejs.org/ |
+| Frontend Development | TypeScript 5.9 | Tipado estático del código de la aplicación web. | Local | https://www.typescriptlang.org/ |
+| Frontend Styling | Tailwind CSS 4.1 | Estilos de la aplicación web mediante clases de utilidad. | Local | https://tailwindcss.com/ |
+| Backend Development | .NET 9 + ASP.NET Core Web API | Framework de la API REST de SafeCore, organizada por bounded contexts. | Local | https://dotnet.microsoft.com/ |
+| Backend Data | Entity Framework Core 9 + Pomelo (MySQL) | Acceso a datos y generación de las tablas desde las entidades del dominio. | Local | https://learn.microsoft.com/ef/core/ |
+| API Documentation | Swagger UI (Swashbuckle 7.0) | Documentación interactiva y pruebas de los endpoints. | Local | https://github.com/domaindrivendev/Swashbuckle.AspNetCore |
+| Database | MySQL en Aiven | Base de datos relacional gestionada utilizada por el backend. | SaaS | https://aiven.io/mysql |
+| Containerization | Docker | Empaquetado del backend en una imagen para su despliegue. | Local | https://www.docker.com/ |
+| Software Deployment | GitHub Pages, Vercel y Render | Publicación de la landing, la aplicación web y el backend, respectivamente. | SaaS | https://vercel.com/ |
 
 #### 6.1.2. Source Code Management
 
+Para garantizar la eficiencia y evitar conflictos en el desarrollo de las soluciones, los proyectos de SafeCore se gestionan en una organización de GitHub. Dentro de esta organización se encuentran los repositorios correspondientes a cada componente del proyecto.
+
+Estos son los enlaces a los repositorios principales:
+
+- Organización principal: https://github.com/PrimeCoreGroup
+- Informe: https://github.com/PrimeCoreGroup/report-SafeCore
+- Landing Page: https://github.com/PrimeCoreGroup/Landing_SafeCore
+- Aplicación Web: https://github.com/PrimeCoreGroup/webApp-SafeCore
+- Backend: https://github.com/PrimeCoreGroup/backend-SafeCore
+
+**Estrategia de ramas (GitFlow)**
+
+El equipo adopta GitFlow para organizar el trabajo en cada repositorio:
+
+| Rama | Propósito |
+| ---- | --------- |
+| `main` | Contiene las versiones estables del producto. Los despliegues se generan desde esta rama. |
+| `develop` | Rama de integración donde se reúnen las funcionalidades terminadas antes de pasar a `main`. |
+| `feature/*` | Una rama por funcionalidad (por ejemplo `feature/sensores-iot`), creada desde `develop` y fusionada mediante Pull Request. |
+| `fix/*` | Corrección de errores detectados en las versiones ya publicadas. |
+
+**Conventional Commits**
+
+Cada cambio se registra con un mensaje con el formato `tipo: descripción`, lo que facilita identificar el propósito de cada commit y dar seguimiento al proyecto.
+
+| Tipo | Uso | Ejemplo |
+| ---- | --- | ------- |
+| `feat` | Nueva funcionalidad | `feat: initial SafeCore webapp setup` |
+| `fix` | Corrección de un error | `fix: remove pnpm overrides to match lockfile` |
+| `chore` | Configuración y tareas de mantenimiento | `chore: prepare Vercel deployment` |
+| `doc` | Cambios en la documentación | `doc (readme): Add Applications Mock-ups section to README` |
+
+**Semantic Versioning**
+
+Las versiones del software siguen el formato `MAJOR.MINOR.PATCH`: se incrementa `MAJOR` ante cambios incompatibles, `MINOR` al agregar funcionalidades compatibles y `PATCH` al corregir errores. La aplicación web inicia en la versión `0.0.1`.
+
 #### 6.1.3. Source Code Style Guide & Conventions
 
+Se detallan las convenciones de codificación y nomenclatura que el equipo adopta para los lenguajes, frameworks y herramientas utilizadas en la solución SafeCore. Los nombres propios del dominio (por ejemplo `sensores`, `alertas` o `usuarios`) se escriben en español en la aplicación web, mientras que los nombres técnicos se mantienen en inglés, con el objetivo de mantener consistencia y legibilidad en el código desarrollado por todos los integrantes.
+
+**C# (Backend - ASP.NET Core)**
+
+Guía de referencia: https://learn.microsoft.com/dotnet/csharp/fundamentals/coding-style/coding-conventions
+
+Convenciones:
+
+- Utilizar PascalCase para clases, métodos, propiedades y espacios de nombres.
+- Utilizar camelCase para variables locales y parámetros.
+- Nombrar los campos privados con guion bajo inicial (`_context`).
+- Nombrar las interfaces con el prefijo `I` (`IDeviceService`).
+- Usar los sufijos `Controller` y `Dto` para controladores y objetos de transferencia.
+- Organizar cada bounded context en las carpetas `API`, `Application`, `Domain` e `Infrastructure`.
+- Declarar los espacios de nombres con la sintaxis de archivo (`namespace ...;`).
+- Usar métodos asíncronos (`async`/`await`) para el acceso a datos.
+- Aplicar indentación de 4 espacios.
+
+Ejemplo:
+
+```csharp
+[ApiController]
+[Route("api/[controller]")]
+public class DevicesController : ControllerBase
+{
+    private readonly SafeCoreDbContext _context;
+
+    public DevicesController(SafeCoreDbContext context)
+    {
+        _context = context;
+    }
+
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetById(Guid id)
+    {
+        var device = await _context.Devices.FindAsync(id);
+        if (device == null) return NotFound();
+        return Ok(device);
+    }
+}
+```
+
+**TypeScript y Vue (Frontend - Aplicación Web)**
+
+Guía de referencia: https://vuejs.org/style-guide/ y https://google.github.io/styleguide/tsguide.html
+
+Convenciones:
+
+- Utilizar PascalCase para componentes, tipos y clases; los archivos de las pantallas terminan en `Page` (`SensoresPage.vue`).
+- Utilizar camelCase para variables, funciones y métodos.
+- Escribir los componentes con `<script setup lang="ts">`.
+- Nombrar los composables con el prefijo `use` (`useAsyncData`) y los servicios con el sufijo `.service.ts`.
+- Organizar el código por módulos, cada uno con las carpetas `data` (servicios) y `presentation` (views, components, models, config y datos de ejemplo).
+- Nombrar las carpetas y los archivos de datos de ejemplo en minúsculas con guiones (`mock-sensores.ts`).
+- Definir tipos TypeScript para los modelos y para las respuestas del backend.
+- Usar clases de utilidad de Tailwind y los colores definidos en `theme.css`, sin colores escritos a mano en los componentes.
+- Escribir comentarios cortos de una línea, solo cuando aporten contexto.
+- Aplicar indentación de 2 espacios.
+
+Ejemplo:
+
+```ts
+// DELETE /api/Devices/{id}
+export async function deleteSensor(id: string): Promise<void> {
+  if (isMock("sensores")) {
+    sensoresMock = sensoresMock.filter((s) => s.id !== id);
+    return mockResponse(undefined);
+  }
+  return api.delete<void>(`/api/Devices/${id}`);
+}
+```
+
+**HTML, CSS y JavaScript (Landing Page)**
+
+Guía de referencia: https://google.github.io/styleguide/htmlcssguide.html
+
+Convenciones:
+
+- Utilizar HTML5 semántico (`section`, `article`, `nav`, `footer`).
+- Nombrar las clases CSS en minúsculas con guiones siguiendo la metodología BEM (`bloque__elemento--modificador`).
+- Definir los colores, espaciados y demás valores reutilizables como variables CSS en `:root`.
+- Escribir los textos traducibles con el atributo `data-i18n` y su clave en el diccionario de `i18n.js` (`plans.p1.tag`).
+- Utilizar JavaScript moderno (ES6+) sin librerías externas.
+- Aplicar indentación de 2 espacios.
+
+Ejemplo:
+
+```html
+<article class="plan-card">
+  <h3 class="plan-card__name">SafeCore Evacúa</h3>
+  <p class="plan-card__tag" data-i18n="plans.p1.tag">Lo esencial para evacuar a tiempo</p>
+</article>
+```
+
 #### 6.1.4. Software Deployment Configuration
+
+Se utilizan plataformas de despliegue continuo conectadas a los repositorios de GitHub, de modo que cada cambio confirmado en la rama `main` publica automáticamente la nueva versión del producto.
+
+**Landing Page**
+
+La Landing Page es un sitio estático y se publica en GitHub Pages directamente desde el repositorio, sin proceso de compilación.
+
+- Repositorio: https://github.com/PrimeCoreGroup/Landing_SafeCore
+- URL en producción: https://primecoregroup.github.io/Landing_SafeCore/
+
+**Aplicación Web**
+
+La aplicación web desarrollada con Vue y Vite se despliega en Vercel conectada al repositorio. Vercel detecta el framework, ejecuta el build correspondiente ante cada push en `main` y publica la nueva versión. El archivo `vercel.json` define dos reglas: reenviar las rutas `/api/*` al backend, lo que evita problemas de CORS, y redirigir el resto de rutas a `index.html` para que Vue Router funcione al recargar la página. No requiere variables de entorno.
+
+- Repositorio: https://github.com/PrimeCoreGroup/webApp-SafeCore
+- URL en producción: https://web-app-safe-core-ju3w.vercel.app/
+
+**Backend Services**
+
+El backend desarrollado en ASP.NET Core (.NET 9) se empaqueta en una imagen Docker mediante un Dockerfile de dos etapas: la primera compila el proyecto con el SDK de .NET y la segunda ejecuta la aplicación sobre el runtime de ASP.NET, exponiendo el puerto 8080. La imagen se despliega como servicio web en Render, conectado al repositorio de GitHub. La base de datos MySQL se aloja en Aiven y la cadena de conexión se entrega al servicio mediante la variable de entorno `ConnectionStrings__DefaultConnection`, sin almacenarse en el código.
+
+El backend expone los endpoints REST bajo el prefijo `/api/*` y publica la documentación interactiva de Swagger UI en la ruta `/swagger`.
+
+- Repositorio: https://github.com/PrimeCoreGroup/backend-SafeCore
+- Swagger UI: https://backend-safecore.onrender.com/swagger/index.html
 
 ### 6.2. Landing Page, Services & Applications Implementation
 
