@@ -2426,60 +2426,218 @@ En esta sección se presentan los mock-ups de la aplicación de SafeCore, los cu
 
 #### 6.2.1. Sprint 1
 
+Durante el primer sprint, el equipo organizó sesiones de coordinación para identificar las fortalezas de cada integrante y distribuir las tareas de implementación. Como resultado, se desarrolló la primera versión de los tres productos digitales de SafeCore: la Landing Page, la Aplicación Web de administración y los Backend Services. El alcance del sprint se limitó a las funcionalidades que cuentan con soporte en el backend disponible, de modo que el trabajo pueda integrarse de punta a punta; las pantallas que aún no tienen endpoints se construyeron con datos simulados y se integrarán en los siguientes sprints.
+
 ##### 6.2.1.1. Sprint Planning 1
+
+El objetivo del sprint planning fue construir un plan resoluble en el tiempo que dura el sprint. Para ello se fomentó la colaboración del equipo, de modo que todos conocieran y entendieran los objetivos y las prioridades, y se seleccionaron del Product Backlog las historias de usuario que cuentan con soporte en el backend.
+
+| Campo | Detalle |
+| ----- | ------- |
+| **Sprint #** | Sprint 1 |
+| **Sprint Planning Background** | |
+| Date | 04/10/2026 |
+| Time | 8:00 PM |
+| Location | Discord (reunión virtual) |
+| Prepared By | Taquiri Calderón, Jhunior Giussepe |
+| Attendees (to planning meeting) | Taquiri Calderón Jhunior Giussepe, Lagos Rivera Kael Valentino, Gonzalez Custodio Carlos Alberto, Tasayco Almonacid Rafael Augusto, Tasayco Osorio Raúl Hiroshi, Inga Hernandez Ayrton Damian, Huaman De La Cruz Jean Pool |
+| **Sprint n – 1 Review Summary** | Al ser el primer sprint, no se cuenta con un sprint anterior. |
+| **Sprint n – 1 Retrospective Summary** | Al ser el primer sprint, no se cuenta con una retrospectiva previa. |
+| **Sprint Goal & User Stories** | |
+| Sprint n Goal | Desarrollar la primera versión de la Landing Page, de la Aplicación Web (panel principal, sensores IoT y alertas) y de los Backend Services (API REST con Swagger), y desplegar los tres productos. |
+| Sprint n Velocity | 23 |
+| Sum of Story Points | 23 |
 
 ##### 6.2.1.2. Aspect Leaders and Collaborators
 
+| Aspecto | Líder | Colaboradores |
+| ------- | ----- | ------------- |
+| Landing Page | Taquiri Calderón, Jhunior Giussepe | Huaman De La Cruz, Jean Pool |
+| Aplicación Web | Inga Hernandez, Ayrton Damian | Gonzalez Custodio, Carlos Alberto |
+| Backend Services | Tasayco Osorio, Raúl Hiroshi | Tasayco Almonacid, Rafael Augusto |
+| Despliegue (Deployment) | Taquiri Calderón, Jhunior Giussepe | Lagos Rivera, Kael Valentino |
+| Documentación del informe | Taquiri Calderón, Jhunior Giussepe | Lagos Rivera, Kael Valentino |
+
 ##### 6.2.1.3. Sprint Backlog 1
+
+Durante este sprint se desarrollaron las funcionalidades principales asociadas a la Landing Page, la Aplicación Web y el Backend de SafeCore. Solo se incluyeron las historias de usuario que cuentan con respaldo en el backend; el resto del Product Backlog (autenticación, perfiles de inmueble, umbrales, funcionamiento Edge y simulacros) queda para los siguientes sprints.
+
+| User Story Id | User Story Title | Task Id | Task Title | Estimation (Hours) | Assigned To | Status |
+| ------------- | ---------------- | ------- | ---------- | ------------------ | ----------- | ------ |
+| US15 | Información de beneficios | T01 | Implementar las secciones informativas de la Landing Page (propuesta de valor, problema, funcionamiento, beneficios, planes y clientes) | 8 | Huaman De La Cruz, Jean Pool | Done |
+| US16 | Acceso a descarga / contacto | T02 | Implementar el formulario de contacto y las llamadas a la acción para solicitar una demo | 4 | Huaman De La Cruz, Jean Pool | Done |
+| US3 | Visualización de estado de sensores | T03 | Implementar los endpoints CRUD de Devices en el Backend | 3 | Tasayco Osorio, Raúl Hiroshi | Done |
+| US3 | Visualización de estado de sensores | T04 | Implementar los endpoints CRUD de SensorReadings en el Backend | 3 | Tasayco Osorio, Raúl Hiroshi | Done |
+| US3 | Visualización de estado de sensores | T05 | Implementar el módulo Sensores IoT en la Aplicación Web (listado con filtros, registro, edición, eliminación y detalle) | 8 | Inga Hernandez, Ayrton Damian | Done |
+| US20 | Historial de eventos | T06 | Implementar los endpoints CRUD de RiskSituations en el Backend | 3 | Tasayco Osorio, Raúl Hiroshi | Done |
+| US20 | Historial de eventos | T07 | Implementar el módulo Alertas en la Aplicación Web (listado con filtro por estado, detalle y resolución de alerta) | 6 | Inga Hernandez, Ayrton Damian | Done |
+| US18 | API de eventos de emergencia | T08 | Implementar los endpoints CRUD de EmergencyResponses en el Backend | 4 | Tasayco Osorio, Raúl Hiroshi | Done |
+| US9 | Dashboard de monitoreo | T09 | Implementar el Panel principal de la Aplicación Web (estado general, alertas activas, dispositivos, actividad reciente y estado por ubicación) | 6 | Inga Hernandez, Ayrton Damian | Done |
 
 ##### 6.2.1.4. Development Evidence for Sprint Review
 
+La siguiente tabla resume los commits más representativos del sprint en cada repositorio del equipo.
+
+| Repository | Branch | Commit Id | Commit Message | Commited on (Date) |
+| ---------- | ------ | --------- | -------------- | ------------------ |
+| PrimeCoreGroup/Landing_SafeCore | main | 68789db | feat: agregar landing page | 19 de septiembre de 2026 |
+| PrimeCoreGroup/Landing_SafeCore | main | dccd5d3 | Mejoras en HTML, CSS y otros archivos | 8 de octubre de 2026 |
+| PrimeCoreGroup/Landing_SafeCore | main | 26277d2 | Integrar nuevas mejoras de landing page SafeCore | 8 de octubre de 2026 |
+| PrimeCoreGroup/webApp-SafeCore | main | ba603e3 | feat: initial SafeCore webapp setup | 8 de octubre de 2026 |
+| PrimeCoreGroup/webApp-SafeCore | main | bac4ea0 | chore: prepare Vercel deployment | 8 de octubre de 2026 |
+| PrimeCoreGroup/webApp-SafeCore | main | c3f9f0a | fix: remove pnpm overrides to match lockfile | 8 de octubre de 2026 |
+| PrimeCoreGroup/backend-SafeCore | main | a2d0dda | first commit | 8 de octubre de 2026 |
+| PrimeCoreGroup/backend-SafeCore | main | 01448fb | Create Dockerfile | 8 de octubre de 2026 |
+| PrimeCoreGroup/backend-SafeCore | main | 8bcfd0f | Update Program.cs | 8 de octubre de 2026 |
+
+**Repositorios del proyecto:**
+
+- Landing Page: https://github.com/PrimeCoreGroup/Landing_SafeCore
+- Aplicación Web: https://github.com/PrimeCoreGroup/webApp-SafeCore
+- Backend Services: https://github.com/PrimeCoreGroup/backend-SafeCore
+
 ##### 6.2.1.5. Testing Suite Evidence for Sprint Review
+
+Durante este sprint se incorporó la validación manual de los endpoints REST del Backend Services utilizando Swagger UI para probar los contratos HTTP. En la Aplicación Web se verificó la consistencia de tipos con `vue-tsc` y el flujo de cada pantalla mediante navegación manual; aún no se cuenta con pruebas automatizadas, las cuales se plantean para los siguientes sprints.
+
+Validaciones realizadas en el backend:
+
+| Endpoint | Método | Descripción |
+| -------- | ------ | ----------- |
+| /api/Devices | GET, POST | Listado y registro de dispositivos IoT |
+| /api/Devices/{id} | GET, PUT, DELETE | Consulta, actualización y eliminación de un dispositivo |
+| /api/SensorReadings | GET, POST | Listado y registro de lecturas de sensores |
+| /api/SensorReadings/{id} | GET, PUT, DELETE | Consulta, actualización y eliminación de una lectura |
+| /api/RiskSituations | GET, POST | Listado y registro de situaciones de riesgo |
+| /api/RiskSituations/{id} | GET, PUT, DELETE | Consulta, actualización y eliminación de una situación de riesgo |
+| /api/EmergencyResponses | GET, POST | Listado y registro de respuestas de emergencia |
+| /api/EmergencyResponses/{id} | GET, PUT, DELETE | Consulta, actualización y eliminación de una respuesta de emergencia |
+
+
 
 ##### 6.2.1.6. Execution Evidence for Sprint Review
 
+Durante este sprint se alcanzó la implementación funcional de la primera versión de SafeCore: la Landing Page, la Aplicación Web y los Backend Services, cumpliendo con los objetivos planteados en el alcance del sprint.
+
+La Landing Page fue desarrollada con HTML5, CSS3 y JavaScript sin frameworks, orientada a comunicar la propuesta de valor de SafeCore. Incluye selector de idioma (español / inglés), modo claro y oscuro, planes por segmento (hogares y empresas), una cartera de clientes en carrusel y un formulario de contacto para solicitar una demo.
+
+La Aplicación Web fue construida con Vue 3, TypeScript, Vite, Vue Router y Tailwind CSS 4, con iconografía de Lucide. Está organizada por módulos (auth, dashboard, ubicaciones, sensores, alertas, analítica, usuarios y configuración), cada uno con su capa de datos (servicios HTTP) y su capa de presentación. Es una aplicación de uso exclusivo para administradores; propietarios y residentes utilizarán la aplicación móvil. Las funcionalidades sin endpoint disponible (inicio de sesión, ubicaciones, umbrales y analítica) se muestran con datos simulados, y cada servicio deja identificado el endpoint que consumirá cuando el backend lo exponga.
+
+El backend fue desarrollado con ASP.NET Core (.NET 9) y Entity Framework Core sobre MySQL. Expone una API REST organizada por bounded contexts (Identity & Access, Device Management, Sensor Data Ingestion, Risk Detection, Emergency Response, Notification y Monitoring & Configuration) y cuenta con documentación generada mediante Swagger UI.
+
+A continuación se muestran los principales resultados obtenidos:
+
+**Landing Page**
+
+![landing-sprint1](assets/Sprint-1/Landing-Sprint1.png)
+
+**Aplicación Web**
+
+![web-login](assets/Sprint-1/web-login.png)
+
+**Aplicación Web: pantalla de inicio de sesión.**
+
+![web-dash](assets/Sprint-1/web-dashboard.png)
+
+**Aplicación Web: panel principal con estado general, alertas activas, dispositivos y actividad reciente.**
+
+![web-ubi](assets/Sprint-1/web-ubicacion.png)
+
+**Aplicación Web: ubicaciones (inmuebles, zonas y dispositivos de la zona).**
+
+![web-sensores](assets/Sprint-1/web-sensores.png)
+
+**Aplicación Web: listado de Sensores IoT con indicadores, filtros y acciones.**
+
+![web-alertas](assets/Sprint-1/web-alerta.png)
+
+**Aplicación Web: listado de alertas con filtro por estado.**
+
+![web-usuarios](assets/Sprint-1/web-usuarios.png)
+
+**Aplicación Web: gestión de usuarios.**
+
+![web-analitica](assets/Sprint-1/web-analitica.png)
+
+**Aplicación Web: módulos de analítica.**
+
+**Backend Services**
+
+![Swagger-ui](assets/Sprint-1/swagger.png)
+
+**Backend Services: documentación Swagger UI con los recursos expuestos por la API.**
+
 ##### 6.2.1.7. Services Documentation Evidence for Sprint Review
+
+Durante este sprint se implementó la documentación de los Web Services mediante Swagger UI, integrada directamente en el backend desarrollado con ASP.NET Core. La especificación OpenAPI 3.0 se genera automáticamente con Swashbuckle y declara el esquema de seguridad Bearer (JWT), que se activará cuando el servicio de autenticación esté disponible.
+
+La especificación cubre los endpoints REST de SafeCore, organizados por bounded contexts de acuerdo con la arquitectura DDD adoptada, detallando métodos HTTP, parámetros y cuerpos de solicitud.
+
+| Bounded Context | Endpoints principales | Métodos HTTP |
+| --------------- | --------------------- | ------------ |
+| Identity & Access | /api/Users, /api/Users/{id} | GET, POST, PUT, DELETE |
+| Device Management | /api/Devices, /api/Devices/{id} | GET, POST, PUT, DELETE |
+| Sensor Data Ingestion | /api/SensorReadings, /api/SensorReadings/{id} | GET, POST, PUT, DELETE |
+| Risk Detection | /api/RiskSituations, /api/RiskSituations/{id} | GET, POST, PUT, DELETE |
+| Emergency Response | /api/EmergencyResponses, /api/EmergencyResponses/{id} | GET, POST, PUT, DELETE |
+| Notification | /api/Notifications, /api/Notifications/{id} | GET, POST, PUT, DELETE |
+| Monitoring & Configuration | /api/SystemConfigurations, /api/SystemConfigurations/{id} | GET, POST, PUT, DELETE |
+
+Los cuerpos de solicitud (DTO) de los recursos utilizados en este sprint son los siguientes:
+
+| Recurso | Campos del DTO |
+| ------- | -------------- |
+| Devices | serialNumber, name, category, connectivityStatus |
+| SensorReadings | deviceId, sensorType, measuredValue, unit, capturedAt |
+| RiskSituations | riskType, status, severity, detectedAt |
+| EmergencyResponses | protocolId, emergencyType, riskSituationId, status |
+
+Los identificadores de los recursos son de tipo UUID.
+
+![endpoints-1](assets/Sprint-1/Endpoints-1.png)
+
+**Swagger UI: endpoints de Devices, EmergencyResponses y Notifications.**
+
+![endpoints-2](assets/Sprint-1/Endpoints-2.png)
+
+**Swagger UI: endpoints de RiskSituation, SensorReading, SystemConfigurations y Users.**
 
 ##### 6.2.1.8. Software Deployment Evidence for Sprint Review
 
+Durante este sprint se realizaron los despliegues de los productos digitales de SafeCore: la Landing Page, la Aplicación Web y el Backend. El proceso incluyó la configuración de los entornos de hosting y la integración con servicios de despliegue continuo desde GitHub.
+
+**Despliegue de la Landing Page**
+
+La Landing Page es un sitio estático (HTML, CSS y JavaScript) y fue publicada en GitHub Pages desde el repositorio `Landing_SafeCore`, por lo que cada cambio en la rama `main` actualiza el sitio. URL: https://primecoregroup.github.io/Landing_SafeCore/
+
+![landing-pages](assets/Sprint-1/Pages-Landing.png)
+
+**Configuración de GitHub Pages de la Landing Page.**
+
+**Despliegue de la Aplicación Web**
+
+La Aplicación Web fue desplegada en Vercel conectando directamente el repositorio `webApp-SafeCore` desde GitHub. Vercel detecta automáticamente el framework (Vite), ejecuta el build correspondiente ante cada push en `main` y publica la nueva versión de forma automática. Se incluyó un archivo `vercel.json` con una regla de reescritura hacia `index.html` para que el enrutador de Vue funcione al recargar o al acceder directamente a una ruta. URL: https://web-app-safe-core-ju3w.vercel.app/
+
+![web-deploy](assets/Sprint-1/Vercel-WebApp.png)
+
+**Proyecto de la Aplicación Web desplegado en Vercel.**
+
+**Despliegue del Backend**
+
+El backend en ASP.NET Core (.NET 9) se empaqueta en una imagen Docker mediante un `Dockerfile` de dos etapas (compilación con el SDK y ejecución con el runtime ASP.NET) que expone el puerto 8080, y se despliega como servicio web en Render conectado al repositorio `backend-SafeCore`. URL de la documentación: https://backend-safecore.onrender.com/swagger/index.html
+
+![Despliegue del Backend en Render](assets/Chapter-6/Sprint-1/deploy-backend-render.png)
+
+**Servicio del Backend desplegado en Render.**
+
+
 ##### 6.2.1.9. Team Collaboration Insights during Sprint
 
+Durante este sprint, el equipo de desarrollo trabajó de forma colaborativa en la implementación de las funcionalidades correspondientes al alcance definido: la Landing Page, la Aplicación Web y el Backend de SafeCore. A lo largo del proceso se mantuvo comunicación constante a través de GitHub y los canales del equipo, asegurando una adecuada distribución de tareas entre los tres repositorios. Los analíticos de colaboración de GitHub evidencian las contribuciones de los integrantes en cada repositorio.
 
+![Analíticos de colaboración](assets/Chapter-6/Sprint-1/insights-backend.png)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+**GitHub Insights del repositorio SafeCore.**
 
 ## Conclusiones 
 
