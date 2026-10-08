@@ -2409,6 +2409,32 @@ En esta sección se presentan los mock-ups de la aplicación de SafeCore, los cu
 
 #### 5.4.4. Applications User Flow Diagrams
 
+En esta sección se presentan los diagramas de flujo de usuario (User Flow Diagrams) de la aplicación de SafeCore
+
+### User Flow 1 - Monitorear el sistema
+
+![Monitorear el sistema](assets/Chapter-5/User_Flow_1_Monitorear_el_sistema.png)
+
+### User Flow 2 - Atender una alerta
+
+![Atender una alerta](assets/Chapter-5/User_Flow_2_Atender_una_alerta.png)
+
+### User Flow 3 - Consultar analítica
+
+![Consultar analítica](assets/Chapter-5/User_Flow_3_Consultar_analític.png)
+
+### User Flow 4 - Registrar y consultar sensor
+
+![Registrar y consultar sensor](assets/Chapter-5/User_Flow_4_Registrar_y_consultar_sensor.png)
+
+### User Flow 5 - Consultar sensor
+
+![Consultar sensor](assets/Chapter-5/User_Flow_5_Consultar_sensor.png)
+
+### User Flow 6 - Editar sensor
+
+![Editar sensor](assets/Chapter-5/User_Flow_6_Editar_sensor.png)
+
 ### 5.5. Applications Prototyping
 
 ### 5.6. IoT Device Design
