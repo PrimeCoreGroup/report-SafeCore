@@ -45,13 +45,11 @@ La siguiente captura presenta los analíticos de colaboración del repositorio d
 **AV1:** *Analíticos de colaboración y commits realizados en GitHub.*
 
 ![Analíticos de colaboración del proyecto](assets/ProjectCollaboration/av1.png)
-
 # Registro de Versiones del Informe
 
 | Versión | Fecha | Autor | Descripción de modificación |
 |---------|-------|-------|-------------------------------|
 | 1.0 | 19/09/2026 | PrimeCore Group | Desarrollo y consolidación del informe del proyecto SafeCore, incluyendo la presentación de la Startup y Solution Profile, análisis de la problemática, Lean UX, segmentos objetivo, investigación mediante entrevistas, Needfinding, User Personas, User Task Matrix, User Journey Mapping, Empathy Mapping, requisitos, User Stories, Impact Mapping, Product Backlog, Big Picture EventStorming, Ubiquitous Language, Strategic-Level Domain-Driven Design, Bounded Contexts, Context Mapping, Domain Message Flows, arquitectura de software, diagramas de arquitectura y diagramas de clases de dominio. Se integraron además los aportes y documentación desarrollados por los integrantes del equipo. |
-| 2.0 | 08/10/2026 | PrimeCore Group | Actualización y consolidación del informe para la entrega TP1 del proyecto SafeCore. Se revisaron y organizaron los artefactos de análisis del problema, investigación de usuarios y especificación de requisitos; se integraron los resultados de Lean UX y UX Research, los User Personas y los mapas de experiencia, así como las User Stories, los criterios de aceptación, el Impact Map y el Product Backlog. Asimismo, se revisaron los artefactos de Domain-Driven Design, el modelado del dominio y la propuesta de arquitectura de software, consolidando la documentación disponible. |
 
 <div style="page-break-after: always;"></div>
 
@@ -163,7 +161,7 @@ La siguiente captura presenta los analíticos de colaboración del repositorio d
   - [5.5. Applications Prototyping](#55-applications-prototyping)
   - [5.6. IoT Device Design](#56-iot-device-design)
 
-  - [Capítulo VI: Product Implementation, Validation & Deployment](#capítulo-vi-product-implementation-validation--deployment)      
+  - [Capítulo VI: Product Implementation, Validation & Deployment]          (#capítulo-vi-product-implementation-validation--deployment)
   - [6.1. Software Configuration Management](#61-software-configuration-management)
     - [6.1.1. Software Development Environment Configuration](#611-software-development-environment-configuration)
     - [6.1.2. Source Code Management](#612-source-code-management)
@@ -589,6 +587,19 @@ Tácticas:
 | Link del video | [Ver entrevista](https://www.youtube.com/watch?v=LSnkTj_Xj1Q) |
 
 
+### Entrevista 3
+
+| Campo | Información |
+|---|---|
+| **Fotografía** | ![Foto del entrevistado](resources/Cap-2/Entrevistas/segmento-1/entrevista-02.png) |
+| Entrevistado | [Nombre y apellido] |
+| Edad | [Edad] |
+| Distrito | [Distrito] |
+| Ocupación / Cargo | [Cargo del entrevistado] |
+| Fecha | 12/09/2026 |
+| Duración | 09:48 min |
+| Inicio en el video | 18:47 |
+| Link del video | [Ver entrevista](https://stream.microsoft.com/) |
 
 
 
@@ -694,6 +705,69 @@ Tácticas:
     * **Compatibilidad y escalabilidad:** diseñar una solución que pueda integrarse con sistemas existentes y adaptarse a diferentes tipos de edificaciones.
 ---
 
+#### **Entrevistado 2: [Nombre y apellido] (Enfoque en [tema principal])**
+
+* **Perfil**
+
+    * [Descripción del perfil del entrevistado.]
+
+* **Insights clave**
+
+    * [Insight principal.]
+
+    * [Segundo insight.]
+
+* **Problemas y frustraciones**
+
+    * [Problema identificado.]
+
+    * [Otra frustración identificada.]
+
+* **Necesidades**
+
+    * [Necesidad identificada.]
+
+    * [Segunda necesidad identificada.]
+
+* **Oportunidades para SafeCore**
+
+    * **[Nombre de oportunidad]:** [Descripción.]
+
+    * **[Nombre de oportunidad]:** [Descripción.]
+
+---
+
+#### **Entrevistado 3: [Nombre y apellido] (Enfoque en [tema principal])**
+
+* **Perfil**
+
+    * [Descripción del perfil del entrevistado.]
+
+* **Insights clave**
+
+    * [Insight principal.]
+
+    * [Segundo insight.]
+
+* **Problemas y frustraciones**
+
+    * [Problema identificado.]
+
+    * [Otra frustración identificada.]
+
+* **Necesidades**
+
+    * [Necesidad identificada.]
+
+    * [Segunda necesidad identificada.]
+
+* **Oportunidades para SafeCore**
+
+    * **[Nombre de oportunidad]:** [Descripción.]
+
+    * **[Nombre de oportunidad]:** [Descripción.]
+
+---
 
 **Segmento 2: Dueños de vivienda unifamiliar en Lima**
 
@@ -3266,7 +3340,7 @@ En esta sección se presentan los diagramas de flujo de usuario (User Flow Diagr
 
 ### User Flow 3 - Consultar analítica
 
-![Consultar analítica](assets/Chapter-5/User_Flow_3_Consultar_analítica.png)
+![Consultar analítica](assets/Chapter-5/User_Flow_3_Consultar_analític.png)
 
 ### User Flow 4 - Registrar y consultar sensor
 
@@ -3673,7 +3747,7 @@ La Aplicación Web fue desplegada en Vercel conectando directamente el repositor
 
 El backend en ASP.NET Core (.NET 9) se empaqueta en una imagen Docker mediante un `Dockerfile` de dos etapas (compilación con el SDK y ejecución con el runtime ASP.NET) que expone el puerto 8080, y se despliega como servicio web en Render conectado al repositorio `backend-SafeCore`. URL de la documentación: https://backend-safecore.onrender.com/swagger/index.html
 
-![Despliegue del Backend en Render](assets/Chapter-6/Sprint-1/deploy-backend-render.png)
+![Despliegue del Backend en Render](assets/Chapter-6/backend-render.png)
 
 **Servicio del Backend desplegado en Render.**
 
@@ -3682,7 +3756,7 @@ El backend en ASP.NET Core (.NET 9) se empaqueta en una imagen Docker mediante u
 
 Durante este sprint, el equipo de desarrollo trabajó de forma colaborativa en la implementación de las funcionalidades correspondientes al alcance definido: la Landing Page, la Aplicación Web y el Backend de SafeCore. A lo largo del proceso se mantuvo comunicación constante a través de GitHub y los canales del equipo, asegurando una adecuada distribución de tareas entre los tres repositorios. Los analíticos de colaboración de GitHub evidencian las contribuciones de los integrantes en cada repositorio.
 
-![Analíticos de colaboración](assets/Chapter-6/Sprint-1/insights-backend.png)
+![Analíticos de colaboración](assets/Chapter-6/colaboration-analytics.jpeg)
 
 **GitHub Insights del repositorio SafeCore.**
 
