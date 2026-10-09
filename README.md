@@ -589,19 +589,6 @@ Tácticas:
 | Link del video | [Ver entrevista](https://www.youtube.com/watch?v=LSnkTj_Xj1Q) |
 
 
-### Entrevista 3
-
-| Campo | Información |
-|---|---|
-| **Fotografía** | ![Foto del entrevistado](resources/Cap-2/Entrevistas/segmento-1/entrevista-02.png) |
-| Entrevistado | [Nombre y apellido] |
-| Edad | [Edad] |
-| Distrito | [Distrito] |
-| Ocupación / Cargo | [Cargo del entrevistado] |
-| Fecha | 12/09/2026 |
-| Duración | 09:48 min |
-| Inicio en el video | 18:47 |
-| Link del video | [Ver entrevista](https://stream.microsoft.com/) |
 
 
 
