@@ -3280,6 +3280,15 @@ En esta sección se presentan los diagramas de flujo de usuario (User Flow Diagr
 
 ### 5.5. Applications Prototyping
 
+## Web Applications Prototyping
+
+![Prototyping_1](assets/Chapter-5/Web_Prototyping_1.png)
+
+![Prototyping_2](assets/Chapter-5/Web_Prototyping_2.png)
+
+![Prototyping_3](assets/Chapter-5/Web_Prototyping_3.png)
+
+
 ### 5.6. IoT Device Design
 <img width="882" height="580" alt="Image" src="https://github.com/user-attachments/assets/f2b6222f-dac0-4a2a-9fa3-98ef9256e16c" />
 Link del Wokwi: https://wokwi.com/projects/477339954756526081
