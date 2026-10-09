@@ -587,22 +587,6 @@ Tácticas:
 | Link del video | [Ver entrevista](https://www.youtube.com/watch?v=LSnkTj_Xj1Q) |
 
 
-### Entrevista 3
-
-| Campo | Información |
-|---|---|
-| **Fotografía** | ![Foto del entrevistado](resources/Cap-2/Entrevistas/segmento-1/entrevista-02.png) |
-| Entrevistado | [Nombre y apellido] |
-| Edad | [Edad] |
-| Distrito | [Distrito] |
-| Ocupación / Cargo | [Cargo del entrevistado] |
-| Fecha | 12/09/2026 |
-| Duración | 09:48 min |
-| Inicio en el video | 18:47 |
-| Link del video | [Ver entrevista](https://stream.microsoft.com/) |
-
-
-
 ## Segmento 2: Dueños de vivienda unifamiliar en Lima
 
 ### Entrevista 1
@@ -705,69 +689,6 @@ Tácticas:
     * **Compatibilidad y escalabilidad:** diseñar una solución que pueda integrarse con sistemas existentes y adaptarse a diferentes tipos de edificaciones.
 ---
 
-#### **Entrevistado 2: [Nombre y apellido] (Enfoque en [tema principal])**
-
-* **Perfil**
-
-    * [Descripción del perfil del entrevistado.]
-
-* **Insights clave**
-
-    * [Insight principal.]
-
-    * [Segundo insight.]
-
-* **Problemas y frustraciones**
-
-    * [Problema identificado.]
-
-    * [Otra frustración identificada.]
-
-* **Necesidades**
-
-    * [Necesidad identificada.]
-
-    * [Segunda necesidad identificada.]
-
-* **Oportunidades para SafeCore**
-
-    * **[Nombre de oportunidad]:** [Descripción.]
-
-    * **[Nombre de oportunidad]:** [Descripción.]
-
----
-
-#### **Entrevistado 3: [Nombre y apellido] (Enfoque en [tema principal])**
-
-* **Perfil**
-
-    * [Descripción del perfil del entrevistado.]
-
-* **Insights clave**
-
-    * [Insight principal.]
-
-    * [Segundo insight.]
-
-* **Problemas y frustraciones**
-
-    * [Problema identificado.]
-
-    * [Otra frustración identificada.]
-
-* **Necesidades**
-
-    * [Necesidad identificada.]
-
-    * [Segunda necesidad identificada.]
-
-* **Oportunidades para SafeCore**
-
-    * **[Nombre de oportunidad]:** [Descripción.]
-
-    * **[Nombre de oportunidad]:** [Descripción.]
-
----
 
 **Segmento 2: Dueños de vivienda unifamiliar en Lima**
 
