@@ -3281,7 +3281,8 @@ En esta sección se presentan los diagramas de flujo de usuario (User Flow Diagr
 ### 5.5. Applications Prototyping
 
 ### 5.6. IoT Device Design
-
+<img width="882" height="580" alt="Image" src="https://github.com/user-attachments/assets/f2b6222f-dac0-4a2a-9fa3-98ef9256e16c" />
+Link del Wokwi: https://wokwi.com/projects/477339954756526081
 
 ## Capítulo VI: Product Implementation, Validation & Deployment
 
