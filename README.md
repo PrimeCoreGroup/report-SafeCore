@@ -45,11 +45,13 @@ La siguiente captura presenta los analíticos de colaboración del repositorio d
 **AV1:** *Analíticos de colaboración y commits realizados en GitHub.*
 
 ![Analíticos de colaboración del proyecto](assets/ProjectCollaboration/av1.png)
+
 # Registro de Versiones del Informe
 
 | Versión | Fecha | Autor | Descripción de modificación |
 |---------|-------|-------|-------------------------------|
 | 1.0 | 19/09/2026 | PrimeCore Group | Desarrollo y consolidación del informe del proyecto SafeCore, incluyendo la presentación de la Startup y Solution Profile, análisis de la problemática, Lean UX, segmentos objetivo, investigación mediante entrevistas, Needfinding, User Personas, User Task Matrix, User Journey Mapping, Empathy Mapping, requisitos, User Stories, Impact Mapping, Product Backlog, Big Picture EventStorming, Ubiquitous Language, Strategic-Level Domain-Driven Design, Bounded Contexts, Context Mapping, Domain Message Flows, arquitectura de software, diagramas de arquitectura y diagramas de clases de dominio. Se integraron además los aportes y documentación desarrollados por los integrantes del equipo. |
+| 2.0 | 08/10/2026 | PrimeCore Group | Actualización y consolidación del informe para la entrega TP1 del proyecto SafeCore. Se revisaron y organizaron los artefactos de análisis del problema, investigación de usuarios y especificación de requisitos; se integraron los resultados de Lean UX y UX Research, los User Personas y los mapas de experiencia, así como las User Stories, los criterios de aceptación, el Impact Map y el Product Backlog. Asimismo, se revisaron los artefactos de Domain-Driven Design, el modelado del dominio y la propuesta de arquitectura de software, consolidando la documentación disponible. |
 
 <div style="page-break-after: always;"></div>
 
@@ -161,7 +163,7 @@ La siguiente captura presenta los analíticos de colaboración del repositorio d
   - [5.5. Applications Prototyping](#55-applications-prototyping)
   - [5.6. IoT Device Design](#56-iot-device-design)
 
-  - [Capítulo VI: Product Implementation, Validation & Deployment]          (#capítulo-vi-product-implementation-validation--deployment)
+  - [Capítulo VI: Product Implementation, Validation & Deployment](#capítulo-vi-product-implementation-validation--deployment)      
   - [6.1. Software Configuration Management](#61-software-configuration-management)
     - [6.1.1. Software Development Environment Configuration](#611-software-development-environment-configuration)
     - [6.1.2. Source Code Management](#612-source-code-management)
