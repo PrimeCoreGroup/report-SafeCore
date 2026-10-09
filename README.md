@@ -3833,3 +3833,8 @@ Durante este sprint, el equipo de desarrollo trabajó de forma colaborativa en l
 ## Anexo A: 
 # Video Exposición AV1 
 [![Video exposicion](https://img.shields.io/badge/video-About%20the%20Team-red?style=for-the-badge&logo=youtube&logoColor=white)](https://upcedupe-my.sharepoint.com/personal/u20201e781_upc_edu_pe/_layouts/15/stream.aspx?id=%2Fpersonal%2Fu20201e781%5Fupc%5Fedu%5Fpe%2FDocuments%2Fupc%2Dpre%2D202620%2D1asi0572%2D8725%2DSafeCore%2Dexpo%2Dav1%2Emp4&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0&ga=1&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview%2Ebe8633e2%2D2e18%2D414e%2D95b7%2D83edb487f886)
+
+### Video de exposición TB1
+
+[![Video de exposición TB1](https://img.shields.io/badge/Video-Exposición%20TB1-red?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/giiYaDpfPjQ)
+
