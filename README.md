@@ -143,26 +143,6 @@ La siguiente captura presenta los analíticos de colaboración del repositorio d
         - [4.2.7.6.1. Bounded Context Domain Layer Class Diagrams](#42761-bounded-context-domain-layer-class-diagrams)
         - [4.2.7.6.2. Bounded Context Database Design Diagram](#42762-bounded-context-database-design-diagram)
 
-- [Capítulo V: Solution UI/UX Design](#capítulo-v-solution-uiux-design)
-  - [5.1. Style Guidelines](#51-style-guidelines)
-    - [5.1.1. General Style Guidelines](#511-general-style-guidelines)
-    - [5.1.2. Web, Mobile and IoT Style Guidelines](#512-web-mobile-and-iot-style-guidelines)
-  - [5.2. Information Architecture](#52-information-architecture)
-    - [5.2.1. Organization Systems](#521-organization-systems)
-    - [5.2.2. Labeling Systems](#522-labeling-systems)
-    - [5.2.3. SEO Tags and Meta Tags](#523-seo-tags-and-meta-tags)
-    - [5.2.4. Searching Systems](#524-searching-systems)
-    - [5.2.5. Navigation Systems](#525-navigation-systems)
-  - [5.3. Landing Page UI Design](#53-landing-page-ui-design)
-    - [5.3.1. Landing Page Wireframe](#531-landing-page-wireframe)
-    - [5.3.2. Landing Page Mock-up](#532-landing-page-mock-up)
-  - [5.4. Applications UX/UI Design](#54-applications-uxui-design)
-    - [5.4.1. Applications Wireframes](#541-applications-wireframes)
-    - [5.4.2. Applications Wireflow Diagrams](#542-applications-wireflow-diagrams)
-    - [5.4.3. Applications Mock-ups](#543-applications-mock-ups)
-    - [5.4.4. Applications User Flow Diagrams](#544-applications-user-flow-diagrams)
-  - [5.5. Applications Prototyping](#55-applications-prototyping)
-  - [5.6. IoT Device Design](#56-iot-device-design)
 - [Capítulo VI: Product Implementation, Validation & Deployment](#capítulo-vi-product-implementation-validation--deployment)       
   - [6.1. Software Configuration Management](#61-software-configuration-management)
     - [6.1.1. Software Development Environment Configuration](#611-software-development-environment-configuration)
@@ -180,7 +160,19 @@ La siguiente captura presenta los analíticos de colaboración del repositorio d
       - [6.2.1.7. Services Documentation Evidence for Sprint Review](#6217-services-documentation-evidence-for-sprint-review)
       - [6.2.1.8. Software Deployment Evidence for Sprint Review](#6218-software-deployment-evidence-for-sprint-review)
       - [6.2.1.9. Team Collaboration Insights during Sprint](#6219-team-collaboration-insights-during-sprint)
-
+    - [6.2.2. Sprint 2](#622-sprint-2)
+      - [6.2.2.1. Sprint Planning 2](#6221-sprint-planning-2)
+      - [6.2.2.2. Aspect Leaders and Collaborators](#6222-aspect-leaders-and-collaborators)
+      - [6.2.2.3. Sprint Backlog 2](#6223-sprint-backlog-2)
+      - [6.2.2.4. Development Evidence for Sprint Review](#6224-development-evidence-for-sprint-review)
+      - [6.2.2.5. Testing Suite Evidence for Sprint Review](#6225-testing-suite-evidence-for-sprint-review)
+      - [6.2.2.6. Execution Evidence for Sprint Review](#6226-execution-evidence-for-sprint-review)
+      - [6.2.2.7. Services Documentation Evidence for Sprint Review](#6227-services-documentation-evidence-for-sprint-review)
+      - [6.2.2.8. Software Deployment Evidence for Sprint Review](#6228-software-deployment-evidence-for-sprint-review)
+      - [6.2.2.9. Team Collaboration Insights during Sprint](#6229-team-collaboration-insights-during-sprint)
+  - [6.3. Validation Interviews](#63-validation-interviews)
+    - [6.3.1. Diseño de Entrevistas](#631-diseño-de-entrevistas)
+    - [6.3.2. Registro de Entrevistas](#632-registro-de-entrevistas)
 - [Conclusiones](#conclusiones)
 - [Bibliografía](#bibliografía)
 - [Anexos](#anexos)
@@ -3693,6 +3685,274 @@ Durante este sprint, el equipo de desarrollo trabajó de forma colaborativa en l
 ![Analíticos de colaboración](assets/Chapter-6/colaboration-analytics.jpeg)
 
 **GitHub Insights del repositorio SafeCore.**
+
+
+# 6.2.2. Sprint 2
+
+## 6.2.2.1. Sprint Planning 2
+
+**Objetivo del Sprint 2:**  
+[Describir el objetivo principal que el equipo espera alcanzar durante este sprint.]
+
+**Duración del sprint:**  
+[Fecha de inicio] – [Fecha de fin]
+
+**Participantes:**  
+[Integrantes del equipo]
+
+**Planificación:**  
+[Explicar brevemente cómo se planificó el sprint, qué necesidades del producto se priorizaron y por qué.]
+
+**Resultado esperado:**  
+[Indicar qué funcionalidades o mejoras deberían quedar implementadas al finalizar el sprint.]
+
+## 6.2.2.2. Aspect Leaders and Collaborators
+
+| Aspecto o actividad | Responsable principal | Colaboradores | Responsabilidades |
+|---|---|---|---|
+| [Aspecto 1] | [Nombre] | [Nombres] | [Responsabilidades concretas] |
+| [Aspecto 2] | [Nombre] | [Nombres] | [Responsabilidades concretas] |
+| [Aspecto 3] | [Nombre] | [Nombres] | [Responsabilidades concretas] |
+
+[Explicar cómo se coordinaron los responsables y colaboradores. Registrar únicamente las responsabilidades que realmente asumió cada integrante.]
+
+## 6.2.2.3. Sprint Backlog 2
+
+| ID | Historia de usuario o tarea | Prioridad | Responsable(s) | Criterios de aceptación / resultado esperado | Estado |
+|---|---|---|---|---|---|
+| [US-XX] | [Como..., quiero..., para...] | [Alta/Media/Baja] | [Nombre(s)] | [Condiciones verificables] | [Pendiente/En progreso/Completado] |
+| [TASK-XX] | [Descripción de la tarea] | [Alta/Media/Baja] | [Nombre(s)] | [Resultado verificable] | [Estado] |
+
+**Cambios respecto a la planificación inicial:**  
+[Describir cambios en alcance, prioridades o tareas, e indicar el motivo.]
+
+## 6.2.2.4. Development Evidence for Sprint Review
+
+### Funcionalidad 1: [Nombre de la funcionalidad]
+
+**Descripción:**  
+[Qué se implementó y qué necesidad del usuario resuelve.]
+
+**Implementación realizada:**  
+[Explicar los componentes, pantallas, endpoints, servicios o dispositivos involucrados.]
+
+**Evidencia:**  
+[Insertar captura de pantalla, enlace al commit, pull request, repositorio o video.]
+
+**Resultado obtenido:**  
+[Indicar qué funciona actualmente y qué queda pendiente.]
+
+### Funcionalidad 2: [Nombre de la funcionalidad]
+
+**Descripción:**  
+[Descripción breve.]
+
+**Implementación realizada:**  
+[Detalles relevantes.]
+
+**Evidencia:**  
+[Insertar captura o enlace verificable.]
+
+**Resultado obtenido:**  
+[Resultado y limitaciones conocidas.]
+
+[Duplicar esta subsección por cada funcionalidad relevante del Sprint 2.]
+
+## 6.2.2.5. Testing Suite Evidence for Sprint Review
+
+**Objetivo de las pruebas:**  
+[Qué funcionalidades o requisitos se verificaron.]
+
+| ID de prueba | Funcionalidad | Precondiciones / datos de entrada | Pasos de prueba | Resultado esperado | Resultado obtenido | Estado |
+|---|---|---|---|---|---|---|
+| [TC-01] | [Funcionalidad] | [Datos necesarios] | [Pasos] | [Esperado] | [Obtenido] | [Aprobada/Fallida] |
+| [TC-02] | [Funcionalidad] | [Datos necesarios] | [Pasos] | [Esperado] | [Obtenido] | [Aprobada/Fallida] |
+
+**Evidencias de pruebas:**  
+[Insertar capturas, reportes de pruebas automatizadas, resultados de Postman u otra herramienta utilizada.]
+
+**Incidencias encontradas y correcciones:**  
+[Describir los errores detectados, su solución y las pruebas repetidas. Si no se detectaron errores, indicarlo solo si se comprobó.]
+
+## 6.2.2.6. Execution Evidence for Sprint Review
+
+**Entorno de ejecución:**  
+[Indicar entorno local, servidor, dispositivo, navegador, versión o configuración relevante.]
+
+**Procedimiento de ejecución:**  
+1. [Paso 1.]
+2. [Paso 2.]
+3. [Paso 3.]
+
+**Resultado de la ejecución:**  
+[Describir qué ocurrió al ejecutar el flujo y si cumplió el resultado esperado.]
+
+**Evidencias:**  
+[Insertar capturas o enlaces a una demostración que muestren el flujo ejecutándose.]
+
+**Limitaciones conocidas:**  
+[Indicar errores o funcionalidades aún no operativas, si existen.]
+
+## 6.2.2.7. Services Documentation Evidence for Sprint Review
+
+### Servicio o API: [Nombre del servicio]
+
+**Propósito:**  
+[Qué función cumple el servicio.]
+
+**URL base:**  
+[URL del servicio desplegado o dirección local utilizada para las pruebas.]
+
+| Método HTTP | Endpoint | Descripción | Parámetros / cuerpo de solicitud | Respuesta esperada |
+|---|---|---|---|---|
+| [GET/POST/PUT/PATCH/DELETE] | [/ruta] | [Qué hace] | [Parámetros o JSON] | [Código HTTP y ejemplo de respuesta] |
+
+**Autenticación y validaciones:**  
+[Describir autenticación, permisos, validaciones y manejo de errores, si corresponde.]
+
+**Evidencias:**  
+[Enlace a documentación, capturas de solicitudes y respuestas, pruebas o código relevante.]
+
+[Repetir por cada servicio implementado o modificado durante el Sprint 2.]
+
+## 6.2.2.8. Software Deployment Evidence for Sprint Review
+
+**Aplicación o servicio desplegado:**  
+[Nombre.]
+
+**Plataforma de despliegue:**  
+[Plataforma utilizada.]
+
+**URL de acceso:**  
+[URL pública verificable, si existe.]
+
+**Versión desplegada / commit:**  
+[Versión, hash del commit o referencia equivalente.]
+
+**Procedimiento de despliegue:**  
+[Resumir los pasos y la configuración importante, sin incluir contraseñas, tokens ni secretos.]
+
+**Verificación posterior al despliegue:**  
+[Explicar cómo se comprobó que la versión desplegada funciona.]
+
+**Evidencias:**  
+[Insertar captura de la aplicación desplegada, estado del despliegue, logs pertinentes o enlace.]
+
+**Problemas de despliegue y solución:**  
+[Describir problemas reales y cómo se resolvieron; si no hubo, indicarlo si se verificó.]
+
+## 6.2.2.9. Team Collaboration Insights during Sprint
+
+**Organización y comunicación:**  
+[Describir cómo se coordinaron, qué herramientas utilizaron y cómo hicieron seguimiento de las tareas.]
+
+**Colaboración entre integrantes:**  
+[Explicar ejemplos concretos de apoyo, revisión de código, integración, pruebas o resolución conjunta de problemas.]
+
+**Gestión de cambios o bloqueos:**  
+[Describir dificultades reales, decisiones tomadas y cómo se resolvieron.]
+
+**Aprendizajes del sprint:**  
+[Indicar qué funcionó bien y qué debería mejorarse en el siguiente sprint.]
+
+**Evidencias de colaboración:**  
+[Agregar enlaces o capturas pertinentes de issues, tablero de tareas, pull requests, revisiones de código o commits.]
+
+---
+
+# 6.3. Validation Interviews
+
+## 6.3.1. Diseño de Entrevistas
+
+**Objetivo de la validación:**  
+[Qué hipótesis, necesidad o funcionalidad se busca validar.]
+
+**Perfil de los participantes:**  
+[Segmento de usuario y criterios de selección. No incluir datos personales innecesarios.]
+
+**Método de validación:**  
+[Entrevista presencial/remota, prueba de prototipo, demostración de la aplicación u otro método utilizado.]
+
+**Guion de entrevista:**
+
+1. [Pregunta abierta sobre la necesidad o problema.]
+2. [Pregunta sobre cómo resuelve actualmente ese problema.]
+3. [Pregunta sobre la experiencia al utilizar la solución.]
+4. [Pregunta sobre dificultades, dudas o aspectos confusos.]
+5. [Pregunta sobre mejoras o funcionalidades prioritarias.]
+
+**Tareas o escenarios mostrados al participante:**  
+[Describir qué pantalla, prototipo o flujo se presentó y qué se pidió realizar.]
+
+**Consideraciones éticas:**  
+[Indicar cómo se explicó el propósito de la entrevista y cómo se solicitó autorización para registrar respuestas o grabar, si correspondía.]
+
+## 6.3.2. Registro de Entrevistas
+
+### Entrevista 1
+
+- **Código del participante:** [P-01]
+- **Perfil o segmento:** [Perfil general, sin datos personales innecesarios]
+- **Fecha y modalidad:** [Fecha; presencial/remota]
+- **Solución o funcionalidad evaluada:** [Nombre]
+- **Tareas realizadas:** [Tareas solicitadas]
+
+**Preguntas y respuestas relevantes:**
+
+| Pregunta | Resumen de la respuesta |
+|---|---|
+| [Pregunta 1] | [Respuesta resumida] |
+| [Pregunta 2] | [Respuesta resumida] |
+| [Pregunta 3] | [Respuesta resumida] |
+
+**Observaciones durante la prueba:**  
+[Describir dificultades, dudas, errores o comportamientos observados.]
+
+**Hallazgos principales:**  
+- [Hallazgo 1.]
+- [Hallazgo 2.]
+
+**Mejoras identificadas o decisiones tomadas:**  
+[Explicar qué se modificará, qué se priorizará o por qué no se realizará un cambio.]
+
+**Evidencia:**  
+[Enlace o referencia a notas, registro autorizado, captura o video, cuidando la privacidad del participante.]
+
+### Entrevista 2
+
+[Repetir la misma estructura para cada entrevista realizada.]
+
+### Síntesis de las entrevistas
+
+| Hallazgo recurrente | Evidencia observada | Impacto en el usuario | Acción propuesta o realizada |
+|---|---|---|---|
+| [Hallazgo] | [Entrevistas / observaciones] | [Impacto] | [Acción] |
+
+**Conclusión de la validación:**  
+[Indicar qué hipótesis se respaldaron, cuáles no, qué aprendió el equipo y qué cambios se priorizarán. No afirmar que una hipótesis fue validada sin evidencia.]
+
+---
+
+# Actualizaciones generales para AV2
+
+## Registro de Versiones del Informe
+
+| Versión | Fecha | Autor | Descripción de modificación |
+|---|---|---|---|
+| [Versión] | [Fecha] | [Nombre] | [Cambios realizados para AV2] |
+
+## Project Report Collaboration Insights
+
+[Insertar o actualizar la evidencia de colaboración del equipo correspondiente al avance AV2 y explicar brevemente qué representa.]
+
+## Student Outcome
+
+[Actualizar las acciones realizadas y las conclusiones del equipo con evidencias concretas de colaboración, planificación, liderazgo y cumplimiento de objetivos, según el formato del informe.]
+
+
+
+
+
 
 ## Conclusiones 
 
