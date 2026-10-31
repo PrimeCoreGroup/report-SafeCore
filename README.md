@@ -2,36 +2,41 @@
 
 <img alt="upc-logo" src="assets/logos/upc-logo.png" width="200"/><br>
 
-<h3>Universidad Peruana de Ciencias Aplicadas</h3>
- 
-<strong>Facultad de Ingeniería</strong><br>
-<strong>Carrera: Ingeniería de Software</strong><br>
- 
-<strong>Periodo:</strong> 2026-02<br>
-<strong>Codigo del curso:</strong> 1ASI0572<br>
-<strong>Nombre del curso:</strong> Desarrollo de Soluciones IoT<br>
-<strong>NRC:</strong> 8725<br>
- 
-<strong>Nombre del profesor:</strong> Marco Antonio Leon Baca<br>
- 
-<br><strong>*Informe de Trabajo Final*</strong><br><br>
- 
-<strong>Nombre del startup: </strong>PrimeCore Group<br>
-<strong>Nombre del producto: </strong>SafeCore<br>
+Universidad Peruana de Ciencias Aplicadas<br>
+Carrera de Ingeniería de Software<br><br>
 
-### Relación de Integrantes
+<strong>1ASI0572</strong><br>
+<strong>Desarrollo de Soluciones IoT</strong><br>
+NRC<br>
+<strong>8725</strong><br>
+<strong>Informe del Trabajo Final</strong><br>
+Docente<br>
+<strong>León Baca, Marco Antonio</strong><br><br>
 
-| Apellidos y Nombres                        |   Código     |
-|:-------------------------------------------:|:------------:|
-| Taquiri Calderón, Jhunior Giussepe          | U20221C576   |
-| Lagos Rivera, Kael Valentino                | U202210104   |
-| Gonzalez Custodio, Carlos Alberto           | U202020230   |
-| Tasayco Almonacid, Rafael Augusto           | U20231F226   |
-| Tasayco Osorio, Raúl Hiroshi                | U202319415   |
-| Inga Hernandez, Ayrton Damian               | U201924756   |
-| Huaman De La Cruz, Jean Pool                | U20201E781   |
+Equipo<br>
+<strong>PrimeCore Group</strong><br><br>
 
-<strong> Setiembre 2026</strong><br>
+Proyecto<br>
+<strong>SafeCore</strong><br><br>
+
+<strong>Integrantes</strong><br><br>
+
+<div align="left">
+
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong>Código</strong>&emsp;&emsp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;<strong>Apellidos y Nombres</strong><br>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;U202020230&emsp;&emsp;Gonzalez Custodio, Carlos Alberto<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;U20201E781&emsp;&emsp;Huaman De La Cruz, Jean Pool<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;U201924756&emsp;&emsp;Inga Hernandez, Ayrton Damian<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;U202210104&emsp;&emsp;Lagos Rivera, Kael Valentino<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;U20221C576&emsp;&emsp;Taquiri Calderón, Jhunior Giussepe<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;U20231F226&emsp;&emsp;Tasayco Almonacid, Rafael Augusto<br>
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;U202319415&emsp;&emsp;Tasayco Osorio, Raúl Hiroshi<br>
+
+</div>
+
+<br><br>
+<strong>Período 202620</strong><br>
+
 </div>
 
 <div style="page-break-after: always;"></div>
