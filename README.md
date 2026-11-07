@@ -3888,28 +3888,38 @@ Durante este sprint, el equipo de desarrollo trabajó de forma colaborativa en l
 
 ## 6.3.1. Diseño de Entrevistas
 
-**Objetivo de la validación:**  
-[Qué hipótesis, necesidad o funcionalidad se busca validar.]
 
-**Perfil de los participantes:**  
-[Segmento de usuario y criterios de selección. No incluir datos personales innecesarios.]
+**Objetivo de la validación:**
+Validar si la primera versión de SafeCore (Landing Page y Aplicación Web) comunica claramente la propuesta de valor, si las funcionalidades implementadas responden a las necesidades reales de los usuarios, y si la interfaz es comprensible y fácil de usar.
 
-**Método de validación:**  
-[Entrevista presencial/remota, prueba de prototipo, demostración de la aplicación u otro método utilizado.]
+**Perfil de los participantes:**
+- Segmento 1: Personas vinculadas a empresas inmobiliarias o administración de edificios en Lima.
+- Segmento 2: Propietarios de vivienda unifamiliar en Lima, con interés en seguridad del hogar.
 
-**Guion de entrevista:**
+**Método de validación:**
+Entrevista remota con demostración en vivo de la Landing Page y la Aplicación Web. Se guía al participante por las pantallas principales mientras responde las preguntas.
 
-1. [Pregunta abierta sobre la necesidad o problema.]
-2. [Pregunta sobre cómo resuelve actualmente ese problema.]
-3. [Pregunta sobre la experiencia al utilizar la solución.]
-4. [Pregunta sobre dificultades, dudas o aspectos confusos.]
-5. [Pregunta sobre mejoras o funcionalidades prioritarias.]
+**Preguntas de entrevista:**
 
-**Tareas o escenarios mostrados al participante:**  
-[Describir qué pantalla, prototipo o flujo se presentó y qué se pidió realizar.]
+1. ¿Qué medidas de seguridad tiene actualmente su edificio o vivienda ante sismos o incendios? ¿Siente que son suficientes?
+2. Cuando ocurre una emergencia, ¿qué es lo que más le preocupa que falle?
+3. Al ver esta página, ¿entiende de qué trata SafeCore y para quién es? ¿Qué es lo primero que le llama la atención?
+4. ¿La información que presenta la página le genera confianza para considerar el producto? ¿Qué le falta o le sobra?
+5. Si quisiera solicitar una demo o contactar al equipo, ¿sabría cómo hacerlo desde esta página?
+6. Al ver el panel principal, ¿entiende qué está monitoreando el sistema? ¿Le resulta claro el estado general que muestra?
+7. Si recibiera una alerta de emergencia, ¿sabría cómo encontrarla y qué hacer con ella dentro de la aplicación?
+8. Al revisar el listado de sensores IoT, ¿entiende qué representa cada indicador? ¿Hay algo que le genere confusión?
+9. ¿Hay alguna información que esperaría ver en la aplicación y que no encuentra?
+10. En general, ¿siente que esta solución resolvería el problema que mencionó al inicio? ¿Qué es lo que más le convence y qué cambiaría primero?
 
-**Consideraciones éticas:**  
-[Indicar cómo se explicó el propósito de la entrevista y cómo se solicitó autorización para registrar respuestas o grabar, si correspondía.]
+**Tareas o escenarios mostrados al participante:**
+- Explorar la Landing Page libremente por 2 minutos y describir con sus palabras de qué trata SafeCore.
+- Encontrar cómo solicitar una demo desde la Landing Page.
+- En la Aplicación Web, navegar al listado de alertas y describir qué haría si hubiera una alerta activa.
+- En la Aplicación Web, buscar el estado de un sensor y explicar qué significa lo que ve.
+
+**Consideraciones éticas:**
+Al inicio de la entrevista se explicó el propósito de la sesión y se solicitó autorización verbal para registrar las respuestas. No se recopiló información personal sensible. El participante pudo detener la sesión en cualquier momento.
 
 ## 6.3.2. Registro de Entrevistas
 
