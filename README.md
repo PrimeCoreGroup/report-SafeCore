@@ -1382,90 +1382,202 @@ Esta aproximación permite conservar límites claros entre las responsabilidades
 
 ### 4.1.3. Software Architecture
 
-La arquitectura propuesta para SafeCore se representa mediante el modelo C4, utilizando las vistas **System Landscape**, **System Context**, **Container** y **Deployment**. Estas vistas permiten describir el ecosistema de la solución, sus límites, las unidades de software que la conforman y su distribución en los entornos de ejecución. Los diagramas de componentes y código se desarrollan posteriormente en el diseño táctico de cada Bounded Context.
+La arquitectura propuesta para SafeCore se representa mediante el modelo C4, utilizando las vistas **System Landscape**, **System Context**, **Container**, **Component** y **Deployment**. Estas vistas describen el ecosistema de la solución, sus límites, las unidades de software que la conforman, la organización interna de su contenedor más crítico y su distribución en los entornos de ejecución.
 
-La solución combina procesamiento local en el inmueble (**Edge Computing**) con servicios en la nube. El nodo Edge es responsable de detectar condiciones de riesgo y ejecutar los protocolos de emergencia, incluso cuando no existe conexión a Internet. La nube permite administrar usuarios e inmuebles, consultar el historial, distribuir configuraciones y gestionar notificaciones remotas. Por tanto, la comunicación con la nube no constituye un requisito para ejecutar las acciones locales de protección.
+La solución combina procesamiento local en el inmueble (**Edge Computing**) con servicios en la nube. El nodo Edge detecta condiciones de riesgo y ejecuta los protocolos de emergencia aun cuando no existe conexión a Internet. La nube permite administrar usuarios e inmuebles, consultar el historial, distribuir configuraciones y gestionar notificaciones remotas. Por tanto, la comunicación con la nube no es un requisito para ejecutar las acciones locales de protección.
 
-Esta propuesta conserva los siete Bounded Contexts seleccionados en el Context Mapping. Sus límites representan responsabilidades del dominio y no implican que cada contexto deba desplegarse como un microservicio independiente. Las tecnologías y la distribución descritas constituyen decisiones de diseño propuestas, no evidencia de una implementación ya desplegada.
+Los diagramas siguen una convención visual común:
+
+- **Personas:** se representan con silueta.
+- **Aplicaciones cliente:** van en rosado.
+- **Servicios y contenedores propios:** van en azul, y los microservicios tienen forma octogonal.
+- **Bases de datos:** se representan como cilindros celestes.
+- **Sistemas externos:** van en gris.
+- **Hardware físico:** va en rojo.
+- **Relaciones:** se dibujan con líneas punteadas e indican el protocolo entre corchetes.
+
+Las tecnologías y la distribución descritas constituyen decisiones de diseño propuestas, no evidencia de una implementación ya desplegada.
 
 #### 4.1.3.1. Software Architecture System Landscape Diagram
 
-La vista System Landscape presenta el ecosistema de SafeCore y las relaciones entre los actores y sistemas que participan en la protección de los inmuebles. Se consideran cuatro actores: el **administrador de edificio**, que supervisa inmuebles, dispositivos, umbrales y simulacros; el **propietario de vivienda**, que administra la protección de su vivienda; el **residente**, que consulta información y recibe alertas según sus permisos; y el **visitante**, que accede a la información comercial de la solución.
+La vista System Landscape presenta el ecosistema de SafeCore de forma general. SafeCore se muestra como un único sistema dentro del límite de la organización, rodeado de sus usuarios y de los sistemas externos con los que se relaciona.
 
-En esta vista general, **SafeCore** se representa como un único sistema que integra la protección y la supervisión de los inmuebles. Los administradores y propietarios gestionan la protección, los residentes consultan el estado y las alertas, y los visitantes conocen la propuesta de valor.
+Participan cuatro actores: el **propietario o residente**, que protege su vivienda y recibe alertas; el **administrador de edificio**, que gestiona la protección de varios inmuebles; el **técnico instalador**, que instala y aprovisiona los dispositivos; y el **visitante**, que conoce la propuesta de valor.
 
-Como servicio externo principal se muestra el **servicio de notificaciones**, que permite entregar alertas a los usuarios. El detalle de sensores, actuadores y comunicación IoT se desarrolla en la vista de contexto. Esta selección permite presentar el propósito de SafeCore y sus usuarios de manera sencilla.
+Fuera del límite de la organización se ubican los **sensores y actuadores** instalados en el inmueble, **AWS IoT Core** para la comunicación entre la nube y el edge, el **proveedor de notificaciones** para las alertas push y SMS, y la **red móvil GSM/4G** como canal de respaldo. El detalle de cada relación se desarrolla en la vista de contexto.
 
-![Diagrama System Landscape de SafeCore](assets/architecture/SafeCoreLandscape-dark.png)
+![Diagrama System Landscape de SafeCore](assets/Chapter-4/SoftwareArchitecture/Landscape.png)
 
 **Figura 4.1.3.1. Diagrama System Landscape de SafeCore.**
 
-[Abrir diagrama en resolución original](assets/architecture/SafeCoreLandscape-dark.png) · [Consultar leyenda](assets/architecture/SafeCoreLandscape-dark-key.png)
+[Abrir diagrama en resolución original](assets/Chapter-4/SoftwareArchitecture/Landscape.png)
 
 #### 4.1.3.2. Software Architecture Context Level Diagrams
 
-La vista de contexto representa a **SafeCore como un único sistema de software**, incluyendo tanto sus aplicaciones y servicios en la nube como su capacidad de procesamiento local. El administrador y el propietario utilizan el sistema para registrar inmuebles, supervisar sensores, consultar eventos y gestionar configuraciones y pruebas de acuerdo con sus permisos. El residente consulta el estado y las alertas que le corresponden, mientras que el visitante conoce los beneficios de la solución mediante la landing page.
+La vista de contexto representa a **SafeCore como un único sistema de software**, que integra sus aplicaciones, sus servicios en la nube y su capacidad de procesamiento local. Se consideran cuatro actores:
 
-Las relaciones con los dispositivos describen dos intercambios principales: la recepción de lecturas desde la red de sensores y el envío de órdenes hacia los actuadores, junto con la recepción de sus resultados de ejecución. AWS IoT Core transporta telemetría, eventos, configuraciones y solicitudes remotas entre la nube y los nodos Edge. El servicio de notificaciones recibe solicitudes de entrega de alertas y las distribuye por SMS o push.
+| Actor | Interacción con SafeCore |
+|---|---|
+| **Propietario / Residente** | Consulta el estado de su inmueble, recibe alertas y ejecuta simulacros según sus permisos. |
+| **Administrador de Edificio** | Gestiona inmuebles, dispositivos, umbrales y protocolos de emergencia. |
+| **Técnico Instalador** | Instala, aprovisiona y da mantenimiento a los dispositivos en sitio. |
+| **Visitante** | Consulta la información comercial de la solución en la landing page. |
 
-El límite del sistema permite distinguir las responsabilidades propias de SafeCore de las funciones proporcionadas por dispositivos y servicios externos. Ante la pérdida de Internet, la detección y la actuación permanecen disponibles localmente; las consultas desde clientes remotos, los cambios de configuración enviados desde la nube y las notificaciones externas requieren conectividad. Los eventos pendientes se conservan en el inmueble para sincronizarlos cuando se restablece la conexión.
+SafeCore se relaciona con los siguientes sistemas externos:
 
-![Diagrama System Context de SafeCore](assets/architecture/SafeCoreContext-dark.png)
+| Sistema externo | Relación |
+|---|---|
+| **Sensores y Actuadores** (hardware) | Envían lecturas sísmicas, de gas, humo y temperatura, y reciben las órdenes de actuación sobre cerrojos, relés, válvulas, sirenas y luces. |
+| **AWS IoT Core** | Transporta eventos, telemetría, configuraciones y solicitudes remotas entre la nube y los nodos Edge mediante MQTT sobre TLS. |
+| **Proveedor de Notificaciones** | Firebase Cloud Messaging (push) y Twilio (SMS) entregan las alertas a los usuarios. |
+| **Red Móvil GSM/4G** | Funciona como canal de respaldo para enviar SMS de emergencia cuando el inmueble no tiene Internet. |
+
+El límite del sistema distingue las responsabilidades propias de SafeCore de las funciones que proporcionan los dispositivos y servicios externos. La infraestructura del inmueble puede fallar durante un sismo o un incendio, en particular el suministro eléctrico y el acceso a Internet. Por eso la detección y la actuación permanecen disponibles localmente.
+
+Las consultas remotas, los cambios de configuración enviados desde la nube y las notificaciones push requieren conectividad. Mientras no la hay, los eventos pendientes se conservan en el inmueble y se sincronizan cuando se restablece la conexión.
+
+![Diagrama System Context de SafeCore](assets/Chapter-4/SoftwareArchitecture/Context.png)
 
 **Figura 4.1.3.2. Diagrama System Context de SafeCore.**
 
-[Abrir diagrama en resolución original](assets/architecture/SafeCoreContext-dark.png) · [Consultar leyenda](assets/architecture/SafeCoreContext-dark-key.png)
+[Abrir diagrama en resolución original](assets/Chapter-4/SoftwareArchitecture/Context.png)
 
 #### 4.1.3.3. Software Architecture Container Level Diagrams
 
-La vista de contenedores descompone SafeCore en aplicaciones y almacenes de datos con responsabilidades diferenciadas. En el modelo C4, un contenedor representa una unidad de ejecución o almacenamiento y no exige el uso de Docker. Se propone la siguiente organización:
+La vista de contenedores descompone SafeCore en aplicaciones, servicios y almacenes de datos con responsabilidades diferenciadas. En el modelo C4, un contenedor representa una unidad de ejecución o almacenamiento; no exige el uso de Docker. Se propone la siguiente organización:
 
-| Contenedor | Responsabilidad |
+| Contenedor | Tecnología | Responsabilidad |
+|---|---|---|
+| **Landing Page** | HTML5, CSS3, JavaScript | Presentar la propuesta de valor y los canales de contacto, y dirigir al visitante hacia la plataforma. |
+| **Web App** | Angular | Dashboard para administrar inmuebles y dispositivos, configurar umbrales, consultar el historial y solicitar pruebas. |
+| **Mobile App** | Flutter | Consultar el estado en tiempo real, recibir alertas y lanzar simulacros. Incluye un modo técnico para vincular el gateway durante la instalación. |
+| **API Gateway** | Amazon API Gateway | Punto de entrada único de los clientes: terminación TLS, validación de JWT y enrutamiento hacia los microservicios. |
+| **Identity and Access Service** | Java / Spring Boot | Gestionar usuarios, roles y autenticación por inmueble. |
+| **Device Management Service** | Java / Spring Boot | Registrar inmuebles, gateways y nodos, y emitir los certificados X.509 de cada gateway en AWS IoT Core. |
+| **Monitoring and Configuration Service** | Java / Spring Boot | Recibir la telemetría, administrar umbrales y protocolos, y publicar el estado en tiempo real a los clientes mediante WebSocket. |
+| **Incident History Service** | Java / Spring Boot | Registrar los incidentes resueltos en el Edge y gestionar los simulacros remotos. |
+| **Notification Service** | Java / Spring Boot | Decidir destinatarios y canal de cada alerta y solicitar su envío al proveedor externo. |
+| **Bases de datos de los microservicios** | PostgreSQL / TimescaleDB | Cada microservicio tiene su propia base de datos (*database per service*): IAM DB, Device DB, Incident DB y Notification DB en PostgreSQL, y Telemetry DB en TimescaleDB para las series de tiempo. |
+| **SafeCore Edge** | Python 3.11 | Capturar lecturas, evaluar condiciones de riesgo, ejecutar los protocolos sobre los actuadores y registrar los resultados localmente. También valida las solicitudes remotas y sincroniza los eventos con la nube. |
+| **Edge DB** | SQLite | Conservar la configuración vigente, los protocolos y los eventos pendientes de sincronización, para que el Edge continúe operando sin Internet. |
+| **Embedded System** | C++, ESP-IDF (ESP32) | Firmware de los nodos sensores y actuadores. Incluye un watchdog que lleva los actuadores a estado seguro si se pierde el heartbeat del Edge. |
+
+Los siete Bounded Contexts del Context Mapping se distribuyen según su criticidad. Los que sostienen la respuesta autónoma se ubican en el Edge, y los de administración y seguimiento se despliegan como microservicios en la nube:
+
+| Bounded Context | Ubicación |
 |---|---|
-| **Landing Page** | Presentar la propuesta de valor, los beneficios y los canales de contacto, y dirigir al visitante hacia el acceso a la plataforma. |
-| **Aplicación Web** | Proporcionar el dashboard para la administración de inmuebles, monitoreo, configuración de umbrales, consulta del historial y solicitud de pruebas. |
-| **Aplicación Móvil** | Permitir la consulta del estado y las alertas, y ofrecer operaciones de administración según el rol del usuario. |
-| **API y Servicios de Aplicación** | Exponer la API REST, autenticar usuarios, aplicar permisos, administrar inmuebles y dispositivos, registrar eventos y coordinar la configuración y las notificaciones remotas. Se propone Java con Spring Boot, en coherencia con la persistencia JPA descrita en el diseño táctico. |
-| **Base de Datos Central** | Persistir usuarios, inmuebles, dispositivos, configuraciones e historial de eventos y respuestas sincronizadas. El motor queda pendiente de selección. |
-| **Servicio Edge** | Capturar lecturas, evaluar condiciones de riesgo, ejecutar protocolos sobre actuadores y registrar resultados localmente. También valida las solicitudes remotas y sincroniza eventos con la nube. |
-| **Almacenamiento Local** | Conservar la configuración vigente, los protocolos y los eventos pendientes de sincronización, permitiendo que el Servicio Edge continúe operando sin Internet. |
+| Sensor Data Ingestion | SafeCore Edge |
+| Risk Detection | SafeCore Edge |
+| Emergency Response | Ejecución en SafeCore Edge; historial y simulacros en Incident History Service |
+| Identity & Access | Identity and Access Service |
+| Device Management | Device Management Service |
+| Monitoring & Configuration | Monitoring and Configuration Service (con aplicación local en el Edge) |
+| Notification | Notification Service (con SMS de respaldo local en el Edge) |
 
-Las aplicaciones Web y Móvil consumen la API mediante **HTTPS**. La API accede a la Base de Datos Central y solicita al proveedor externo la entrega de notificaciones. La integración con **AWS IoT Core** se plantea mediante MQTT sobre TLS para transportar eventos, configuraciones y solicitudes entre el Servicio Edge y los servicios de aplicación. Las interfaces físicas y protocolos locales de sensores y actuadores se definirán según el hardware seleccionado.
+**Comunicación.** Las aplicaciones Web y Móvil consumen los servicios a través del API Gateway mediante HTTPS. Cada microservicio accede únicamente a su propia base de datos.
 
-El recorrido crítico de una emergencia es **sensores → Servicio Edge → actuadores**. El Servicio Edge registra los resultados en el Almacenamiento Local y publica los eventos hacia la nube cuando existe conectividad. Cada evento contará con un identificador estable para evitar registros duplicados durante los reintentos de sincronización. Las configuraciones se conservarán con una versión y una confirmación de aplicación; una configuración enviada desde la nube no se considerará activa hasta que el nodo confirme su validación y almacenamiento.
+La integración con **AWS IoT Core** se realiza mediante MQTT sobre TLS. El SafeCore Edge publica eventos y telemetría, que se entregan al Monitoring and Configuration Service y al Incident History Service. En sentido inverso, la nube publica configuraciones y comandos hacia el nodo.
 
-Las responsabilidades de **Sensor Data Ingestion**, **Risk Detection** y la ejecución de **Emergency Response** se sitúan en el Servicio Edge para sostener la respuesta autónoma. **Identity & Access**, **Device Management**, **Notification** y la administración central de **Monitoring & Configuration** se organizan como módulos de los servicios de aplicación. El nodo mantiene la configuración operativa y los resultados de emergencia necesarios para su funcionamiento, mientras que la nube conserva su representación sincronizada para consulta y seguimiento.
+En el inmueble, el Embedded System envía las lecturas al Edge mediante MQTT local y recibe las órdenes de actuación por Modbus RTU sobre RS-485.
 
-La integración `ActuatorGatewayServiceImpl` con AWS IoT Core descrita en el apartado 4.2 se interpreta como el canal para solicitudes remotas dirigidas al nodo Edge. La ejecución autónoma requiere además un adaptador local hacia los actuadores. De esta manera, las pruebas y solicitudes remotas pueden utilizar la nube, mientras que una emergencia detectada en el inmueble se resuelve mediante el recorrido local. Una solicitud enviada no equivale a una acción completada: el resultado se registra a partir de la confirmación del nodo y del dispositivo correspondiente.
+**Recorrido crítico de una emergencia.** El recorrido es **sensores → Embedded System → SafeCore Edge → Embedded System → actuadores**, y no depende de la nube. El Edge registra los resultados en la Edge DB y publica los eventos cuando existe conectividad. Si no hay Internet, envía un SMS de emergencia por la red móvil GSM/4G.
 
-![Diagrama Container de SafeCore](assets/architecture/SafeCoreContainers-dark.png)
+**Consistencia de la sincronización:**
+
+- Cada evento tiene un identificador estable, para evitar registros duplicados durante los reintentos.
+- Las configuraciones se conservan con una versión. Una configuración enviada desde la nube no se considera activa hasta que el nodo confirma su validación y almacenamiento.
+
+**Solicitudes remotas.** La integración `ActuatorGatewayServiceImpl` con AWS IoT Core, descrita en el apartado 4.2, se interpreta como el canal para las solicitudes remotas dirigidas al nodo Edge, por ejemplo un simulacro. Una solicitud enviada no equivale a una acción completada: el resultado se registra a partir de la confirmación del nodo y del dispositivo correspondiente.
+
+![Diagrama Container de SafeCore](assets/Chapter-4/SoftwareArchitecture/Container.png)
 
 **Figura 4.1.3.3. Diagrama Container de SafeCore.**
 
-[Abrir diagrama en resolución original](assets/architecture/SafeCoreContainers-dark.png) · [Consultar leyenda](assets/architecture/SafeCoreContainers-dark-key.png)
+[Abrir diagrama en resolución original](assets/Chapter-4/SoftwareArchitecture/Container.png)
 
-#### 4.1.3.4. Software Architecture Deployment Diagrams
+#### 4.1.3.4. Software Architecture Component Level Diagrams
 
-La vista de despliegue distribuye los contenedores propuestos en los siguientes entornos:
+Se detalla el contenedor **SafeCore Edge** porque concentra la lógica que garantiza la respuesta autónoma ante una emergencia. Los componentes de los microservicios en la nube se describen en el diseño táctico de cada Bounded Context (apartado 4.2). Cada componente del diagrama lleva un ícono según su rol: entrada, lógica de dominio, orquestación, salida, configuración, salud, persistencia o sincronización.
 
-| Entorno | Elementos desplegados |
-|---|---|
-| **Dispositivos de los usuarios** | Navegadores que ejecutan la Landing Page o la Aplicación Web, y dispositivos móviles que ejecutan la Aplicación Móvil. |
-| **Infraestructura en la nube** | Alojamiento de los recursos web, entorno de ejecución de la API y los servicios de aplicación, y servidor de Base de Datos Central. Los servicios concretos de alojamiento quedan pendientes de selección. |
-| **Servicios externos administrados** | AWS IoT Core para la comunicación con los nodos Edge y el proveedor de notificaciones SMS y push. |
-| **Inmueble protegido** | Nodo Edge con el Servicio Edge y el Almacenamiento Local, red de sensores y sistema de actuadores. Se contempla alimentación de respaldo para los elementos necesarios de la operación local. |
+| Componente | Tecnología | Responsabilidad |
+|---|---|---|
+| **Sensor Ingestion Adapter** | Python, paho-mqtt | Recibir las lecturas de los nodos sensores desde el broker MQTT local. |
+| **Sensor Data Ingestion Service** | Python | Validar y normalizar las lecturas. |
+| **Risk Detection Engine** | Python | Evaluar los umbrales por tipo de riesgo (sismo, gas, humo, temperatura) y confirmar los eventos. |
+| **Emergency Protocol Manager** | Python | Seleccionar y orquestar el protocolo de emergencia correspondiente al riesgo confirmado. |
+| **Actuator Controller** | Python, pymodbus | Enviar las órdenes de actuación y el heartbeat a los nodos actuadores. |
+| **Device Health Monitor** | Python | Detectar nodos caídos o con lecturas anómalas. |
+| **Configuration Manager** | Python | Aplicar los umbrales y protocolos vigentes, recibidos desde la nube o durante la instalación. |
+| **Local Provisioning API** | Python, FastAPI | Permitir que el técnico vincule el gateway y registre nodos desde la red local. |
+| **Local Alert Dispatcher** | Python, pyserial | Enviar SMS de emergencia mediante el módem GSM cuando no hay conectividad. |
+| **Local Event Store** | Python, SQLite3 | Persistir la configuración, los incidentes y el outbox de sincronización. |
+| **Cloud Sync Agent** | Python, AWS IoT Device SDK | Enviar el outbox pendiente a AWS IoT Core y recibir configuraciones y comandos remotos. |
 
-Los navegadores obtienen los recursos de las aplicaciones desde el alojamiento web por HTTPS y ejecutan las interfaces en el dispositivo del usuario. La Aplicación Web y la Aplicación Móvil se comunican con la API mediante HTTPS. El nodo Edge establece la comunicación con AWS IoT Core mediante MQTT sobre TLS y utiliza interfaces locales para interactuar con los sensores y actuadores. La Base de Datos Central se sitúa en una red privada accesible desde los servicios de aplicación, sin acceso directo desde los clientes.
+**Ruta crítica local:**
 
-El diagrama representa un inmueble como patrón de despliegue repetible. Cada inmueble contará con identidad de dispositivo, configuración y almacenamiento local propios. La plataforma verificará los permisos por usuario e inmueble y restringirá los canales de comunicación de cada nodo a sus recursos autorizados.
+1. El Sensor Ingestion Adapter recibe las lecturas y las entrega al Sensor Data Ingestion Service.
+2. Este las normaliza y las envía al Risk Detection Engine.
+3. Ante un riesgo confirmado, el Risk Detection Engine emite un evento de dominio hacia el Emergency Protocol Manager.
+4. El Emergency Protocol Manager solicita las acciones al Actuator Controller, que envía las órdenes al Embedded System.
 
-Durante una interrupción de Internet, el nodo continúa evaluando lecturas y ejecutando protocolos con su última configuración válida. Ante la pérdida de energía comercial, la continuidad prevista depende de la capacidad del respaldo energético y de los componentes alimentados por este. Cuando se recupera la conectividad, el nodo sincroniza los registros pendientes sin volver a ejecutar las acciones de emergencia ya realizadas. La autonomía energética, los tiempos de respuesta y la recuperación de comunicaciones deberán validarse mediante pruebas del prototipo.
+En paralelo, el incidente se registra en el Local Event Store y, si no existe conectividad, se solicita un SMS al Local Alert Dispatcher.
 
-![Diagrama Deployment de SafeCore](assets/architecture/SafeCoreDeployment-dark.png)
+**Desacoplamiento de la nube.** El Cloud Sync Agent opera de forma independiente de la ruta crítica: lee el outbox cuando hay Internet y entrega al Configuration Manager las configuraciones recibidas. Esta separación evidencia que la detección y la actuación no dependen de la comunicación con la nube.
 
-**Figura 4.1.3.4. Diagrama Deployment de SafeCore.**
+![Diagrama Component del SafeCore Edge](assets/Chapter-4/SoftwareArchitecture/Component.png)
 
-[Abrir diagrama en resolución original](assets/architecture/SafeCoreDeployment-dark.png) · [Consultar leyenda](assets/architecture/SafeCoreDeployment-dark-key.png)
+**Figura 4.1.3.4. Diagrama Component del contenedor SafeCore Edge.**
+
+[Abrir diagrama en resolución original](assets/Chapter-4/SoftwareArchitecture/Component.png)
+
+#### 4.1.3.5. Software Architecture Deployment Diagrams
+
+La vista de despliegue distribuye los contenedores en los siguientes entornos:
+
+| Entorno | Nodo | Elementos desplegados |
+|---|---|---|
+| **Dispositivos de los usuarios** | Smartphone (iOS 15+ / Android 10+) | Mobile App. |
+| | Computadora (Chrome, Edge, Safari) | Web App, ejecutada en el navegador. |
+| **Amazon Web Services** (región sa-east-1, São Paulo) | Amazon CloudFront + S3 | Landing Page y recursos estáticos de la Web App. |
+| | Amazon API Gateway | API Gateway (REST + WebSocket, TLS 1.2). |
+| | Amazon ECS Cluster (AWS Fargate) | Los cinco microservicios Java / Spring Boot, con escalamiento automático. |
+| | Amazon RDS (PostgreSQL 16, Multi-AZ) | IAM DB, Device DB, Incident DB y Notification DB. |
+| | Amazon EC2 (TimescaleDB) | Telemetry DB. |
+| | AWS IoT Core | Registro de things, certificados X.509 y comunicación con los nodos Edge. |
+| **Servicios externos** | Firebase Cloud Messaging / Twilio | Entrega de notificaciones push y SMS. |
+| **Inmueble protegido: circuito con UPS** | Edge Gateway (Raspberry Pi CM4 industrial, Docker) | SafeCore Edge y Edge DB. |
+| | Módem GSM/4G | Canal de SMS de respaldo. |
+| | Nodos ESP32 | Embedded System. |
+| | Sensores y alarmas | Sensores sísmicos, de gas, humo y temperatura; sirenas, luces de emergencia y válvula de gas. |
+| **Inmueble protegido: circuito sin UPS (fail-safe)** | Cerrojos electromagnéticos | Se liberan automáticamente al perder energía. |
+| | Relés de corte de fuerza | Cortan los tomacorrientes, sin afectar los circuitos de emergencia. |
+
+**Conexiones:**
+
+- **Clientes:** los navegadores obtienen los recursos desde CloudFront por HTTPS. La Web App y la Mobile App se comunican con el API Gateway mediante HTTPS, y este enruta las solicitudes hacia el clúster ECS a través de un VPC Link.
+- **Red privada:** los microservicios y las bases de datos se ubican en subredes privadas de la VPC, sin acceso directo desde los clientes.
+- **Edge ↔ nube:** el Edge Gateway se conecta con AWS IoT Core mediante MQTT sobre TLS 1.2, autenticado con un certificado X.509 propio (puerto 8883).
+- **Inmueble:** el Edge se comunica con los nodos ESP32 mediante MQTT local y Modbus RTU sobre RS-485. Los nodos se conectan con los sensores por SPI, I2C o ADC, y accionan los actuadores mediante relés.
+
+**Separación de circuitos eléctricos.** El Edge Gateway, los nodos, las sirenas y las luces de emergencia se alimentan desde una UPS para mantener la operación durante un corte de energía. Los cerrojos electromagnéticos se conectan a un circuito sin respaldo, de modo que se liberan ante la pérdida de energía y no bloquean la evacuación.
+
+**Patrón repetible.** El diagrama representa un inmueble como patrón de despliegue. Cada inmueble cuenta con su propia identidad de dispositivo, configuración y almacenamiento local. La plataforma verifica los permisos por usuario e inmueble y restringe los canales MQTT de cada nodo a sus recursos autorizados.
+
+**Comportamiento ante fallas:**
+
+- **Pérdida de Internet:** el nodo continúa evaluando lecturas y ejecutando protocolos con su última configuración válida.
+- **Pérdida de energía comercial:** la continuidad depende de la capacidad de la UPS y de los componentes conectados a ella.
+- **Recuperación de la conectividad:** el nodo sincroniza los registros pendientes sin volver a ejecutar las acciones de emergencia ya realizadas.
+
+La autonomía energética, los tiempos de respuesta y la recuperación de comunicaciones deberán validarse mediante pruebas del prototipo.
+
+![Diagrama Deployment de SafeCore](assets/Chapter-4/SoftwareArchitecture/Deployment.png)
+
+**Figura 4.1.3.5. Diagrama Deployment de SafeCore.**
+
+[Abrir diagrama en resolución original](assets/Chapter-4/SoftwareArchitecture/Deployment.png)
+
+
 
 ## 4.2. Tactical-Level Domain-Driven Design
 
