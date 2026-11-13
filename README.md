@@ -3828,168 +3828,263 @@ Durante este sprint, el equipo de desarrollo trabajó de forma colaborativa en l
 ## 6.2.2.1. Sprint Planning 2
 
 **Objetivo del Sprint 2:**  
-[Describir el objetivo principal que el equipo espera alcanzar durante este sprint.]
+Integrar la solución SafeCore de extremo a extremo: backend con gestión de usuarios, ubicaciones, nodos y riesgos; consola web administrativa; aplicación móvil por roles; y gateway Edge para recibir, preservar y sincronizar telemetría del ESP32 sin modificar sus alarmas físicas locales.
 
 **Duración del sprint:**  
-[Fecha de inicio] – [Fecha de fin]
 
-**Participantes:**  
-[Integrantes del equipo]
+06/11/2026 – 11/11/2026 *(rango inferido de los commits de integración disponibles; falta confirmar las fechas oficiales del sprint).* 
 
-**Planificación:**  
-[Explicar brevemente cómo se planificó el sprint, qué necesidades del producto se priorizaron y por qué.]
 
-**Resultado esperado:**  
-[Indicar qué funcionalidades o mejoras deberían quedar implementadas al finalizar el sprint.]
+
+
+
+| Campo | Detalle |
+|---|---|
+| Sprint # | Sprint 2 |
+| Sprint Planning Background | Integración de los productos SafeCore y de la telemetría Edge. |
+| Date |  |
+| Time |  |
+| Location |  |
+| Prepared By | Taquiri Calderón, Jhunior Giussepe *(referencia del Sprint 1; confirmar para Sprint 2)* |
+| Attendees (to planning meeting) | Taquiri Calderón; Jhunior Giussepe; Lagos Rivera Kael Valentino; Gonzalez Custodio Carlos Alberto; Tasayco Almonacid Rafael Augusto; Tasayco Osorio Raúl Hiroshi; Inga Hernandez Ayrton Damian; Huaman De La Cruz Jean Pool. *(Lista tomada del Sprint 1; confirmar asistencia en Sprint 2).* |
+| Sprint n – 1 Review Summary | En el Sprint 1 se desarrolló la primera versión de la Landing Page, Aplicación Web y Backend Services. |
+| Sprint n – 1 Retrospective Summary |  |
+| Sprint n Goal | Integrar la solución SafeCore: backend con gestión de usuarios, ubicaciones, nodos y riesgos; consola web administrativa; aplicación móvil por roles; y gateway Edge para recibir, preservar y sincronizar telemetría del ESP32 sin modificar sus alarmas físicas locales. |
+| Sprint n Velocity |  |
+| Sum of Story Points |  |
+
+**Resultado esperado:** API integrada; SPA administrativa conectada; app Flutter conectada con modo demostración; gateway local Flask/SQLite con sincronización HTTPS; y evidencia de pruebas, ejecución y despliegue.
+
+
+
 
 ## 6.2.2.2. Aspect Leaders and Collaborators
 
-| Aspecto o actividad | Responsable principal | Colaboradores | Responsabilidades |
+| Aspecto o actividad | Líder | Colaboradores | Responsabilidades verificables |
 |---|---|---|---|
-| [Aspecto 1] | [Nombre] | [Nombres] | [Responsabilidades concretas] |
-| [Aspecto 2] | [Nombre] | [Nombres] | [Responsabilidades concretas] |
-| [Aspecto 3] | [Nombre] | [Nombres] | [Responsabilidades concretas] |
+| Landing Page | Taquiri Calderón, Jhunior Giussepe *(liderazgo en Sprint 1; confirmar Sprint 2)* | Huaman De La Cruz, Jean Pool *(referencia Sprint 1)* | La landing existente es estática, bilingüe y responsive; la última evidencia de cambio es anterior al rango inferido del Sprint 2. |
+| Aplicación Web | Inga Hernandez, Ayrton Damian *(referencia Sprint 1; commits S2 bajo la identidad DamianIH)* | Gonzalez Custodio, Carlos Alberto *(referencia Sprint 1)* | Conectó login, usuarios con roles, nodos, ubicaciones, alertas, configuración y analítica a la API. |
+| Backend Services | Tasayco Osorio, Raúl Hiroshi *(referencia Sprint 1; commits S2 bajo la identidad Raul)* | Tasayco Almonacid, Rafael Augusto *(referencia Sprint 1)* | Implementó y amplió endpoints de dispositivos, usuarios, propiedades, zonas, configuración, riesgos, analítica y emergencias; incorporó migraciones. |
+| Aplicación Móvil |  |  | Integró Flutter con API, roles, dispositivos, telemetría, riesgos, emergencias, notificaciones, usuarios y configuración. El responsable formal del Sprint 2 no está registrado en el acta entregada. |
+| Gateway y firmware Edge | Gonzalez Custodio, Carlos Alberto *(referencia Sprint 1; commits S2 bajo la identidad Carlos Gonzalez)* |  | Implementó gateway Flask con SQLite, autenticación local, cola persistente, reintentos y sincronización HTTPS; adaptó el firmware. |
+| Despliegue (Deployment) | Taquiri Calderón, Jhunior Giussepe *(liderazgo en Sprint 1; confirmar Sprint 2)* | Lagos Rivera, Kael Valentino *(referencia Sprint 1)* | Se documentan configuraciones de Render, Vercel, GitHub Releases, GitHub Pages y operación local Edge; faltan las evidencias de despliegue del Sprint 2. |
+| Documentación del informe | Taquiri Calderón, Jhunior Giussepe *(liderazgo en Sprint 1; confirmar Sprint 2)* | Lagos Rivera, Kael Valentino *(referencia Sprint 1)* | Consolidación de la documentación y evidencia del sprint:  |
 
-[Explicar cómo se coordinaron los responsables y colaboradores. Registrar únicamente las responsabilidades que realmente asumió cada integrante.]
+La asignación de líderes y colaboradores marcada como “referencia Sprint 1” fue copiada del acta proporcionada. Los repositorios demuestran contribuciones técnicas por componente, pero no contienen un acta que confirme el mismo liderazgo o la participación de todos los integrantes durante el Sprint 2.
 
 ## 6.2.2.3. Sprint Backlog 2
 
 | ID | Historia de usuario o tarea | Prioridad | Responsable(s) | Criterios de aceptación / resultado esperado | Estado |
 |---|---|---|---|---|---|
-| [US-XX] | [Como..., quiero..., para...] | [Alta/Media/Baja] | [Nombre(s)] | [Condiciones verificables] | [Pendiente/En progreso/Completado] |
-| [TASK-XX] | [Descripción de la tarea] | [Alta/Media/Baja] | [Nombre(s)] | [Resultado verificable] | [Estado] |
+| TASK-S2-01 | Integrar los requisitos del backend para la administración web. | Alta | Raul | Endpoints y migraciones para dispositivos, componentes, ubicaciones, usuarios, configuración y analítica incluidos en el commit `59394a8`. | Completado |
+| TASK-S2-02 | Como administrador, quiero iniciar sesión y administrar usuarios, ubicaciones y nodos desde una consola web. | Alta | DamianIH, Raul | La SPA Vue consume `/api/iam`, `/api/users`, `/api/properties`, `/api/zones`, `/api/devices`, `/api/settings` y `/api/analytics`. | Completado |
+| TASK-S2-03 | Como usuario con rol, quiero usar la app móvil con las funciones autorizadas para mi perfil. | Alta | Charlie404, Raul | App Flutter con roles `Administrator`, `Operator`, `Responder` y `Resident`, sesión JWT y navegación adaptada. | Completado |
+| TASK-S2-04 | Como operador, quiero consultar telemetría, riesgos y coordinar respuestas desde la app móvil. | Alta | Charlie404, Raul | Integración móvil con lecturas, riesgos, protocolos, respuestas, acciones y notificaciones. | Completado |
+| TASK-S2-05 | Como dispositivo ESP32, quiero enviar lecturas a un gateway local aun cuando falle Internet. | Alta | Carlos Gonzalez, Raul | API local con `X-API-Key`, SQLite, idempotencia por `event_id`, cola y sincronización HTTPS. | Completado |
+| TASK-S2-06 | Como administrador, quiero visualizar componentes del nodo y consultar analítica. | Media | DamianIH, Raul | Componentes, secretos, ubicaciones, configuración, tendencias y reportes conectados a la API. | Completado |
+| TASK-S2-07 | Mantener una página pública que explique la propuesta de SafeCore. | Media | Charlie404 | Landing estática con ES/EN, tema, planes, carrusel y formulario de demostración. | Completado *(evidencia previa al rango del Sprint 2)* |
+| TASK-S2-08 | Ejecutar y registrar pruebas funcionales integradas en hardware, backend y clientes. | Alta |  |  |  |
+| TASK-S2-09 | Publicar evidencias formales de despliegue y URLs productivas de web/edge. | Media |  |  |  |
 
-**Cambios respecto a la planificación inicial:**  
-[Describir cambios en alcance, prioridades o tareas, e indicar el motivo.]
+### Cambios respecto a la planificación inicial
 
+El cambio técnico verificable fue reemplazar el enfoque de envío directo desde ESP32 por un gateway basado en plantilla: `d42052e` (*replace direct ESP32 edge with template-based gateway*, 11/11/2026). El repositorio no contiene la planificación inicial ni una justificación formal del cambio; ese detalle queda pendiente.
 ## 6.2.2.4. Development Evidence for Sprint Review
 
-### Funcionalidad 1: [Nombre de la funcionalidad]
+### Funcionalidad 1: Backend de administración e integración
 
-**Descripción:**  
-[Qué se implementó y qué necesidad del usuario resuelve.]
+**Descripción:** se amplió la API ASP.NET Core para atender la operación administrativa de SafeCore: dispositivos y componentes, usuarios y asignaciones, propiedades y zonas, configuración, analítica, riesgos y emergencias.
 
-**Implementación realizada:**  
-[Explicar los componentes, pantallas, endpoints, servicios o dispositivos involucrados.]
+**Implementación realizada:** el commit [`59394a8`](https://github.com/PrimeCoreGroup/SafeCore-backend/commit/59394a8542426141f6732354f82d6b1a7b011d10) incorpora controladores y contratos para `Devices`, `Users`, `Properties`, `Zones`, `Settings`, `Analytics`, `RiskSituations`, respuestas y acciones de emergencia, además de migraciones de base de datos.
 
-**Evidencia:**  
-[Insertar captura de pantalla, enlace al commit, pull request, repositorio o video.]
+**Evidencia:** [SafeCore-backend](https://github.com/PrimeCoreGroup/SafeCore-backend) — commit 07/11/2026 `59394a8`.
 
-**Resultado obtenido:**  
-[Indicar qué funciona actualmente y qué queda pendiente.]
+**Resultado obtenido:** API integrada para los consumidores web, móvil y Edge. La ejecución comprobada de cada endpoint queda pendiente.
 
-### Funcionalidad 2: [Nombre de la funcionalidad]
+### Funcionalidad 2: Consola web de administración
 
-**Descripción:**  
-[Descripción breve.]
+**Descripción:** SPA para administradores con inicio de sesión, gestión de ubicaciones, nodos y componentes, alertas, analítica, usuarios y configuración.
 
-**Implementación realizada:**  
-[Detalles relevantes.]
+**Implementación realizada:** Vue 3 + TypeScript + Vite. La integración se evidencia en los servicios y vistas de `src/app/`; el commit [`42b8a72`](https://github.com/PrimeCoreGroup/webApp-SafeCore/commit/42b8a72dd52b0b32d5b5d465e85fbf20bfe4c9a3) conecta ubicaciones, configuración, analítica y componentes de nodos al backend.
 
-**Evidencia:**  
-[Insertar captura o enlace verificable.]
+**Evidencia:** [webApp-SafeCore](https://github.com/PrimeCoreGroup/webApp-SafeCore) — commits 07/11/2026 `4a13801` y 08/11/2026 `42b8a72`.
 
-**Resultado obtenido:**  
-[Resultado y limitaciones conocidas.]
+**Resultado obtenido:** el README declara acceso exclusivo para `Administrator`, token de 15 minutos, guard de rutas y modo de datos simulados. URL pública de la web: 
 
-[Duplicar esta subsección por cada funcionalidad relevante del Sprint 2.]
+### Funcionalidad 3: Aplicación móvil SafeCore 2.0
+
+**Descripción:** aplicación Flutter para consultar el sistema, telemetría y riesgos, coordinar emergencias, recibir notificaciones y administrar opciones según rol.
+
+**Implementación realizada:** integración con `https://backend-safecore.onrender.com`, roles, renovación de sesión, paneles/KPI, telemetría y reglas de detección, gestión de dispositivos, riesgos, emergencias, notificaciones, usuarios y configuración. Incluye modo demostración sin depender del backend.
+
+**Evidencia:** [SafeCore-AppMovil](https://github.com/PrimeCoreGroup/SafeCore-AppMovil) — commit [`848962c`](https://github.com/PrimeCoreGroup/SafeCore-AppMovil/commit/848962c) (06/11/2026); [release de APK](https://github.com/PrimeCoreGroup/SafeCore-AppMovil/releases/latest/download/App-SafeCore.apk).
+
+**Resultado obtenido:** el repositorio publica SafeCore Mobile 2.0 y una vía de descarga de APK. Resultado de instalación y ejecución en dispositivo real: 
+
+### Funcionalidad 4: Gateway SafeCore Edge y firmware ESP32
+
+**Descripción:** gateway local para recibir temperatura, gas y aceleración desde ESP32, conservar lecturas ante cortes de Internet y sincronizarlas con el backend.
+
+**Implementación realizada:** Flask + Peewee + SQLite, autenticación mediante `X-API-Key`, idempotencia por `device_id` y `event_id`, cola persistente, reintentos progresivos, autenticación contra backend y envío HTTPS. El firmware agrega transporte hacia el gateway sin sustituir la lógica local de LED, buzzer y relé.
+
+**Evidencia:** [SafeCore-edge](https://github.com/PrimeCoreGroup/SafeCore-edge) — commits [`d42052e`](https://github.com/PrimeCoreGroup/SafeCore-edge/commit/d42052e5a438e742ba59e1550422709779fa6d1c) (11/11/2026), `2d1fcd1`, `096e000` y `d13fe6b` (09/11/2026).
+
+**Resultado obtenido:** servicio, contrato HTTP y pruebas unitarias incluidos. Prueba física con ESP32 y resultados: 
+
+### Funcionalidad 5: Landing pública SafeCore
+
+**Descripción:** página informativa de la solución IoT y su propuesta de valor.
+
+**Implementación realizada:** HTML, CSS y JavaScript nativo; selector ES/EN, modo claro/oscuro, planes, carrusel, animaciones y formulario validado. Es estática y no requiere backend.
+
+**Evidencia:** [Landing_SafeCore](https://github.com/PrimeCoreGroup/Landing_SafeCore) — última evidencia de cambio 08/10/2026; [demo declarada](https://jeanxp404x.github.io/SafeCore/).
+
+**Resultado obtenido:** landing disponible como apoyo de presentación; no hay commit de este repositorio dentro del rango inferido del Sprint 2.
 
 ## 6.2.2.5. Testing Suite Evidence for Sprint Review
 
 **Objetivo de las pruebas:**  
-[Qué funcionalidades o requisitos se verificaron.]
+Verificar contratos de cliente, reglas de roles y detección en la app móvil; y autenticación, validación, idempotencia y sincronización en el gateway Edge. La evidencia encontrada describe suites y comandos, pero no reportes de ejecución ni resultados CI.
 
 | ID de prueba | Funcionalidad | Precondiciones / datos de entrada | Pasos de prueba | Resultado esperado | Resultado obtenido | Estado |
 |---|---|---|---|---|---|---|
-| [TC-01] | [Funcionalidad] | [Datos necesarios] | [Pasos] | [Esperado] | [Obtenido] | [Aprobada/Fallida] |
-| [TC-02] | [Funcionalidad] | [Datos necesarios] | [Pasos] | [Esperado] | [Obtenido] | [Aprobada/Fallida] |
+| TC-S2-01 | API local Edge: autenticación y lecturas | Gateway configurado; `device_id`, `X-API-Key` y payload de temperatura/gas/aceleración. | Ejecutar `python -m unittest discover -s tests -v`. | Rechaza credenciales o datos inválidos; guarda lecturas válidas e identifica reintentos por `event_id`. |  |  |
+| TC-S2-02 | Sincronización Edge | Lectura pendiente en SQLite y backend disponible/no disponible. | Ejecutar suite Edge y probar cola/sincronización. | Mantiene pendientes ante falla y entrega al recuperar la conexión. |  |  |
+| TC-S2-03 | Reglas, contratos y UI móvil | Flutter y dependencias instaladas; backend o modo demo. | Ejecutar `flutter analyze`, `flutter test` y `flutter test integration_test -d <dispositivo>`. | Valida autenticación, permisos, paginación, detección, modo offline, navegación y componentes. |  |  |
+| TC-S2-04 | Integración web–backend | Usuario administrador y API disponible. | Ejecutar `pnpm install`, `pnpm build` y prueba manual de módulos. | Compilación satisfactoria y operaciones administrativas conectadas a API. |  |  |
 
-**Evidencias de pruebas:**  
-[Insertar capturas, reportes de pruebas automatizadas, resultados de Postman u otra herramienta utilizada.]
+### Evidencias de pruebas
 
-**Incidencias encontradas y correcciones:**  
-[Describir los errores detectados, su solución y las pruebas repetidas. Si no se detectaron errores, indicarlo solo si se comprobó.]
+- Edge: `tests/test_edge.py` contiene pruebas de API y sincronización; el README indica el comando de ejecución.
+- Móvil: existen pruebas de núcleo, contratos, reglas de detección, widgets e integración en `test/` e `integration_test/app_test.dart`.
+- Web: el repositorio provee `pnpm build`, pero no se hallaron archivos de pruebas automatizadas ni reporte de compilación.
+- Reportes de consola, capturas, resultados de CI y evidencia de prueba en hardware: 
+
+### Incidencias encontradas y correcciones
+
+| Incidencia / cambio verificable | Corrección registrada | Evidencia |
+|---|---|---|
+| Riesgo de depender de envío directo del ESP32 al backend. | Se sustituyó por gateway local con persistencia y sincronización. | `d42052e` en SafeCore-edge. |
+| Restricciones y errores de sesión/API en clientes. | La app móvil documenta manejo de 401, 403 y 429; la web implementa login, guard y cambio de contraseña. | README y commits móviles/web. |
+| Resultados reales de incidencias, correcciones repetidas y pruebas de regresión. |  |  |
 
 ## 6.2.2.6. Execution Evidence for Sprint Review
 
-**Entorno de ejecución:**  
-[Indicar entorno local, servidor, dispositivo, navegador, versión o configuración relevante.]
+### Entorno de ejecución
 
-**Procedimiento de ejecución:**  
-1. [Paso 1.]
-2. [Paso 2.]
-3. [Paso 3.]
+| Componente | Entorno/configuración documentada |
+|---|---|
+| Backend | ASP.NET Core; MySQL en Aiven; despliegue declarado en Render. |
+| Web | Vue 3, TypeScript, Vite, pnpm; desarrollo en `http://localhost:5173`; proxy hacia backend. |
+| Móvil | Flutter 3.27+; Android SDK 34+ o Android 6.0+; backend `https://backend-safecore.onrender.com`. |
+| Edge | Python 3.13, Flask, Peewee, SQLite; ESP32 con Arduino IDE. |
+| Landing | Navegador web o servidor estático, por ejemplo `python3 -m http.server 8080`. |
 
-**Resultado de la ejecución:**  
-[Describir qué ocurrió al ejecutar el flujo y si cumplió el resultado esperado.]
+### Procedimiento de ejecución
 
-**Evidencias:**  
-[Insertar capturas o enlaces a una demostración que muestren el flujo ejecutándose.]
+1. Iniciar o verificar el backend en la URL configurada.
+2. Para Edge, crear entorno virtual, instalar `requirements.txt`, configurar `.env` y ejecutar `python app.py`; cargar el firmware con la IP del gateway en el ESP32.
+3. Ejecutar la web con `pnpm install` y `pnpm dev`, o la app móvil con `flutter pub get` y `flutter run`.
+4. Iniciar sesión con un usuario autorizado o usar el modo demostración móvil; enviar una lectura y comprobar su recorrido hacia telemetría/riesgos.
 
-**Limitaciones conocidas:**  
-[Indicar errores o funcionalidades aún no operativas, si existen.]
+### Resultado de la ejecución
+
+
+### Evidencias
+
+
+### Limitaciones conocidas
+
+- El ESP32 conserva hasta 192 lecturas en RAM si no puede llegar al gateway; se pierden al reiniciar o llenar esa cola.
+- El backend no admite `event_id`; si se pierde una respuesta tras aceptar una lectura, podría duplicarse en la nube.
+- El gateway debe permanecer encendido en la red local.
+- La landing valida el formulario, pero no lo envía a un servidor.
+- La app móvil declara pendientes endpoints para editar umbrales, restablecer contraseñas y registrar tokens push.
 
 ## 6.2.2.7. Services Documentation Evidence for Sprint Review
 
-### Servicio o API: [Nombre del servicio]
+### Servicio o API: SafeCore Backend
 
-**Propósito:**  
-[Qué función cumple el servicio.]
+**Propósito:** API central ASP.NET Core para identidad, dispositivos IoT, telemetría, riesgos, coordinación de emergencias, notificaciones y configuración.
 
-**URL base:**  
-[URL del servicio desplegado o dirección local utilizada para las pruebas.]
+**URL base:** `https://backend-safecore.onrender.com`
+
+| Método HTTP | Endpoint / módulo | Descripción | Parámetros / cuerpo de solicitud | Respuesta esperada |
+|---|---|---|---|---|
+| POST | `/api/iam/auth/login` | Autentica al usuario. | Credenciales. | Token JWT; la web documenta vigencia de 15 min. |
+| CRUD | `/api/users` | Gestiona usuarios, roles y asignaciones. | Datos de usuario/rol/asignaciones. | Recursos y validaciones de autorización. |
+| CRUD | `/api/properties`, `/api/zones` | Gestiona inmuebles y zonas. | Datos de ubicación. | Recursos de ubicación. |
+| CRUD | `/api/devices` | Gestiona nodos y componentes. | Serie, componentes, zona, secreto y pruebas. | Recursos de dispositivo. |
+| GET/POST | `/api/SensorReadings` | Consulta/registra lecturas. | Datos de telemetría. | Lectura registrada o colección. |
+| CRUD | `/api/RiskSituations` | Gestiona alertas/riesgos. | Datos de situación de riesgo. | Situación de riesgo. |
+| GET | `/api/analytics/summary`, `/trends`, `/reports` | Expone analítica. | Periodo/filtros, según contrato. | Resúmenes, tendencias y reportes. |
+| CRUD | `/api/settings`, `/api/settings/thresholds` | Consulta configuración y umbrales. | Configuración. | Configuración vigente. |
+| GET | `/health/live`, `/health/ready` | Comprueba disponibilidad pública. | — | Estado de salud. |
+
+**Autenticación y validaciones:** JWT y permisos por roles; la documentación de clientes declara roles `Administrator`, `Operator`, `Responder` y `Resident`. El contrato completo con ejemplos está en [SafeCore/README.md](https://github.com/PrimeCoreGroup/SafeCore-backend/tree/main/SafeCore).
+
+**Evidencias:** [repositorio backend](https://github.com/PrimeCoreGroup/SafeCore-backend), commit `59394a8`.
+
+### Servicio o API: SafeCore Edge Service
+
+**Propósito:** API local que recibe telemetría del ESP32, la valida, la guarda en SQLite y la sincroniza con el backend.
+
+**URL base:** `http://<IP-del-gateway>:5000` *(configurable; IP usada en pruebas: )*
 
 | Método HTTP | Endpoint | Descripción | Parámetros / cuerpo de solicitud | Respuesta esperada |
 |---|---|---|---|---|
-| [GET/POST/PUT/PATCH/DELETE] | [/ruta] | [Qué hace] | [Parámetros o JSON] | [Código HTTP y ejemplo de respuesta] |
+| POST | `/api/v1/iam/authentications` | Verifica el dispositivo local. | `device_id` + cabecera `X-API-Key`. | `200` válido; `401` no autorizado. |
+| POST | `/api/v1/sensor-readings` | Guarda una lectura local. | `device_id`, `event_id`, `sensor_type`, valores de medición y `X-API-Key`. | `201` nuevo; `200` reintento idéntico; `400`, `401` o `409` ante error. |
+| GET | `/api/v1/status?device_id=UUID` | Consulta la cola local. | `device_id` y `X-API-Key`. | Conteos `pending`, `delivered`, `rejected`. |
 
-**Autenticación y validaciones:**  
-[Describir autenticación, permisos, validaciones y manejo de errores, si corresponde.]
+**Autenticación y validaciones:** todas las rutas exigen `X-API-Key`; `event_id` asegura idempotencia local. Temperatura admite −127 a 125, gas 0 a 4095 y aceleración enteros de 16 bits.
 
-**Evidencias:**  
-[Enlace a documentación, capturas de solicitudes y respuestas, pruebas o código relevante.]
-
-[Repetir por cada servicio implementado o modificado durante el Sprint 2.]
+**Evidencias:** [SafeCore-edge](https://github.com/PrimeCoreGroup/SafeCore-edge) y su [README](https://github.com/PrimeCoreGroup/SafeCore-edge/blob/main/README.md).
 
 ## 6.2.2.8. Software Deployment Evidence for Sprint Review
 
-**Aplicación o servicio desplegado:**  
-[Nombre.]
+| Aplicación o servicio desplegado | Plataforma de despliegue | URL de acceso | Versión desplegada / commit | Verificación posterior | Evidencia / faltante |
+|---|---|---|---|---|---|
+| Backend SafeCore | Render; MySQL en Aiven | `https://backend-safecore.onrender.com` | `59394a8` integra requisitos web; hash desplegado:  |  | README del backend y de la app móvil; faltan logs/capturas de Render. |
+| Web administrativa | Vercel configurado |  | `42b8a72` |  | `vercel.json` y README; falta URL pública y evidencia de despliegue. |
+| SafeCore Mobile 2.0 | GitHub Releases (APK) | [APK más reciente](https://github.com/PrimeCoreGroup/SafeCore-AppMovil/releases/latest/download/App-SafeCore.apk) | Tag `v2.0.0`; commit de integración `848962c` |  | README; faltan resultado de instalación/capturas. |
+| Landing SafeCore | GitHub Pages declarado | [Demo declarada](https://jeanxp404x.github.io/SafeCore/) | `26277d2` (08/10/2026) |  | README; despliegue no corresponde al rango inferido del Sprint 2. |
+| Gateway Edge | Equipo local en red privada |  | `d42052e` |  | README; falta IP, evidencia de hardware y logs. |
 
-**Plataforma de despliegue:**  
-[Plataforma utilizada.]
+### Procedimiento de despliegue
 
-**URL de acceso:**  
-[URL pública verificable, si existe.]
+- Backend: el repositorio contiene `Dockerfile`, `render.yaml` y `compose.yaml`; los secretos no se documentan en este informe.
+- Web: `vercel.json` reenvía `/api/*` al backend y redirige rutas SPA a `index.html`.
+- Móvil: compilar con `flutter build apk --release` o descargar el APK publicado.
+- Edge: instalar dependencias, configurar `.env`, iniciar el gateway y cargar el firmware del ESP32 con `config.h` local.
+- Landing: publicar el contenido estático en GitHub Pages, Netlify o Vercel.
 
-**Versión desplegada / commit:**  
-[Versión, hash del commit o referencia equivalente.]
+### Problemas de despliegue y solución
 
-**Procedimiento de despliegue:**  
-[Resumir los pasos y la configuración importante, sin incluir contraseñas, tokens ni secretos.]
-
-**Verificación posterior al despliegue:**  
-[Explicar cómo se comprobó que la versión desplegada funciona.]
-
-**Evidencias:**  
-[Insertar captura de la aplicación desplegada, estado del despliegue, logs pertinentes o enlace.]
-
-**Problemas de despliegue y solución:**  
-[Describir problemas reales y cómo se resolvieron; si no hubo, indicarlo si se verificó.]
+| Problema y solución verificables | Evidencia |
+|---|---|
+| Se corrigieron rutas del Dockerfile de Render y se añadió el Dockerfile. | Commits `09c899f` y `eb51914` del backend, 08/10/2026. |
+| Se preparó Vercel para la SPA y se eliminó una incompatibilidad de *overrides* de pnpm. | Commits `bac4ea0` y `c3f9f0a` de la web, 08/10/2026. |
+| Otros incidentes y verificación postdespliegue. |  |
 
 ## 6.2.2.9. Team Collaboration Insights during Sprint
 
 **Organización y comunicación:**  
-[Describir cómo se coordinaron, qué herramientas utilizaron y cómo hicieron seguimiento de las tareas.]
+La integración entre repositorios revela una secuencia técnica de dependencias: backend como API central; web y móvil como clientes; y Edge como productor/sincronizador de telemetría. Herramientas de comunicación, tablero, frecuencia de seguimiento y ceremonias realizadas: 
+
 
 **Colaboración entre integrantes:**  
-[Explicar ejemplos concretos de apoyo, revisión de código, integración, pruebas o resolución conjunta de problemas.]
+La colaboración técnica observable consiste en que los cambios de backend de Raul habilitan los módulos integrados por DamianIH en la web, Charlie404 en móvil y Carlos Gonzalez en Edge. No se encontraron pull requests, comentarios de revisión ni asignaciones de tareas en la evidencia revisada.
+
 
 **Gestión de cambios o bloqueos:**  
-[Describir dificultades reales, decisiones tomadas y cómo se resolvieron.]
+El cambio del envío directo del ESP32 hacia un gateway persistente es el principal ajuste verificable. Motivo, decisión del equipo y registro de bloqueos: 
 
 **Aprendizajes del sprint:**  
-[Indicar qué funcionó bien y qué debería mejorarse en el siguiente sprint.]
+- La separación backend–clientes–gateway permite integrar responsabilidades distintas por componente.
+- La cola local del gateway reduce el riesgo de pérdida de telemetría durante fallas de Internet, aunque requiere validación con hardware y contempla límites explícitos.
+- Para el siguiente sprint se requiere centralizar evidencia ejecutada: resultados de pruebas, capturas, logs de despliegue, URL de la web y actas de coordinación.
+
 
 **Evidencias de colaboración:**  
 [Agregar enlaces o capturas pertinentes de issues, tablero de tareas, pull requests, revisiones de código o commits.]
