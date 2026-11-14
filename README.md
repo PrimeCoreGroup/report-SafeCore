@@ -4132,32 +4132,76 @@ Al inicio de la entrevista se explicó el propósito de la sesión y se solicit�
 
 ### Entrevista 1
 
-- **Código del participante:** [P-01]
-- **Perfil o segmento:** [Perfil general, sin datos personales innecesarios]
-- **Fecha y modalidad:** [Fecha; presencial/remota]
-- **Solución o funcionalidad evaluada:** [Nombre]
-- **Tareas realizadas:** [Tareas solicitadas]
+## Ficha de entrevista
 
-**Preguntas y respuestas relevantes:**
+| Campo | Registro |
+|---|---|
+| Código de entrevista | E-01 |
+| Fecha |  |
+| Entrevistado | Yvon Cerrón |
+| Entrevistador(a) |  |
+| Perfil / tipo de usuario | Usuario potencial de una vivienda o edificio |
+| Modalidad |  |
+| Consentimiento para registrar respuestas |  |
+| Objetivo | Conocer la percepción del usuario sobre las medidas de seguridad ante sismos e incendios, y validar la claridad, utilidad y oportunidades de mejora de SafeCore. |
+
+
+## Resumen de la entrevista
+
+Yvon Cerrón considera que las medidas habituales —extintores, señalización, rutas de evacuación y simulacros— son necesarias, pero pueden ser insuficientes cuando las personas no reaccionan a tiempo durante una emergencia. Sus principales preocupaciones son la evacuación tardía, puertas bloqueadas, pérdida de energía, alarmas poco audibles y la dificultad de identificar el lugar donde ocurre un incidente.
+
+El participante comprendió que SafeCore utiliza sensores para detectar sismos e incendios y activar medidas de seguridad. Valoró especialmente la automatización y el funcionamiento local ante problemas de Internet. También identificó correctamente el botón de solicitud de demo, el formulario de contacto y el propósito general del panel de monitoreo.
+
+Como oportunidades de mejora, solicitó evidencia real mediante videos o demostraciones de funcionamiento, información sobre costos y equipos requeridos, alertas más visibles y accionables, indicadores simples para usuarios no técnicos, y un plano del edificio con sensores, rutas de evacuación y estado de mantenimiento.
+
+### Preguntas y respuestas relevantes
 
 | Pregunta | Resumen de la respuesta |
 |---|---|
-| [Pregunta 1] | [Respuesta resumida] |
-| [Pregunta 2] | [Respuesta resumida] |
-| [Pregunta 3] | [Respuesta resumida] |
+| ¿Las medidas actuales de seguridad son suficientes? | Son importantes, pero la reacción humana puede ser tardía o verse afectada por el nerviosismo durante una emergencia. |
+| ¿Comprende qué es SafeCore y para quién está dirigido? | Sí. Lo identifica como un sistema con sensores para sismos e incendios, aplicable a casas, edificios y empresas. |
+| ¿Qué genera confianza y qué falta? | La información es clara y el funcionamiento local resulta valioso; faltan videos o demostraciones reales. |
+| ¿Qué debería mejorar el panel y las alertas? | Las alertas deben resaltar más e indicar qué ocurrió, dónde ocurrió, qué hizo el sistema y qué pasos seguir. |
+| ¿Qué información adicional espera? | Costos, equipos necesarios, plano con sensores y rutas de evacuación, mantenimiento y estado operativo de dispositivos. |
 
-**Observaciones durante la prueba:**  
-[Describir dificultades, dudas, errores o comportamientos observados.]
+## Hallazgos principales
 
-**Hallazgos principales:**  
-- [Hallazgo 1.]
-- [Hallazgo 2.]
+| Hallazgo | Evidencia de la entrevista | Implicancia para SafeCore |
+|---|---|---|
+| Las medidas tradicionales son necesarias, pero pueden ser insuficientes ante la reacción humana. | Se mencionan extintores, señalización, rutas y simulacros, junto con preocupación por el nerviosismo o una reacción tardía. | Reforzar el mensaje de detección y respuesta automatizada como complemento de los protocolos existentes. |
+| La evacuación y la identificación rápida del riesgo son prioridades. | Preocupan puertas bloqueadas, pérdida de luz, alarmas inaudibles y no ubicar el problema. | Priorizar alertas con ubicación, criticidad y acciones sugeridas; evaluar integración con rutas de evacuación. |
+| La propuesta de valor es comprensible. | Identifica correctamente sensores, detección de sismos/incendios, respuesta automática y público objetivo. | Mantener la explicación actual de la landing y del flujo de detección. |
+| Se requiere mayor evidencia de confianza. | Solicita videos o demostraciones reales de respuesta ante sismo o incendio. | Añadir una sección de demostración, video o evidencia de pruebas reales. |
+| El contacto es claro, pero falta información comercial. | Identifica CTA y formulario; solicita precios de instalación y equipos necesarios. | Incorporar información orientativa de paquetes, equipamiento, proceso de instalación o cotización. |
+| Las alertas deben resaltar más. | Sugiere hacer las alertas importantes más visibles en el panel. | Mejorar jerarquía visual por severidad: color, icono, prioridad y persistencia. |
+| Las alertas necesitan contexto y guía de acción. | Pide saber qué ocurrió, dónde ocurrió, qué hizo el sistema y qué debe hacer la persona. | Diseñar detalle de alerta con zona, evento, acciones automáticas, estado y protocolo sugerido. |
+| La interfaz debe ser entendible para usuarios no técnicos. | Recomienda colores, íconos simples y la zona de cada sensor. | Aplicar lenguaje simple, iconografía consistente y etiquetas de ubicación. |
+| Falta una vista espacial y operativa. | Solicita mapa/plano, rutas de evacuación, último mantenimiento y estado de dispositivos. | Evaluar un módulo de plano del inmueble, inventario de mantenimiento y salud de dispositivos. |
 
-**Mejoras identificadas o decisiones tomadas:**  
-[Explicar qué se modificará, qué se priorizará o por qué no se realizará un cambio.]
+## Decisiones y mejoras propuestas
 
-**Evidencia:**  
-[Enlace o referencia a notas, registro autorizado, captura o video, cuidando la privacidad del participante.]
+| Prioridad | Mejora propuesta | Producto afectado | Justificación |
+|---|---|---|---|
+| Alta | Mostrar ubicación, severidad, acciones ejecutadas y pasos recomendados en cada alerta. | Aplicación web y móvil | Facilita una respuesta informada durante una emergencia. |
+| Alta | Crear evidencia visual de funcionamiento: video, demo o resultados de pruebas. | Landing Page | Aumenta la confianza antes de solicitar o instalar el producto. |
+| Media | Destacar alertas críticas mediante color, iconos y jerarquía visual. | Aplicación web y móvil | Permite identificar más rápido eventos prioritarios. |
+| Media | Mostrar la zona asociada a cada sensor con iconografía simple. | Aplicación web y móvil | Reduce confusión para usuarios no técnicos. |
+| Media | Incluir un plano o mapa del edificio con sensores y rutas de evacuación. | Aplicación web y móvil | Permite ubicar el evento y apoyar la evacuación. |
+| Media | Incluir información de paquetes, equipos requeridos y cotización. | Landing Page | Responde a dudas previas a la contratación. |
+| Baja | Mostrar historial de mantenimiento y estado operativo por dispositivo. | Aplicación web y móvil | Mejora el seguimiento preventivo del sistema. |
+
+## Conclusión
+
+La entrevista valida que SafeCore es comprensible y que su capacidad de detección y respuesta automática resulta valiosa para un usuario potencial. La principal oportunidad de mejora es generar confianza mediante demostraciones reales y ofrecer alertas más claras, contextualizadas y accionables. También se identifican necesidades de información comercial, visualización espacial del inmueble y seguimiento de mantenimiento.
+
+## Evidencia adjunta
+
+| Evidencia | Enlace o archivo |
+|---|---|
+| Registro de respuestas | Contenido proporcionado por el equipo. |
+| Captura, audio o video de entrevista |  |
+| Consentimiento del entrevistado |  |
+
 
 ### Entrevista 2
 
