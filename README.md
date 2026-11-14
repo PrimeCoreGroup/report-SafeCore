@@ -211,6 +211,20 @@ El curso contribuye al cumplimiento del Student Outcome ABET: **ABET – EAC - S
 
 En el siguiente cuadro se describen las acciones realizadas y las conclusiones formuladas por parte del grupo, que permiten sustentar el logro del **ABET – EAC - Student Outcome 5**.
 
+### AV2 — Aportes de los integrantes
+
+| Integrante | Aporte en AV2 |
+|---|---|
+| **Taquiri Calderón, Jhunior Giussepe** | Coordinó la consolidación del informe y registró la evidencia de validación de SafeCore, articulando los avances de Landing Page, Aplicación Web, Backend y Gateway. |
+| **Lagos Rivera, Kael Valentino** | Apoyó la consolidación de la evidencia de despliegue y documentación del informe, manteniendo la trazabilidad entre los avances del sprint y sus entregables. |
+| **Gonzalez Custodio, Carlos Alberto** | Implementó e integró el Gateway Edge y el firmware con los servicios backend, incluyendo comunicación local, persistencia de eventos y sincronización HTTPS. |
+| **Tasayco Almonacid, Rafael Augusto** | Colaboró en la revisión técnica de Backend Services y en la integración de los entregables del sprint junto con el responsable de backend. |
+| **Tasayco Osorio, Raúl Hiroshi** | Lideró la ampliación de Backend Services, extendiendo endpoints de dispositivos, usuarios, propiedades, zonas, configuración, riesgos, analítica y emergencias, con sus migraciones. |
+| **Inga Hernandez, Ayrton Damian** | Integró la Aplicación Web con la API para los flujos de autenticación, usuarios con roles, nodos, ubicaciones, alertas, configuración y analítica. |
+| **Huaman De La Cruz, Jean Pool** | Contribuyó a la revisión y alineamiento de la Landing Page con la propuesta de valor y los flujos de la aplicación, manteniendo consistencia de cara a la validación. |
+
+**Conclusión AV2:** La colaboración integró Landing Page, Aplicación Web, Backend Services, Gateway Edge, despliegue y documentación. Esta coordinación permitió consolidar evidencia técnica y realizar la validación de SafeCore con un usuario potencial.
+
 | Criterio específico | Acciones realizadas | Conclusiones |
 |---|---|---|
 | **Trabaja en equipo para proporcionar liderazgo en forma conjunta.** | **Taquiri, Giuseppe**<br>AV1: Desarrolló y documentó el diseño estratégico de la solución, trabajando en EventStorming, Candidate Context Discovery, Domain Message Flows Modeling, incorporando Domain Storytelling, Bounded Context Canvases con sus 6 pasos de elaboración y Context Mapping mediante las Opciones 1, 2 y 3.<br>TB1: Contribuí a la actualización y consolidación del informe del proyecto SafeCore, revisando y organizando los artefactos de diseño estratégico del dominio, incluyendo EventStorming, Domain Storytelling, Bounded Context Canvases y Context Mapping. Asimismo, participé en la integración de la documentación del equipo y en la organización de los cambios realizados para la entrega.<br><br>**Lagos Rivera, Kael Valentino**<br>AV1: Participó en el desarrollo y documentación de los artefactos asignados al equipo, coordinando sus actividades con los demás integrantes y contribuyendo a la integración de los resultados en el informe del proyecto.<br>TB1: Corrigió los puntos que se encontraban en observación de la anterior entrega, agregó una nueva entrevista para el segmento 2, identificó los insights de su entrevista para el desarrollo del proyecto, incorporó los puntos correspondientes al capítulo 5 y agregó nuevos enlaces a la bibliografía del informe.<br><br>**Gonzalez Custodio, Carlos Alberto**<br>AV1: Participó en la elaboración y documentación de los artefactos correspondientes a la entrega, coordinando sus actividades con los integrantes del equipo y contribuyendo al avance conjunto del proyecto.<br>TB1: Colaboró en el desarrollo y documentación de los entregables del Sprint 1, participando en la revisión e integración de los aportes del equipo y coordinando sus actividades con los demás integrantes para contribuir al cumplimiento de los objetivos establecidos.<br><br>**Tasayco Almonacid, Rafael Augusto**<br>AV1: Participó en el desarrollo de los artefactos asignados para la entrega y coordinó sus actividades con los demás integrantes para integrar los resultados en una propuesta común.<br>TB1: Apoyó en la coordinación, planificación y revisión de las tareas de la entrega TB1, colaborando con los integrantes del equipo para integrar los avances y contribuir al cumplimiento de los objetivos del Sprint 1.<br><br>**Tasayco Osorio, Raúl Hiroshi**<br>AV1: Participó en la elaboración de los artefactos del proyecto correspondientes a su responsabilidad, colaborando con los demás integrantes para cumplir las actividades planificadas para AV1.<br>TB1: Participó en la revisión y documentación de los artefactos de TB1, apoyando la integración de los aportes del equipo y el cumplimiento de los objetivos del Sprint 1.<br><br>**Inga Hernandez, Ayrton Damian**<br>AV1: Participó en las actividades de desarrollo y documentación del proyecto, coordinando sus aportes con los demás integrantes y contribuyendo al cumplimiento de los objetivos establecidos para la entrega.<br>TB1: Lideró el desarrollo de la aplicación web con Vue 3 y TypeScript, definiendo su estructura por módulos y coordinando con backend la integración de los endpoints disponibles. Configuró su despliegue en Vercel.<br><br>**Huaman De La Cruz, Jean Pool**<br>AV1: Participó en la elaboración y documentación de los artefactos del proyecto, coordinando sus actividades con el equipo y contribuyendo a la integración de los diferentes aportes en el informe de AV1.<br>TB1: Lideró la implementación de la Landing Page, asegurando su despliegue y la comunicación de la propuesta de valor, y coordinó con el equipo de diseño para mantener la consistencia visual. | La participación conjunta de los integrantes permitió distribuir responsabilidades y desarrollar diferentes actividades del trabajo final. La coordinación entre los miembros permitió integrar los aportes individuales dentro de una estructura común y avanzar en la elaboración de los artefactos correspondientes a AV1. La participación en las actividades de análisis, diseño y documentación permitió establecer una base común para la evolución posterior de la solución IoT.<br><br>Durante TB1, el equipo distribuyó responsabilidades por aspectos, incluyendo backend, frontend, Landing Page, diseño UI/UX en Figma y documentación. Esta organización permitió avanzar en paralelo y coordinar la integración de los productos digitales y la documentación correspondiente al Sprint 1. |
@@ -4137,11 +4151,12 @@ Al inicio de la entrevista se explicó el propósito de la sesión y se solicit�
 | Campo | Registro |
 |---|---|
 | Código de entrevista | E-01 |
-| Fecha |  |
+| Fecha | 13/11/2026 |
+| Hora aproximada | 7:00 p. m. |
 | Entrevistado | Yvon Cerrón |
-| Entrevistador(a) |  |
+| Entrevistador(a) | Giuseppe Taquiri |
 | Perfil / tipo de usuario | Usuario potencial de una vivienda o edificio |
-| Modalidad |  |
+| Modalidad | Virtual |
 | Consentimiento para registrar respuestas |  |
 | Objetivo | Conocer la percepción del usuario sobre las medidas de seguridad ante sismos e incendios, y validar la claridad, utilidad y oportunidades de mejora de SafeCore. |
 
@@ -4199,7 +4214,7 @@ La entrevista valida que SafeCore es comprensible y que su capacidad de detecci�
 | Evidencia | Enlace o archivo |
 |---|---|
 | Registro de respuestas | Contenido proporcionado por el equipo. |
-| Captura, audio o video de entrevista |  |
+| Captura, audio o video de entrevista | [Ver grabación de la entrevista de validación](https://upcedupe-my.sharepoint.com/:v:/g/personal/u20221c576_upc_edu_pe/IQDVEOSLyf5YSJf3wSkuibECAVfvyNjf9yOPrV_5bJYcHqs?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=daCWXf) |
 | Consentimiento del entrevistado |  |
 
 
