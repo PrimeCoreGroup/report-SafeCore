@@ -57,6 +57,7 @@ La siguiente captura presenta los analíticos de colaboración del repositorio d
 |---------|-------|-------|-------------------------------|
 | 1.0 | 19/09/2026 | PrimeCore Group | Desarrollo y consolidación del informe del proyecto SafeCore, incluyendo la presentación de la Startup y Solution Profile, análisis de la problemática, Lean UX, segmentos objetivo, investigación mediante entrevistas, Needfinding, User Personas, User Task Matrix, User Journey Mapping, Empathy Mapping, requisitos, User Stories, Impact Mapping, Product Backlog, Big Picture EventStorming, Ubiquitous Language, Strategic-Level Domain-Driven Design, Bounded Contexts, Context Mapping, Domain Message Flows, arquitectura de software, diagramas de arquitectura y diagramas de clases de dominio. Se integraron además los aportes y documentación desarrollados por los integrantes del equipo. |
 | 2.0 | 19/09/2026 | PrimeCore Group | Actualización y consolidación del informe para la entrega TP1 del proyecto SafeCore. Se revisaron y organizaron los artefactos de análisis del problema, investigación de usuarios y especificación de requisitos; se integraron los resultados de Lean UX y UX Research, los User Personas y los mapas de experiencia, así como las User Stories, los criterios de aceptación, el Impact Map y el Product Backlog. Asimismo, se revisaron los artefactos de Domain-Driven Design, el modelado del dominio y la propuesta de arquitectura de software, consolidando la documentación disponible. |
+| 3.0 | 14/11/2026 | PrimeCore Group | Actualización y consolidación del informe del proyecto SafeCore para la entrega AV2. Se revisaron, corrigieron y mejoraron los artefactos presentados en entregas anteriores. Se incorporó la documentación del Sprint 2, incluyendo Sprint Planning, Aspect Leader and Collaborators, Sprint Backlog, evidencias de desarrollo, pruebas, ejecución, documentación de servicios, despliegue y colaboración del equipo. Asimismo, se actualizaron los avances de implementación y despliegue del Landing Page, las Frontend Web Applications, Mobile y Embedded Applications, junto con los demás componentes de la solución IoT. Se incorporaron las secciones de Validation Interviews, incluyendo diseño de entrevistas, registro de entrevistas y evaluaciones según heurísticas, así como la documentación de los videos About-the-Product y About-the-Team. Finalmente, se actualizaron las secciones Project Report Collaboration Insights y Student Outcome, además de los avances de conclusiones, bibliografía y anexos. |
 
 
 <div style="page-break-after: always;"></div>
@@ -210,20 +211,6 @@ El curso contribuye al cumplimiento del Student Outcome ABET: **ABET – EAC - S
 **Criterio:** La capacidad de funcionar efectivamente en un equipo cuyos miembros juntos proporcionan liderazgo, crean un entorno de colaboración e inclusivo, establecen objetivos, planifican tareas y cumplen objetivos.
 
 En el siguiente cuadro se describen las acciones realizadas y las conclusiones formuladas por parte del grupo, que permiten sustentar el logro del **ABET – EAC - Student Outcome 5**.
-
-### AV2 — Aportes de los integrantes
-
-| Integrante | Aporte en AV2 |
-|---|---|
-| **Taquiri Calderón, Jhunior Giussepe** | Coordinó la consolidación del informe y registró la evidencia de validación de SafeCore, articulando los avances de Landing Page, Aplicación Web, Backend y Gateway. |
-| **Lagos Rivera, Kael Valentino** | Apoyó la consolidación de la evidencia de despliegue y documentación del informe, manteniendo la trazabilidad entre los avances del sprint y sus entregables. |
-| **Gonzalez Custodio, Carlos Alberto** | Implementó e integró el Gateway Edge y el firmware con los servicios backend, incluyendo comunicación local, persistencia de eventos y sincronización HTTPS. |
-| **Tasayco Almonacid, Rafael Augusto** | Colaboró en la revisión técnica de Backend Services y en la integración de los entregables del sprint junto con el responsable de backend. |
-| **Tasayco Osorio, Raúl Hiroshi** | Lideró la ampliación de Backend Services, extendiendo endpoints de dispositivos, usuarios, propiedades, zonas, configuración, riesgos, analítica y emergencias, con sus migraciones. |
-| **Inga Hernandez, Ayrton Damian** | Integró la Aplicación Web con la API para los flujos de autenticación, usuarios con roles, nodos, ubicaciones, alertas, configuración y analítica. |
-| **Huaman De La Cruz, Jean Pool** | Contribuyó a la revisión y alineamiento de la Landing Page con la propuesta de valor y los flujos de la aplicación, manteniendo consistencia de cara a la validación. |
-
-**Conclusión AV2:** La colaboración integró Landing Page, Aplicación Web, Backend Services, Gateway Edge, despliegue y documentación. Esta coordinación permitió consolidar evidencia técnica y realizar la validación de SafeCore con un usuario potencial.
 
 | Criterio específico | Acciones realizadas | Conclusiones |
 |---|---|---|
@@ -4154,9 +4141,9 @@ Al inicio de la entrevista se explicó el propósito de la sesión y se solicit�
 | Fecha | 13/11/2026 |
 | Hora aproximada | 7:00 p. m. |
 | Entrevistado | Yvon Cerrón |
-| Entrevistador(a) | Giuseppe Taquiri |
+| Entrevistador(a) |  |
 | Perfil / tipo de usuario | Usuario potencial de una vivienda o edificio |
-| Modalidad | Virtual |
+| Modalidad |  |
 | Consentimiento para registrar respuestas |  |
 | Objetivo | Conocer la percepción del usuario sobre las medidas de seguridad ante sismos e incendios, y validar la claridad, utilidad y oportunidades de mejora de SafeCore. |
 
@@ -4233,21 +4220,6 @@ La entrevista valida que SafeCore es comprensible y que su capacidad de detecci�
 
 ---
 
-# Actualizaciones generales para AV2
-
-## Registro de Versiones del Informe
-
-| Versión | Fecha | Autor | Descripción de modificación |
-|---|---|---|---|
-| [Versión] | [Fecha] | [Nombre] | [Cambios realizados para AV2] |
-
-## Project Report Collaboration Insights
-
-[Insertar o actualizar la evidencia de colaboración del equipo correspondiente al avance AV2 y explicar brevemente qué representa.]
-
-## Student Outcome
-
-[Actualizar las acciones realizadas y las conclusiones del equipo con evidencias concretas de colaboración, planificación, liderazgo y cumplimiento de objetivos, según el formato del informe.]
 
 
 
