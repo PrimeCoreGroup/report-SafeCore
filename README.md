@@ -51,6 +51,14 @@ La siguiente captura presenta los analíticos de colaboración del repositorio d
 
 ![Analíticos de colaboración del proyecto](assets/ProjectCollaboration/av1.png)
 
+## AV2. GitHub Collaboration Analytics
+
+La siguiente captura muestra las contribuciones por integrante registradas en GitHub durante el periodo de los últimos tres meses. Esta evidencia complementa el reporte de AV2 al mostrar la participación del equipo mediante commits en los repositorios del proyecto.
+
+**AV2:** *Contribuciones por integrante y actividad de commits en GitHub.*
+
+![Contribuciones por integrante en GitHub para AV2](assets/ProjectCollaboration/av2-contributors.png)
+
 # Registro de Versiones del Informe
 
 | Versión | Fecha | Autor | Descripción de modificación |
