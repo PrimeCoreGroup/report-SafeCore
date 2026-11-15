@@ -214,8 +214,8 @@ En el siguiente cuadro se describen las acciones realizadas y las conclusiones f
 
 | Criterio específico | Acciones realizadas | Conclusiones |
 |---|---|---|
-| **Trabaja en equipo para proporcionar liderazgo en forma conjunta.** | **Taquiri, Giuseppe**<br>AV1: Desarrolló y documentó el diseño estratégico de la solución, trabajando en EventStorming, Candidate Context Discovery, Domain Message Flows Modeling, incorporando Domain Storytelling, Bounded Context Canvases con sus 6 pasos de elaboración y Context Mapping mediante las Opciones 1, 2 y 3.<br>TB1: Contribuí a la actualización y consolidación del informe del proyecto SafeCore, revisando y organizando los artefactos de diseño estratégico del dominio, incluyendo EventStorming, Domain Storytelling, Bounded Context Canvases y Context Mapping. Asimismo, participé en la integración de la documentación del equipo y en la organización de los cambios realizados para la entrega.<br><br>**Lagos Rivera, Kael Valentino**<br>AV1: Participó en el desarrollo y documentación de los artefactos asignados al equipo, coordinando sus actividades con los demás integrantes y contribuyendo a la integración de los resultados en el informe del proyecto.<br>TB1: Corrigió los puntos que se encontraban en observación de la anterior entrega, agregó una nueva entrevista para el segmento 2, identificó los insights de su entrevista para el desarrollo del proyecto, incorporó los puntos correspondientes al capítulo 5 y agregó nuevos enlaces a la bibliografía del informe.<br><br>**Gonzalez Custodio, Carlos Alberto**<br>AV1: Participó en la elaboración y documentación de los artefactos correspondientes a la entrega, coordinando sus actividades con los integrantes del equipo y contribuyendo al avance conjunto del proyecto.<br>TB1: Colaboró en el desarrollo y documentación de los entregables del Sprint 1, participando en la revisión e integración de los aportes del equipo y coordinando sus actividades con los demás integrantes para contribuir al cumplimiento de los objetivos establecidos.<br><br>**Tasayco Almonacid, Rafael Augusto**<br>AV1: Participó en el desarrollo de los artefactos asignados para la entrega y coordinó sus actividades con los demás integrantes para integrar los resultados en una propuesta común.<br>TB1: Apoyó en la coordinación, planificación y revisión de las tareas de la entrega TB1, colaborando con los integrantes del equipo para integrar los avances y contribuir al cumplimiento de los objetivos del Sprint 1.<br><br>**Tasayco Osorio, Raúl Hiroshi**<br>AV1: Participó en la elaboración de los artefactos del proyecto correspondientes a su responsabilidad, colaborando con los demás integrantes para cumplir las actividades planificadas para AV1.<br>TB1: Participó en la revisión y documentación de los artefactos de TB1, apoyando la integración de los aportes del equipo y el cumplimiento de los objetivos del Sprint 1.<br><br>**Inga Hernandez, Ayrton Damian**<br>AV1: Participó en las actividades de desarrollo y documentación del proyecto, coordinando sus aportes con los demás integrantes y contribuyendo al cumplimiento de los objetivos establecidos para la entrega.<br>TB1: Lideró el desarrollo de la aplicación web con Vue 3 y TypeScript, definiendo su estructura por módulos y coordinando con backend la integración de los endpoints disponibles. Configuró su despliegue en Vercel.<br><br>**Huaman De La Cruz, Jean Pool**<br>AV1: Participó en la elaboración y documentación de los artefactos del proyecto, coordinando sus actividades con el equipo y contribuyendo a la integración de los diferentes aportes en el informe de AV1.<br>TB1: Lideró la implementación de la Landing Page, asegurando su despliegue y la comunicación de la propuesta de valor, y coordinó con el equipo de diseño para mantener la consistencia visual. | La participación conjunta de los integrantes permitió distribuir responsabilidades y desarrollar diferentes actividades del trabajo final. La coordinación entre los miembros permitió integrar los aportes individuales dentro de una estructura común y avanzar en la elaboración de los artefactos correspondientes a AV1. La participación en las actividades de análisis, diseño y documentación permitió establecer una base común para la evolución posterior de la solución IoT.<br><br>Durante TB1, el equipo distribuyó responsabilidades por aspectos, incluyendo backend, frontend, Landing Page, diseño UI/UX en Figma y documentación. Esta organización permitió avanzar en paralelo y coordinar la integración de los productos digitales y la documentación correspondiente al Sprint 1. |
-| **Crea un entorno colaborativo e inclusivo, establece metas, planifica tareas y cumple objetivos.** | **Taquiri, Giuseppe**<br>AV1: Participó en la elaboración y documentación del diseño estratégico de la solución, contribuyendo al desarrollo de EventStorming, Domain Storytelling, Bounded Context Canvases y Context Mapping. Coordinó sus actividades con los integrantes del equipo para integrar los resultados en el informe.<br>TB1: Coordiné e integré los avances de la documentación del proyecto SafeCore, contribuyendo a la organización del informe y al cumplimiento de los objetivos establecidos para la entrega. Además, colaboré en la revisión de los artefactos de análisis, diseño y arquitectura, procurando mantener la coherencia entre las contribuciones de los integrantes del equipo.<br><br>**Lagos Rivera, Kael Valentino**<br>AV1: Participó en las actividades asignadas, coordinando avances con el equipo y contribuyendo a la elaboración e integración de los artefactos requeridos para la entrega.<br>TB1: Colaboró en Figma, estableciendo metas de diseño y coordinando con los responsables de frontend y Landing Page para cumplir con los entregables visuales.<br><br>**Gonzalez Custodio, Carlos Alberto**<br>AV1: Participó en las actividades planificadas para AV1 y colaboró con los integrantes del equipo en la elaboración, revisión e integración de los artefactos del proyecto.<br>TB1: Colaboró en Figma, planificando tareas de diseño y revisando que los mockups cumplieran con los requisitos del Sprint 1.<br><br>**Tasayco Almonacid, Rafael Augusto**<br>AV1: Participó en las tareas asignadas para la entrega, manteniendo coordinación con los integrantes del equipo y contribuyendo al cumplimiento de los objetivos establecidos para AV1.<br>TB1: Apoyó en la planificación y revisión de las tareas de TB1, manteniendo la coordinación con los integrantes del equipo y contribuyendo al cumplimiento de los objetivos establecidos para la entrega.<br><br>**Tasayco Osorio, Raúl Hiroshi**<br>AV1: Participó en las actividades de elaboración y revisión de los artefactos correspondientes a AV1, colaborando con el equipo para organizar y completar las tareas planificadas.<br>TB1: Participó en la implementación del backend mediante el desarrollo de distintos endpoints y la configuración de la base de datos, integrando ambos componentes y apoyando el despliegue en la nube.<br><br>**Inga Hernandez, Ayrton Damian**<br>AV1: Participó en las actividades planificadas para la entrega, coordinando sus avances con el equipo y contribuyendo a la elaboración y revisión de los artefactos incluidos en el informe.<br>TB1: Participó en el Sprint Planning y asumió tareas de la aplicación web relacionadas con los módulos de Sensores IoT, Alertas y Panel principal. Documentó qué módulos utilizan la API y cuáles todavía emplean datos de ejemplo.<br><br>**Huaman De La Cruz, Jean Pool**<br>AV1: Participó en la elaboración y revisión de los artefactos correspondientes a AV1, coordinando sus actividades con el equipo y contribuyendo al cumplimiento de las tareas planificadas.<br>TB1: Planificó e implementó la Landing Page, coordinando las actividades de diseño y despliegue para contribuir al cumplimiento de los objetivos del Sprint 1. | El trabajo realizado de manera colaborativa permitió organizar las actividades del equipo y contribuir al cumplimiento de los objetivos establecidos para AV1. La coordinación entre los integrantes facilitó la integración de los diferentes artefactos y permitió mantener una estructura común en el desarrollo del proyecto. Los aportes individuales se incorporaron progresivamente al informe y permitieron establecer una base para las siguientes etapas del ciclo de vida de SafeCore.<br><br>Durante TB1, el equipo estableció metas por sprint, planificó tareas por aspecto y distribuyó responsabilidades para avanzar en los entregables. La comunicación y coordinación entre los integrantes facilitaron la integración de los componentes digitales, las actividades de diseño y la documentación del proyecto. |
+| **Trabaja en equipo para proporcionar liderazgo en forma conjunta.** | **Taquiri, Giuseppe**<br>AV1: Desarrolló y documentó el diseño estratégico de la solución, trabajando en EventStorming, Candidate Context Discovery, Domain Message Flows Modeling, incorporando Domain Storytelling, Bounded Context Canvases con sus 6 pasos de elaboración y Context Mapping mediante las Opciones 1, 2 y 3.<br>TB1: Contribuí a la actualización y consolidación del informe del proyecto SafeCore, revisando y organizando los artefactos de diseño estratégico del dominio, incluyendo EventStorming, Domain Storytelling, Bounded Context Canvases y Context Mapping. Asimismo, participé en la integración de la documentación del equipo y en la organización de los cambios realizados para la entrega.<br>AV2: Coordinó la consolidación del informe y registró la evidencia de validación de SafeCore, articulando los avances de Landing Page, Aplicación Web, Backend y Gateway.<br><br>**Lagos Rivera, Kael Valentino**<br>AV1: Participó en el desarrollo y documentación de los artefactos asignados al equipo, coordinando sus actividades con los demás integrantes y contribuyendo a la integración de los resultados en el informe del proyecto.<br>TB1: Corrigió los puntos que se encontraban en observación de la anterior entrega, agregó una nueva entrevista para el segmento 2, identificó los insights de su entrevista para el desarrollo del proyecto, incorporó los puntos correspondientes al capítulo 5 y agregó nuevos enlaces a la bibliografía del informe.<br>AV2: Apoyó la consolidación de la evidencia de despliegue y documentación, manteniendo la trazabilidad entre los avances del sprint y sus entregables.<br><br>**Gonzalez Custodio, Carlos Alberto**<br>AV1: Participó en la elaboración y documentación de los artefactos correspondientes a la entrega, coordinando sus actividades con los integrantes del equipo y contribuyendo al avance conjunto del proyecto.<br>TB1: Colaboró en el desarrollo y documentación de los entregables del Sprint 1, participando en la revisión e integración de los aportes del equipo y coordinando sus actividades con los demás integrantes para contribuir al cumplimiento de los objetivos establecidos.<br>AV2: Implementó e integró el Gateway Edge y el firmware con los servicios backend, incluyendo comunicación local, persistencia de eventos y sincronización HTTPS.<br><br>**Tasayco Almonacid, Rafael Augusto**<br>AV1: Participó en el desarrollo de los artefactos asignados para la entrega y coordinó sus actividades con los demás integrantes para integrar los resultados en una propuesta común.<br>TB1: Apoyó en la coordinación, planificación y revisión de las tareas de la entrega TB1, colaborando con los integrantes del equipo para integrar los avances y contribuir al cumplimiento de los objetivos del Sprint 1.<br>AV2: Colaboró en la revisión técnica de Backend Services y en la integración de los entregables del sprint junto con el responsable de backend.<br><br>**Tasayco Osorio, Raúl Hiroshi**<br>AV1: Participó en la elaboración de los artefactos del proyecto correspondientes a su responsabilidad, colaborando con los demás integrantes para cumplir las actividades planificadas para AV1.<br>TB1: Participó en la revisión y documentación de los artefactos de TB1, apoyando la integración de los aportes del equipo y el cumplimiento de los objetivos del Sprint 1.<br>AV2: Lideró la ampliación de Backend Services, extendiendo endpoints de dispositivos, usuarios, propiedades, zonas, configuración, riesgos, analítica y emergencias, con sus migraciones.<br><br>**Inga Hernandez, Ayrton Damian**<br>AV1: Participó en las actividades de desarrollo y documentación del proyecto, coordinando sus aportes con los demás integrantes y contribuyendo al cumplimiento de los objetivos establecidos para la entrega.<br>TB1: Lideró el desarrollo de la aplicación web con Vue 3 y TypeScript, definiendo su estructura por módulos y coordinando con backend la integración de los endpoints disponibles. Configuró su despliegue en Vercel.<br>AV2: Integró la Aplicación Web con la API para los flujos de autenticación, usuarios con roles, nodos, ubicaciones, alertas, configuración y analítica.<br><br>**Huaman De La Cruz, Jean Pool**<br>AV1: Participó en la elaboración y documentación de los artefactos del proyecto, coordinando sus actividades con el equipo y contribuyendo a la integración de los diferentes aportes en el informe de AV1.<br>TB1: Lideró la implementación de la Landing Page, asegurando su despliegue y la comunicación de la propuesta de valor, y coordinó con el equipo de diseño para mantener la consistencia visual.<br>AV2: Contribuyó a la revisión y alineamiento de la Landing Page con la propuesta de valor y los flujos de la aplicación, manteniendo consistencia de cara a la validación. | La participación conjunta de los integrantes permitió distribuir responsabilidades y desarrollar diferentes actividades del trabajo final. La coordinación entre los miembros permitió integrar los aportes individuales dentro de una estructura común y avanzar en la elaboración de los artefactos correspondientes a AV1. La participación en las actividades de análisis, diseño y documentación permitió establecer una base común para la evolución posterior de la solución IoT.<br><br>Durante TB1, el equipo distribuyó responsabilidades por aspectos, incluyendo backend, frontend, Landing Page, diseño UI/UX en Figma y documentación. Esta organización permitió avanzar en paralelo y coordinar la integración de los productos digitales y la documentación correspondiente al Sprint 1.<br><br>Durante AV2, el liderazgo fue distribuido entre los responsables de Landing Page, Aplicación Web, Backend Services, Gateway Edge, despliegue y documentación, permitiendo consolidar una solución integrada para la validación. |
+| **Crea un entorno colaborativo e inclusivo, establece metas, planifica tareas y cumple objetivos.** | **Taquiri, Giuseppe**<br>AV1: Participó en la elaboración y documentación del diseño estratégico de la solución, contribuyendo al desarrollo de EventStorming, Domain Storytelling, Bounded Context Canvases y Context Mapping. Coordinó sus actividades con los integrantes del equipo para integrar los resultados en el informe.<br>TB1: Coordiné e integré los avances de la documentación del proyecto SafeCore, contribuyendo a la organización del informe y al cumplimiento de los objetivos establecidos para la entrega. Además, colaboré en la revisión de los artefactos de análisis, diseño y arquitectura, procurando mantener la coherencia entre las contribuciones de los integrantes del equipo.<br>AV2: Coordinó la organización del informe y la incorporación de la evidencia de validación.<br><br>**Lagos Rivera, Kael Valentino**<br>AV1: Participó en las actividades asignadas, coordinando avances con el equipo y contribuyendo a la elaboración e integración de los artefactos requeridos para la entrega.<br>TB1: Colaboró en Figma, estableciendo metas de diseño y coordinando con los responsables de frontend y Landing Page para cumplir con los entregables visuales.<br>AV2: Apoyó la trazabilidad entre la documentación, el despliegue y los entregables del sprint.<br><br>**Gonzalez Custodio, Carlos Alberto**<br>AV1: Participó en las actividades planificadas para AV1 y colaboró con los integrantes del equipo en la elaboración, revisión e integración de los artefactos del proyecto.<br>TB1: Colaboró en Figma, planificando tareas de diseño y revisando que los mockups cumplieran con los requisitos del Sprint 1.<br>AV2: Coordinó la integración técnica del Gateway Edge con los servicios backend.<br><br>**Tasayco Almonacid, Rafael Augusto**<br>AV1: Participó en las tareas asignadas para la entrega, manteniendo coordinación con los integrantes del equipo y contribuyendo al cumplimiento de los objetivos establecidos para AV1.<br>TB1: Apoyó en la planificación y revisión de las tareas de TB1, manteniendo la coordinación con los integrantes del equipo y contribuyendo al cumplimiento de los objetivos establecidos para la entrega.<br>AV2: Participó en la revisión técnica e integración de los avances de Backend Services.<br><br>**Tasayco Osorio, Raúl Hiroshi**<br>AV1: Participó en las actividades de elaboración y revisión de los artefactos correspondientes a AV1, colaborando con el equipo para organizar y completar las tareas planificadas.<br>TB1: Participó en la implementación del backend mediante el desarrollo de distintos endpoints y la configuración de la base de datos, integrando ambos componentes y apoyando el despliegue en la nube.<br>AV2: Planificó y ejecutó la ampliación de los servicios y migraciones requeridos por el backend.<br><br>**Inga Hernandez, Ayrton Damian**<br>AV1: Participó en las actividades planificadas para la entrega, coordinando sus avances con el equipo y contribuyendo a la elaboración y revisión de los artefactos incluidos en el informe.<br>TB1: Participó en el Sprint Planning y asumió tareas de la aplicación web relacionadas con los módulos de Sensores IoT, Alertas y Panel principal. Documentó qué módulos utilizan la API y cuáles todavía emplean datos de ejemplo.<br>AV2: Priorizó la conexión de los módulos web con la API para completar los flujos principales de la aplicación.<br><br>**Huaman De La Cruz, Jean Pool**<br>AV1: Participó en la elaboración y revisión de los artefactos correspondientes a AV1, coordinando sus actividades con el equipo y contribuyendo al cumplimiento de las tareas planificadas.<br>TB1: Planificó e implementó la Landing Page, coordinando las actividades de diseño y despliegue para contribuir al cumplimiento de los objetivos del Sprint 1.<br>AV2: Alineó la Landing Page con la propuesta de valor y los flujos validados de la solución. | El trabajo realizado de manera colaborativa permitió organizar las actividades del equipo y contribuir al cumplimiento de los objetivos establecidos para AV1. La coordinación entre los integrantes facilitó la integración de los diferentes artefactos y permitió mantener una estructura común en el desarrollo del proyecto. Los aportes individuales se incorporaron progresivamente al informe y permitieron establecer una base para las siguientes etapas del ciclo de vida de SafeCore.<br><br>Durante TB1, el equipo estableció metas por sprint, planificó tareas por aspecto y distribuyó responsabilidades para avanzar en los entregables. La comunicación y coordinación entre los integrantes facilitaron la integración de los componentes digitales, las actividades de diseño y la documentación del proyecto.<br><br>Durante AV2, la división de responsabilidades permitió avanzar en paralelo en interfaz, backend, gateway, despliegue y documentación. La coordinación entre los integrantes permitió consolidar evidencia técnica y realizar la validación de SafeCore con un usuario potencial. |
 
 
 <div style="page-break-after: always;"></div>
@@ -3833,26 +3833,21 @@ Integrar la solución SafeCore de extremo a extremo: backend con gestión de usu
 
 **Duración del sprint:**  
 
-06/11/2026 – 11/11/2026 *(rango inferido de los commits de integración disponibles; falta confirmar las fechas oficiales del sprint).* 
-
-
-
+06/11/2026 – 11/11/2026
 
 
 | Campo | Detalle |
 |---|---|
 | Sprint # | Sprint 2 |
 | Sprint Planning Background | Integración de los productos SafeCore y de la telemetría Edge. |
-| Date |  |
-| Time |  |
-| Location |  |
-| Prepared By | Taquiri Calderón, Jhunior Giussepe *(referencia del Sprint 1; confirmar para Sprint 2)* |
+| Date | 06/11/2026–11/11/2026 |
+| Prepared By | Taquiri Calderón, Jhunior Giussepe  |
 | Attendees (to planning meeting) | Taquiri Calderón; Jhunior Giussepe; Lagos Rivera Kael Valentino; Gonzalez Custodio Carlos Alberto; Tasayco Almonacid Rafael Augusto; Tasayco Osorio Raúl Hiroshi; Inga Hernandez Ayrton Damian; Huaman De La Cruz Jean Pool. *(Lista tomada del Sprint 1; confirmar asistencia en Sprint 2).* |
 | Sprint n – 1 Review Summary | En el Sprint 1 se desarrolló la primera versión de la Landing Page, Aplicación Web y Backend Services. |
-| Sprint n – 1 Retrospective Summary |  |
+| Sprint n – 1 Retrospective Summary | No se encontró un acta de retrospectiva del Sprint 1 en los repositorios revisados. |
 | Sprint n Goal | Integrar la solución SafeCore: backend con gestión de usuarios, ubicaciones, nodos y riesgos; consola web administrativa; aplicación móvil por roles; y gateway Edge para recibir, preservar y sincronizar telemetría del ESP32 sin modificar sus alarmas físicas locales. |
-| Sprint n Velocity |  |
-| Sum of Story Points |  |
+| Sprint n Velocity | No calculable: no se cuenta con acta ni con resultados de cierre que registren puntos completados. |
+| Sum of Story Points | No registrado para el Sprint 2. |
 
 **Resultado esperado:** API integrada; SPA administrativa conectada; app Flutter conectada con modo demostración; gateway local Flask/SQLite con sincronización HTTPS; y evidencia de pruebas, ejecución y despliegue.
 
@@ -3863,15 +3858,15 @@ Integrar la solución SafeCore de extremo a extremo: backend con gestión de usu
 
 | Aspecto o actividad | Líder | Colaboradores | Responsabilidades verificables |
 |---|---|---|---|
-| Landing Page | Taquiri Calderón, Jhunior Giussepe *(liderazgo en Sprint 1; confirmar Sprint 2)* | Huaman De La Cruz, Jean Pool *(referencia Sprint 1)* | La landing existente es estática, bilingüe y responsive; la última evidencia de cambio es anterior al rango inferido del Sprint 2. |
-| Aplicación Web | Inga Hernandez, Ayrton Damian *(referencia Sprint 1; commits S2 bajo la identidad DamianIH)* | Gonzalez Custodio, Carlos Alberto *(referencia Sprint 1)* | Conectó login, usuarios con roles, nodos, ubicaciones, alertas, configuración y analítica a la API. |
-| Backend Services | Tasayco Osorio, Raúl Hiroshi *(referencia Sprint 1; commits S2 bajo la identidad Raul)* | Tasayco Almonacid, Rafael Augusto *(referencia Sprint 1)* | Implementó y amplió endpoints de dispositivos, usuarios, propiedades, zonas, configuración, riesgos, analítica y emergencias; incorporó migraciones. |
-| Aplicación Móvil |  |  | Integró Flutter con API, roles, dispositivos, telemetría, riesgos, emergencias, notificaciones, usuarios y configuración. El responsable formal del Sprint 2 no está registrado en el acta entregada. |
-| Gateway y firmware Edge | Gonzalez Custodio, Carlos Alberto *(referencia Sprint 1; commits S2 bajo la identidad Carlos Gonzalez)* |  | Implementó gateway Flask con SQLite, autenticación local, cola persistente, reintentos y sincronización HTTPS; adaptó el firmware. |
-| Despliegue (Deployment) | Taquiri Calderón, Jhunior Giussepe *(liderazgo en Sprint 1; confirmar Sprint 2)* | Lagos Rivera, Kael Valentino *(referencia Sprint 1)* | Se documentan configuraciones de Render, Vercel, GitHub Releases, GitHub Pages y operación local Edge; faltan las evidencias de despliegue del Sprint 2. |
-| Documentación del informe | Taquiri Calderón, Jhunior Giussepe *(liderazgo en Sprint 1; confirmar Sprint 2)* | Lagos Rivera, Kael Valentino *(referencia Sprint 1)* | Consolidación de la documentación y evidencia del sprint:  |
+| Landing Page | Taquiri Calderón, Jhunior Giussepe | Huaman De La Cruz, Jean Pool | La landing existente es estática, bilingüe y responsive. La referencia `HEAD` publicada es `d5c3a9a`. |
+| Aplicación Web | Inga Hernandez, Ayrton Damian | Gonzalez Custodio, Carlos Alberto | Conectó login, usuarios con roles, nodos, ubicaciones, alertas, configuración y analítica a la API. |
+| Backend Services | Tasayco Osorio, Raúl Hiroshi | Tasayco Almonacid, Rafael Augusto | Implementó y amplió endpoints de dispositivos, usuarios, propiedades, zonas, configuración, riesgos, analítica y emergencias; incorporó migraciones. |
+| Aplicación Móvil | Charlie404 | Raúl Hiroshi Tasayco Osorio | Integró Flutter con API, roles, dispositivos, telemetría, riesgos, emergencias, notificaciones, usuarios y configuración. |
+| Gateway y firmware Edge | Gonzalez Custodio, Carlos Alberto | Raúl Hiroshi Tasayco Osorio | Implementó gateway Flask con SQLite, autenticación local, cola persistente, reintentos y sincronización HTTPS; adaptó el firmware. |
+| Despliegue (Deployment) | Taquiri Calderón, Jhunior Giussepe | Lagos Rivera, Kael Valentino | Se documentan configuraciones de Render, Vercel, GitHub Releases, GitHub Pages y operación local Edge. |
+| Documentación del informe | Taquiri Calderón, Jhunior Giussepe | Lagos Rivera, Kael Valentino | Consolidación de la documentación y evidencia del sprint, incluidos la trazabilidad de repositorios, pruebas documentadas, despliegue y validación con usuarios. |
 
-La asignación de líderes y colaboradores marcada como “referencia Sprint 1” fue copiada del acta proporcionada. Los repositorios demuestran contribuciones técnicas por componente, pero no contienen un acta que confirme el mismo liderazgo o la participación de todos los integrantes durante el Sprint 2.
+La asignación de líderes, colaboradores y asistentes fue confirmada por el equipo para el Sprint 2.
 
 ## 6.2.2.3. Sprint Backlog 2
 
@@ -3884,13 +3879,17 @@ La asignación de líderes y colaboradores marcada como “referencia Sprint 1�
 | TASK-S2-05 | Como dispositivo ESP32, quiero enviar lecturas a un gateway local aun cuando falle Internet. | Alta | Carlos Gonzalez, Raul | API local con `X-API-Key`, SQLite, idempotencia por `event_id`, cola y sincronización HTTPS. | Completado |
 | TASK-S2-06 | Como administrador, quiero visualizar componentes del nodo y consultar analítica. | Media | DamianIH, Raul | Componentes, secretos, ubicaciones, configuración, tendencias y reportes conectados a la API. | Completado |
 | TASK-S2-07 | Mantener una página pública que explique la propuesta de SafeCore. | Media | Charlie404 | Landing estática con ES/EN, tema, planes, carrusel y formulario de demostración. | Completado *(evidencia previa al rango del Sprint 2)* |
-| TASK-S2-08 | Ejecutar y registrar pruebas funcionales integradas en hardware, backend y clientes. | Alta |  |  |  |
-| TASK-S2-09 | Publicar evidencias formales de despliegue y URLs productivas de web/edge. | Media |  |  |  |
+| TASK-S2-08 | Ejecutar y registrar pruebas funcionales integradas en hardware, backend y clientes. | Alta | Equipo SafeCore | Ejecutar suites, conservar resultados y registrar una prueba extremo a extremo con ESP32, Edge, backend y cliente. | Pendiente de evidencia |
+| TASK-S2-09 | Publicar evidencias formales de despliegue y URLs productivas de web/edge. | Media | Equipo SafeCore | Registrar URL pública, versión o commit desplegado, capturas/logs de verificación y configuración sin secretos. | Pendiente de evidencia |
 
 ### Cambios respecto a la planificación inicial
 
 El cambio técnico verificable fue reemplazar el enfoque de envío directo desde ESP32 por un gateway basado en plantilla: `d42052e` (*replace direct ESP32 edge with template-based gateway*, 11/11/2026). El repositorio no contiene la planificación inicial ni una justificación formal del cambio; ese detalle queda pendiente.
 ## 6.2.2.4. Development Evidence for Sprint Review
+
+### Referencias de repositorios verificadas
+
+Al actualizar este informe se verificaron las referencias `HEAD` publicadas de los cinco repositorios: Landing `d5c3a9a`, Edge `d42052e`, Web `42b8a72`, Backend `59394a8` y Móvil `34059bd`. Estas referencias permiten identificar la revisión visible de cada componente; la pertenencia de una modificación al Sprint 2 se determina por su fecha, contenido y evidencia de planificación, no solo por su presencia en la rama principal.
 
 ### Funcionalidad 1: Backend de administración e integración
 
@@ -3910,7 +3909,7 @@ El cambio técnico verificable fue reemplazar el enfoque de envío directo desde
 
 **Evidencia:** [webApp-SafeCore](https://github.com/PrimeCoreGroup/webApp-SafeCore) — commits 07/11/2026 `4a13801` y 08/11/2026 `42b8a72`.
 
-**Resultado obtenido:** el README declara acceso exclusivo para `Administrator`, token de 15 minutos, guard de rutas y modo de datos simulados. URL pública de la web: 
+**Resultado obtenido:** el README declara acceso exclusivo para `Administrator`, token de 15 minutos, guard de rutas y modo de datos simulados. La configuración de Vercel está presente, pero no se registró una URL pública ni una verificación de despliegue para este sprint.
 
 ### Funcionalidad 3: Aplicación móvil SafeCore 2.0
 
@@ -3920,7 +3919,7 @@ El cambio técnico verificable fue reemplazar el enfoque de envío directo desde
 
 **Evidencia:** [SafeCore-AppMovil](https://github.com/PrimeCoreGroup/SafeCore-AppMovil) — commit [`848962c`](https://github.com/PrimeCoreGroup/SafeCore-AppMovil/commit/848962c) (06/11/2026); [release de APK](https://github.com/PrimeCoreGroup/SafeCore-AppMovil/releases/latest/download/App-SafeCore.apk).
 
-**Resultado obtenido:** el repositorio publica SafeCore Mobile 2.0 y una vía de descarga de APK. Resultado de instalación y ejecución en dispositivo real: 
+**Resultado obtenido:** el repositorio publica SafeCore Mobile 2.0 y una vía de descarga de APK. No se encontró evidencia de instalación ni ejecución en un dispositivo físico dentro del material revisado.
 
 ### Funcionalidad 4: Gateway SafeCore Edge y firmware ESP32
 
@@ -3930,7 +3929,7 @@ El cambio técnico verificable fue reemplazar el enfoque de envío directo desde
 
 **Evidencia:** [SafeCore-edge](https://github.com/PrimeCoreGroup/SafeCore-edge) — commits [`d42052e`](https://github.com/PrimeCoreGroup/SafeCore-edge/commit/d42052e5a438e742ba59e1550422709779fa6d1c) (11/11/2026), `2d1fcd1`, `096e000` y `d13fe6b` (09/11/2026).
 
-**Resultado obtenido:** servicio, contrato HTTP y pruebas unitarias incluidos. Prueba física con ESP32 y resultados: 
+**Resultado obtenido:** servicio, contrato HTTP y pruebas unitarias incluidos. La prueba física con ESP32 y sus resultados permanecen pendientes de evidencia.
 
 ### Funcionalidad 5: Landing pública SafeCore
 
@@ -3949,17 +3948,17 @@ Verificar contratos de cliente, reglas de roles y detección en la app móvil; y
 
 | ID de prueba | Funcionalidad | Precondiciones / datos de entrada | Pasos de prueba | Resultado esperado | Resultado obtenido | Estado |
 |---|---|---|---|---|---|---|
-| TC-S2-01 | API local Edge: autenticación y lecturas | Gateway configurado; `device_id`, `X-API-Key` y payload de temperatura/gas/aceleración. | Ejecutar `python -m unittest discover -s tests -v`. | Rechaza credenciales o datos inválidos; guarda lecturas válidas e identifica reintentos por `event_id`. |  |  |
-| TC-S2-02 | Sincronización Edge | Lectura pendiente en SQLite y backend disponible/no disponible. | Ejecutar suite Edge y probar cola/sincronización. | Mantiene pendientes ante falla y entrega al recuperar la conexión. |  |  |
-| TC-S2-03 | Reglas, contratos y UI móvil | Flutter y dependencias instaladas; backend o modo demo. | Ejecutar `flutter analyze`, `flutter test` y `flutter test integration_test -d <dispositivo>`. | Valida autenticación, permisos, paginación, detección, modo offline, navegación y componentes. |  |  |
-| TC-S2-04 | Integración web–backend | Usuario administrador y API disponible. | Ejecutar `pnpm install`, `pnpm build` y prueba manual de módulos. | Compilación satisfactoria y operaciones administrativas conectadas a API. |  |  |
+| TC-S2-01 | API local Edge: autenticación y lecturas | Gateway configurado; `device_id`, `X-API-Key` y payload de temperatura/gas/aceleración. | Ejecutar `python -m unittest discover -s tests -v`. | Rechaza credenciales o datos inválidos; guarda lecturas válidas e identifica reintentos por `event_id`. | Suite y comando documentados; no se adjuntó salida de ejecución. | Pendiente de evidencia |
+| TC-S2-02 | Sincronización Edge | Lectura pendiente en SQLite y backend disponible/no disponible. | Ejecutar suite Edge y probar cola/sincronización. | Mantiene pendientes ante falla y entrega al recuperar la conexión. | Comportamiento previsto documentado; no se adjuntaron logs de caída ni de recuperación. | Pendiente de evidencia |
+| TC-S2-03 | Reglas, contratos y UI móvil | Flutter y dependencias instaladas; backend o modo demo. | Ejecutar `flutter analyze`, `flutter test` y `flutter test integration_test -d <dispositivo>`. | Valida autenticación, permisos, paginación, detección, modo offline, navegación y componentes. | Pruebas declaradas en el repositorio; no se adjuntó reporte de ejecución. | Pendiente de evidencia |
+| TC-S2-04 | Integración web–backend | Usuario administrador y API disponible. | Ejecutar `pnpm install`, `pnpm build` y prueba manual de módulos. | Compilación satisfactoria y operaciones administrativas conectadas a API. | Servicios y vistas de integración implementados; no se adjuntó compilación ni registro de prueba manual. | Pendiente de evidencia |
 
 ### Evidencias de pruebas
 
 - Edge: `tests/test_edge.py` contiene pruebas de API y sincronización; el README indica el comando de ejecución.
 - Móvil: existen pruebas de núcleo, contratos, reglas de detección, widgets e integración en `test/` e `integration_test/app_test.dart`.
 - Web: el repositorio provee `pnpm build`, pero no se hallaron archivos de pruebas automatizadas ni reporte de compilación.
-- Reportes de consola, capturas, resultados de CI y evidencia de prueba en hardware: 
+- Reportes de consola, capturas, resultados de CI y evidencia de prueba en hardware: no se encontraron adjuntos en los repositorios o en el informe revisado; deben incorporarse como evidencia del siguiente sprint.
 
 ### Incidencias encontradas y correcciones
 
@@ -3967,7 +3966,7 @@ Verificar contratos de cliente, reglas de roles y detección en la app móvil; y
 |---|---|---|
 | Riesgo de depender de envío directo del ESP32 al backend. | Se sustituyó por gateway local con persistencia y sincronización. | `d42052e` en SafeCore-edge. |
 | Restricciones y errores de sesión/API en clientes. | La app móvil documenta manejo de 401, 403 y 429; la web implementa login, guard y cambio de contraseña. | README y commits móviles/web. |
-| Resultados reales de incidencias, correcciones repetidas y pruebas de regresión. |  |  |
+| Resultados reales de incidencias, correcciones repetidas y pruebas de regresión. | No se registraron resultados ejecutados que permitan medir regresiones. | Pendiente de evidencia de ejecución. |
 
 ## 6.2.2.6. Execution Evidence for Sprint Review
 
@@ -3990,9 +3989,13 @@ Verificar contratos de cliente, reglas de roles y detección en la app móvil; y
 
 ### Resultado de la ejecución
 
+La estructura de ejecución está documentada para backend, web, móvil, Edge y landing. Sin embargo, no se incorporaron logs, capturas ni una bitácora que demuestre en una misma sesión el recorrido ESP32 → Gateway Edge → Backend → clientes. En consecuencia, se reporta el procedimiento disponible, pero no se declara una ejecución extremo a extremo como verificada.
 
 ### Evidencias
 
+- Repositorios de los componentes: [Landing](https://github.com/PrimeCoreGroup/Landing_SafeCore), [Edge](https://github.com/PrimeCoreGroup/SafeCore-edge), [Web](https://github.com/PrimeCoreGroup/webApp-SafeCore), [Backend](https://github.com/PrimeCoreGroup/SafeCore-backend) y [Móvil](https://github.com/PrimeCoreGroup/SafeCore-AppMovil).
+- Artefactos documentados: configuración de despliegue, contratos HTTP, suites de pruebas y release de APK.
+- Evidencia pendiente: resultados de comandos, capturas de clientes conectados, logs de Edge y prueba física con ESP32.
 
 ### Limitaciones conocidas
 
@@ -4071,7 +4074,7 @@ Verificar contratos de cliente, reglas de roles y detección en la app móvil; y
 ## 6.2.2.9. Team Collaboration Insights during Sprint
 
 **Organización y comunicación:**  
-La integración entre repositorios revela una secuencia técnica de dependencias: backend como API central; web y móvil como clientes; y Edge como productor/sincronizador de telemetría. Herramientas de comunicación, tablero, frecuencia de seguimiento y ceremonias realizadas: 
+La integración entre repositorios revela una secuencia técnica de dependencias: backend como API central; web y móvil como clientes; y Edge como productor/sincronizador de telemetría. No se encontró evidencia verificable de herramientas de comunicación, tablero, frecuencia de seguimiento o ceremonias durante el Sprint 2; estos elementos deben registrarse en el siguiente sprint.
 
 
 **Colaboración entre integrantes:**  
@@ -4079,7 +4082,7 @@ La colaboración técnica observable consiste en que los cambios de backend de R
 
 
 **Gestión de cambios o bloqueos:**  
-El cambio del envío directo del ESP32 hacia un gateway persistente es el principal ajuste verificable. Motivo, decisión del equipo y registro de bloqueos: 
+El cambio del envío directo del ESP32 hacia un gateway persistente es el principal ajuste verificable. La evidencia técnica muestra el cambio, pero no se encontró un acta que documente su motivación, la decisión del equipo ni el registro de bloqueos.
 
 **Aprendizajes del sprint:**  
 - La separación backend–clientes–gateway permite integrar responsabilidades distintas por componente.
@@ -4088,7 +4091,7 @@ El cambio del envío directo del ESP32 hacia un gateway persistente es el princi
 
 
 **Evidencias de colaboración:**  
-[Agregar enlaces o capturas pertinentes de issues, tablero de tareas, pull requests, revisiones de código o commits.]
+Los commits de los repositorios constituyen evidencia técnica de colaboración entre componentes. Para una trazabilidad completa, el equipo debe añadir enlaces a issues, tablero de tareas, pull requests, revisiones de código y actas de coordinación cuando estén disponibles.
 
 ---
 
@@ -4216,7 +4219,11 @@ La entrevista valida que SafeCore es comprensible y que su capacidad de detecci�
 | [Hallazgo] | [Entrevistas / observaciones] | [Impacto] | [Acción] |
 
 **Conclusión de la validación:**  
-[Indicar qué hipótesis se respaldaron, cuáles no, qué aprendió el equipo y qué cambios se priorizarán. No afirmar que una hipótesis fue validada sin evidencia.]
+Con una entrevista de validación registrada, se obtuvo evidencia preliminar de que la propuesta de valor de SafeCore es comprensible para un usuario potencial y de que la detección y respuesta automatizada, así como la operación local ante una posible interrupción de Internet, son percibidas como útiles. Esta evidencia respalda de forma inicial —no concluyente— las hipótesis de comprensión y utilidad de la solución.
+
+No se respalda todavía la hipótesis de que la interfaz actual comunica toda la información necesaria para actuar ante una emergencia: el participante solicitó alertas con mayor visibilidad, severidad, ubicación del evento, acciones ejecutadas y pasos recomendados. Tampoco existe evidencia suficiente para afirmar la aceptación de precios, la intención de compra o la facilidad de uso para todos los perfiles objetivo, porque la muestra comprende una sola entrevista.
+
+El equipo aprendió que la funcionalidad técnica debe acompañarse de evidencia visible y lenguaje accionable para generar confianza. Se priorizarán: (1) el detalle contextual de alertas y su jerarquía visual en la web y la app móvil; (2) una demostración verificable del funcionamiento de sensores, gateway y respuesta; (3) información comercial básica sobre equipos, instalación y cotización en la landing; y (4) nuevas entrevistas de validación con participantes de ambos segmentos antes de generalizar los hallazgos.
 
 ---
 
@@ -4226,55 +4233,37 @@ La entrevista valida que SafeCore es comprensible y que su capacidad de detecci�
 
 
 
-## Conclusiones 
+## Conclusiones
 
-- **Definición del proyecto:** Se consolidó la identidad de la startup PrimeCore Group y la propuesta de valor de SafeCore, un sistema IoT de protección autónoma ante sismos e incendios. Se describió la problemática con datos estadísticos y se aplicó la técnica 5W2H para estructurar el contexto.
+- **Integración lograda en Sprint 2:** SafeCore cuenta con artefactos implementados para la Landing Page, la Aplicación Web, la Aplicación Móvil, el Backend y el Gateway Edge. El backend central expone la gestión de identidad, usuarios, ubicaciones, dispositivos, configuración, analítica, riesgos y emergencias; los clientes web y móvil consumen esos servicios, mientras que Edge recibe y conserva telemetría localmente.
 
-- **Lean UX:** Se formularon los Problem Statements, Assumptions e Hypothesis Statements, y se elaboró el Lean UX Canvas. Esto permitió alinear al equipo en torno a los resultados esperados y las métricas de éxito.
+- **Resiliencia de la telemetría:** El Gateway Edge incorpora autenticación por API key, persistencia local en SQLite, idempotencia por evento, reintentos y sincronización HTTPS. Este diseño reduce el riesgo de pérdida de lecturas durante una caída de conectividad entre la red local y el backend, aunque aún debe validarse con evidencia de ejecución física del ESP32.
 
-- **Segmentos objetivo:** Se identificaron dos segmentos claros: empresas inmobiliarias en Lima (B2B) y dueños de vivienda unifamiliar en Lima (B2C), con sus características demográficas y necesidades.
+- **Interfaces de usuario y propuesta de valor:** La aplicación web cubre la administración de usuarios, ubicaciones, nodos, alertas, configuración y analítica; la aplicación móvil incorpora roles, telemetría, riesgos, emergencias y modo demostración. La landing comunica la propuesta de valor, funciona en español e inglés y declara una demo pública, pero su formulario es demostrativo y todavía no persiste solicitudes reales.
 
-- **Elicitación de requisitos:** Se diseñaron y registraron entrevistas para ambos segmentos, aunque la información está incompleta en varios casos (faltan entrevistados 2 y 3, y datos como nombres, edades, distritos y enlaces a videos). Se realizó un análisis preliminar que sirvió de base para los User Personas.
+- **Trazabilidad de los repositorios:** La revisión de los repositorios publicados confirma los artefactos técnicos de [Landing SafeCore](https://github.com/PrimeCoreGroup/Landing_SafeCore), [SafeCore Edge](https://github.com/PrimeCoreGroup/SafeCore-edge), [WebApp SafeCore](https://github.com/PrimeCoreGroup/webApp-SafeCore), [SafeCore Backend](https://github.com/PrimeCoreGroup/SafeCore-backend) y [SafeCore App Móvil](https://github.com/PrimeCoreGroup/SafeCore-AppMovil). Esta evidencia sustenta la implementación; no sustituye reportes de pruebas ejecutadas ni verificación de despliegue.
 
-- **Needfinding:** Se construyeron los User Personas (Carlos Espinoza y Rosa Mendoza), el User Task Matrix, los User Journey Maps (As-Is) y los Empathy Maps. También se elaboró el Big Picture EventStorming y el Ubiquitous Language del dominio.
+- **Validación con usuarios:** La entrevista de validación registrada proporciona evidencia preliminar de comprensión y utilidad percibida, pero no permite generalizar los resultados a todos los segmentos. El principal aprendizaje es que la automatización debe explicarse mediante alertas contextualizadas y demostraciones verificables para generar confianza.
 
-- **Especificación de requisitos:** Se definieron 21 User Stories con criterios de aceptación en Gherkin, agrupadas en 9 Epics. Se elaboró el Impact Mapping y el Product Backlog priorizado por valor de negocio, con estimaciones en Story Points.
-
-- **Diseño estratégico (DDD):** Se aplicó Design-Level EventStorming, Candidate Context Discovery, Domain Message Flows Modeling, Bounded Context Canvases (7 contextos) y Context Mapping con tres opciones de organización. Se seleccionó la opción de mantener los 7 bounded contexts.
-
-- **Arquitectura de software:** Se representó la arquitectura con el modelo C4: System Landscape, System Context, Container y Deployment. Se definieron los contenedores principales (Landing Page, Aplicación Web, Aplicación Móvil, API, Base de Datos, Servicio Edge, Almacenamiento Local) y su distribución en entornos.
-
-- **Diseño táctico (DDD):** Se desarrolló el detalle del bounded context **Emergency Response** (Domain Layer, Interface Layer, Application Layer, Infrastructure Layer, diagramas de clases y base de datos). Para los demás contextos se presentaron diagramas de clases de dominio y diseños de base de datos, aunque sin la misma profundidad textual.
-
-- **Colaboración:** El repositorio de GitHub evidencia actividad del equipo mediante commits y pull requests, con analíticos que muestran la participación de los integrantes. Se actualizó el Registro de Versiones del Informe y la sección Student Outcome.
-
-- **Cumplimiento parcial del AV1:** Se cubrieron los capítulos I, II, III y IV, pero persisten secciones con placeholders, datos faltantes y algunos artefactos sin explicación completa. El informe no incluye aún Conclusiones finales, Bibliografía completa ni Anexos desarrollados.
+- **Estado de calidad y despliegue:** Existen suites y comandos de prueba documentados para Edge y móvil, además de configuración de despliegue para backend, web y landing. Sin embargo, el informe no dispone todavía de resultados de consola, reportes CI, capturas de despliegue, prueba integral web–backend–Edge ni prueba física del ESP32. Por ello, el Sprint 2 demuestra implementación e integración de código, pero deja pendiente la evidencia formal de operación extremo a extremo.
 
 ---
 
-## Recomendaciones para AV1 y preparación de TB1
+## Recomendaciones para el siguiente sprint
 
-- **Completar la información de entrevistas:** Rellenar los datos faltantes de los entrevistados (nombres, edades, distritos, ocupaciones, fechas, duraciones, enlaces a videos). Incluir los resúmenes y análisis de las entrevistas 2 y 3 para ambos segmentos, con sustento estadístico.
+- **Ejecutar y adjuntar pruebas reproducibles:** Registrar la salida de las suites de Edge y móvil, la compilación de la web y una prueba manual guiada de los flujos críticos. Cada caso debe incluir fecha, versión o commit, pasos, resultado obtenido y evidencia.
 
-- **Revisar y completar User Stories:** Asegurar que todas las historias tengan criterios de aceptación en formato Gherkin, que estén vinculadas a sus Epics y que no falte ninguna. Verificar la coherencia con el Impact Mapping y el Product Backlog.
+- **Completar la validación extremo a extremo:** Realizar una prueba con ESP32, Gateway Edge, backend y al menos un cliente. Verificar recepción de lecturas, persistencia durante una caída de Internet, reintento, sincronización y visualización de la alerta o telemetría.
 
-- **Incluir todos los artefactos gráficos:** Insertar las capturas de los diagramas (EventStorming, Bounded Context Canvases, Context Mapping, diagramas C4, diagramas de clases, diseños de base de datos) con explicaciones claras y referencias a las herramientas utilizadas.
+- **Formalizar el despliegue:** Publicar y documentar la URL de la aplicación web, verificar el estado de salud del backend, registrar la versión desplegada y adjuntar capturas o logs. Para Edge, documentar el entorno de prueba sin exponer secretos ni direcciones privadas.
 
-- **Validar supuestos de Lean UX:** Realizar más entrevistas o experimentos para validar los assumptions e hypotheses, y ajustar los Problem Statements si es necesario.
+- **Priorizar las mejoras halladas en la entrevista:** Incorporar en las alertas la severidad, ubicación, acciones automáticas ejecutadas y pasos sugeridos. Añadir una demostración del funcionamiento y una explicación inicial de equipos, instalación y cotización en la landing.
 
-- **Refinar el modelo de dominio:** Completar el detalle táctico de los bounded contexts que quedaron pendientes (Identity & Access, Device Management, Sensor Data Ingestion, Risk Detection, Notification, Monitoring & Configuration), incluyendo capas de dominio, interfaz, aplicación e infraestructura, así como diagramas de componentes y código.
+- **Ampliar la validación con usuarios:** Realizar entrevistas adicionales con participantes de los segmentos B2B y B2C. Registrar el mismo guion, evidencia y resultados para distinguir hallazgos recurrentes de observaciones individuales.
 
-- **Mejorar la consistencia del informe:** Unificar la numeración de secciones (hay duplicados como 4.1.3.2, 5.4.2), corregir errores de codificación y formato, y asegurar que el documento cumpla con la estructura completa del AV1 (incluir Conclusiones, Bibliografía y Anexos).
+- **Conectar los elementos demostrativos con servicios reales:** Evaluar la conexión del formulario de contacto de la landing y de los flujos pendientes de la app móvil con servicios de backend, definiendo manejo de errores, privacidad y trazabilidad de solicitudes.
 
-- **Preparar TB1:** Iniciar la implementación del Landing Page y la primera versión de Frontend Web Applications. Definir el entorno de desarrollo, aplicar GitFlow, Conventional Commits y Semantic Versioning. Documentar el Sprint 1 con todas sus evidencias.
-
-- **Gestionar videos y enlaces:** Grabar el video de exposición de AV1, subirlo a Microsoft Stream/Clipchamp y añadir el enlace en el anexo “Videos de Exposiciones”. Asegurar que el video cumpla con la nomenclatura y duración especificadas.
-
-- **Actualizar Student Outcome y Performance Report:** Registrar las acciones de cada integrante para AV1 y completar el Participant Performance Report con las calificaciones correspondientes.
-
-- **Revisar rúbricas y nomenclatura:** Consultar las rúbricas específicas del AV1 y verificar que todos los archivos (report, keynote, performance, expo) sigan la nomenclatura `upc-pre-202620-1asi0572-<NRC>-<startup>-<tipo>-<avn/tbn>`.
-
-- **Documentar el proceso de colaboración:** Ampliar la sección Project Report Collaboration Insights con capturas de los analíticos de GitHub y una interpretación de los mismos, evidenciando la participación de todos los miembros.
+- **Mejorar la gestión de evidencias y colaboración:** Mantener un tablero de tareas, responsables, revisiones y decisiones del sprint; enlazar issues, pull requests, commits, resultados CI y material de la demo en el informe. Esto permitirá demostrar con precisión la participación del equipo y el estado de cada entregable.
 
 
 # Bibliografía
