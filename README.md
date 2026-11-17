@@ -4154,8 +4154,8 @@ Al inicio de la entrevista se explicó el propósito de la sesión y se solicit�
 | Entrevistado | Yvon Cerrón |
 | Entrevistador(a) |  |
 | Perfil / tipo de usuario | Usuario potencial de una vivienda o edificio |
-| Modalidad |  |
-| Consentimiento para registrar respuestas |  |
+| Modalidad | Virtual |
+| Consentimiento para registrar respuestas | Otorgado |
 | Objetivo | Conocer la percepción del usuario sobre las medidas de seguridad ante sismos e incendios, y validar la claridad, utilidad y oportunidades de mejora de SafeCore. |
 
 
@@ -4218,16 +4218,87 @@ La entrevista valida que SafeCore es comprensible y que su capacidad de detecci�
 
 ### Entrevista 2
 
+## Ficha de entrevista
+
+| Campo | Registro |
+|---|---|
+| Código de entrevista | E-02 |
+| Fecha | 17/11/2026 |
+| Hora aproximada | 11:00 a. m. |
+| Entrevistado | Mario Augusto, Puga Valera |
+| Entrevistador(a) | Kael Valentino, Lagos Rivera |
+| Perfil / tipo de usuario | Usuario potencial de una vivienda o edificio |
+| Modalidad | Virtual |
+| Consentimiento para registrar respuestas | Otorgado |
+| Objetivo | Conocer la percepción del usuario sobre las medidas de seguridad ante sismos e incendios, y validar la claridad, utilidad y oportunidades de mejora de SafeCore. |
+
+## Resumen de la entrevista
+
+Entrevista de validación remota realizada a Mario Augusto, propietario de una vivienda unifamiliar tradicional de dos pisos en Lima, con el objetivo de evaluar la claridad de la propuesta de valor en la Landing Page y la usabilidad de la Aplicación Web de SafeCore.
+
+Durante la sesión, el participante validó la necesidad de contar con un sistema autónomo capaz de actuar sin internet ni energía eléctrica ante el temor de evacuar a oscuras en hogares de múltiples niveles, señalando como principales oportunidades de mejora la incorporación de videos demostrativos y precios referenciales en la web, así como alertas más visibles con pasos de acción guiados, lenguaje cotidiano para los sensores y un plano esquemático de la vivienda dentro de la aplicación.
+
+### Preguntas y respuestas relevantes
+
+| Pregunta | Resumen de la respuesta |
+|---|---|
+| ¿Las medidas actuales de seguridad son suficientes? | No bastan; aunque hay una mochila lista, ante un temblor fuerte o amago de fuego el desorden y la falta de iluminación propia paralizan a la familia. |
+| ¿Comprende qué es SafeCore y para quién está dirigido? | Sí, lo identifica perfecto como un sistema autónomo de sensores para viviendas y edificios que actúa cortando riesgos sin esperar la intervención humana. |
+| ¿Qué genera confianza y qué falta? | Da mucha tranquilidad que funcione sin luz de la calle ni internet, pero le falta ver videos reales de cómo opera y conocer cuánto cuesta adquirirlo. |
+| ¿Qué debería mejorar el panel y las alertas? | El panel web necesita que las alarmas destaquen a primera vista, mostrando exactamente qué pasó, en qué piso ocurrió y qué medidas tomó el sistema. |
+| ¿Qué información adicional espera? | Le gustaría contar con un plano básico de la casa con la posición de los equipos, un acceso para pruebas rápidas y reportes del estado de las baterías. |
+
+## Hallazgos principales
+
+| Hallazgo | Evidencia de la entrevista | Implicancia para SafeCore |
+|---|---|---|
+| Las precauciones tradicionales colapsan ante el factor sorpresa y el caos. | Comenta que la mochila y las alarmas comunes no evitan que la familia se desordene y tarde en reaccionar ante una emergencia. | Destacar la automatización como el soporte inmediato que compensa la lentitud o el bloqueo mental inicial. |
+| El temor principal es la evacuación vertical y la oscuridad total. | Expresa preocupación por lidiar con las escaleras a ciegas desde el segundo piso si un sismo corta la electricidad de golpe. | Asegurar que la respuesta central del sistema active luces de guía y libere salidas de forma instantánea. |
+| El concepto central del producto se capta de inmediato. | Valora positivamente que el sistema sea autosuficiente y proteja el hogar sin depender de la nube o redes externas. | Mantener un discurso en la landing page enfocado en la resiliencia operativa y el procesamiento local (edge). |
+| Exige demostraciones visuales para disipar dudas. | Pide material grabado o pruebas de funcionamiento real para creer que el sistema reaccionará adecuadamente ante una falla. | Incorporar fragmentos visuales o clips de pruebas técnicas directamente en la página web del proyecto. |
+| Demanda mayor claridad comercial para clientes particulares. | Menciona que tras evaluar la propuesta necesita conocer los paquetes disponibles y si requiere obras complejas en casa. | Sumar una sección orientativa de costos residenciales y requerimientos sencillos de instalación en el hogar. |
+| Las notificaciones digitales actuales carecen de impacto visual. | Señala que las alertas en la interfaz web pasan desapercibidas y deben ser mucho más llamativas. | Rediseñar la jerarquía de las advertencias críticas mediante colores intensos y persistencia en pantalla. |
+| Se requiere un reporte guiado y contextualizado en el aviso. | Pide que la notificación informe con detalle el origen del problema, la zona afectada y las pautas a seguir. | Estructurar el detalle de cada alerta como un asistente que oriente al usuario paso a paso durante el evento. |
+| El tecnicismo de los sensores aleja al usuario común. | Advierte que los nombres técnicos de los dispositivos confunden y prefiere estados sencillos y cotidianos. | Reemplazar las nomenclaturas complejas en la app por etiquetas comprensibles como "Normal", "Precaución" o "Alerta". |
+| Busca un control espacial de su propia vivienda. | Solicita un esquema visual o plano de la casa para supervisar el estado de los sensores habitación por habitación. | Evaluar la implementación de un mapa residencial interactivo para el monitoreo general en la aplicación. |
+
+## Decisiones y mejoras propuestas
+
+| Prioridad | Mejora propuesta | Producto afectado | Justificación |
+|---|---|---|---|
+| Alta | Añadir ubicación exacta, nivel de gravedad, acciones ejecutadas y pautas de evacuación en cada alerta. | Aplicación web y móvil | Reduce la confusión y guía de forma segura a los residentes durante una situación crítica. |
+| Alta | Integrar videos demostrativos y resultados de pruebas reales en la sección principal. | Landing Page | Aumenta la credibilidad técnica y disipa la desconfianza inicial del usuario particular. |
+| Media | Desarrollar un diseño de alto contraste con colores de urgencia para notificaciones críticas. | Aplicación web y móvil | Permite que Mario identifique fallas graves en su hogar de manera inmediata. |
+| Media | Sustituir términos técnicos de los sensores por descripciones cotidianas adaptadas a zonas del hogar. | Aplicación web y móvil | Facilita la lectura rápida para cualquier miembro de la familia sin necesidad de conocimientos previos. |
+| Media | Incorporar un esquema gráfico o plano esquemático de la vivienda con la distribución de los equipos. | Aplicación web y móvil | Permite ubicar con precisión el lugar exacto del peligro (como la cocina o el tablero principal). |
+| Media | Publicar rangos estimados de inversión, tipos de kits residenciales y guías de instalación. | Landing Page | Resuelve las dudas presupuestales antes de que el cliente decida contactar al equipo. |
+| Baja | Agregar un registro histórico del estado operativo y alertas preventivas de batería por dispositivo. | Aplicación web y móvil | Brinda mayor autonomía en el seguimiento preventivo del sistema instalado en la casa. |
+
+## Conclusión
+
+La entrevista valida que SafeCore es comprensible y que su capacidad de detección y respuesta automática resulta valiosa para un usuario potencial. La principal oportunidad de mejora es generar confianza mediante demostraciones reales y ofrecer alertas más claras, contextualizadas y accionables. También se identifican necesidades de información comercial, visualización espacial del inmueble y seguimiento de mantenimiento de los distintos dispositivos que puedan haber en casa.
+
+## Evidencia adjunta
+
+| Evidencia | Enlace o archivo |
+|---|---|
+| Registro de respuestas | Contenido proporcionado por el equipo. |
+| Captura, audio o video de entrevista | [Ver grabación de la entrevista de validación](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202210104_upc_edu_pe/IQBnfucHyvwwQIs9oRBn1_t6Abrq6tf_E5x4jOYMjfeqn6Y?e=S2hVic&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D) |
+| Consentimiento del entrevistado | Otorgado |
+
 [Repetir la misma estructura para cada entrevista realizada.]
 
 ### Síntesis de las entrevistas
 
 | Hallazgo recurrente | Evidencia observada | Impacto en el usuario | Acción propuesta o realizada |
 |---|---|---|---|
-| [Hallazgo] | [Entrevistas / observaciones] | [Impacto] | [Acción] |
+| Falta de visibilidad e impacto en las alertas digitales | Ambos participantes señalaron que el panel web muestra las advertencias de forma muy plana y que las notificaciones críticas pasan desapercibidas. | El usuario corre el riesgo de no percatarse de una emergencia grave o perder tiempo valioso buscando el origen del problema en el panel. | Rediseñar la jerarquía visual de las alertas con colores de alto contraste, persistencia en pantalla y un formato guiado paso a paso (qué pasó, dónde ocurrió, acción del sistema y pasos a seguir). |
+| Necesidad de evidencia visual y confianza comercial en la Landing Page | Reclamaron la ausencia de videos o demostraciones reales de cómo el sistema corta la energía o enciende luces, además de desconocer los precios o paquetes residenciales. | Genera escepticismo o dudas sobre la efectividad técnica del producto y los costos de implementación antes de solicitar una cotización o demo. | Incorporar una sección en la página principal con clips de pruebas reales en laboratorio/hogar y desglosar rangos orientativos de kits y requerimientos de instalación. |
+| Complejidad en la terminología técnica de los sensores | Comentaron que las nomenclaturas técnicas de los dispositivos IoT generan confusión y prefieren un lenguaje más sencillo y familiar. | Dificulta la lectura rápida del estado de los equipos para usuarios no técnicos o miembros del hogar que no están familiarizados con el sistema. | Sustituir los tecnicismos en la interfaz por etiquetas semánticas y cotidianas (Normal, Precaución, Alerta) asociadas directamente a cada zona o piso de la casa. |
+| Demanda de una perspectiva espacial de la vivienda | Solicitaron contar con un plano esquemático o mapa del inmueble que permita ubicar la posición exacta de los sensores y las rutas de evacuación. | Dificulta la localización visual rápida del foco del peligro (como la cocina o el tablero eléctrico principal) en situaciones de alta tensión. | Evaluar la implementación de un módulo gráfico o plano residencial interactivo dentro de la aplicación para el monitoreo de los dispositivos por ambiente. |
 
 **Conclusión de la validación:**  
-Con una entrevista de validación registrada, se obtuvo evidencia preliminar de que la propuesta de valor de SafeCore es comprensible para un usuario potencial y de que la detección y respuesta automatizada, así como la operación local ante una posible interrupción de Internet, son percibidas como útiles. Esta evidencia respalda de forma inicial —no concluyente— las hipótesis de comprensión y utilidad de la solución.
+Con dos entrevistas de validación registradas, se obtuvo evidencia preliminar de que la propuesta de valor de SafeCore es comprensible para un usuario potencial y de que la detección y respuesta automatizada, así como la operación local ante una posible interrupción de Internet, son percibidas como útiles. Esta evidencia respalda de forma inicial —no concluyente— las hipótesis de comprensión y utilidad de la solución.
 
 No se respalda todavía la hipótesis de que la interfaz actual comunica toda la información necesaria para actuar ante una emergencia: el participante solicitó alertas con mayor visibilidad, severidad, ubicación del evento, acciones ejecutadas y pasos recomendados. Tampoco existe evidencia suficiente para afirmar la aceptación de precios, la intención de compra o la facilidad de uso para todos los perfiles objetivo, porque la muestra comprende una sola entrevista.
 
